@@ -11,25 +11,24 @@ namespace BackUpSystem.Data.Models
     {
         public User()
         {
-            this.Tweets = new List<Tweet>();
-            this.FavoriteTwitterAccounts = new List<string>();
+            this.Tweets = new HashSet<Tweet>();
+            this.FavoriteTwitterAccounts = new HashSet<TwitterAccount>();
         }
 
         public bool IsDeleted { get; set; }
 
-        [Key]
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-        public string Username { get; set; }
+        //[Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        //public string Username { get; set; } 
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+        //[Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        //[DataType(DataType.Password)]
+        //public string Password { get; set; }
 
-        [Required]
-        [EmailAddress]
-        public override string Email { get; set; }
+        //[Required]
+        //[EmailAddress]
+        //public override string Email { get; set; }
 
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         public string FirstName { get; set; }
@@ -37,7 +36,7 @@ namespace BackUpSystem.Data.Models
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         public string LastName { get; set; }
 
-        public bool IsAdmin { get; set; }
+        public bool IsAdmin { get; set; } //Must be done by Role - string
 
         [DataType(DataType.DateTime)]
         public DateTime? DeletedOn { get; set; }
@@ -49,7 +48,7 @@ namespace BackUpSystem.Data.Models
         public DateTime? ModifiedOn { get; set; }
 
         public int ReTweetsCount { get; set; } // We can get admin statistics
-        public ICollection<Tweet> Tweets { get; set; } // We can get admin statistics
-        public ICollection<string> FavoriteTwitterAccounts { get; set; } // We can get admin statistics
+        public virtual ICollection<Tweet> Tweets { get; set; } // We can get admin statistics
+        public virtual ICollection<TwitterAccount> FavoriteTwitterAccounts { get; set; } // We can get admin statistics
     }
-}
+} 

@@ -8,7 +8,8 @@ namespace BackUpSystem.Data.Models
     {
         public TwitterAccount()
         {
-            this.Tweets = new List<Tweet>();
+            this.Tweets = new HashSet<Tweet>();
+            this.Users = new HashSet<User>();
         }
 
         public string TwitterIdStr { get; set; }
@@ -23,6 +24,7 @@ namespace BackUpSystem.Data.Models
         public string ImageUrl { get; set; }
 
 
-        IEnumerable<Tweet> Tweets { get; set; }
+        public virtual ICollection<Tweet> Tweets { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

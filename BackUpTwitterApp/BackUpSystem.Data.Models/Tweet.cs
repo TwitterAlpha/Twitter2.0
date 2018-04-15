@@ -9,22 +9,12 @@ namespace BackUpSystem.Data.Models
 {
     public class Tweet: DataModel
     {
-        public Tweet()
-        {
-            this.Comments = new HashSet<Comment>();
-        }
-
-        [Required]
-        public string Title { get; set; }
-
-        [Required]
-        public string Content { get; set; }
-
+        public string IdString { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string Text { get; set; }
         public string AuthorId { get; set; }
-
-        [Required]
-        public User Author { get; set; }
-
-        public ICollection<Comment> Comments { get; set; }
+        public int ReTweetCount { get; set; }
+        public int FavoriteCount { get; set; }
+        public string Language { get; set; }
     }
 }

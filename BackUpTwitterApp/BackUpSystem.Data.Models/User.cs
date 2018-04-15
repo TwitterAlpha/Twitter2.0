@@ -12,6 +12,7 @@ namespace BackUpSystem.Data.Models
         public User()
         {
             this.Tweets = new List<Tweet>();
+            this.FavoriteTwitterAccounts = new List<string>();
         }
 
         public bool IsDeleted { get; set; }
@@ -36,6 +37,8 @@ namespace BackUpSystem.Data.Models
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         public string LastName { get; set; }
 
+        public bool IsAdmin { get; set; }
+
         [DataType(DataType.DateTime)]
         public DateTime? DeletedOn { get; set; }
 
@@ -45,6 +48,8 @@ namespace BackUpSystem.Data.Models
         [DataType(DataType.DateTime)]
         public DateTime? ModifiedOn { get; set; }
 
-        public ICollection<Tweet> Tweets { get; set; }
+        public int ReTweetsCount { get; set; } // We can get admin statistics
+        public ICollection<Tweet> Tweets { get; set; } // We can get admin statistics
+        public ICollection<string> FavoriteTwitterAccounts { get; set; } // We can get admin statistics
     }
 }

@@ -1,0 +1,30 @@
+
+USER must have:
+===============
+string UserName
+string Password
+string TwitterUserName
+string TwitterPassword
+IEnumerable Following
+IEnumerable Followers
+IEnumerable Tweets
+int NumOfTweets
+int NumOfFollowers
+int NumOfFollowing
+int NumOfLikes
+
+
+TWEET must have:
+================
+string Content
+string Author
+int ReTwitted
+int Likes
+int Comments
+bool IsDeleted
+
+
+The App must have:
+==================
+UserController
+APIController

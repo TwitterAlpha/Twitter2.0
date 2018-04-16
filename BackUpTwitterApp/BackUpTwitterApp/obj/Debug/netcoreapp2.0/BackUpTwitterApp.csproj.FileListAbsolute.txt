@@ -10,3 +10,8 @@ D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpTwitterApp\obj\Debug\
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpTwitterApp\obj\Debug\netcoreapp2.0\BackUpTwitterApp.AssemblyInfo.cs
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpTwitterApp\obj\Debug\netcoreapp2.0\BackUpTwitterApp.dll
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpTwitterApp\obj\Debug\netcoreapp2.0\BackUpTwitterApp.pdb
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpTwitterApp\bin\Debug\netcoreapp2.0\BackUpSystem.Data.dll
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpTwitterApp\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpTwitterApp\bin\Debug\netcoreapp2.0\BackUpSystem.Data.pdb
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpTwitterApp\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpTwitterApp\obj\Debug\netcoreapp2.0\BackUpTwitterApp.csproj.CopyComplete

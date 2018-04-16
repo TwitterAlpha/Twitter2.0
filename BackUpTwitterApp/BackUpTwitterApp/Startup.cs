@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using BackUpTwitterApp.Data;
 using BackUpTwitterApp.Models;
 using BackUpTwitterApp.Services;
+using BackUpSystem.Data;
 
 namespace BackUpTwitterApp
 {
@@ -28,11 +28,11 @@ namespace BackUpTwitterApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<BackUpSystemDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddEntityFrameworkStores<BackUpSystemDbContext>()
                 .AddDefaultTokenProviders();
 
             // Add application services.

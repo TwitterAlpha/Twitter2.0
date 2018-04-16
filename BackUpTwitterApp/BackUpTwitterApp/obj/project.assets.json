@@ -5028,6 +5028,32 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "BackUpSystem.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "BackUpSystem.Data.Models": "1.0.0",
+          "Microsoft.AspNetCore.All": "2.0.6",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.0.2"
+        },
+        "compile": {
+          "bin/placeholder/BackUpSystem.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BackUpSystem.Data.dll": {}
+        }
+      },
+      "BackUpSystem.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/BackUpSystem.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BackUpSystem.Data.Models.dll": {}
+        }
       }
     }
   },
@@ -13114,10 +13140,22 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "BackUpSystem.Data/1.0.0": {
+      "type": "project",
+      "path": "../BackUpSystem.Data/BackUpSystem.Data.csproj",
+      "msbuildProject": "../BackUpSystem.Data/BackUpSystem.Data.csproj"
+    },
+    "BackUpSystem.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../BackUpSystem.Data.Models/BackUpSystem.Data.Models.csproj",
+      "msbuildProject": "../BackUpSystem.Data.Models/BackUpSystem.Data.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "BackUpSystem.Data >= 1.0.0",
+      "BackUpSystem.Data.Models >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.2",
       "Microsoft.NETCore.App >= 2.0.0",
@@ -13125,7 +13163,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nrg\\.nuget\\packages\\": {},
+    "C:\\Users\\TEMP\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
@@ -13135,7 +13173,7 @@
       "projectUniqueName": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpTwitterApp.csproj",
       "projectName": "BackUpTwitterApp",
       "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpTwitterApp.csproj",
-      "packagesPath": "C:\\Users\\nrg\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\TEMP\\.nuget\\packages\\",
       "outputPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpTwitterApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -13143,7 +13181,7 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\nrg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\TEMP\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -13156,7 +13194,14 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj": {
+              "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj"
+            },
+            "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data\\BackUpSystem.Data.csproj": {
+              "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data\\BackUpSystem.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

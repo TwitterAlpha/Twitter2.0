@@ -18,4 +18,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BackUpSystem.Data.Models\BackUpSystem.Data.Models.csproj" />
+    <ProjectReference Include="..\BackUpSystem.Data\BackUpSystem.Data.csproj" />
+  </ItemGroup>
+
 </Project>

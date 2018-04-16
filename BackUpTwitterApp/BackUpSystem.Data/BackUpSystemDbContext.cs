@@ -15,8 +15,9 @@ namespace BackUpSystem.Data
         }
 
         public DbSet<User> Users { get; set; }
-
         public DbSet<Tweet> Tweets { get; set; }
+        public DbSet<TwitterAccount> TwitterAccounts { get; set; }
+
 
         public override int SaveChanges()
         {
@@ -28,12 +29,7 @@ namespace BackUpSystem.Data
         {
             builder.Entity<User>()
                 .HasMany(x => x.Tweets)
-                .WithOne(x => x.Author)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<Tweet>()
-                .HasMany(x => x.Comments)
-                .WithOne(x => x.Tweet)
+                .WithOne(c => c.User)
                 .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);

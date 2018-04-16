@@ -1,0 +1,12 @@
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.deps.json
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.dll
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.pdb
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.csprojResolveAssemblyReference.cache
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.csproj.CoreCompileInputs.cache
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.AssemblyInfoInputs.cache
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.AssemblyInfo.cs
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.csproj.CopyComplete
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.dll
+D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.pdb

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace BackUpSystem.Data.Models
@@ -14,6 +15,8 @@ namespace BackUpSystem.Data.Models
             this.Tweets = new HashSet<Tweet>();
             this.FavoriteTwitterAccounts = new HashSet<TwitterAccount>();
         }
+        [Key]
+        public int UserId { get; set; }
 
         public bool IsDeleted { get; set; }
 
@@ -49,6 +52,8 @@ namespace BackUpSystem.Data.Models
 
         public int ReTweetsCount { get; set; } // We can get admin statistics
         public virtual ICollection<Tweet> Tweets { get; set; } // We can get admin statistics
+
+        //[NotMapped]
         public virtual ICollection<TwitterAccount> FavoriteTwitterAccounts { get; set; } // We can get admin statistics
     }
 } 

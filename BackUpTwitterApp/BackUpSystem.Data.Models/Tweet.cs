@@ -1,24 +1,46 @@
-﻿using BlogSystem.Data.Models;
-using BlogSystem.Data.Models.Abstracts;
+﻿using BlogSystem.Data.Models.Abstracts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace BackUpSystem.Data.Models
 {
-    public class Tweet: DataModel
+    public class Tweet : DataModel
     {
-        public int TweetId { get; set; }
-        public string IdString { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public string Text { get; set; }
-        public string AuthorId { get; set; }
-        public int ReTweetCount { get; set; }
-        public int FavoriteCount { get; set; }
-        public string Language { get; set; }
+        public Tweet()
+        {
+            this.Users = new HashSet<UserTweet>();
+        }
 
-        public User User { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime? CreatedAt { get; set; }
+
+        [Required]
+        public string Text { get; set; }
+
+        [Required]
+        public string AuthorId { get; set; }
+
+        //Corresponds to favorite_count in the Twitter API
+        public int LikesCount { get; set; }
+
+        public int RetweetCount { get; set; }
+
+        public string Hashtag { get; set; }
+
+        public string UserMentioned { get; set; }
+
+        public string MediaUrl { get; set; }
+
+        /// <summary>
+        /// Navigation property - represents related entity
+        /// </summary>
+        public ICollection<UserTweet> Users { get; set; }
+
+        /// <summary>
+        /// Navigation property - represents related entity
+        /// </summary>
+        public string TwitterAccountId { get; set; }
         public TwitterAccount TwitterAccount { get; set; }
     }
 }

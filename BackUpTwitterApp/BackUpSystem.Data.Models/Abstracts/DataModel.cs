@@ -7,7 +7,7 @@ namespace BlogSystem.Data.Models.Abstracts
     public abstract class DataModel : IAuditable, IDeletable
     {
         [Key]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public bool IsDeleted { get; set; }
 

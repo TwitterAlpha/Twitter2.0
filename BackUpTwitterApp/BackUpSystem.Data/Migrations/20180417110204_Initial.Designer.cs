@@ -11,9 +11,10 @@ using System;
 namespace BackUpSystem.Data.Migrations
 {
     [DbContext(typeof(BackUpSystemDbContext))]
-    partial class BackUpSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180417110204_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,6 +68,8 @@ namespace BackUpSystem.Data.Migrations
 
                     b.Property<DateTime?>("CreatedOn");
 
+                    b.Property<string>("CurrentStatusId");
+
                     b.Property<DateTime?>("DeletedOn");
 
                     b.Property<string>("Description")
@@ -99,6 +102,8 @@ namespace BackUpSystem.Data.Migrations
                     b.Property<string>("WebsiteUrl");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CurrentStatusId");
 
                     b.HasIndex("UserName")
                         .IsUnique();
@@ -200,6 +205,13 @@ namespace BackUpSystem.Data.Migrations
                         .WithMany("Tweets")
                         .HasForeignKey("TwitterAccountId")
                         .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("BackUpSystem.Data.Models.TwitterAccount", b =>
+                {
+                    b.HasOne("BackUpSystem.Data.Models.Tweet", "CurrentStatus")
+                        .WithMany()
+                        .HasForeignKey("CurrentStatusId");
                 });
 
             modelBuilder.Entity("BackUpSystem.Data.Models.UserTweet", b =>

@@ -1,31 +1,60 @@
-﻿using System;
+﻿using BlogSystem.Data.Models.Abstracts;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace BackUpSystem.Data.Models
 {
-    public class TwitterAccount
+    public class TwitterAccount : DataModel
     {
         public TwitterAccount()
         {
+            this.Users = new HashSet<UserTwitterAccount>();
             this.Tweets = new HashSet<Tweet>();
         }
 
-        public int TwitterAccountId { get; set; }
-        public string TwitterIdStr { get; set; }
+        //TwitterAccount Id corresponds to id_str from the Twitter API
+        
+        //Corresponds to screen_name from the Twitter API
+        [Required]
+        [StringLength(30, MinimumLength = 5, ErrorMessage = "Invalid UserName format!")]
+        public string UserName { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Invalid Name format!")]
         public string Name { get; set; }
-        public string ScreenName { get; set; }
-        public int FollowerCount { get; set; }
-        public int FriendsCount { get; set; }
-        public int ListedCount { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public int FavouritesCount { get; set; }
-        public int StatusesCount { get; set; }
+
+        [StringLength(200, MinimumLength = 3, ErrorMessage = "Invalid Description format!")]
+        public string Description { get; set; }
+
+        public int FollowersCount { get; set; }
+
+        //Corresponds to friends_count in Twitter API
+        public int FollowingCount { get; set; }
+
+        //Corresponds to favourites_count in Twitter API
+        public int LikesCount { get; set; }
+
+        //Corresponds to statuses_count in Twitter API
+        public int TweetsCount { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime? JoinedDate { get; set; }
+
+        //public Tweet CurrentStatus { get; set; }
+
+        public string WebsiteUrl { get; set; }
+
         public string ImageUrl { get; set; }
 
-        public User User { get; set; }
+        /// <summary>
+        /// Navigation property - represents related entity
+        /// </summary>
+        public ICollection<UserTwitterAccount> Users { get; set; }
 
-        public virtual ICollection<Tweet> Tweets { get; set; }
+        /// <summary>
+        /// Navigation property - represents related entity
+        /// </summary>
+        public ICollection<Tweet> Tweets { get; set; }
     }
 }

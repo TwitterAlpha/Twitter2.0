@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BackUpSystem.Data.Models
+﻿namespace BackUpSystem.Data.Models
 {
-    class UserTwitterAccount
+    public class UserTwitterAccount
     {
-        public int UserTwitterAccountId { get; set; }
-        public int UserId { get; set; }
-        public int TwitterAccountId { get; set; }
+        public string UserId { get; set; }
+        public User User { get; set; }
+
+        public string TwitterAccountId { get; set; }
+        public TwitterAccount TwitterAccount { get; set; }
     }
 }

@@ -7,3 +7,12 @@ D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSytem.Services.Data\o
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSytem.Services.Data\obj\Debug\netcoreapp2.0\BackUpSytem.Services.Data.AssemblyInfo.cs
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSytem.Services.Data\obj\Debug\netcoreapp2.0\BackUpSytem.Services.Data.dll
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSytem.Services.Data\obj\Debug\netcoreapp2.0\BackUpSytem.Services.Data.pdb
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSytem.Services.Data\bin\Debug\netcoreapp2.0\BackUpSytem.Services.Data.deps.json
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSytem.Services.Data\bin\Debug\netcoreapp2.0\BackUpSytem.Services.Data.dll
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSytem.Services.Data\bin\Debug\netcoreapp2.0\BackUpSytem.Services.Data.pdb
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSytem.Services.Data\obj\Debug\netcoreapp2.0\BackUpSytem.Services.Data.csprojResolveAssemblyReference.cache
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSytem.Services.Data\obj\Debug\netcoreapp2.0\BackUpSytem.Services.Data.csproj.CoreCompileInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSytem.Services.Data\obj\Debug\netcoreapp2.0\BackUpSytem.Services.Data.AssemblyInfoInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSytem.Services.Data\obj\Debug\netcoreapp2.0\BackUpSytem.Services.Data.AssemblyInfo.cs
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSytem.Services.Data\obj\Debug\netcoreapp2.0\BackUpSytem.Services.Data.dll
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSytem.Services.Data\obj\Debug\netcoreapp2.0\BackUpSytem.Services.Data.pdb

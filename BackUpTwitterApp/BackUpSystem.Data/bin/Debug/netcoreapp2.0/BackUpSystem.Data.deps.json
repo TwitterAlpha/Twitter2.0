@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "86a062ac6f695f109b50d8949c1e6b958f65bfbe"
+    "signature": "8962634601dac5ddee2c800edfb77c300f696064"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,7 +9,7 @@
       "BackUpSystem.Data/1.0.0": {
         "dependencies": {
           "BackUpSystem.Data.Models": "1.0.0",
-          "Microsoft.AspNetCore.All": "2.0.6",
+          "Microsoft.AspNetCore.All": "2.0.7",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.2"
         },
@@ -111,7 +111,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.All/2.0.6": {
+      "Microsoft.AspNetCore.All/2.0.7": {
         "dependencies": {
           "Microsoft.AspNetCore": "2.0.2",
           "Microsoft.AspNetCore.Antiforgery": "2.0.2",
@@ -3200,6 +3200,9 @@
         }
       },
       "BackUpSystem.Data.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.All": "2.0.7"
+        },
         "runtime": {
           "BackUpSystem.Data.Models.dll": {}
         }
@@ -3247,12 +3250,12 @@
       "path": "microsoft.aspnetcore/2.0.2",
       "hashPath": "microsoft.aspnetcore.2.0.2.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.All/2.0.6": {
+    "Microsoft.AspNetCore.All/2.0.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5AEYk4hS25RcPkh1kWeKpn487/9Bb3GeVfu8Sl7EOFv9ADXmz7ypVyVlp8FMwgQIJSykzy6kF6KOOduhrWGmSA==",
-      "path": "microsoft.aspnetcore.all/2.0.6",
-      "hashPath": "microsoft.aspnetcore.all.2.0.6.nupkg.sha512"
+      "sha512": "sha512-hpWBRgs094P0jBWJRqBV+8oXl6G+O5ixDAgXI5qouOsg2jlLOmYr1+95+lRbLSn31HhKbQdNel6VQSDUbm0juw==",
+      "path": "microsoft.aspnetcore.all/2.0.7",
+      "hashPath": "microsoft.aspnetcore.all.2.0.7.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/2.0.2": {
       "type": "package",

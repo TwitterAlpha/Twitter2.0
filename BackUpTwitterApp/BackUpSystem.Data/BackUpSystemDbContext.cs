@@ -1,6 +1,5 @@
 ﻿using BackUpSystem.Data.Models;
 using BlogSystem.Data.Models.Abstracts;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -18,7 +17,6 @@ namespace BackUpSystem.Data
         public DbSet<Tweet> Tweets { get; set; }
         public DbSet<TwitterAccount> TwitterAccounts { get; set; }
 
-
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
@@ -27,10 +25,54 @@ namespace BackUpSystem.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<User>()
-                .HasMany(x => x.Tweets)
-                .WithOne(c => c.User)
+            // Configuring many to many realationship between User and TwitterAccount tables
+            builder.Entity<UserTwitterAccount>()
+                .HasOne(u => u.User)
+                .WithMany(t => t.TwitterAccounts)
+                .HasForeignKey(u => u.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<UserTwitterAccount>()
+                .HasOne(t => t.TwitterAccount)
+                .WithMany(u => u.Users)
+                .HasForeignKey(t => t.TwitterAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<UserTwitterAccount>()
+              .HasKey(ut => new { ut.UserId, ut.TwitterAccountId });
+
+            // Configuring many to many realationship between User and Tweet tables
+            builder.Entity<UserTweet>()
+                .HasOne(u => u.User)
+                .WithMany(t => t.FavoriteTweets)
+                .HasForeignKey(u => u.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<UserTweet>()
+                .HasOne(t => t.Tweet)
+                .WithMany(u => u.Users)
+                .HasForeignKey(t => t.TweetId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<UserTweet>()
+              .HasKey(ut => new { ut.UserId, ut.TweetId });
+
+            // Configuring one to many relationship between a TwitterAccount and Tweet tables
+            builder.Entity<TwitterAccount>()
+                .HasMany(t => t.Tweets)
+                .WithOne(t => t.TwitterAccount)
+                .HasForeignKey(t => t.TwitterAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Making sure each UserName in User table is unique
+            builder.Entity<User>()
+                .HasIndex(x => x.UserName)
+                .IsUnique(true);
+
+            // Making sure each UserName in TwitterAccount is unique
+            builder.Entity<TwitterAccount>()
+               .HasIndex(x => x.UserName)
+               .IsUnique(true);
 
             base.OnModelCreating(builder);
         }

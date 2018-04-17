@@ -1,19 +1,19 @@
 ﻿using BackUpSystem.Data.Models;
 using BlogSystem.Data.Models.Abstracts;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
 namespace BackUpSystem.Data
 {
-    public class BackUpSystemDbContext : DbContext
+    public class BackUpSystemDbContext : IdentityDbContext<User>
     {
         public BackUpSystemDbContext(DbContextOptions<BackUpSystemDbContext> options)
             : base(options)
         {
         }
 
-        public DbSet<User> Users { get; set; }
         public DbSet<Tweet> Tweets { get; set; }
         public DbSet<TwitterAccount> TwitterAccounts { get; set; }
 

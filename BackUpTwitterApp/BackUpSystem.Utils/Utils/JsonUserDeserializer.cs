@@ -2,6 +2,7 @@
 using BackUpSystem.NewtonsoftWrapper.Utils.Contracts;
 using Bytes2you.Validation;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace BackUpSystem.NewtonsoftWrapper.Utils
 {
@@ -18,7 +19,8 @@ namespace BackUpSystem.NewtonsoftWrapper.Utils
         {
             Guard.WhenArgument(jsonUserText, "Deserialize").IsNullOrEmpty().Throw();
 
-            return JsonConvert.DeserializeObject<TwitterAccountDto>(jsonUserText);
+            return JsonConvert.DeserializeObject<TwitterAccountDto>(jsonUserText,
+                new IsoDateTimeConverter { DateTimeFormat = "ddd MMM dd HH:mm:ss zzz yyyy" });
         }
     }
 }

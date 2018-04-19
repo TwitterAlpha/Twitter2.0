@@ -5002,11 +5002,29 @@
       "BackUpSystem.Services.Auth/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "BackUpSystem.NewtonsoftWrapper": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/BackUpSystem.Services.Auth.dll": {}
         },
         "runtime": {
           "bin/placeholder/BackUpSystem.Services.Auth.dll": {}
+        }
+      },
+      "BackUpSytem.Services.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "BackUpSystem.NewtonsoftWrapper": "1.0.0",
+          "BackUpSystem.Services.Auth": "1.0.0",
+          "Microsoft.AspNetCore.All": "2.0.7"
+        },
+        "compile": {
+          "bin/placeholder/BackUpSytem.Services.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BackUpSytem.Services.Data.dll": {}
         }
       }
     }
@@ -12962,6 +12980,11 @@
       "type": "project",
       "path": "../BackUpSystem.Services.Auth/BackUpSystem.Services.Auth.csproj",
       "msbuildProject": "../BackUpSystem.Services.Auth/BackUpSystem.Services.Auth.csproj"
+    },
+    "BackUpSytem.Services.Data/1.0.0": {
+      "type": "project",
+      "path": "../BackUpSytem.Services.Data/BackUpSytem.Services.Data.csproj",
+      "msbuildProject": "../BackUpSytem.Services.Data/BackUpSytem.Services.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -12970,6 +12993,7 @@
       "BackUpSystem.Data.Models >= 1.0.0",
       "BackUpSystem.NewtonsoftWrapper >= 1.0.0",
       "BackUpSystem.Services.Auth >= 1.0.0",
+      "BackUpSytem.Services.Data >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.7",
       "Microsoft.EntityFrameworkCore.Tools >= 2.0.2",
       "Microsoft.NETCore.App >= 2.0.0",
@@ -13017,6 +13041,9 @@
             },
             "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.NewtonsoftWrapper.csproj": {
               "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.NewtonsoftWrapper.csproj"
+            },
+            "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj": {
+              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj"
             }
           }
         }

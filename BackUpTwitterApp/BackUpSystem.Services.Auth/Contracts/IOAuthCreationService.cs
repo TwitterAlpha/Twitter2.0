@@ -1,4 +1,6 @@
-﻿namespace BackUpSystem.Services.Auth.Contracts
+﻿using System.Collections.Generic;
+
+namespace BackUpSystem.Services.Auth.Contracts
 {
     public interface IOAuthCreationService
     {
@@ -50,6 +52,6 @@
         /// <summary>
         /// Creates the Api call
         /// </summary>
-        string GetTwitterApiCallData(string resourceUrl);
+        string GetTwitterApiCallData(string resourceUrl, List<string> parametersList = null);
     }
 }

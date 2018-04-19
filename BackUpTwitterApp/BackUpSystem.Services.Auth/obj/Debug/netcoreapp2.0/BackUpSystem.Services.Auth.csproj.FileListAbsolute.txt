@@ -1,0 +1,14 @@
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.csproj.CoreCompileInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.AssemblyInfoInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.AssemblyInfo.cs
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\bin\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.deps.json
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\bin\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.dll
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\bin\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.pdb
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.csprojResolveAssemblyReference.cache
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.dll
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.pdb
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\bin\Debug\netcoreapp2.0\BackUpSystem.DTO.dll
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\bin\Debug\netcoreapp2.0\BackUpSystem.NewtonsoftWrapper.dll
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\bin\Debug\netcoreapp2.0\BackUpSystem.NewtonsoftWrapper.pdb
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\bin\Debug\netcoreapp2.0\BackUpSystem.DTO.pdb
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.csproj.CopyComplete

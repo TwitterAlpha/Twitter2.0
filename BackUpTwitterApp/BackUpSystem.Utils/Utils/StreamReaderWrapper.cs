@@ -1,6 +1,7 @@
 ﻿using BackUpSystem.NewtonsoftWrapper.Utils.Contracts;
 using Bytes2you.Validation;
 using System.IO;
+using System.Net;
 
 namespace BackUpSystem.NewtonsoftWrapper.Utils
 {
@@ -9,13 +10,11 @@ namespace BackUpSystem.NewtonsoftWrapper.Utils
     /// </summary>
     public class StreamReaderWrapper : IStreamReader
     {
-        private readonly StreamReader streamReader;
-
-        public StreamReader GetStreamReader(Stream stream)
+        public string GetStreamReader(WebResponse stream)
         {
             Guard.WhenArgument(stream, "StreamReaderWrapper").IsNull().Throw();
 
-            return new StreamReader(stream);
+            return new StreamReader(stream.GetResponseStream()).ReadToEnd();
         }
     }
 }

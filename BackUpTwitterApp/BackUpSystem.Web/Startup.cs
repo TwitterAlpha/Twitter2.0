@@ -17,6 +17,8 @@ using BackUpSystem.NewtonsoftWrapper.Contracts;
 using BackUpSystem.NewtonsoftWrapper;
 using BackUpSystem.NewtonsoftWrapper.Utils;
 using BackUpSystem.NewtonsoftWrapper.Utils.Contracts;
+using BackUpSytem.Services.Data.Contracts;
+using BackUpSytem.Services.Data;
 
 namespace BackUpSystem.Web
 {
@@ -50,6 +52,7 @@ namespace BackUpSystem.Web
             services.AddTransient<IStreamReader, StreamReaderWrapper>();
             services.AddTransient<IJsonUserDeserializer, JsonUserDeserializer>();
             services.AddTransient<IJsonUserReader, JsonUserReader>();
+            services.AddTransient<ITwitterService, TwitterService>();
 
             if (this.Environment.IsDevelopment())
             {

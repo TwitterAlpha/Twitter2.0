@@ -1,4 +1,5 @@
-﻿using BackUpSystem.Services.Auth.Contracts;
+﻿using BackUpSystem.NewtonsoftWrapper.Utils.Contracts;
+using BackUpSystem.Services.Auth.Contracts;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,7 @@ namespace BackUpSystem.Services.Auth
         private readonly string oAuthNonce;
         private readonly string oAuthSignatureMethod = "HMAC-SHA1";
         private readonly string oAuthVersion = "1.0";
+        private readonly IStreamReader streamReaderWrapper;
         private string oAuthHeader;
 
         private const string HeaderFormat =
@@ -31,10 +33,11 @@ namespace BackUpSystem.Services.Auth
             "oauth_token=\"{5}\", " +
             "oauth_version=\"{6}\"";
 
-        public OAuthCreationService()
+        public OAuthCreationService(IStreamReader steamReaderWrapper)
         {
             this.oAuthNonce = GenerateOAuthNonce();
             this.oAuthTimestamp = GenerateOAuthTimestamp();
+            this.streamReaderWrapper = steamReaderWrapper;
         }
 
         public string OAuthTimestamp => this.oAuthTimestamp;
@@ -160,7 +163,7 @@ namespace BackUpSystem.Services.Auth
             return basestring;
         }
 
-        private respon TwitterApiRequest(string resourceUrl, List<string> parameterlist)
+        private string TwitterApiRequest(string resourceUrl, List<string> parameterlist)
         {
             ServicePointManager.Expect100Continue = false;
 
@@ -183,7 +186,7 @@ namespace BackUpSystem.Services.Auth
             request.ContentType = "application/x-www-form-urlencoded";
 
             var response = request.GetResponse();
-            var responseData = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            var responseData = streamReaderWrapper.GetStreamReader(response);
 
             return responseData;
         }
@@ -201,5 +204,6 @@ namespace BackUpSystem.Services.Auth
 
             return result;
         }
+
     }
 }

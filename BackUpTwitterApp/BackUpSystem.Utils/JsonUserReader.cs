@@ -12,11 +12,6 @@ namespace BackUpSystem.NewtonsoftWrapper
     public class JsonUserReader : IJsonUserReader
     {
         /// <summary>
-        /// Stream reader object handle.
-        /// </summary>
-        private IStreamReader streamReaderWrapper;
-
-        /// <summary>
         /// JSON User deserializer object handle.
         /// </summary>
         private IJsonUserDeserializer jsonDeserializerWrapper;
@@ -26,12 +21,10 @@ namespace BackUpSystem.NewtonsoftWrapper
         /// </summary>
         /// <param name="streamReaderWrapper">Stream reader wrapper to be used for reading text data.</param>
         /// <param name="jsonDeserializerWrapper">JSON deserializer wrapper to be used for converting JSON text.</param>
-        public JsonUserReader(IStreamReader streamReaderWrapper, IJsonUserDeserializer jsonDeserializerWrapper)
+        public JsonUserReader(IJsonUserDeserializer jsonDeserializerWrapper)
         {
-            Guard.WhenArgument(streamReaderWrapper, "JsonReader").IsNull().Throw();
             Guard.WhenArgument(jsonDeserializerWrapper, "JsonReader").IsNull().Throw();
 
-            this.streamReaderWrapper = streamReaderWrapper;
             this.jsonDeserializerWrapper = jsonDeserializerWrapper;
         }
 
@@ -39,12 +32,9 @@ namespace BackUpSystem.NewtonsoftWrapper
         /// Gets a UserDto object after an API call.
         /// </summary>
         /// <returns>Collection of Journal DTOs.</returns>
-        public UserDto GetUser(Stream streamData)
+        public TwitterAccountDto DeserializeUser(string jsonResponseData)
         {
-            using (this.streamReaderWrapper.GetStreamReader(streamData))
-            {
-                return this.jsonDeserializerWrapper.Deserialize(this.streamReaderWrapper.GetStreamReader(streamData).ReadToEnd());
-            }
+            return this.jsonDeserializerWrapper.Deserialize(jsonResponseData);
         }
     }
 }

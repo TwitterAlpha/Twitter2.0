@@ -14,11 +14,11 @@ namespace BackUpSystem.NewtonsoftWrapper.Utils
         /// </summary>
         /// <param name="jsonText">The JSON to be deserialized.</param>
         /// <returns>User Dto</returns>
-        public UserDto Deserialize(string jsonUserText)
+        public TwitterAccountDto Deserialize(string jsonUserText)
         {
             Guard.WhenArgument(jsonUserText, "Deserialize").IsNullOrEmpty().Throw();
 
-            return JsonConvert.DeserializeObject<UserDto>(jsonUserText);
+            return JsonConvert.DeserializeObject<TwitterAccountDto>(jsonUserText);
         }
     }
 }

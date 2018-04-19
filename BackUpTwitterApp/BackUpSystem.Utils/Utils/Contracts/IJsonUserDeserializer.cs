@@ -4,6 +4,6 @@ namespace BackUpSystem.NewtonsoftWrapper.Utils.Contracts
 {
     public interface IJsonUserDeserializer
     {
-        UserDto Deserialize(string jsonUserText);
+        TwitterAccountDto Deserialize(string jsonUserText);
     }
 }

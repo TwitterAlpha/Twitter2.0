@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Net;
 
 namespace BackUpSystem.NewtonsoftWrapper.Utils.Contracts
 {
@@ -9,6 +10,6 @@ namespace BackUpSystem.NewtonsoftWrapper.Utils.Contracts
         /// </summary>
         /// <param name="jsonResponseData"></param>
         /// <returns></returns>
-        StreamReader GetStreamReader(Stream stream);
+        string GetStreamReader(WebResponse stream);
     }
 }

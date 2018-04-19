@@ -15,3 +15,4 @@ C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp
 C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.DTO\obj\Debug\netcoreapp2.0\BackUpSystem.DTO.AssemblyInfo.cs
 C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.DTO\obj\Debug\netcoreapp2.0\BackUpSystem.DTO.dll
 C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.DTO\obj\Debug\netcoreapp2.0\BackUpSystem.DTO.pdb
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.DTO\obj\Debug\netcoreapp2.0\BackUpSystem.DTO.csprojResolveAssemblyReference.cache

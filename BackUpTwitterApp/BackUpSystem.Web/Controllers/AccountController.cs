@@ -13,6 +13,8 @@ using Microsoft.Extensions.Options;
 using BackUpSystem.Data.Models;
 using BackUpSystem.Web.Models.AccountViewModels;
 using BackUpSystem.Web.Services;
+using BackUpSytem.Services.Data;
+using BackUpSytem.Services.Data.Contracts;
 
 namespace BackUpSystem.Web.Controllers
 {
@@ -24,17 +26,20 @@ namespace BackUpSystem.Web.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly ITwitterService twitterService;
 
         public AccountController(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            ITwitterService twitterService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            this.twitterService = twitterService;
         }
 
         [TempData]
@@ -208,6 +213,8 @@ namespace BackUpSystem.Web.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
+            twitterService.GetUserByScreenName("GrigorDimitrov");
+
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }

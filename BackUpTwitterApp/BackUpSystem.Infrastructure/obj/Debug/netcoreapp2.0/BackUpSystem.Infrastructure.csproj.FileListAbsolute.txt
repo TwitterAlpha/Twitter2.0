@@ -10,7 +10,6 @@ D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Infrastructure
 C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Infrastructure\bin\Debug\netcoreapp2.0\BackUpSystem.Infrastructure.deps.json
 C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Infrastructure\bin\Debug\netcoreapp2.0\BackUpSystem.Infrastructure.dll
 C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Infrastructure\bin\Debug\netcoreapp2.0\BackUpSystem.Infrastructure.pdb
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Infrastructure\obj\Debug\netcoreapp2.0\BackUpSystem.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Infrastructure\obj\Debug\netcoreapp2.0\BackUpSystem.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Infrastructure\obj\Debug\netcoreapp2.0\BackUpSystem.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Infrastructure\obj\Debug\netcoreapp2.0\BackUpSystem.Infrastructure.AssemblyInfo.cs

@@ -12543,11 +12543,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj",
+      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj",
       "projectName": "BackUpSystem.Data.Models",
-      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj",
+      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj",
       "packagesPath": "C:\\Users\\alekhristov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Data.Models\\obj\\",
+      "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

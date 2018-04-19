@@ -13713,11 +13713,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Services.Auth.UnitTests\\BackUpSystem.Services.Auth.UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth.UnitTests\\BackUpSystem.Services.Auth.UnitTests.csproj",
       "projectName": "BackUpSystem.Services.Auth.UnitTests",
-      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Services.Auth.UnitTests\\BackUpSystem.Services.Auth.UnitTests.csproj",
+      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth.UnitTests\\BackUpSystem.Services.Auth.UnitTests.csproj",
       "packagesPath": "C:\\Users\\alekhristov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Services.Auth.UnitTests\\obj\\",
+      "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13736,8 +13736,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj": {
-              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj"
+            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj": {
+              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj"
             }
           }
         }

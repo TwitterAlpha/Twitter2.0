@@ -12356,11 +12356,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj",
+      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj",
       "projectName": "BackUpSytem.Services.Data",
-      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj",
+      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj",
       "packagesPath": "C:\\Users\\alekhristov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSytem.Services.Data\\obj\\",
+      "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSytem.Services.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12379,11 +12379,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj": {
-              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj"
+            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj": {
+              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj"
             },
-            "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.NewtonsoftWrapper.csproj": {
-              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\TwitterBackUpProject\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.NewtonsoftWrapper.csproj"
+            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.NewtonsoftWrapper.csproj": {
+              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.NewtonsoftWrapper.csproj"
             }
           }
         }

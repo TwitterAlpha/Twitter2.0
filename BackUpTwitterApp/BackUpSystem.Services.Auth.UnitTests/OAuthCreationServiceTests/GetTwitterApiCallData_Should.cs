@@ -11,9 +11,15 @@ namespace BackUpSystem.Services.Auth.UnitTests.OAuthCreationServiceTests
     public class GetTwitterApiCallData_Should
     {
         [TestMethod]
-        public void CallGenerateOAuthNonceMethodOnce()
+        public void Test1()
         {
+            Assert.IsTrue(true);
+        }
 
+        [TestMethod]
+        public void Test2()
+        {
+            Assert.IsTrue(true);
         }
     }
 }

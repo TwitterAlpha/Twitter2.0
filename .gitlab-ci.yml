@@ -3,7 +3,7 @@ variables:
 before_script:
   - echo "starting build for %PROJECT_NAME%"
   - echo "Restoring NuGet Packages..."
-  - E:\Telerik Academy Alpha\Nuget\nuget.exe restore "%PROJECT_NAME%.sln"
+  - nuget restore "%PROJECT_NAME%.sln"
 stages:
   - build
   - test

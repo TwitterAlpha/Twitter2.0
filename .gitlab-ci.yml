@@ -1,24 +1,41 @@
 variables:
-  PROJECT_NAME: "BackUpTwitterApp"
+  Solution: BackUpTwitterApp.sln
+
 before_script:
-  - echo "starting build for %BackUpTwitterApp%"
-  - echo "Restoring NuGet Packages..."
-  # - E:\Telerik Academy Alpha\Nuget\nuget.exe restore "%BackUpTwitterApp%.sln"
+  - "echo off"
+  - 'call "%VS120COMNTOOLS%\vsvars32.bat"'
+  # output environment variables (usefull for debugging, propably not what you want to do if your ci server is public)
+  - echo.
+  - set
+  - echo.
+
 stages:
   - build
   - test
+  - deploy
+
 build:
   stage: build
   script:
-  - echo "Release build..."
-  - '"C:\Program Files (x86)\MSBuild\14.0\Bin\msbuild.exe" /consoleloggerparameters:ErrorsOnly /maxcpucount /nologo /property:Configuration=Release /verbosity:quiet "%BackUpTwitterApp%.sln"'
-  artifacts:
-    untracked: true
+  - echo building...
+  - 'msbuild.exe "%BackUpTwitterApp%"'
+  except:
+  - tags
+
 test:
   stage: test
   script:
-  - echo "starting tests"
-  - cd %BackUpTwitterApp%Tests/bin/Release
-  - '"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\MSTest.exe" /testcontainer:%BackUpTwitterApp%Tests.dll'
-  dependencies:
-  - build
+  - echo testing...
+  - 'msbuild.exe "%BackUpTwitterApp%"'
+  - dir /s /b *.Tests.dll | findstr /r Tests\\*\\bin\\ > testcontainers.txt
+  - 'for /f %%f in (testcontainers.txt) do mstest.exe /testcontainer:"%%f"'
+  except:
+  - tags
+
+deploy:
+  stage: deploy
+  script:
+  - echo deploying...
+  - 'msbuild.exe "%BackUpTwitterApp%" /t:publish'
+  only:
+  - production

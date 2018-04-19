@@ -11,6 +11,12 @@ using Microsoft.Extensions.DependencyInjection;
 using BackUpSystem.Data;
 using BackUpSystem.Data.Models;
 using BackUpSystem.Web.Services;
+using BackUpSystem.Services.Auth.Contracts;
+using BackUpSystem.Services.Auth;
+using BackUpSystem.NewtonsoftWrapper.Contracts;
+using BackUpSystem.NewtonsoftWrapper;
+using BackUpSystem.NewtonsoftWrapper.Utils;
+using BackUpSystem.NewtonsoftWrapper.Utils.Contracts;
 
 namespace BackUpSystem.Web
 {
@@ -38,6 +44,12 @@ namespace BackUpSystem.Web
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+
+            services.AddTransient<IOAuthCreationService, OAuthCreationService>();
+
+            services.AddTransient<IStreamReader, StreamReaderWrapper>();
+            services.AddTransient<IJsonUserDeserializer, JsonUserDeserializer>();
+            services.AddTransient<IJsonUserReader, JsonUserReader>();
 
             if (this.Environment.IsDevelopment())
             {

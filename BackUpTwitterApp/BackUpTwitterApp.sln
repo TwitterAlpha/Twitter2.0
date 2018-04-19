@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C9007EE8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackUpSystem.Services.Auth.UnitTests", "BackUpSystem.Services.Auth.UnitTests\BackUpSystem.Services.Auth.UnitTests.csproj", "{DE900E20-C2B6-4B48-B73A-A5D79889ABDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackUpSystem.NewtonsoftWrapper", "BackUpSystem.Utils\BackUpSystem.NewtonsoftWrapper.csproj", "{371F3F30-EC10-49D1-A4AC-FFBD1E10472A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{DE900E20-C2B6-4B48-B73A-A5D79889ABDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE900E20-C2B6-4B48-B73A-A5D79889ABDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE900E20-C2B6-4B48-B73A-A5D79889ABDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{371F3F30-EC10-49D1-A4AC-FFBD1E10472A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371F3F30-EC10-49D1-A4AC-FFBD1E10472A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371F3F30-EC10-49D1-A4AC-FFBD1E10472A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371F3F30-EC10-49D1-A4AC-FFBD1E10472A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{BDDE6163-5BC0-44F4-843A-9C54B8CF8F10} = {C196650F-499A-48EE-A4EA-1DF54CE4B8AF}
 		{885FF3B3-83A5-4AE1-A2CA-BA63A2F79B29} = {1B375028-0E36-47E7-AD5B-E3E386FBA5B0}
 		{DE900E20-C2B6-4B48-B73A-A5D79889ABDF} = {C9007EE8-CD17-477E-B4A8-FEF70A29BD5A}
+		{371F3F30-EC10-49D1-A4AC-FFBD1E10472A} = {1B375028-0E36-47E7-AD5B-E3E386FBA5B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {107CBD4F-9554-41C4-BB8C-63894940CE1F}

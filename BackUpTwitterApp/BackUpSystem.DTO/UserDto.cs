@@ -2,7 +2,7 @@
 
 namespace BackUpSystem.DTO
 {
-    public class Class1
+    public class UserDto
     {
     }
 }

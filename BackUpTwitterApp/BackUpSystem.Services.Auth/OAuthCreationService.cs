@@ -160,7 +160,7 @@ namespace BackUpSystem.Services.Auth
             return basestring;
         }
 
-        private string TwitterApiRequest(string resourceUrl, List<string> parameterlist)
+        private respon TwitterApiRequest(string resourceUrl, List<string> parameterlist)
         {
             ServicePointManager.Expect100Continue = false;
 
@@ -183,7 +183,6 @@ namespace BackUpSystem.Services.Auth
             request.ContentType = "application/x-www-form-urlencoded";
 
             var response = request.GetResponse();
-
             var responseData = new StreamReader(response.GetResponseStream()).ReadToEnd();
 
             return responseData;

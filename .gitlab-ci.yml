@@ -10,7 +10,7 @@ build:
   stage: build
   script:
   - echo "Release build..."
-  - '"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe" /consoleloggerparameters:ErrorsOnly /maxcpucount /nologo /property:Configuration=Release /verbosity:quiet "%BackUpTwitterApp%.sln"'
+  - '"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" /consoleloggerparameters:ErrorsOnly /maxcpucount /nologo /property:Configuration=Release /verbosity:quiet "%BackUpTwitterApp%.sln"'
   artifacts:
     untracked: true
 test:

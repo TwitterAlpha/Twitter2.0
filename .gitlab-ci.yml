@@ -3,7 +3,7 @@ variables:
 before_script:
   - echo "starting build for %BackUpTwitterApp%"
   - echo "Restoring NuGet Packages..."
-  - E:\Telerik Academy Alpha\Nuget\nuget.exe restore "%BackUpTwitterApp%.sln"
+  - nuget restore "%BackUpTwitterApp%.sln"
 stages:
   - build
   - test

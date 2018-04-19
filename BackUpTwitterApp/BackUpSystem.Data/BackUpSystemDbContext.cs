@@ -1,5 +1,6 @@
 ﻿using BackUpSystem.Data.Models;
 using BlogSystem.Data.Models.Abstracts;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,6 +15,7 @@ namespace BackUpSystem.Data
         {
         }
 
+        //public DbSet<User> Users { get; set; }
         public DbSet<Tweet> Tweets { get; set; }
         public DbSet<TwitterAccount> TwitterAccounts { get; set; }
 

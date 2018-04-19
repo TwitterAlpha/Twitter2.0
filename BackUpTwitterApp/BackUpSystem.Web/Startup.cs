@@ -16,10 +16,10 @@ namespace BackUpSystem.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
             this.Configuration = configuration;
-            this.Environment = env;
+            this.Environment = environment;
         }
 
         public IConfiguration Configuration { get; }

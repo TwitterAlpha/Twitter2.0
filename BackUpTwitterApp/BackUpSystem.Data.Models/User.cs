@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackUpSystem.Data.Models
 {
+    [Table("Users")]
     public class User : IdentityUser, IAuditable, IDeletable
     {
         public User()

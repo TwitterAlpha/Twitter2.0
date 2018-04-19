@@ -11,7 +11,7 @@ using System;
 namespace BackUpSystem.Data.Migrations
 {
     [DbContext(typeof(BackUpSystemDbContext))]
-    [Migration("20180417141314_Initial")]
+    [Migration("20180417201428_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

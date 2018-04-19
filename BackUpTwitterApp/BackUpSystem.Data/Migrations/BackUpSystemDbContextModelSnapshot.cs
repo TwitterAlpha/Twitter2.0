@@ -109,7 +109,8 @@ namespace BackUpSystem.Data.Migrations
             modelBuilder.Entity("BackUpSystem.Data.Models.User", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id");
 
                     b.Property<int>("AccessFailedCount");
 

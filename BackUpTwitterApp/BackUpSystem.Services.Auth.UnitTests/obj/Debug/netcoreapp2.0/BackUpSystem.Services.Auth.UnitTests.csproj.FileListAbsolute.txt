@@ -1,0 +1,5 @@
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.dll
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.AssemblyInfoInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.AssemblyInfo.cs

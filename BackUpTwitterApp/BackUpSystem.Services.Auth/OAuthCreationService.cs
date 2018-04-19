@@ -67,19 +67,12 @@ namespace BackUpSystem.Services.Auth
             return Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString()));
         }
 
-        public string GetTwitterApiCallData(string resourceUrl)
+        public string GetTwitterApiCallData(string resourceUrl, List<string> parametersList = null)
         {
-            List<string> parametersList;
-
             if (resourceUrl.Contains("?"))
             {
                 parametersList = GetParametersFromUrl(resourceUrl);
                 resourceUrl = resourceUrl.Substring(0, resourceUrl.IndexOf('?'));
-            }
-
-            else
-            {
-                parametersList = null;
             }
 
             this.oAuthHeader = GenerateAuthorizationHeader(resourceUrl, parametersList);

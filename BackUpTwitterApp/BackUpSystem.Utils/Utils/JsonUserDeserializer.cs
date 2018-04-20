@@ -9,17 +9,17 @@ namespace BackUpSystem.NewtonsoftWrapper.Utils
     /// <summary>
     /// Abstracts Newtonsoft Json Deserializer in order to be testable
     /// </summary>
-    public class JsonUserDeserializer : IJsonUserDeserializer
+    public class JsonUserDeserializer : IJsonObjectDeserializer
     {
         /// Deserializes the JSON to the User DTO type - wrapper instance method.
         /// </summary>
         /// <param name="jsonText">The JSON to be deserialized.</param>
         /// <returns>User Dto</returns>
-        public TwitterAccountDto Deserialize(string jsonUserText)
+        public Т Deserialize<Т>(string jsonUserText)
         {
             Guard.WhenArgument(jsonUserText, "Deserialize").IsNullOrEmpty().Throw();
 
-            return JsonConvert.DeserializeObject<TwitterAccountDto>(jsonUserText,
+            return JsonConvert.DeserializeObject<Т>(jsonUserText,
                 new IsoDateTimeConverter { DateTimeFormat = "ddd MMM dd HH:mm:ss zzz yyyy" });
         }
     }

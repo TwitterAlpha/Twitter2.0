@@ -14,14 +14,14 @@ namespace BackUpSystem.NewtonsoftWrapper
         /// <summary>
         /// JSON User deserializer object handle.
         /// </summary>
-        private IJsonUserDeserializer jsonDeserializerWrapper;
+        private IJsonObjectDeserializer jsonDeserializerWrapper;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="JsonUserReader"/> class.
         /// </summary>
         /// <param name="streamReaderWrapper">Stream reader wrapper to be used for reading text data.</param>
         /// <param name="jsonDeserializerWrapper">JSON deserializer wrapper to be used for converting JSON text.</param>
-        public JsonUserReader(IJsonUserDeserializer jsonDeserializerWrapper)
+        public JsonUserReader(IJsonObjectDeserializer jsonDeserializerWrapper)
         {
             Guard.WhenArgument(jsonDeserializerWrapper, "JsonReader").IsNull().Throw();
 

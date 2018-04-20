@@ -12,12 +12,12 @@ namespace BackUpSytem.Services.Data
     public class TwitterService : ITwitterService
     {
         private readonly IOAuthCreationService apiService;
-        private readonly IJsonUserDeserializer jsonUserDeserializer;
+        private readonly IJsonObjectDeserializer jsonUserDeserializer;
         private readonly IJsonUserTimelineDeserializer jsonUserTimelineDeserializer;
 
         public TwitterService(
             IOAuthCreationService apiService, 
-            IJsonUserDeserializer jsonUserDeserializer, 
+            IJsonObjectDeserializer jsonUserDeserializer, 
             IJsonUserTimelineDeserializer jsonUserTimelineDeserializer)
         {
             Guard.WhenArgument(apiService, "OAuthCreationService").IsNull().Throw();
@@ -33,7 +33,7 @@ namespace BackUpSytem.Services.Data
         {
             var resourceUrl = "https://api.twitter.com/1.1/users/show.json?screen_name=";
             var user = apiService.GetTwitterApiCallData(resourceUrl + screenName);
-            var deserializedUser = jsonUserDeserializer.Deserialize(user);
+            var deserializedUser = jsonUserDeserializer.Deserialize<TwitterAccountDto>(user);
 
             return deserializedUser;
         }
@@ -42,7 +42,7 @@ namespace BackUpSytem.Services.Data
         {
             var resourceUrl = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=";
             var user = apiService.GetTwitterApiCallData(resourceUrl + screenName);
-            var deserializedUser = jsonUserTimelineDeserializer.Deserialize(user);
+            var deserializedUser = jsonUserDeserializer.Deserialize<ICollection<TweetDto>>(user);
 
             return deserializedUser;
         }

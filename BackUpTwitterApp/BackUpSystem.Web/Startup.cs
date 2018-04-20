@@ -50,7 +50,7 @@ namespace BackUpSystem.Web
             services.AddTransient<IOAuthCreationService, OAuthCreationService>();
 
             services.AddTransient<IStreamReader, StreamReaderWrapper>();
-            services.AddTransient<IJsonUserDeserializer, JsonUserDeserializer>();
+            services.AddTransient<IJsonObjectDeserializer, JsonUserDeserializer>();
             services.AddTransient<IJsonUserTimelineDeserializer, JsonUserTimelineDeserializer>();
             services.AddTransient<IJsonUserReader, JsonUserReader>();
             services.AddTransient<ITwitterService, TwitterService>();

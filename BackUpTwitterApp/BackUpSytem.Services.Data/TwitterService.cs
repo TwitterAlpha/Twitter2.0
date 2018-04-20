@@ -5,6 +5,7 @@ using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BackUpSytem.Services.Data
 {
@@ -24,19 +25,19 @@ namespace BackUpSytem.Services.Data
             this.jsonDeserializerWrapper = jsonDesirealizerWrapper;
         }
 
-        public TwitterAccountDto GetUserByScreenName(string screenName)
+        public async Task<TwitterAccountDto> GetUserByScreenName(string screenName)
         {
             var resourceUrl = "https://api.twitter.com/1.1/users/show.json?screen_name=";
-            var user = apiService.GetTwitterApiCallData(resourceUrl + screenName);
+            var user = await apiService.GetTwitterApiCallData(resourceUrl + screenName);
             var deserializedUser = jsonDeserializerWrapper.Deserialize<TwitterAccountDto>(user);
 
             return deserializedUser;
         }
 
-        public ICollection<TweetDto> GetUsersTimeline(string screenName)
+        public async Task<ICollection<TweetDto>> GetUsersTimeline(string screenName)
         {
             var resourceUrl = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=";
-            var userTimeline = apiService.GetTwitterApiCallData(resourceUrl + screenName);
+            var userTimeline = await apiService.GetTwitterApiCallData(resourceUrl + screenName);
             var deserializedUserTimeline = jsonDeserializerWrapper.Deserialize<ICollection<TweetDto>>(userTimeline);
 
             return deserializedUserTimeline;

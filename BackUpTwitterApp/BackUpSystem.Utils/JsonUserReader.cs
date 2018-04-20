@@ -32,7 +32,7 @@ namespace BackUpSystem.NewtonsoftWrapper
         /// Gets a UserDto object after an API call.
         /// </summary>
         /// <returns>Collection of Journal DTOs.</returns>
-        public TwitterAccountDto DeserializeUser(string jsonResponseData)
+        public object DeserializeUser(string jsonResponseData)
         {
             return this.jsonDeserializerWrapper.Deserialize(jsonResponseData);
         }

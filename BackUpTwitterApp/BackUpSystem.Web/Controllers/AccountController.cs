@@ -213,7 +213,8 @@ namespace BackUpSystem.Web.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
-            twitterService.GetUserByScreenName("GrigorDimitrov");
+            twitterService.GetUsersTimeline("fosgen4o");
+            //twitterService.GetUserByScreenName("GrigorDimitrov");
 
             ViewData["ReturnUrl"] = returnUrl;
             return View();

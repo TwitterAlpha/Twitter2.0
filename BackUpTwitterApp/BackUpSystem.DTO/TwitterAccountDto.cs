@@ -18,7 +18,7 @@ namespace BackUpSystem.DTO
         public string Description { get; set; }
 
         [JsonProperty("entities")]
-        public EntityDto Entities { get; set; }
+        public EntitiesDto Entities { get; set; }
 
         [JsonProperty("followers_count")]
         public int FollowersCount { get; set; }

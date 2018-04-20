@@ -51,6 +51,7 @@ namespace BackUpSystem.Web
 
             services.AddTransient<IStreamReader, StreamReaderWrapper>();
             services.AddTransient<IJsonUserDeserializer, JsonUserDeserializer>();
+            services.AddTransient<IJsonUserTimelineDeserializer, JsonUserTimelineDeserializer>();
             services.AddTransient<IJsonUserReader, JsonUserReader>();
             services.AddTransient<ITwitterService, TwitterService>();
 

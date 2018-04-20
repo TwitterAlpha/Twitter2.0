@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BackUpSystem.Services.Auth.Contracts
 {
@@ -52,6 +53,6 @@ namespace BackUpSystem.Services.Auth.Contracts
         /// <summary>
         /// Creates the Api call
         /// </summary>
-        string GetTwitterApiCallData(string resourceUrl, List<string> parametersList = null);
+        Task<string> GetTwitterApiCallData(string resourceUrl, List<string> parametersList = null);
     }
 }

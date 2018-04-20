@@ -7,6 +7,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace BackUpSystem.Services.Auth
 {
@@ -70,7 +71,7 @@ namespace BackUpSystem.Services.Auth
             return Convert.ToBase64String(new ASCIIEncoding().GetBytes(DateTime.Now.Ticks.ToString()));
         }
 
-        public string GetTwitterApiCallData(string resourceUrl, List<string> parametersList = null)
+        public async Task<string> GetTwitterApiCallData(string resourceUrl, List<string> parametersList = null)
         {
             if (resourceUrl.Contains("?"))
             {
@@ -80,7 +81,7 @@ namespace BackUpSystem.Services.Auth
 
             this.oAuthHeader = GenerateAuthorizationHeader(resourceUrl, parametersList);
 
-            var response = TwitterApiRequest(resourceUrl, parametersList);
+            var response = await TwitterApiRequest(resourceUrl, parametersList);
 
             return response;
         }
@@ -163,7 +164,7 @@ namespace BackUpSystem.Services.Auth
             return basestring;
         }
 
-        private string TwitterApiRequest(string resourceUrl, List<string> parameterlist)
+        private async Task<string> TwitterApiRequest(string resourceUrl, List<string> parameterlist)
         {
             ServicePointManager.Expect100Continue = false;
 
@@ -185,7 +186,7 @@ namespace BackUpSystem.Services.Auth
             request.Method = "GET";
             request.ContentType = "application/x-www-form-urlencoded";
 
-            var response = request.GetResponse();
+            var response = await request.GetResponseAsync();
             var responseData = streamReaderWrapper.GetStreamReader(response);
 
             return responseData;

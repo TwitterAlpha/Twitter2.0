@@ -1,28 +1,26 @@
-﻿using BackUpSystem.Utilities.Contracts;
-using BackUpSystem.Services.Auth.Contracts;
+﻿using BackUpSystem.Services.Auth.Contracts;
+using BackUpSystem.Utilities.Contracts;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace BackUpSystem.Services.Auth
 {
     public class OAuthCreationService : IOAuthCreationService
     {
-        private readonly string oAuthConsumerKey = "JqCNpm5IWxdcINEXj4Gqfy7Gs";
-        private readonly string oAuthConsumerSecret = "BIinS5zKgFgDDbwmLMvRkK68v5OJg6NKEmstQzhlbQg9rqFk4f";
-        private readonly string oAuthAccessToken = "983817456639791104-tGONAc1ALf4VTsYWdnuIzm7bgrjH8UR";
-        private readonly string oAuthTokenSecret = "1CeMn1Q2B79EmdDbIF3PB6B7AnHyDQRkBFVYSVFPeUV9S";
         private readonly string oAuthTimestamp;
         private readonly string oAuthNonce;
         private readonly string oAuthSignatureMethod = "HMAC-SHA1";
         private readonly string oAuthVersion = "1.0";
-        private readonly IStreamReader streamReaderWrapper;
         private string oAuthHeader;
+        private readonly IStreamReader streamReaderWrapper;
+        private readonly IConfiguration configuration;
+        private readonly ITwitterCredentials twitterCredentials;
 
         private const string HeaderFormat =
             "OAuth " +
@@ -34,24 +32,29 @@ namespace BackUpSystem.Services.Auth
             "oauth_token=\"{5}\", " +
             "oauth_version=\"{6}\"";
 
-        public OAuthCreationService(IStreamReader steamReaderWrapper)
+        public OAuthCreationService(
+            IStreamReader steamReaderWrapper, 
+            IConfiguration configuration, 
+            ITwitterCredentials twitterCredentials)
         {
             this.oAuthNonce = GenerateOAuthNonce();
             this.oAuthTimestamp = GenerateOAuthTimestamp();
             this.streamReaderWrapper = steamReaderWrapper;
+            this.configuration = configuration;
+            this.twitterCredentials = twitterCredentials;
         }
 
         public string OAuthTimestamp => this.oAuthTimestamp;
 
         public string OAuthSignatureMethod => this.oAuthSignatureMethod;
 
-        public string OAuthConsumerKey => this.oAuthConsumerKey;
+        public string OAuthConsumerKey => this.twitterCredentials.ConsumerKey;
 
-        public string OAuthConsumerSecret => this.oAuthConsumerSecret;
+        public string OAuthConsumerSecret => this.twitterCredentials.ConsumerSecret;
 
-        public string OAuthAccessToken => this.oAuthAccessToken;
+        public string OAuthAccessToken => this.twitterCredentials.AccessToken;
 
-        public string OAuthTokenSecret => this.oAuthTokenSecret ?? string.Empty;
+        public string OAuthTokenSecret => this.twitterCredentials.TokenSecret;
 
         public string OAuthVersion => this.oAuthVersion;
 

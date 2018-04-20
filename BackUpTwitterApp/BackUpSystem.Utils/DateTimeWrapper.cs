@@ -3,6 +3,9 @@ using System;
 
 namespace BackUpSystem.Utils
 {
+    /// <summary>
+    /// Abstracts DateTime in order to be testable
+    /// </summary>
     public class DateTimeWrapper : IDateTimeProvider
     {
         public DateTime Now()

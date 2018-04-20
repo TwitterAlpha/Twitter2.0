@@ -6,6 +6,9 @@ using System.Linq;
 
 namespace BackUpSystem.Utils
 {
+    /// <summary>
+    /// Abstracts Automapper in order to be testable
+    /// </summary>
     public class AutoMapperWrapper : IMappingProvider
     {
         private readonly IMapper mapper;

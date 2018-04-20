@@ -1,0 +1,12 @@
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\bin\Debug\netcoreapp2.0\BackUpSystem.Utilities.deps.json
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\bin\Debug\netcoreapp2.0\BackUpSystem.Utilities.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\bin\Debug\netcoreapp2.0\BackUpSystem.DTO.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\bin\Debug\netcoreapp2.0\BackUpSystem.DTO.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utilities.csprojResolveAssemblyReference.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utilities.AssemblyInfoInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utilities.AssemblyInfo.cs
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utilities.csproj.CopyComplete
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\bin\Debug\netcoreapp2.0\BackUpSystem.Utilities.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utilities.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utilities.pdb

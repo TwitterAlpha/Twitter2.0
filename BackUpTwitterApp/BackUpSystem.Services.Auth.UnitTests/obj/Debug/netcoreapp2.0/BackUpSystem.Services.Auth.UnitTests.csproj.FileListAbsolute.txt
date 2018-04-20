@@ -28,11 +28,9 @@ C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\Bac
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.dll
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.pdb
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.DTO.dll
-C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.NewtonsoftWrapper.dll
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.dll
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.pdb
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.DTO.pdb
-C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.NewtonsoftWrapper.pdb
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.csprojResolveAssemblyReference.cache
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.csproj.CoreCompileInputs.cache
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.AssemblyInfoInputs.cache
@@ -40,3 +38,5 @@ C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\Bac
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.csproj.CopyComplete
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.dll
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.UnitTests.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.Utilities.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth.UnitTests\bin\Debug\netcoreapp2.0\BackUpSystem.Utilities.pdb

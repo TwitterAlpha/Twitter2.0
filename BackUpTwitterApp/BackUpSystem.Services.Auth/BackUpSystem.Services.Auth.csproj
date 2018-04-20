@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BackUpSystem.Utils\BackUpSystem.NewtonsoftWrapper.csproj" />
+    <ProjectReference Include="..\BackUpSystem.Utils\BackUpSystem.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,12 +13,10 @@ using BackUpSystem.Data.Models;
 using BackUpSystem.Web.Services;
 using BackUpSystem.Services.Auth.Contracts;
 using BackUpSystem.Services.Auth;
-using BackUpSystem.NewtonsoftWrapper.Contracts;
-using BackUpSystem.NewtonsoftWrapper;
-using BackUpSystem.NewtonsoftWrapper.Utils;
-using BackUpSystem.NewtonsoftWrapper.Utils.Contracts;
+using BackUpSystem.Utilities.Contracts;
 using BackUpSytem.Services.Data.Contracts;
 using BackUpSytem.Services.Data;
+using BackUpSystem.Utils;
 
 namespace BackUpSystem.Web
 {
@@ -50,9 +48,7 @@ namespace BackUpSystem.Web
             services.AddTransient<IOAuthCreationService, OAuthCreationService>();
 
             services.AddTransient<IStreamReader, StreamReaderWrapper>();
-            services.AddTransient<IJsonObjectDeserializer, JsonUserDeserializer>();
-            services.AddTransient<IJsonUserTimelineDeserializer, JsonUserTimelineDeserializer>();
-            services.AddTransient<IJsonUserReader, JsonUserReader>();
+            services.AddTransient<IJsonObjectDeserializer, JsonDeserializerWrapper>();
             services.AddTransient<ITwitterService, TwitterService>();
 
             if (this.Environment.IsDevelopment())

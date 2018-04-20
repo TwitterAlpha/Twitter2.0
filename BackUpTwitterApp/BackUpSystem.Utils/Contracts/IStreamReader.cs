@@ -1,7 +1,6 @@
-﻿using System.IO;
-using System.Net;
+﻿using System.Net;
 
-namespace BackUpSystem.NewtonsoftWrapper.Utils.Contracts
+namespace BackUpSystem.Utilities.Contracts
 {
     public interface IStreamReader
     {

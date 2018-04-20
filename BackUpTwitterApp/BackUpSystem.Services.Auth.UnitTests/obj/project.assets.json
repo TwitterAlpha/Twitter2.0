@@ -2,6 +2,28 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "AutoMapper/6.2.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.3.0",
+          "NETStandard.Library": "1.6.1",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Linq.Queryable": "4.3.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/AutoMapper.dll": {}
+        }
+      },
       "Bytes2you.Validation/2.0.0": {
         "type": "package",
         "compile": {
@@ -4494,11 +4516,11 @@
           "lib/netstandard1.3/System.Runtime.Serialization.Json.dll": {}
         }
       },
-      "System.Runtime.Serialization.Primitives/4.1.1": {
+      "System.Runtime.Serialization.Primitives/4.3.0": {
         "type": "package",
         "dependencies": {
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0"
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
         },
         "compile": {
           "ref/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
@@ -5192,37 +5214,55 @@
           "bin/placeholder/BackUpSystem.DTO.dll": {}
         }
       },
-      "BackUpSystem.NewtonsoftWrapper/1.0.0": {
+      "BackUpSystem.Services.Auth/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "BackUpSystem.Utilities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BackUpSystem.Services.Auth.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BackUpSystem.Services.Auth.dll": {}
+        }
+      },
+      "BackUpSystem.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "AutoMapper": "6.2.2",
           "BackUpSystem.DTO": "1.0.0",
           "Bytes2you.Validation": "2.0.0",
           "Newtonsoft.Json": "11.0.2"
         },
         "compile": {
-          "bin/placeholder/BackUpSystem.NewtonsoftWrapper.dll": {}
+          "bin/placeholder/BackUpSystem.Utilities.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BackUpSystem.NewtonsoftWrapper.dll": {}
-        }
-      },
-      "BackUpSystem.Services.Auth/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.0",
-        "dependencies": {
-          "BackUpSystem.NewtonsoftWrapper": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/BackUpSystem.Services.Auth.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BackUpSystem.Services.Auth.dll": {}
+          "bin/placeholder/BackUpSystem.Utilities.dll": {}
         }
       }
     }
   },
   "libraries": {
+    "AutoMapper/6.2.2": {
+      "sha512": "eGKcnJdoF5rYMWPUaSPtlWdvua9xw4hnQN5kM/X4AXLGKghrtPIaMv+RYoA3sj0kyZ3X6wZ1Qj67F+u0pCCPaw==",
+      "type": "package",
+      "path": "automapper/6.2.2",
+      "files": [
+        "automapper.6.2.2.nupkg.sha512",
+        "automapper.nuspec",
+        "lib/net40/AutoMapper.dll",
+        "lib/net40/AutoMapper.xml",
+        "lib/net45/AutoMapper.dll",
+        "lib/net45/AutoMapper.xml",
+        "lib/netstandard1.1/AutoMapper.dll",
+        "lib/netstandard1.1/AutoMapper.xml",
+        "lib/netstandard1.3/AutoMapper.dll",
+        "lib/netstandard1.3/AutoMapper.xml"
+      ]
+    },
     "Bytes2you.Validation/2.0.0": {
       "sha512": "j8umClHsejtGmVWS7g0pMuR+Oz7kA3KWfWR5msYlxj9PBdCxsbO97444LfOClPgGI//38OakDaC2YM+F8PH29A==",
       "type": "package",
@@ -12092,10 +12132,10 @@
         "system.runtime.serialization.json.nuspec"
       ]
     },
-    "System.Runtime.Serialization.Primitives/4.1.1": {
-      "sha512": "HZ6Du5QrTG8MNJbf4e4qMO3JRAkIboGT5Fk804uZtg3Gq516S7hAqTm2UZKUHa7/6HUGdVy3AqMQKbns06G/cg==",
+    "System.Runtime.Serialization.Primitives/4.3.0": {
+      "sha512": "Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
       "type": "package",
-      "path": "system.runtime.serialization.primitives/4.1.1",
+      "path": "system.runtime.serialization.primitives/4.3.0",
       "files": [
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
@@ -12159,7 +12199,7 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
         "runtimes/aot/lib/netcore50/System.Runtime.Serialization.Primitives.dll",
-        "system.runtime.serialization.primitives.4.1.1.nupkg.sha512",
+        "system.runtime.serialization.primitives.4.3.0.nupkg.sha512",
         "system.runtime.serialization.primitives.nuspec"
       ]
     },
@@ -13685,15 +13725,15 @@
       "path": "../BackUpSystem.DTO/BackUpSystem.DTO.csproj",
       "msbuildProject": "../BackUpSystem.DTO/BackUpSystem.DTO.csproj"
     },
-    "BackUpSystem.NewtonsoftWrapper/1.0.0": {
-      "type": "project",
-      "path": "../BackUpSystem.Utils/BackUpSystem.NewtonsoftWrapper.csproj",
-      "msbuildProject": "../BackUpSystem.Utils/BackUpSystem.NewtonsoftWrapper.csproj"
-    },
     "BackUpSystem.Services.Auth/1.0.0": {
       "type": "project",
       "path": "../BackUpSystem.Services.Auth/BackUpSystem.Services.Auth.csproj",
       "msbuildProject": "../BackUpSystem.Services.Auth/BackUpSystem.Services.Auth.csproj"
+    },
+    "BackUpSystem.Utilities/1.0.0": {
+      "type": "project",
+      "path": "../BackUpSystem.Utils/BackUpSystem.Utilities.csproj",
+      "msbuildProject": "../BackUpSystem.Utils/BackUpSystem.Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {

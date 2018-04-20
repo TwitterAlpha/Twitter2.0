@@ -1,6 +1,4 @@
-﻿using BackUpSystem.DTO;
-
-namespace BackUpSystem.NewtonsoftWrapper.Utils.Contracts
+﻿namespace BackUpSystem.Utilities.Contracts
 {
     public interface IJsonObjectDeserializer
     {

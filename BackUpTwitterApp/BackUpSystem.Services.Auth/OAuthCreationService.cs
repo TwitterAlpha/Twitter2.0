@@ -1,4 +1,4 @@
-﻿using BackUpSystem.NewtonsoftWrapper.Utils.Contracts;
+﻿using BackUpSystem.Utilities.Contracts;
 using BackUpSystem.Services.Auth.Contracts;
 using System;
 using System.Collections.Generic;

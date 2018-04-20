@@ -1,15 +1,15 @@
 ﻿using BackUpSystem.DTO;
-using BackUpSystem.NewtonsoftWrapper.Utils.Contracts;
+using BackUpSystem.Utilities.Contracts;
 using Bytes2you.Validation;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace BackUpSystem.NewtonsoftWrapper.Utils
+namespace BackUpSystem.Utils
 {
     /// <summary>
     /// Abstracts Newtonsoft Json Deserializer in order to be testable
     /// </summary>
-    public class JsonUserDeserializer : IJsonObjectDeserializer
+    public class JsonDeserializerWrapper : IJsonObjectDeserializer
     {
         /// Deserializes the JSON to the User DTO type - wrapper instance method.
         /// </summary>

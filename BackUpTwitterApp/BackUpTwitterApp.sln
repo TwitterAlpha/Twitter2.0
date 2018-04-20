@@ -23,13 +23,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Web", "BackUpSystem.Web\BackUpSystem.Web.csproj", "{BDDE6163-5BC0-44F4-843A-9C54B8CF8F10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackUpSystem.Services.Auth", "BackUpSystem.Services.Auth\BackUpSystem.Services.Auth.csproj", "{885FF3B3-83A5-4AE1-A2CA-BA63A2F79B29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Services.Auth", "BackUpSystem.Services.Auth\BackUpSystem.Services.Auth.csproj", "{885FF3B3-83A5-4AE1-A2CA-BA63A2F79B29}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C9007EE8-CD17-477E-B4A8-FEF70A29BD5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackUpSystem.Services.Auth.UnitTests", "BackUpSystem.Services.Auth.UnitTests\BackUpSystem.Services.Auth.UnitTests.csproj", "{DE900E20-C2B6-4B48-B73A-A5D79889ABDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Services.Auth.UnitTests", "BackUpSystem.Services.Auth.UnitTests\BackUpSystem.Services.Auth.UnitTests.csproj", "{DE900E20-C2B6-4B48-B73A-A5D79889ABDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackUpSystem.NewtonsoftWrapper", "BackUpSystem.Utils\BackUpSystem.NewtonsoftWrapper.csproj", "{371F3F30-EC10-49D1-A4AC-FFBD1E10472A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Utilities", "BackUpSystem.Utils\BackUpSystem.Utilities.csproj", "{371F3F30-EC10-49D1-A4AC-FFBD1E10472A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

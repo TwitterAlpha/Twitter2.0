@@ -22,7 +22,7 @@
     <ProjectReference Include="..\BackUpSystem.Data.Models\BackUpSystem.Data.Models.csproj" />
     <ProjectReference Include="..\BackUpSystem.Data\BackUpSystem.Data.csproj" />
     <ProjectReference Include="..\BackUpSystem.Services.Auth\BackUpSystem.Services.Auth.csproj" />
-    <ProjectReference Include="..\BackUpSystem.Utils\BackUpSystem.NewtonsoftWrapper.csproj" />
+    <ProjectReference Include="..\BackUpSystem.Utils\BackUpSystem.Utilities.csproj" />
     <ProjectReference Include="..\BackUpSytem.Services.Data\BackUpSytem.Services.Data.csproj" />
   </ItemGroup>
 

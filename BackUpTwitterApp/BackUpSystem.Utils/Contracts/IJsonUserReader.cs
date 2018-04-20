@@ -1,6 +1,6 @@
 ﻿using BackUpSystem.DTO;
 
-namespace BackUpSystem.NewtonsoftWrapper.Contracts
+namespace BackUpSystem.Utilities.Contracts
 {
     public interface IJsonUserReader
     {

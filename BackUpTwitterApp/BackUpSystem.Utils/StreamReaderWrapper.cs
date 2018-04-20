@@ -1,9 +1,9 @@
-﻿using BackUpSystem.NewtonsoftWrapper.Utils.Contracts;
+﻿using BackUpSystem.Utilities.Contracts;
 using Bytes2you.Validation;
 using System.IO;
 using System.Net;
 
-namespace BackUpSystem.NewtonsoftWrapper.Utils
+namespace BackUpSystem.Utils
 {
     /// <summary>
     /// Abstracts StreamReader in order to be testable

@@ -43,6 +43,15 @@ namespace BackUpSytem.Services.Data
             return deserializedUser;
         }
 
+        public async Task<ICollection<TwitterAccountDto>> SearchUsersByScreenName(string screenName)
+        {
+            var resourceUrl = "https://api.twitter.com/1.1/users/search.json?q=";
+            var usersFound = await apiService.GetTwitterApiCallData($"{resourceUrl}{screenName}&count=5");
+            var deserializedUser = jsonDeserializerWrapper.Deserialize<ICollection<TwitterAccountDto>>(usersFound);
+
+            return deserializedUser;
+        }
+
         public async Task<ICollection<TweetDto>> GetUsersTimeline(string screenName)
         {
             var resourceUrl = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=";

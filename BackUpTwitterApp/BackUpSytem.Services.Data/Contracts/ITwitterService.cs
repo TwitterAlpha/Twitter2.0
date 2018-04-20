@@ -11,5 +11,7 @@ namespace BackUpSytem.Services.Data.Contracts
         Task<TwitterAccountDto> GetUserByScreenName(string screenName);
 
         Task<ICollection<TweetDto>> GetUsersTimeline(string screenName);
+
+        Task<ICollection<TwitterAccountDto>> SearchUsersByScreenName(string screenName);
     }
 }

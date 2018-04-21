@@ -8,6 +8,8 @@ namespace BackUpSytem.Services.Data.Contracts
 {
     public interface ITwitterService
     {
+        Task<TwitterAccountDto> GetUserById(string id);
+
         Task<TwitterAccountDto> GetUserByScreenName(string screenName);
 
         Task<ICollection<TweetDto>> GetUsersTimeline(string screenName);

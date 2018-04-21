@@ -1,23 +1,12 @@
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.deps.json
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
-D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.dll
-D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.xml
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.csprojResolveAssemblyReference.cache
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.csproj.CoreCompileInputs.cache
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.AssemblyInfoInputs.cache
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.AssemblyInfo.cs
-D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.csproj.CopyComplete
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.deps.json
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.csproj.CoreCompileInputs.cache
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.AssemblyInfoInputs.cache
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.AssemblyInfo.cs
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.deps.json
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb

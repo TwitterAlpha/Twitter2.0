@@ -1,4 +1,0 @@
-C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utils.csprojResolveAssemblyReference.cache
-C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utils.csproj.CoreCompileInputs.cache
-C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utils.AssemblyInfoInputs.cache
-C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Utils\obj\Debug\netcoreapp2.0\BackUpSystem.Utils.AssemblyInfo.cs

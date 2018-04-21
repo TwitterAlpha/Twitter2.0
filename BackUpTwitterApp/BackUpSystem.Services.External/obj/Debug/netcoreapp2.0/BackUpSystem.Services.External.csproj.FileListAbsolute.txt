@@ -1,20 +1,11 @@
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Services.External\bin\Debug\netcoreapp2.0\BackUpSystem.Services.External.deps.json
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Services.External\bin\Debug\netcoreapp2.0\BackUpSystem.Services.External.dll
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Services.External\bin\Debug\netcoreapp2.0\BackUpSystem.Services.External.pdb
-D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.csprojResolveAssemblyReference.cache
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.csproj.CoreCompileInputs.cache
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.AssemblyInfoInputs.cache
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.AssemblyInfo.cs
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.dll
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.pdb
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.External\bin\Debug\netcoreapp2.0\BackUpSystem.Services.External.deps.json
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.External\bin\Debug\netcoreapp2.0\BackUpSystem.Services.External.dll
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.External\bin\Debug\netcoreapp2.0\BackUpSystem.Services.External.pdb
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.csproj.CoreCompileInputs.cache
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.AssemblyInfoInputs.cache
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.AssemblyInfo.cs
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.dll
-C:\Users\alekhristov\Desktop\Final Project\TwitterBackUpProject\BackUpTwitterApp\BackUpSystem.Services.External\obj\Debug\netcoreapp2.0\BackUpSystem.Services.External.pdb
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.External\bin\Debug\netcoreapp2.0\BackUpSystem.Services.External.deps.json
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.External\bin\Debug\netcoreapp2.0\BackUpSystem.Services.External.dll
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.External\bin\Debug\netcoreapp2.0\BackUpSystem.Services.External.pdb

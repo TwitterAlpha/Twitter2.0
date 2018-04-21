@@ -12553,6 +12553,7 @@
       "BackUpSystem.Data.Models >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.7",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 2.0.2",
+      "Microsoft.EntityFrameworkCore >= 2.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.0.2",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
@@ -12607,6 +12608,10 @@
             "version": "[2.0.7, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[2.0.2, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[2.0.2, )"
           },

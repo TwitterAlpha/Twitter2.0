@@ -25,14 +25,15 @@ namespace BackUpSystem.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Go(SearchViewModel request)
+        public async Task<IActionResult> Index(SearchViewModel request)
         {
             var searchResult = twitterService.SearchUsersByScreenName(request.UserInput);
 
             var viewModel = new SearchResultViewModel();
             viewModel.SearchResult = await searchResult;
 
-            return View("List", viewModel);
+            return this.RedirectToAction("Index", "Home");
+            //return View("List", viewModel);
         }
     }
 }

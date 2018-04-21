@@ -11,6 +11,6 @@ namespace BackUpSystem.Services.Auth
 
         public string AccessToken => Environment.GetEnvironmentVariable("AccessToken", EnvironmentVariableTarget.User);
 
-        public string TokenSecret => Environment.GetEnvironmentVariable("AccessToken", EnvironmentVariableTarget.User);
+        public string TokenSecret => Environment.GetEnvironmentVariable("TokenSecret", EnvironmentVariableTarget.User);
     }
 }

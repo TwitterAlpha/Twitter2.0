@@ -7,7 +7,6 @@ using System.Text;
 
 namespace BackUpSystem.Data.Models
 {
-    [Table("Hashtags")]
     public class Hashtag : DataModel
     {
         public Hashtag()

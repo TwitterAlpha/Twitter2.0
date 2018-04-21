@@ -12537,27 +12537,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nrg\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\alekhristov\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj",
+      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj",
       "projectName": "BackUpSystem.Data.Models",
-      "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj",
-      "packagesPath": "C:\\Users\\nrg\\.nuget\\packages\\",
-      "outputPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data.Models\\obj\\",
+      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj",
+      "packagesPath": "C:\\Users\\alekhristov\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\nrg\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\alekhristov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

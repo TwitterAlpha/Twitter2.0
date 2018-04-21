@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackUpSystem.Data.Models
 {
-    [Table("Tweets")]
     public class Tweet : DataModel
     {
         public Tweet()

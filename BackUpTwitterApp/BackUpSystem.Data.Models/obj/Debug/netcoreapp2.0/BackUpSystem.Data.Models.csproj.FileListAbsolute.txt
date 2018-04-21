@@ -7,3 +7,12 @@ D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\ob
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.AssemblyInfo.cs
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.deps.json
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.csprojResolveAssemblyReference.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.csproj.CoreCompileInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.AssemblyInfoInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.AssemblyInfo.cs
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Models\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb

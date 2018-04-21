@@ -57,7 +57,7 @@ namespace BackUpSystem.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Hashtags",
+                name: "Hashtag",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -69,7 +69,7 @@ namespace BackUpSystem.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Hashtags", x => x.Id);
+                    table.PrimaryKey("PK_Hashtag", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -267,9 +267,9 @@ namespace BackUpSystem.Data.Migrations
                 {
                     table.PrimaryKey("PK_TweetHashtag", x => new { x.TweetId, x.HashtagId });
                     table.ForeignKey(
-                        name: "FK_TweetHashtag_Hashtags_HashtagId",
+                        name: "FK_TweetHashtag_Hashtag_HashtagId",
                         column: x => x.HashtagId,
-                        principalTable: "Hashtags",
+                        principalTable: "Hashtag",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -407,7 +407,7 @@ namespace BackUpSystem.Data.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Hashtags");
+                name: "Hashtag");
 
             migrationBuilder.DropTable(
                 name: "Tweets");

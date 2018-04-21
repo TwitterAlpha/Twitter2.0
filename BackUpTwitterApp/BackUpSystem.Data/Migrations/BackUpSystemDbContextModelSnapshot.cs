@@ -38,7 +38,7 @@ namespace BackUpSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hashtags");
+                    b.ToTable("Hashtag");
                 });
 
             modelBuilder.Entity("BackUpSystem.Data.Models.Tweet", b =>

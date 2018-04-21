@@ -10,3 +10,15 @@ D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.csproj.CopyComplete
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.dll
 D:\TelerikAcademy\TWITTERappPROJECT\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.deps.json
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.csprojResolveAssemblyReference.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.csproj.CoreCompileInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.AssemblyInfoInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.AssemblyInfo.cs
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.csproj.CopyComplete
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data\obj\Debug\netcoreapp2.0\BackUpSystem.Data.pdb

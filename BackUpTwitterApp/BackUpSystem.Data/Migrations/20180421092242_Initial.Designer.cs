@@ -11,7 +11,7 @@ using System;
 namespace BackUpSystem.Data.Migrations
 {
     [DbContext(typeof(BackUpSystemDbContext))]
-    [Migration("20180421085939_Initial")]
+    [Migration("20180421092242_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace BackUpSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hashtags");
+                    b.ToTable("Hashtag");
                 });
 
             modelBuilder.Entity("BackUpSystem.Data.Models.Tweet", b =>

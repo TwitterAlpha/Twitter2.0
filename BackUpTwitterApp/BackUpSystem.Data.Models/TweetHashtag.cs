@@ -1,10 +1,4 @@
-﻿using BlogSystem.Data.Models.Abstracts;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace BackUpSystem.Data.Models
+﻿namespace BackUpSystem.Data.Models
 {
     public class TweetHashtag
     {

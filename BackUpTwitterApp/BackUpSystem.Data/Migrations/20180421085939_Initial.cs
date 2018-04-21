@@ -204,7 +204,7 @@ namespace BackUpSystem.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tweet",
+                name: "Tweets",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -212,7 +212,6 @@ namespace BackUpSystem.Data.Migrations
                     CreatedAt = table.Column<DateTime>(nullable: true),
                     CreatedOn = table.Column<DateTime>(nullable: true),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Hashtag = table.Column<string>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     LikesCount = table.Column<int>(nullable: false),
                     MediaUrl = table.Column<string>(nullable: true),
@@ -224,9 +223,9 @@ namespace BackUpSystem.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tweet", x => x.Id);
+                    table.PrimaryKey("PK_Tweets", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tweet_TwitterAccounts_TwitterAccountId",
+                        name: "FK_Tweets_TwitterAccounts_TwitterAccountId",
                         column: x => x.TwitterAccountId,
                         principalTable: "TwitterAccounts",
                         principalColumn: "Id",
@@ -274,9 +273,9 @@ namespace BackUpSystem.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_TweetHashtag_Tweet_TweetId",
+                        name: "FK_TweetHashtag_Tweets_TweetId",
                         column: x => x.TweetId,
-                        principalTable: "Tweet",
+                        principalTable: "Tweets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -292,9 +291,9 @@ namespace BackUpSystem.Data.Migrations
                 {
                     table.PrimaryKey("PK_UserTweet", x => new { x.UserId, x.TweetId });
                     table.ForeignKey(
-                        name: "FK_UserTweet_Tweet_TweetId",
+                        name: "FK_UserTweet_Tweets_TweetId",
                         column: x => x.TweetId,
-                        principalTable: "Tweet",
+                        principalTable: "Tweets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -352,14 +351,14 @@ namespace BackUpSystem.Data.Migrations
                 filter: "[UserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tweet_TwitterAccountId",
-                table: "Tweet",
-                column: "TwitterAccountId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_TweetHashtag_HashtagId",
                 table: "TweetHashtag",
                 column: "HashtagId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tweets_TwitterAccountId",
+                table: "Tweets",
+                column: "TwitterAccountId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TwitterAccounts_UserName",
@@ -411,7 +410,7 @@ namespace BackUpSystem.Data.Migrations
                 name: "Hashtags");
 
             migrationBuilder.DropTable(
-                name: "Tweet");
+                name: "Tweets");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

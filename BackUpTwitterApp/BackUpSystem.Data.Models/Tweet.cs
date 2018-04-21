@@ -6,13 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackUpSystem.Data.Models
 {
-    [Table("Tweet")]
+    [Table("Tweets")]
     public class Tweet : DataModel
     {
         public Tweet()
         {
             this.Users = new HashSet<UserTweet>();
-            this.TweetHashtags = new HashSet<TweetHashtag>();
+            this.Hashtags = new HashSet<TweetHashtag>();
         }
 
         [DataType(DataType.DateTime)]
@@ -29,7 +29,7 @@ namespace BackUpSystem.Data.Models
 
         public int RetweetCount { get; set; }
 
-        public string Hashtag { get; set; }
+        //public string Hashtag { get; set; }
 
         public string UserMentioned { get; set; }
 
@@ -49,6 +49,6 @@ namespace BackUpSystem.Data.Models
         /// <summary>
         /// Navigation property - represents related entity
         /// </summary>
-        public ICollection<TweetHashtag> TweetHashtags { get; set; }
+        public ICollection<TweetHashtag> Hashtags { get; set; }
     }
 }

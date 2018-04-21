@@ -55,8 +55,6 @@ namespace BackUpSystem.Data.Migrations
 
                     b.Property<DateTime?>("DeletedOn");
 
-                    b.Property<string>("Hashtag");
-
                     b.Property<bool>("IsDeleted");
 
                     b.Property<int>("LikesCount");
@@ -78,7 +76,7 @@ namespace BackUpSystem.Data.Migrations
 
                     b.HasIndex("TwitterAccountId");
 
-                    b.ToTable("Tweet");
+                    b.ToTable("Tweets");
                 });
 
             modelBuilder.Entity("BackUpSystem.Data.Models.TweetHashtag", b =>
@@ -360,12 +358,12 @@ namespace BackUpSystem.Data.Migrations
             modelBuilder.Entity("BackUpSystem.Data.Models.TweetHashtag", b =>
                 {
                     b.HasOne("BackUpSystem.Data.Models.Hashtag", "Hashtag")
-                        .WithMany("TweetHashtags")
+                        .WithMany("Tweets")
                         .HasForeignKey("HashtagId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("BackUpSystem.Data.Models.Tweet", "Tweet")
-                        .WithMany("TweetHashtags")
+                        .WithMany("Hashtags")
                         .HasForeignKey("TweetId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });

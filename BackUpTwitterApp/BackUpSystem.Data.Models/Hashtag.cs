@@ -12,12 +12,12 @@ namespace BackUpSystem.Data.Models
     {
         public Hashtag()
         {
-            this.TweetHashtags = new HashSet<TweetHashtag>();
+            this.Tweets = new HashSet<TweetHashtag>();
         }
 
         [Required]
         public string Text { get; set; }
 
-        public ICollection<TweetHashtag> TweetHashtags { get; set; }
+        public ICollection<TweetHashtag> Tweets { get; set; }
     }
 }

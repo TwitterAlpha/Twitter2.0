@@ -62,13 +62,13 @@ namespace BackUpSystem.Data
             // Configuring many to many realationship between Hashtag and Tweet tables
             builder.Entity<TweetHashtag>()
                 .HasOne(u => u.Tweet)
-                .WithMany(t => t.TweetHashtags)
+                .WithMany(t => t.Hashtags)
                 .HasForeignKey(u => u.TweetId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<TweetHashtag>()
                 .HasOne(t => t.Hashtag)
-                .WithMany(u => u.TweetHashtags)
+                .WithMany(u => u.Tweets)
                 .HasForeignKey(t => t.HashtagId)
                 .OnDelete(DeleteBehavior.Restrict);
 

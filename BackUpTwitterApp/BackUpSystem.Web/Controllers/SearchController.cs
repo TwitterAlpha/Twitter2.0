@@ -1,6 +1,7 @@
 ﻿using BackUpSystem.Web.Models.SearchViewModels;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,15 @@ namespace BackUpSystem.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Index()
         {
             return this.View();
         }
 
         [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(SearchViewModel requestModel)
         {
             if (ModelState.IsValid)

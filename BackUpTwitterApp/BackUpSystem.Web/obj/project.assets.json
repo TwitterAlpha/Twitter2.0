@@ -13245,9 +13245,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Web\\BackUpSystem.Web.csproj",
-      "projectName": "BackUpSystem.Web",
-      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Web\\BackUpSystem.Web.csproj",
+      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Web\\Twitter2.0.csproj",
+      "projectName": "Twitter2.0",
+      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Web\\Twitter2.0.csproj",
       "packagesPath": "C:\\Users\\alekhristov\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Web\\obj\\",
       "projectStyle": "PackageReference",

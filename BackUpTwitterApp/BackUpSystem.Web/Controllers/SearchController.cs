@@ -19,20 +19,28 @@ namespace BackUpSystem.Web.Controllers
             this.twitterService = twitterService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Go(SearchViewModel request)
+        public async Task<IActionResult> Go(SearchViewModel requestModel)
         {
-            var searchResult = twitterService.SearchUsersByScreenName(request.UserInput);
+            if (ModelState.IsValid)
+            {
+                var searchResult = twitterService.SearchUsersByScreenName(requestModel.UserInput);
 
-            var viewModel = new SearchResultViewModel();
-            viewModel.SearchResult = await searchResult;
+                var viewModel = new SearchResultViewModel();
+                viewModel.SearchResult = await searchResult;
 
-            return View("List", viewModel);
+
+                TempData["Success-Message"] = "Results found:";
+                return View("List", viewModel);
+            }
+
+            return this.View(requestModel);
         }
     }
 }

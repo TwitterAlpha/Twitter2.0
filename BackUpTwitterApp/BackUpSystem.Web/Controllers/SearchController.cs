@@ -26,7 +26,7 @@ namespace BackUpSystem.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Go(SearchViewModel requestModel)
+        public async Task<IActionResult> Index(SearchViewModel requestModel)
         {
             if (ModelState.IsValid)
             {
@@ -35,9 +35,9 @@ namespace BackUpSystem.Web.Controllers
                 var viewModel = new SearchResultViewModel();
                 viewModel.SearchResult = await searchResult;
 
-
                 TempData["Success-Message"] = "Results found:";
-                return View("List", viewModel);
+
+                return View("SearchResult", viewModel);
             }
 
             return this.View(requestModel);

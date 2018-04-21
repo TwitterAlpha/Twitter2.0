@@ -11,7 +11,7 @@ using System;
 namespace BackUpSystem.Data.Migrations
 {
     [DbContext(typeof(BackUpSystemDbContext))]
-    [Migration("20180417201428_Initial")]
+    [Migration("20180421084004_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,27 @@ namespace BackUpSystem.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("BackUpSystem.Data.Models.Hashtag", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("CreatedOn");
+
+                    b.Property<DateTime?>("DeletedOn");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime?>("ModifiedOn");
+
+                    b.Property<string>("Text")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Hashtags");
+                });
 
             modelBuilder.Entity("BackUpSystem.Data.Models.Tweet", b =>
                 {
@@ -58,7 +79,20 @@ namespace BackUpSystem.Data.Migrations
 
                     b.HasIndex("TwitterAccountId");
 
-                    b.ToTable("Tweets");
+                    b.ToTable("Tweet");
+                });
+
+            modelBuilder.Entity("BackUpSystem.Data.Models.TweetHashtag", b =>
+                {
+                    b.Property<string>("TweetId");
+
+                    b.Property<string>("HashtagId");
+
+                    b.HasKey("TweetId", "HashtagId");
+
+                    b.HasIndex("HashtagId");
+
+                    b.ToTable("TweetHashtag");
                 });
 
             modelBuilder.Entity("BackUpSystem.Data.Models.TwitterAccount", b =>
@@ -321,6 +355,19 @@ namespace BackUpSystem.Data.Migrations
                     b.HasOne("BackUpSystem.Data.Models.TwitterAccount", "TwitterAccount")
                         .WithMany("Tweets")
                         .HasForeignKey("TwitterAccountId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("BackUpSystem.Data.Models.TweetHashtag", b =>
+                {
+                    b.HasOne("BackUpSystem.Data.Models.Hashtag", "Hashtag")
+                        .WithMany("TweetHashtags")
+                        .HasForeignKey("HashtagId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("BackUpSystem.Data.Models.Tweet", "Tweet")
+                        .WithMany("TweetHashtags")
+                        .HasForeignKey("TweetId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 

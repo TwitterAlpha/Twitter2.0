@@ -57,6 +57,22 @@ namespace BackUpSystem.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Hashtags",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: true),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    Text = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Hashtags", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TwitterAccounts",
                 columns: table => new
                 {
@@ -188,7 +204,7 @@ namespace BackUpSystem.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tweets",
+                name: "Tweet",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -208,9 +224,9 @@ namespace BackUpSystem.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tweets", x => x.Id);
+                    table.PrimaryKey("PK_Tweet", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tweets_TwitterAccounts_TwitterAccountId",
+                        name: "FK_Tweet_TwitterAccounts_TwitterAccountId",
                         column: x => x.TwitterAccountId,
                         principalTable: "TwitterAccounts",
                         principalColumn: "Id",
@@ -242,6 +258,30 @@ namespace BackUpSystem.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TweetHashtag",
+                columns: table => new
+                {
+                    TweetId = table.Column<string>(nullable: false),
+                    HashtagId = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TweetHashtag", x => new { x.TweetId, x.HashtagId });
+                    table.ForeignKey(
+                        name: "FK_TweetHashtag_Hashtags_HashtagId",
+                        column: x => x.HashtagId,
+                        principalTable: "Hashtags",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_TweetHashtag_Tweet_TweetId",
+                        column: x => x.TweetId,
+                        principalTable: "Tweet",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserTweet",
                 columns: table => new
                 {
@@ -252,9 +292,9 @@ namespace BackUpSystem.Data.Migrations
                 {
                     table.PrimaryKey("PK_UserTweet", x => new { x.UserId, x.TweetId });
                     table.ForeignKey(
-                        name: "FK_UserTweet_Tweets_TweetId",
+                        name: "FK_UserTweet_Tweet_TweetId",
                         column: x => x.TweetId,
-                        principalTable: "Tweets",
+                        principalTable: "Tweet",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -312,9 +352,14 @@ namespace BackUpSystem.Data.Migrations
                 filter: "[UserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tweets_TwitterAccountId",
-                table: "Tweets",
+                name: "IX_Tweet_TwitterAccountId",
+                table: "Tweet",
                 column: "TwitterAccountId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TweetHashtag_HashtagId",
+                table: "TweetHashtag",
+                column: "HashtagId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TwitterAccounts_UserName",
@@ -351,6 +396,9 @@ namespace BackUpSystem.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "TweetHashtag");
+
+            migrationBuilder.DropTable(
                 name: "UserTweet");
 
             migrationBuilder.DropTable(
@@ -360,7 +408,10 @@ namespace BackUpSystem.Data.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Tweets");
+                name: "Hashtags");
+
+            migrationBuilder.DropTable(
+                name: "Tweet");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

@@ -5023,6 +5023,7 @@
           "BackUpSystem.Data.Models": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.7",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.2",
+          "Microsoft.EntityFrameworkCore": "2.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.2"
         },
         "compile": {
@@ -7667,10 +7668,10 @@
       "path": "microsoft.netcore.platforms/2.0.0",
       "files": [
         "LICENSE.TXT",
+        "Microsoft.NETCore.Platforms.2.0.0.nupkg.sha512",
+        "Microsoft.NETCore.Platforms.nuspec",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.2.0.0.nupkg.sha512",
-        "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -13238,24 +13239,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alekhristov\\.nuget\\packages\\": {},
+    "C:\\Users\\nrg\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Web\\BackUpSystem.Web.csproj",
+      "projectUniqueName": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Web\\BackUpSystem.Web.csproj",
       "projectName": "BackUpSystem.Web",
-      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Web\\BackUpSystem.Web.csproj",
-      "packagesPath": "C:\\Users\\alekhristov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Web\\obj\\",
+      "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Web\\BackUpSystem.Web.csproj",
+      "packagesPath": "C:\\Users\\nrg\\.nuget\\packages\\",
+      "outputPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\alekhristov\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\nrg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -13267,20 +13271,20 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj": {
-              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj"
+            "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj": {
+              "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj"
             },
-            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data\\BackUpSystem.Data.csproj": {
-              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data\\BackUpSystem.Data.csproj"
+            "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data\\BackUpSystem.Data.csproj": {
+              "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Data\\BackUpSystem.Data.csproj"
             },
-            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj": {
-              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj"
+            "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj": {
+              "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj"
             },
-            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.Utilities.csproj": {
-              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.Utilities.csproj"
+            "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.Utilities.csproj": {
+              "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Utils\\BackUpSystem.Utilities.csproj"
             },
-            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj": {
-              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj"
+            "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj": {
+              "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSytem.Services.Data\\BackUpSytem.Services.Data.csproj"
             }
           }
         }

@@ -2,14 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackUpSystem.Data.Models
 {
+    [Table("Tweet")]
     public class Tweet : DataModel
     {
         public Tweet()
         {
             this.Users = new HashSet<UserTweet>();
+            this.TweetHashtags = new HashSet<TweetHashtag>();
         }
 
         [DataType(DataType.DateTime)]
@@ -42,5 +45,10 @@ namespace BackUpSystem.Data.Models
         /// </summary>
         public string TwitterAccountId { get; set; }
         public TwitterAccount TwitterAccount { get; set; }
+
+        /// <summary>
+        /// Navigation property - represents related entity
+        /// </summary>
+        public ICollection<TweetHashtag> TweetHashtags { get; set; }
     }
 }

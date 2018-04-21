@@ -59,6 +59,22 @@ namespace BackUpSystem.Data
             builder.Entity<UserTweet>()
               .HasKey(ut => new { ut.UserId, ut.TweetId });
 
+            // Configuring many to many realationship between Hashtag and Tweet tables
+            builder.Entity<TweetHashtag>()
+                .HasOne(u => u.Tweet)
+                .WithMany(t => t.TweetHashtags)
+                .HasForeignKey(u => u.TweetId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<TweetHashtag>()
+                .HasOne(t => t.Hashtag)
+                .WithMany(u => u.TweetHashtags)
+                .HasForeignKey(t => t.HashtagId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<TweetHashtag>()
+              .HasKey(ut => new { ut.TweetId, ut.HashtagId });
+
             // Configuring one to many relationship between a TwitterAccount and Tweet tables
             builder.Entity<TwitterAccount>()
                 .HasMany(t => t.Tweets)

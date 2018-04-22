@@ -162,23 +162,18 @@ namespace BackUpSystem.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(20);
-
                     b.Property<bool>("IsDeleted");
 
                     b.Property<DateTime?>("JoinedDate");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(20);
 
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
                     b.Property<DateTime?>("ModifiedOn");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(40);
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);

@@ -16,26 +16,19 @@ namespace BackUpSystem.Data.Models
             this.TwitterAccounts = new HashSet<UserTwitterAccount>();
         }
 
-        [Required]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "Invalid First Name format!")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [StringLength(20, MinimumLength = 2, ErrorMessage = "Invalid Last Name format!")]
-        public string LastName { get; set; }
+        [StringLength(40, MinimumLength = 2, ErrorMessage = "Invalid Name format!")]
+        public string Name { get; set; }
 
         public bool IsDeleted { get; set; }
 
-        public struct Info
-        {
-            public string Description { get; set; }
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "Invalid Description format!")]
+        public string Description { get; set; }
 
-            [DataType(DataType.DateTime)]
-            public DateTime? BirthDate { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime? BirthDate { get; set; }
 
-            [DataType(DataType.DateTime)]
-            public DateTime? JoinedDate { get; set; }
-        }
+        [DataType(DataType.DateTime)]
+        public DateTime? JoinedDate { get; set; }
 
         public string UserImage { get; set; }
 

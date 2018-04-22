@@ -29,11 +29,7 @@ namespace BackUpSystem.Web.Models.AccountViewModels
         public string Username { get; set; }
 
         [Required]
-        [Display(Name = "First name")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [Display(Name = "Last name")]
-        public string LastName { get; set; }
+        [Display(Name = "Name")]
+        public string Name { get; set; }
     }
 }

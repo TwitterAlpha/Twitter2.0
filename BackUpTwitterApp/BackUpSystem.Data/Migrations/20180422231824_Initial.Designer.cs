@@ -11,7 +11,7 @@ using System;
 namespace BackUpSystem.Data.Migrations
 {
     [DbContext(typeof(BackUpSystemDbContext))]
-    [Migration("20180421092242_Initial")]
+    [Migration("20180422231824_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -146,6 +146,8 @@ namespace BackUpSystem.Data.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<DateTime?>("BirthDate");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -153,26 +155,26 @@ namespace BackUpSystem.Data.Migrations
 
                     b.Property<DateTime?>("DeletedOn");
 
+                    b.Property<string>("Description")
+                        .HasMaxLength(100);
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(20);
-
                     b.Property<bool>("IsDeleted");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(20);
+                    b.Property<DateTime?>("JoinedDate");
 
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
                     b.Property<DateTime?>("ModifiedOn");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(40);
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);

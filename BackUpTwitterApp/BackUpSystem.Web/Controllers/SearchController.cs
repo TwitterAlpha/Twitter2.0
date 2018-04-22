@@ -25,7 +25,7 @@ namespace BackUpSystem.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(SearchViewModel request)
+        public async Task<IActionResult> Load(SearchViewModel request)
         {
             var searchResult = twitterService.SearchUsersByScreenName(request.UserInput);
 

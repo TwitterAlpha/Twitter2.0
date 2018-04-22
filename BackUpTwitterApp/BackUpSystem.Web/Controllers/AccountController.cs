@@ -377,6 +377,12 @@ namespace BackUpSystem.Web.Controllers
                     throw new ApplicationException("Error loading external login information during confirmation.");
                 }
                 var user = new User { UserName = model.Email, Email = model.Email };
+
+                if (info.Principal.Identity.Name?.Length > 1 && info.Principal.Identity.Name?.Length < 40)
+                {
+                    user.Name = info.Principal.Identity.Name;
+                }
+
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

@@ -22,15 +22,16 @@ namespace BackUpSystem.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment environment)
+        public Startup(IConfiguration configuration, 
+            IHostingEnvironment hostingEnvironment)
         {
             this.Configuration = configuration;
-            this.Environment = environment;
+            this.HostingEnvironment = hostingEnvironment;
         }
 
         public IConfiguration Configuration { get; }
 
-        public IHostingEnvironment Environment { get; }
+        public IHostingEnvironment HostingEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -42,6 +43,12 @@ namespace BackUpSystem.Web
                 .AddEntityFrameworkStores<BackUpSystemDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddAuthentication().AddTwitter(twitterOptions =>
+            {
+                twitterOptions.ConsumerKey = Environment.GetEnvironmentVariable("ConsumerKey", EnvironmentVariableTarget.User);
+                twitterOptions.ConsumerSecret = Environment.GetEnvironmentVariable("ConsumerSecret", EnvironmentVariableTarget.User);
+            });
+
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
@@ -52,7 +59,7 @@ namespace BackUpSystem.Web
             services.AddTransient<ITwitterService, TwitterService>();
             services.AddTransient<ITwitterCredentials, TwitterCredentials>();
 
-            if (this.Environment.IsDevelopment())
+            if (this.HostingEnvironment.IsDevelopment())
             {
                 services.Configure<IdentityOptions>(options =>
                 {

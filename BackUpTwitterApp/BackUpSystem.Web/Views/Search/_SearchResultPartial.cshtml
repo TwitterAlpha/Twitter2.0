@@ -1,0 +1,14 @@
+﻿@model BackUpSystem.Web.Models.SearchViewModels.SearchResultViewModel
+
+@foreach (var item in Model.SearchResult)
+{
+    <div class="panel panel-default">
+        <strong>@item.Name</strong>
+        <div>@item.LikesCount</div>
+    </div>
+}
+
+
+
+
+

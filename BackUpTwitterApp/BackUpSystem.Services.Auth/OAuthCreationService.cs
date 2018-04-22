@@ -1,6 +1,6 @@
 ﻿using BackUpSystem.Services.Auth.Contracts;
 using BackUpSystem.Utilities.Contracts;
-using Microsoft.Extensions.Configuration;
+using Bytes2you.Validation;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -19,7 +19,6 @@ namespace BackUpSystem.Services.Auth
         private readonly string oAuthVersion = "1.0";
         private string oAuthHeader;
         private readonly IStreamReader streamReaderWrapper;
-        private readonly IConfiguration configuration;
         private readonly ITwitterCredentials twitterCredentials;
 
         private const string HeaderFormat =
@@ -33,14 +32,16 @@ namespace BackUpSystem.Services.Auth
             "oauth_version=\"{6}\"";
 
         public OAuthCreationService(
-            IStreamReader steamReaderWrapper, 
-            IConfiguration configuration, 
+            IStreamReader streamReaderWrapper, 
             ITwitterCredentials twitterCredentials)
         {
+
+            Guard.WhenArgument(streamReaderWrapper, "StreamReader Wrapper").IsNull().Throw();
+            Guard.WhenArgument(twitterCredentials, "Twitter Credentials").IsNull().Throw();
+
             this.oAuthNonce = GenerateOAuthNonce();
             this.oAuthTimestamp = GenerateOAuthTimestamp();
-            this.streamReaderWrapper = steamReaderWrapper;
-            this.configuration = configuration;
+            this.streamReaderWrapper = streamReaderWrapper;
             this.twitterCredentials = twitterCredentials;
         }
 

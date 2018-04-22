@@ -145,12 +145,17 @@ namespace BackUpSystem.Data.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<DateTime?>("BirthDate");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
                     b.Property<DateTime?>("CreatedOn");
 
                     b.Property<DateTime?>("DeletedOn");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(100);
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
@@ -162,6 +167,8 @@ namespace BackUpSystem.Data.Migrations
                         .HasMaxLength(20);
 
                     b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime?>("JoinedDate");
 
                     b.Property<string>("LastName")
                         .IsRequired()

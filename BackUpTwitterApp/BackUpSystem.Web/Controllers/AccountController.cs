@@ -15,6 +15,8 @@ using BackUpSystem.Web.Models.AccountViewModels;
 using BackUpSystem.Web.Services;
 using BackUpSytem.Services.Data;
 using BackUpSytem.Services.Data.Contracts;
+using BackUpSystem.DTO;
+using System.Diagnostics;
 
 namespace BackUpSystem.Web.Controllers
 {
@@ -213,9 +215,64 @@ namespace BackUpSystem.Web.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
-            twitterService.GetUserByScreenName("donaldtrump");
-            //twitterService.GetUsersTimeline("fosgen4o");
-            //twitterService.GetUserByScreenName("GrigorDimitrov");
+
+            //    var watch = new Stopwatch();
+            //    watch.Start();
+            //    var result = await twitterService.SearchUsersByScreenName
+            //        ("822215679726100480,789311182398033920,736267842681602048,155659213,3293741005,48348735,17017636,29450962,132389474,17151344");
+
+            //    var test = result.OrderByDescending(a => a.Status.CreatedAt);
+
+            //    watch.Stop();
+            //    var asd = watch.ElapsedMilliseconds;
+
+            //var users = new List<string>()
+            //{
+            //    "155659213",
+            //    "822215679726100480",
+            //    "789311182398033920",
+            //    "736267842681602048",
+            //    "3293741005",
+            //    "155659213",
+            //    "48348735",
+            //    "48348735",
+            //    "48348735",
+            //    "48348735",
+            //    "25073877",
+            //    "822215679726100480",
+            //    "789311182398033920",
+            //    "736267842681602048",
+            //    "3293741005",
+            //    "155659213",
+            //    "48348735",
+            //    "48348735",
+            //    "48348735",
+            //    "25073877",
+            //    "822215679726100480",
+            //    "789311182398033920",
+            //    "736267842681602048",
+            //    "3293741005",
+            //    "155659213",
+            //    "48348735",
+            //    "48348735",
+            //    "48348735"
+            //};
+
+            //var list = new List<TweetDto>();
+
+            //var timer = new Stopwatch();
+
+            //var result = await twitterService.GetUserById("155659213");
+            //for (int i = 0; i < users.Count; i++)
+            //{
+            //    timer.Start();
+            //    var result = await twitterService.GetUsersTimeline(users[i]);
+            //    list.AddRange(result);
+            //}
+            ////twitterService.GetUserByScreenName("GrigorDimitrov");
+
+            //timer.Stop();
+            //var asd = timer.ElapsedMilliseconds;
 
             ViewData["ReturnUrl"] = returnUrl;
             return View();
@@ -229,7 +286,7 @@ namespace BackUpSystem.Web.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Username, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
+                var user = new User { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

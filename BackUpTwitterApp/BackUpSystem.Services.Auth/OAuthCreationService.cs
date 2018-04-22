@@ -32,7 +32,7 @@ namespace BackUpSystem.Services.Auth
             "oauth_version=\"{6}\"";
 
         public OAuthCreationService(
-            IStreamReader steamReaderWrapper, 
+            IStreamReader streamReaderWrapper, 
             ITwitterCredentials twitterCredentials)
         {
 
@@ -41,7 +41,7 @@ namespace BackUpSystem.Services.Auth
 
             this.oAuthNonce = GenerateOAuthNonce();
             this.oAuthTimestamp = GenerateOAuthTimestamp();
-            this.streamReaderWrapper = steamReaderWrapper;
+            this.streamReaderWrapper = streamReaderWrapper;
             this.twitterCredentials = twitterCredentials;
         }
 

@@ -30,7 +30,7 @@ namespace BackUpSystem.Web.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(SearchViewModel requestModel)
+        public async Task<IActionResult> Load(SearchViewModel requestModel)
         {
             if (ModelState.IsValid)
             {
@@ -41,10 +41,11 @@ namespace BackUpSystem.Web.Controllers
 
                 TempData["Success-Message"] = "Results found:";
 
-                return View("SearchResult", viewModel);
+                return PartialView("_SearchResultPartial", viewModel);
             }
 
             return this.View(requestModel);
         }
     }
 }
+ 

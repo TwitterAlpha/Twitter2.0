@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BackUpSystem.Services.Auth.Contracts
+﻿namespace BackUpSystem.Services.Auth.Contracts
 {
     public interface ITwitterCredentials
     {

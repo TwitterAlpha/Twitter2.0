@@ -29,6 +29,9 @@ namespace BackUpSystem.DTO
         [JsonProperty("favourites_count")]
         public int LikesCount { get; set; }
 
+        [JsonProperty("status")]
+        public TweetDto Status { get; set; }
+
         [JsonProperty("statuses_count")]
         public int TweetsCount { get; set; }
 

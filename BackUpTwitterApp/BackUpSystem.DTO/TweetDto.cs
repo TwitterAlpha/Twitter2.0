@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BackUpSystem.DTO
 {
@@ -24,10 +22,6 @@ namespace BackUpSystem.DTO
 
         [JsonProperty("retweet_count")]
         public int RetweetCount { get; set; }
-
-        
-
-        public string UserMentioned { get; set; }
 
         [JsonProperty("entities")]
         public EntitiesDto Entities { get; set; }

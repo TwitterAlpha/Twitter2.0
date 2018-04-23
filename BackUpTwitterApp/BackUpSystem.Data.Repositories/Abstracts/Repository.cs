@@ -22,23 +22,27 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         /// </summary>
         private readonly BackUpSystemDbContext dbContext;
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class heir.
         /// </summary>
         /// <param name="context">Context that provide connection to the database.</param>
-        public Repository(BackUpSystemDbContext dbContext)
+        protected Repository(BackUpSystemDbContext dbContext)
         {
             Guard.WhenArgument(dbContext, "DbContext").IsNull().Throw();
             this.dbContext = dbContext;
         }
 
         /// <summary>
+        /// Gets the Context of the <see cref="Repository"/> class.
+        /// </summary>
+        public BackUpSystemDbContext DbContext => this.dbContext;
+
+        /// <summary>
         /// Find entity by a given id.
         /// </summary>
         /// <param name="id">Id of the entity.</param>
         /// <returns>The entity with the provided id if exist. Otherwise <see cref="null"/>.</returns>
-        public TEntity Get(int id)
+        public TEntity Get(string id)
         {
             var result = this.dbContext.Set<TEntity>().Find(id);
 

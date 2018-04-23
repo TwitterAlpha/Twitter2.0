@@ -11,7 +11,7 @@ namespace BackUpSystem.Date.Repositories.Contracts
         /// </summary>
         /// <param name="id">Id of the entity.</param>
         /// <returns>The entity with the provided id if exist. Otherwise <see cref="null"/>.</returns>
-        TEntity Get(int id);
+        TEntity Get(string id);
 
         /// <summary>
         /// Provide all the entities.

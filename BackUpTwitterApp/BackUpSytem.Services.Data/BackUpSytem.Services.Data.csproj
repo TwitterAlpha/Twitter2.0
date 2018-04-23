@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BackUpSystem.Data.Repositories\BackUpSystem.Data.Repositories.csproj" />
     <ProjectReference Include="..\BackUpSystem.Services.Auth\BackUpSystem.Services.Auth.csproj" />
     <ProjectReference Include="..\BackUpSystem.Utils\BackUpSystem.Utilities.csproj" />
   </ItemGroup>

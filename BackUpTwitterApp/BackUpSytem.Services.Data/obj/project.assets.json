@@ -4748,6 +4748,55 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
+      "BackUpSystem.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "AutoMapper": "6.2.2",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.2.0",
+          "BackUpSystem.Data.Models": "1.0.0",
+          "Microsoft.AspNetCore.All": "2.0.7",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.2",
+          "Microsoft.EntityFrameworkCore": "2.0.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.0.2"
+        },
+        "compile": {
+          "bin/placeholder/BackUpSystem.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BackUpSystem.Data.dll": {}
+        }
+      },
+      "BackUpSystem.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "AutoMapper": "6.2.2",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.2.0",
+          "Microsoft.AspNetCore.All": "2.0.7"
+        },
+        "compile": {
+          "bin/placeholder/BackUpSystem.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BackUpSystem.Data.Models.dll": {}
+        }
+      },
+      "BackUpSystem.Data.Repositories/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "BackUpSystem.Data": "1.0.0",
+          "BackUpSystem.Data.Models": "1.0.0",
+          "Bytes2you.Validation": "2.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BackUpSystem.Data.Repositories.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BackUpSystem.Data.Repositories.dll": {}
+        }
+      },
       "BackUpSystem.DTO/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
@@ -12591,6 +12640,21 @@
         "windowsazure.storage.nuspec"
       ]
     },
+    "BackUpSystem.Data/1.0.0": {
+      "type": "project",
+      "path": "../BackUpSystem.Data/BackUpSystem.Data.csproj",
+      "msbuildProject": "../BackUpSystem.Data/BackUpSystem.Data.csproj"
+    },
+    "BackUpSystem.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../BackUpSystem.Data.Models/BackUpSystem.Data.Models.csproj",
+      "msbuildProject": "../BackUpSystem.Data.Models/BackUpSystem.Data.Models.csproj"
+    },
+    "BackUpSystem.Data.Repositories/1.0.0": {
+      "type": "project",
+      "path": "../BackUpSystem.Data.Repositories/BackUpSystem.Data.Repositories.csproj",
+      "msbuildProject": "../BackUpSystem.Data.Repositories/BackUpSystem.Data.Repositories.csproj"
+    },
     "BackUpSystem.DTO/1.0.0": {
       "type": "project",
       "path": "../BackUpSystem.DTO/BackUpSystem.DTO.csproj",
@@ -12611,6 +12675,7 @@
     ".NETCoreApp,Version=v2.0": [
       "AutoMapper >= 6.2.2",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 3.2.0",
+      "BackUpSystem.Data.Repositories >= 1.0.0",
       "BackUpSystem.Services.Auth >= 1.0.0",
       "BackUpSystem.Utilities >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.7",
@@ -12647,6 +12712,9 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
+            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Repositories\\BackUpSystem.Data.Repositories.csproj": {
+              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Repositories\\BackUpSystem.Data.Repositories.csproj"
+            },
             "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj": {
               "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.Auth\\BackUpSystem.Services.Auth.csproj"
             },

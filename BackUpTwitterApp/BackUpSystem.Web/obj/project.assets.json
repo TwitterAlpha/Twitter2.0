@@ -5064,6 +5064,21 @@
           "bin/placeholder/BackUpSystem.Data.Models.dll": {}
         }
       },
+      "BackUpSystem.Data.Repositories/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "BackUpSystem.Data": "1.0.0",
+          "BackUpSystem.Data.Models": "1.0.0",
+          "Bytes2you.Validation": "2.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BackUpSystem.Data.Repositories.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BackUpSystem.Data.Repositories.dll": {}
+        }
+      },
       "BackUpSystem.DTO/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
@@ -5117,6 +5132,7 @@
         "dependencies": {
           "AutoMapper": "6.2.2",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.2.0",
+          "BackUpSystem.Data.Repositories": "1.0.0",
           "BackUpSystem.Services.Auth": "1.0.0",
           "BackUpSystem.Utilities": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.7"
@@ -13238,6 +13254,11 @@
       "type": "project",
       "path": "../BackUpSystem.Data.Models/BackUpSystem.Data.Models.csproj",
       "msbuildProject": "../BackUpSystem.Data.Models/BackUpSystem.Data.Models.csproj"
+    },
+    "BackUpSystem.Data.Repositories/1.0.0": {
+      "type": "project",
+      "path": "../BackUpSystem.Data.Repositories/BackUpSystem.Data.Repositories.csproj",
+      "msbuildProject": "../BackUpSystem.Data.Repositories/BackUpSystem.Data.Repositories.csproj"
     },
     "BackUpSystem.DTO/1.0.0": {
       "type": "project",

@@ -4054,6 +4054,7 @@
       },
       "BackUpSystem.Data/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "BackUpSystem.Data.Models": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.7",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.0.2",
@@ -4069,6 +4070,7 @@
       },
       "BackUpSystem.Data.Models/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "Microsoft.AspNetCore.All": "2.0.7"
         },
         "runtime": {
@@ -4080,6 +4082,7 @@
       },
       "BackUpSystem.DTO/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "Microsoft.AspNetCore.All": "2.0.7"
         },
         "runtime": {
@@ -4091,6 +4094,7 @@
       },
       "BackUpSystem.Services.Auth/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "BackUpSystem.Utilities": "1.0.0"
         },
         "runtime": {
@@ -4116,6 +4120,7 @@
       },
       "BackUpSytem.Services.Data/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "BackUpSystem.Services.Auth": "1.0.0",
           "BackUpSystem.Utilities": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.7"

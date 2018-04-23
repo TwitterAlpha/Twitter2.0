@@ -17,6 +17,7 @@ using BackUpSystem.Utilities.Contracts;
 using BackUpSytem.Services.Data.Contracts;
 using BackUpSytem.Services.Data;
 using BackUpSystem.Utils;
+using AutoMapper;
 
 namespace BackUpSystem.Web
 {
@@ -99,6 +100,7 @@ namespace BackUpSystem.Web
         private void RegisterInfrastructure(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddAutoMapper(typeof(Startup));
         }
 
         private void RegisterUtilities(IServiceCollection services)

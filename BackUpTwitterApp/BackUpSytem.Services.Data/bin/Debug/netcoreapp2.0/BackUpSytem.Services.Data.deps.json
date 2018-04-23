@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v2.0": {
       "BackUpSytem.Services.Data/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "BackUpSystem.Services.Auth": "1.0.0",
           "BackUpSystem.Utilities": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.7"
@@ -3185,6 +3186,7 @@
       },
       "BackUpSystem.DTO/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "Microsoft.AspNetCore.All": "2.0.7"
         },
         "runtime": {
@@ -3193,6 +3195,7 @@
       },
       "BackUpSystem.Services.Auth/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "BackUpSystem.Utilities": "1.0.0"
         },
         "runtime": {

@@ -42,7 +42,6 @@ C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\Bac
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Web\bin\Debug\netcoreapp2.0\BackUpSystem.DTO.pdb
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Web\obj\Debug\netcoreapp2.0\BackUpSystem.Web.csprojResolveAssemblyReference.cache
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Web\obj\Debug\netcoreapp2.0\BackUpSystem.Web.csproj.CoreCompileInputs.cache
-C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Web\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Web\obj\Debug\netcoreapp2.0\BackUpSystem.Web.AssemblyInfoInputs.cache
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Web\obj\Debug\netcoreapp2.0\BackUpSystem.Web.AssemblyInfo.cs
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Web\obj\Debug\netcoreapp2.0\BackUpSystem.Web.csproj.CopyComplete

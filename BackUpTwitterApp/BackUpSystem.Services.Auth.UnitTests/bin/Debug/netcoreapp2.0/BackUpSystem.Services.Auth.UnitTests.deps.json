@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v2.0": {
       "BackUpSystem.Services.Auth.UnitTests/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "BackUpSystem.Services.Auth": "1.0.0",
           "MSTest.TestAdapter": "1.2.1",
           "MSTest.TestFramework": "1.2.1",
@@ -3573,6 +3574,7 @@
       },
       "BackUpSystem.DTO/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "Microsoft.AspNetCore.All": "2.0.7"
         },
         "runtime": {
@@ -3581,6 +3583,7 @@
       },
       "BackUpSystem.Services.Auth/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "BackUpSystem.Utilities": "1.0.0"
         },
         "runtime": {

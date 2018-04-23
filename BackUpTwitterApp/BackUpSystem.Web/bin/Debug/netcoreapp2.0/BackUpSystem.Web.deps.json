@@ -23,6 +23,7 @@
     ".NETCoreApp,Version=v2.0": {
       "BackUpSystem.Web/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
           "BackUpSystem.Data": "1.0.0",
           "BackUpSystem.Data.Models": "1.0.0",
           "BackUpSystem.Services.Auth": "1.0.0",

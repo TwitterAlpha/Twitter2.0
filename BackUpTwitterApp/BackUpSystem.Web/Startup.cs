@@ -22,7 +22,7 @@ namespace BackUpSystem.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, 
+        public Startup(IConfiguration configuration,
             IHostingEnvironment hostingEnvironment)
         {
             this.Configuration = configuration;
@@ -36,9 +36,24 @@ namespace BackUpSystem.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BackUpSystemDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            this.RegisterData(services);
+            this.RegisterAuthentication(services);
+            this.RegisterServices(services);
+            this.RegisterInfrastructure(services);
+            this.RegisterUtilities(services);
+        }
 
+        private void RegisterData(IServiceCollection services)
+        {
+            services.AddDbContext<BackUpSystemDbContext>(options =>
+            {
+                var connectionString = Configuration.GetConnectionString("DefaultConnection");
+                options.UseSqlServer(connectionString);
+            });
+        }
+
+        private void RegisterAuthentication(IServiceCollection services)
+        {
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<BackUpSystemDbContext>()
                 .AddDefaultTokenProviders();
@@ -49,15 +64,11 @@ namespace BackUpSystem.Web
                 twitterOptions.ConsumerSecret = Environment.GetEnvironmentVariable("ConsumerSecret", EnvironmentVariableTarget.User);
             });
 
-            // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
-
-            services.AddTransient<IOAuthCreationService, OAuthCreationService>();
-
-            services.AddTransient<IStreamReader, StreamReaderWrapper>();
-            services.AddTransient<IJsonObjectDeserializer, JsonDeserializerWrapper>();
-            services.AddTransient<ITwitterService, TwitterService>();
-            services.AddTransient<ITwitterCredentials, TwitterCredentials>();
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Environment.GetEnvironmentVariable("FacebookAppId", EnvironmentVariableTarget.User);
+                facebookOptions.AppSecret = Environment.GetEnvironmentVariable("FacebookAppSecret", EnvironmentVariableTarget.User);
+            });
 
             if (this.HostingEnvironment.IsDevelopment())
             {
@@ -76,8 +87,26 @@ namespace BackUpSystem.Web
                     options.Lockout.MaxFailedAccessAttempts = 999;
                 });
             }
+        }
 
+        private void RegisterServices(IServiceCollection services)
+        {
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<ITwitterService, TwitterService>();
+            services.AddTransient<ITwitterCredentials, TwitterCredentials>();
+        }
+
+        private void RegisterInfrastructure(IServiceCollection services)
+        {
             services.AddMvc();
+        }
+
+        private void RegisterUtilities(IServiceCollection services)
+        {
+            services.AddTransient<IOAuthCreationService, OAuthCreationService>();
+            services.AddTransient<IJsonObjectDeserializer, JsonDeserializerWrapper>();
+            services.AddTransient<IDateTimeProvider, DateTimeWrapper>();
+            services.AddTransient<IStreamReader, StreamReaderWrapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

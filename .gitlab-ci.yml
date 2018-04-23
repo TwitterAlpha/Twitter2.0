@@ -2,7 +2,6 @@ image : microsoft/dotnet:latest
 stages:
   - build
   - test
-  - deploy
 before_script:
   - 'dotnet restore BackUpTwitterApp'
 build:
@@ -13,7 +12,3 @@ test:
  stage: test 
  script:
   - 'dotnet test BackUpTwitterApp/BackUpSystem.Services.Auth.UnitTests'
-deploy:
- stage: deploy
- only:
-  - master

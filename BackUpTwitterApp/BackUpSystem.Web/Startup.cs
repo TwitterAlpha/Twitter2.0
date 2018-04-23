@@ -38,8 +38,8 @@ namespace BackUpSystem.Web
         public void ConfigureServices(IServiceCollection services)
         {
             this.RegisterData(services);
-            this.RegisterAuthentication(services);
             this.RegisterServices(services);
+            this.RegisterAuthentication(services);
             this.RegisterInfrastructure(services);
             this.RegisterUtilities(services);
         }
@@ -53,22 +53,34 @@ namespace BackUpSystem.Web
             });
         }
 
+        private void RegisterServices(IServiceCollection services)
+        {
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<ITwitterService, TwitterService>();
+            services.AddSingleton<ITwitterCredentials, TwitterCredentials>();
+            services.AddSingleton<IFacebookCredentials, FacebookCredentials>();
+        }
+
         private void RegisterAuthentication(IServiceCollection services)
         {
+            var serviceProvider = services.BuildServiceProvider();
+            var twitterCredentials = serviceProvider.GetService<ITwitterCredentials>();
+            var facebookCredentials = serviceProvider.GetService<IFacebookCredentials>();
+
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<BackUpSystemDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddAuthentication().AddTwitter(twitterOptions =>
             {
-                twitterOptions.ConsumerKey = Environment.GetEnvironmentVariable("ConsumerKey", EnvironmentVariableTarget.User);
-                twitterOptions.ConsumerSecret = Environment.GetEnvironmentVariable("ConsumerSecret", EnvironmentVariableTarget.User);
+                twitterOptions.ConsumerKey = twitterCredentials.ConsumerKey;
+                twitterOptions.ConsumerSecret = twitterCredentials.ConsumerSecret;
             });
 
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
-                facebookOptions.AppId = Environment.GetEnvironmentVariable("FacebookAppId", EnvironmentVariableTarget.User);
-                facebookOptions.AppSecret = Environment.GetEnvironmentVariable("FacebookAppSecret", EnvironmentVariableTarget.User);
+                facebookOptions.AppId = facebookCredentials.AppId;
+                facebookOptions.AppSecret = facebookCredentials.AppSecret;
             });
 
             if (this.HostingEnvironment.IsDevelopment())
@@ -88,13 +100,6 @@ namespace BackUpSystem.Web
                     options.Lockout.MaxFailedAccessAttempts = 999;
                 });
             }
-        }
-
-        private void RegisterServices(IServiceCollection services)
-        {
-            services.AddTransient<IEmailSender, EmailSender>();
-            services.AddTransient<ITwitterService, TwitterService>();
-            services.AddTransient<ITwitterCredentials, TwitterCredentials>();
         }
 
         private void RegisterInfrastructure(IServiceCollection services)

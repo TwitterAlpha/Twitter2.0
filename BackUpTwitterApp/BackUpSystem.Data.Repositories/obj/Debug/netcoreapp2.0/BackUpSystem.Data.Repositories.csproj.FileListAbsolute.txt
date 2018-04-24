@@ -1,0 +1,14 @@
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.deps.json
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\bin\Debug\netcoreapp2.0\BackUpSystem.Data.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\bin\Debug\netcoreapp2.0\BackUpSystem.Data.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.csprojResolveAssemblyReference.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.AssemblyInfoInputs.cache
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.AssemblyInfo.cs
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.csproj.CopyComplete
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Data.Repositories\obj\Debug\netcoreapp2.0\BackUpSystem.Data.Repositories.pdb

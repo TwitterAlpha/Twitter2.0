@@ -17,7 +17,11 @@ namespace BackUpSystem.Data
 
         //public DbSet<User> Users { get; set; }
         public DbSet<Tweet> Tweets { get; set; }
+        public DbSet<Hashtag> Hashtags { get; set; }
+        public DbSet<TweetHashtag> TweetHashtags { get; set; }
         public DbSet<TwitterAccount> TwitterAccounts { get; set; }
+        public DbSet<UserTweet> UserTweets { get; set; }
+        public DbSet<UserTwitterAccount> UserTwitterAccounts { get; set; }
 
         public override int SaveChanges()
         {

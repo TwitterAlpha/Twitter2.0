@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BackUpSystem.Data.Models\BackUpSystem.Data.Models.csproj" />
     <ProjectReference Include="..\BackUpSystem.DTO\BackUpSystem.DTO.csproj" />
   </ItemGroup>
 

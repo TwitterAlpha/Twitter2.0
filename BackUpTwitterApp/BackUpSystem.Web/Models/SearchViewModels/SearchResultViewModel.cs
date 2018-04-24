@@ -8,6 +8,6 @@ namespace BackUpSystem.Web.Models.SearchViewModels
 {
     public class SearchResultViewModel
     {
-        public ICollection<TwitterAccountDto> SearchResult { get; set; }
+        public ICollection<TwitterAccountApiDto> SearchResult { get; set; }
     }
 }

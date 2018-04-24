@@ -1,0 +1,59 @@
+﻿using BackUpSystem.Data.Models;
+using BackUpSystem.Date.Repositories.Contracts;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace BackUpSystem.Data.Repositories.Contracts
+{
+    /// <summary>
+    /// Represent a <see cref="IUserRepository"/> interface. Heir of <see cref="IRepository{User}"/>
+    /// </summary>
+    public interface IUserRepository : IRepository<User>
+    {
+        // <summary>
+        /// Finds a user given username.
+        /// </summary>
+        /// <param name="username">Username of the user.</param>
+        /// <returns>The user with the provided username if exist. Otherwise <see cref="null"/>.</returns>
+        Task<User> GetUserByUsername(string username);
+
+        /// <summary>
+        /// Provide collection of following Twitter Accounts.
+        /// </summary>
+        /// <param name="id">User's Id</param>
+        /// <returns>A collection of all Twitter Account followed by the user.</returns>
+        Task<IEnumerable<TwitterAccount>> GetAllFavoriteTwitterAccounts(string id);
+
+        /// <summary>
+        /// Provide collection of downloaded tweets.
+        /// </summary>
+        /// <param name="id">User's Id</param>
+        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        Task<IEnumerable<Tweet>> GetAllDownloadedTweets(string id);
+
+        /// <summary>
+        /// Updates user's Name;
+        /// </summary>
+        /// <param name="id">User's Id</param>
+        /// <param name="name">User's name</param>
+        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        void UpdateName(string id, string name);
+
+        /// <summary>
+        /// Updates user's Birth date;
+        /// </summary>
+        /// <param name="id">User's Id</param>
+        /// <param name="birthDate">User's Birth date</param>
+        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        void UpdateBirthDate(string id, DateTime? birthDate);
+
+        /// <summary>
+        /// Updates user's Image url;
+        /// </summary>
+        /// <param name="id">User's Id</param>
+        /// <param name="imageUrl">User's Image url</param>
+        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        void UpdateImageUrl(string id, string imageUrl);
+    }
+}

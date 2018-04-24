@@ -38,7 +38,7 @@ namespace BackUpSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hashtag");
+                    b.ToTable("Hashtags");
                 });
 
             modelBuilder.Entity("BackUpSystem.Data.Models.Tweet", b =>
@@ -89,7 +89,7 @@ namespace BackUpSystem.Data.Migrations
 
                     b.HasIndex("HashtagId");
 
-                    b.ToTable("TweetHashtag");
+                    b.ToTable("TweetHashtags");
                 });
 
             modelBuilder.Entity("BackUpSystem.Data.Models.TwitterAccount", b =>
@@ -225,7 +225,7 @@ namespace BackUpSystem.Data.Migrations
 
                     b.HasIndex("TweetId");
 
-                    b.ToTable("UserTweet");
+                    b.ToTable("UserTweets");
                 });
 
             modelBuilder.Entity("BackUpSystem.Data.Models.UserTwitterAccount", b =>
@@ -238,7 +238,7 @@ namespace BackUpSystem.Data.Migrations
 
                     b.HasIndex("TwitterAccountId");
 
-                    b.ToTable("UserTwitterAccount");
+                    b.ToTable("UserTwitterAccounts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

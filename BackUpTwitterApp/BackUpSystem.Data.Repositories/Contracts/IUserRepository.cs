@@ -21,13 +21,13 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// </summary>
         /// <param name="id">User's Id</param>
         /// <returns>A collection of all Twitter Account followed by the user.</returns>
-        IEnumerable<UserTwitterAccount> GetAllFavoriteTwitterAccounts(string id);
+        IEnumerable<TwitterAccount> GetAllFavoriteTwitterAccounts(string id);
 
         /// <summary>
         /// Provide collection of downloaded tweets.
         /// </summary>
         /// <param name="id">User's Id</param>
         /// <returns>A collection of all downloaded tweets by the user.</returns>
-        IEnumerable<UserTweet> GetAllDownloadedTweets(string id);
+        IEnumerable<Tweet> GetAllDownloadedTweets(string id);
     }
 }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "c721f314c820fb2a4c29335d8e2dc86acfdef6cd"
+    "signature": "4de5f5c798f36706e61fa930368188e6b20b74ca"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,7 +9,8 @@
       "BackUpSystem.Data.Repositories/1.0.0": {
         "dependencies": {
           "BackUpSystem.Data": "1.0.0",
-          "BackUpSystem.Data.Models": "1.0.0"
+          "BackUpSystem.Data.Models": "1.0.0",
+          "Bytes2you.Validation": "2.0.0"
         },
         "runtime": {
           "BackUpSystem.Data.Repositories.dll": {}
@@ -40,6 +41,11 @@
         },
         "runtime": {
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
+      "Bytes2you.Validation/2.0.0": {
+        "runtime": {
+          "lib/portable-win+net40+sl40+wp+Xbox40/Bytes2you.Validation.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -3269,6 +3275,13 @@
       "sha512": "sha512-528nEpAwniNn8Z6Ae9qTiM/kN4f0BxmWE9mDMEkqKKGxbuElmv6Kj9DVvTXECJkIt6ARerb9+vYbOifNpcwvXQ==",
       "path": "automapper.extensions.microsoft.dependencyinjection/3.2.0",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.3.2.0.nupkg.sha512"
+    },
+    "Bytes2you.Validation/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-j8umClHsejtGmVWS7g0pMuR+Oz7kA3KWfWR5msYlxj9PBdCxsbO97444LfOClPgGI//38OakDaC2YM+F8PH29A==",
+      "path": "bytes2you.validation/2.0.0",
+      "hashPath": "bytes2you.validation.2.0.0.nupkg.sha512"
     },
     "Libuv/1.10.0": {
       "type": "package",

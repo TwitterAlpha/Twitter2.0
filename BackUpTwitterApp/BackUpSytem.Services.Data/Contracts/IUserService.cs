@@ -5,8 +5,10 @@ namespace BackUpSytem.Services.Data.Contracts
 {
     public interface IUserService
     {
-        IEnumerable<UserTwitterAccount> GetAllFavoriteUsers(string id);
+        void AddUser(User user);
 
-        IEnumerable<UserTweet> GetAllDownloadTweetsByUser(string id);
+        IEnumerable<TwitterAccount> GetAllFavoriteUsers(string id);
+
+        IEnumerable<Tweet> GetAllDownloadTweetsByUser(string id);
     }
 }

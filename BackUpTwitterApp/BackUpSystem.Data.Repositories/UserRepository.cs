@@ -19,19 +19,21 @@ namespace BackUpSystem.Data.Repositories
                 .FirstOrDefault(u => u.UserName == username);
         }
 
-        public IEnumerable<UserTwitterAccount> GetAllFavoriteTwitterAccounts(string id)
+        public IEnumerable<TwitterAccount> GetAllFavoriteTwitterAccounts(string id)
         {
             return this.DbContext.Users
                 .Find(id)
                 .TwitterAccounts
+                .Select(t => t.TwitterAccount)
                 .ToList();
         }
 
-        public IEnumerable<UserTweet> GetAllDownloadedTweets(string id)
+        public IEnumerable<Tweet> GetAllDownloadedTweets(string id)
         {
             return this.DbContext.Users
                 .Find(id)
                 .FavoriteTweets
+                .Select(t => t.Tweet)
                 .ToList();
         }
     }

@@ -29,19 +29,22 @@ namespace BackUpSystem.Web.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
         private readonly ITwitterService twitterService;
+        private readonly IUserService userService;
 
         public AccountController(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             IEmailSender emailSender,
             ILogger<AccountController> logger,
-            ITwitterService twitterService)
+            ITwitterService twitterService,
+            IUserService userService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
             this.twitterService = twitterService;
+            this.userService = userService;
         }
 
         [TempData]
@@ -215,7 +218,8 @@ namespace BackUpSystem.Web.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
-
+            this.userService.AddUser(new User());
+            var test = this.userService.GetAllFavoriteUsers("5555");
             //    var watch = new Stopwatch();
             //    watch.Start();
             //    var result = await twitterService.SearchUsersByScreenName

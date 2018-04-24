@@ -18,6 +18,9 @@ using BackUpSytem.Services.Data.Contracts;
 using BackUpSytem.Services.Data;
 using BackUpSystem.Utils;
 using AutoMapper;
+using BackUpSystem.Date.Repositories.Contracts;
+using BackUpSystem.Data.Repositories.Contracts;
+using BackUpSystem.Data.Repositories;
 
 namespace BackUpSystem.Web
 {
@@ -56,6 +59,10 @@ namespace BackUpSystem.Web
         private void RegisterServices(IServiceCollection services)
         {
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IUserService, UserService>();
+
             services.AddTransient<ITwitterService, TwitterService>();
             services.AddSingleton<ITwitterCredentials, TwitterCredentials>();
             services.AddSingleton<IFacebookCredentials, FacebookCredentials>();

@@ -1,5 +1,6 @@
 ﻿using BlogSystem.Data.Models.Abstracts;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BackUpSystem.Date.Repositories.Contracts
 {
@@ -11,19 +12,19 @@ namespace BackUpSystem.Date.Repositories.Contracts
         /// </summary>
         /// <param name="id">Id of the entity.</param>
         /// <returns>The entity with the provided id if exist. Otherwise <see cref="null"/>.</returns>
-        TEntity Get(string id);
+        Task<TEntity> Get(string id);
 
         /// <summary>
         /// Provide all the entities.
         /// </summary>
         /// <returns>All the entities</returns>
-        IEnumerable<TEntity> GetAll();
+        Task<IEnumerable<TEntity>> GetAll();
 
         /// <summary>
         /// Provide all the entities including all the deleted ones.
         /// </summary>
         /// <returns>All the entities including all the deleted ones</returns>
-        IEnumerable<TEntity> GetAllAndDeleted();
+        Task<IEnumerable<TEntity>> GetAllAndDeleted();
 
         /// <summary>
         /// Adds a given entity to the context.

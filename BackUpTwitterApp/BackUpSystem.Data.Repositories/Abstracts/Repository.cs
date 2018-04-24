@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BackUpSystem.Date.Repositories.Abstractions
 {
@@ -42,9 +43,9 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         /// </summary>
         /// <param name="id">Id of the entity.</param>
         /// <returns>The entity with the provided id if exist. Otherwise <see cref="null"/>.</returns>
-        public TEntity Get(string id)
+        public async Task<TEntity> Get(string id)
         {
-            var result = this.dbContext.Set<TEntity>().Find(id);
+            var result = await this.dbContext.Set<TEntity>().FindAsync(id);
 
             if (result.IsDeleted)
             {
@@ -58,27 +59,27 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         /// Provide all the entities.
         /// </summary>
         /// <returns>All the entities</returns>
-        public IEnumerable<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAll()
         {
-            return this.dbContext.Set<TEntity>().Where(x => !x.IsDeleted).ToList();
+            return await this.dbContext.Set<TEntity>().Where(x => !x.IsDeleted).ToListAsync();
         }
 
         /// <summary>
         /// Provide all the entities including the deleted ones.
         /// </summary>
         /// <returns>All the entities including the deleted ones</returns>
-        public IEnumerable<TEntity> GetAllAndDeleted()
+        public async Task<IEnumerable<TEntity>> GetAllAndDeleted()
         {
-            return this.dbContext.Set<TEntity>().ToList();
+            return await this.dbContext.Set<TEntity>().ToListAsync();
         }
 
         /// <summary>
         /// Adds a given entity to the context.
         /// </summary>
         /// <param name="entity">Entity to be added.</param>
-        public void Add(TEntity entity)
+        public async void Add(TEntity entity)
         {
-            this.dbContext.Set<TEntity>().Add(entity);
+            await this.dbContext.Set<TEntity>().AddAsync(entity);
         }
 
         /// <summary>

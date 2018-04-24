@@ -6,6 +6,7 @@ using Bytes2you.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BackUpSytem.Services.Data
 {
@@ -26,11 +27,11 @@ namespace BackUpSytem.Services.Data
             this.mapper = mapper;
         }
 
-        public UserDto GetUserById(string id)
+        public async Task<UserDto> GetUserById(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
-            var user = this.userRepository.Get(id);
+            var user = await this.userRepository.Get(id);
             Guard.WhenArgument(user, "User").IsNull().Throw();
 
             var userDto = mapper.MapTo<UserDto>(user);
@@ -39,11 +40,11 @@ namespace BackUpSytem.Services.Data
             return userDto;
         }
 
-        public IEnumerable<TwitterAccountDto> GetAllFavoriteUsers(string id)
+        public async Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteUsers(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
-            var twitterAccounts = this.userRepository.GetAllFavoriteTwitterAccounts(id);
+            var twitterAccounts = await this.userRepository.GetAllFavoriteTwitterAccounts(id);
             Guard.WhenArgument(twitterAccounts, "Twitter Accounts").IsNull().Throw();
 
             var twitterAccountsDto = this.mapper.ProjectTo<TwitterAccountDto>(twitterAccounts);
@@ -52,11 +53,11 @@ namespace BackUpSytem.Services.Data
             return twitterAccountsDto.OrderBy(t => t.Name);
         }
 
-        public IEnumerable<TweetDto> GetAllDownloadTweetsByUser(string id)
+        public async Task<IEnumerable<TweetDto>> GetAllDownloadTweetsByUser(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
-            var downloadedTweets = this.userRepository.GetAllDownloadedTweets(id);
+            var downloadedTweets = await this.userRepository.GetAllDownloadedTweets(id);
             Guard.WhenArgument(downloadedTweets, "Downloaded Tweets").IsNull().Throw();
 
             var downloadedTweetsDto = this.mapper.ProjectTo<TweetDto>(downloadedTweets);
@@ -92,11 +93,11 @@ namespace BackUpSytem.Services.Data
             this.unitOfWork.SaveChanges();
         }
 
-        public void DeleteUser(string id)
+        public async void DeleteUser(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
-            var user = this.userRepository.Get(id);
+            var user = await this.userRepository.Get(id);
             Guard.WhenArgument(user, "User").IsNull().Throw();
 
             if (!user.IsDeleted)

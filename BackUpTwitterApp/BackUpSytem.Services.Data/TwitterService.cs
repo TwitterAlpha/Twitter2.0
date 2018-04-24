@@ -17,13 +17,13 @@ namespace BackUpSytem.Services.Data
 
         public TwitterService(
             IOAuthCreationService apiService, 
-            IJsonObjectDeserializer jsonDesirealizerWrapper)
+            IJsonObjectDeserializer jsonDeserealizerWrapper)
         {
             Guard.WhenArgument(apiService, "OAuthCreationService").IsNull().Throw();
-            Guard.WhenArgument(jsonDesirealizerWrapper, "JsonUserDeserializer").IsNull().Throw();
+            Guard.WhenArgument(jsonDeserealizerWrapper, "JsonUserDeserializer").IsNull().Throw();
 
             this.apiService = apiService;
-            this.jsonDeserializerWrapper = jsonDesirealizerWrapper;
+            this.jsonDeserializerWrapper = jsonDeserealizerWrapper;
         }
 
         public async Task<TwitterAccountApiDto> GetUserById(string id)

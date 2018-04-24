@@ -218,9 +218,10 @@ namespace BackUpSystem.Web.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
+            this.twitterService.GetTimeline("822215679726100480,789311182398033920,736267842681602048,155659213");
             //this.userService.AddUser(new UserDto() {UserName = "Ceco", Email= "ceco@abv.bg", Id = "1234234" });
-            var test = this.userService.GetAllFavoriteUsers("444");
-            var testk = this.userService.GetAllDownloadTweetsByUser("444");
+            //var test = this.userService.GetAllFavoriteUsers("444");
+            //var testk = this.userService.GetAllDownloadTweetsByUser("444");
             //    var watch = new Stopwatch();
             //    watch.Start();
             //    var result = await twitterService.SearchUsersByScreenName

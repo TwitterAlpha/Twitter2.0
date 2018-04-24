@@ -15,7 +15,9 @@ namespace BackUpSystem.DTO.ApiDtos
         public string Text { get; set; }
 
         [JsonProperty("user")]
-        public TwitterAccountApiDto TweetAuthor { get; set; }
+        public string TweetAuthor { get; set; }
+
+        public string AuthorImage { get; set; }
 
         [JsonProperty("favorite_count")]
         public int LikesCount { get; set; }

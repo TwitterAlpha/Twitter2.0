@@ -218,8 +218,9 @@ namespace BackUpSystem.Web.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
-            this.userService.AddUser(new User());
-            var test = this.userService.GetAllFavoriteUsers("5555");
+            //this.userService.AddUser(new UserDto() {UserName = "Ceco", Email= "ceco@abv.bg", Id = "1234234" });
+            var test = this.userService.GetAllFavoriteUsers("444");
+            var testk = this.userService.GetAllDownloadTweetsByUser("444");
             //    var watch = new Stopwatch();
             //    watch.Start();
             //    var result = await twitterService.SearchUsersByScreenName

@@ -4748,6 +4748,21 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
+      "BackUpSystem.Data.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "AutoMapper": "6.2.2",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.2.0",
+          "Microsoft.AspNetCore.All": "2.0.7"
+        },
+        "compile": {
+          "bin/placeholder/BackUpSystem.Data.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BackUpSystem.Data.Models.dll": {}
+        }
+      },
       "BackUpSystem.DTO/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
@@ -12559,6 +12574,11 @@
         "windowsazure.storage.nuspec"
       ]
     },
+    "BackUpSystem.Data.Models/1.0.0": {
+      "type": "project",
+      "path": "../BackUpSystem.Data.Models/BackUpSystem.Data.Models.csproj",
+      "msbuildProject": "../BackUpSystem.Data.Models/BackUpSystem.Data.Models.csproj"
+    },
     "BackUpSystem.DTO/1.0.0": {
       "type": "project",
       "path": "../BackUpSystem.DTO/BackUpSystem.DTO.csproj",
@@ -12570,6 +12590,7 @@
       "AutoMapper >= 6.2.2",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 3.2.0",
       "BackUpSystem.DTO >= 1.0.0",
+      "BackUpSystem.Data.Models >= 1.0.0",
       "Bytes2you.Validation >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Newtonsoft.Json >= 11.0.2"
@@ -12605,6 +12626,9 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
+            "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj": {
+              "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Data.Models\\BackUpSystem.Data.Models.csproj"
+            },
             "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.DTO\\BackUpSystem.DTO.csproj": {
               "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.DTO\\BackUpSystem.DTO.csproj"
             }

@@ -61,6 +61,7 @@ namespace BackUpSystem.Web
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IUserService, UserService>();
 
             services.AddTransient<ITwitterService, TwitterService>();
@@ -112,7 +113,7 @@ namespace BackUpSystem.Web
         private void RegisterInfrastructure(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper();
         }
 
         private void RegisterUtilities(IServiceCollection services)
@@ -120,6 +121,7 @@ namespace BackUpSystem.Web
             services.AddTransient<IOAuthCreationService, OAuthCreationService>();
             services.AddTransient<IJsonObjectDeserializer, JsonDeserializerWrapper>();
             services.AddTransient<IDateTimeProvider, DateTimeWrapper>();
+            services.AddScoped<IMappingProvider, AutoMapperWrapper>();
             services.AddTransient<IStreamReader, StreamReaderWrapper>();
         }
 

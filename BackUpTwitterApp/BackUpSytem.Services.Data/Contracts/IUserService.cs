@@ -1,14 +1,17 @@
 ﻿using BackUpSystem.Data.Models;
+using BackUpSystem.DTO;
 using System.Collections.Generic;
 
 namespace BackUpSytem.Services.Data.Contracts
 {
     public interface IUserService
     {
-        void AddUser(User user);
+        UserDto GetUserById(string id);
 
-        IEnumerable<TwitterAccount> GetAllFavoriteUsers(string id);
+        void AddUser(UserDto user);
 
-        IEnumerable<Tweet> GetAllDownloadTweetsByUser(string id);
+        IEnumerable<TwitterAccountDto> GetAllFavoriteUsers(string id);
+
+        IEnumerable<TweetDto> GetAllDownloadTweetsByUser(string id);
     }
 }

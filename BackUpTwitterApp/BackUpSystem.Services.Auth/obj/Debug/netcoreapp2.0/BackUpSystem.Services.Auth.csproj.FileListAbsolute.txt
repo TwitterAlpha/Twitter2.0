@@ -26,3 +26,5 @@ C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\Bac
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.csproj.CopyComplete
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.dll
 C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth\obj\Debug\netcoreapp2.0\BackUpSystem.Services.Auth.pdb
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.dll
+C:\Users\alekhristov\Desktop\Final Project\BackUpTwitterApp\BackUpTwitterApp\BackUpSystem.Services.Auth\bin\Debug\netcoreapp2.0\BackUpSystem.Data.Models.pdb

@@ -25,29 +25,29 @@ namespace BackUpSytem.Services.Data
             this.jsonDeserializerWrapper = jsonDesirealizerWrapper;
         }
 
-        public async Task<TwitterAccountDto> GetUserById(string id)
+        public async Task<TwitterAccountApiDto> GetUserById(string id)
         {
             var resourceUrl = "https://api.twitter.com/1.1/users/show.json?user_id=";
             var user = await apiService.GetTwitterApiCallData(resourceUrl + id);
-            var deserializedUser = jsonDeserializerWrapper.Deserialize<TwitterAccountDto>(user);
+            var deserializedUser = jsonDeserializerWrapper.Deserialize<TwitterAccountApiDto>(user);
 
             return deserializedUser;
         }
 
-        public async Task<TwitterAccountDto> GetUserByScreenName(string screenName)
+        public async Task<TwitterAccountApiDto> GetUserByScreenName(string screenName)
         {
             var resourceUrl = "https://api.twitter.com/1.1/users/search.json?q=";
             var user = await apiService.GetTwitterApiCallData(resourceUrl + screenName);
-            var deserializedUser = jsonDeserializerWrapper.Deserialize<TwitterAccountDto>(user);
+            var deserializedUser = jsonDeserializerWrapper.Deserialize<TwitterAccountApiDto>(user);
 
             return deserializedUser;
         }
 
-        public async Task<ICollection<TwitterAccountDto>> SearchUsersByScreenName(string screenName)
+        public async Task<ICollection<TwitterAccountApiDto>> SearchUsersByScreenName(string screenName)
         {
             var resourceUrl = "https://api.twitter.com/1.1/users/search.json?q=";
             var usersFound = await apiService.GetTwitterApiCallData($"{resourceUrl}{screenName}&count=5");
-            var deserializedUser = jsonDeserializerWrapper.Deserialize<ICollection<TwitterAccountDto>>(usersFound);
+            var deserializedUser = jsonDeserializerWrapper.Deserialize<ICollection<TwitterAccountApiDto>>(usersFound);
 
             return deserializedUser;
         }

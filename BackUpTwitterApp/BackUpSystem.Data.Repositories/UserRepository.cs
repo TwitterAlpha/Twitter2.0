@@ -21,18 +21,16 @@ namespace BackUpSystem.Data.Repositories
 
         public IEnumerable<TwitterAccount> GetAllFavoriteTwitterAccounts(string id)
         {
-            return this.DbContext.Users
-                .Find(id)
-                .TwitterAccounts
-                .Select(t => t.TwitterAccount)
+            return this.DbContext.UserTwitterAccounts
+                .Where(u => u.UserId == id)
+                .Select(u => u.TwitterAccount)
                 .ToList();
         }
 
         public IEnumerable<Tweet> GetAllDownloadedTweets(string id)
         {
-            return this.DbContext.Users
-                .Find(id)
-                .FavoriteTweets
+            return this.DbContext.UserTweets
+                .Where(u => u.UserId == id)
                 .Select(t => t.Tweet)
                 .ToList();
         }

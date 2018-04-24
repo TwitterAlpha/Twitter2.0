@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using BackUpSystem.Data.Models;
 using BackUpSystem.Utilities.Contracts;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,13 @@ namespace BackUpSystem.Utils
             return source.ProjectTo<TDestination>();
         }
 
-        public IEnumerable<TDestination> ProjectTo<TDestination>(IEnumerable<object> source)
+        public IEnumerable<TDestination> ProjectTo<TDestination>(IEnumerable<TwitterAccount> source)
+        {
+            return source.AsQueryable().ProjectTo<TDestination>();
+        }
+
+
+        public IEnumerable<TDestination> ProjectTo<TDestination>(IEnumerable<Tweet> source)
         {
             return source.AsQueryable().ProjectTo<TDestination>();
         }

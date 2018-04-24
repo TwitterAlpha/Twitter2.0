@@ -1,5 +1,7 @@
 ﻿using BackUpSystem.Data.Models;
 using BackUpSystem.Data.Repositories.Contracts;
+using BackUpSystem.DTO;
+using BackUpSystem.Utilities.Contracts;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using System.Collections.Generic;
@@ -11,41 +13,61 @@ namespace BackUpSytem.Services.Data
     {
         private readonly IUserRepository repository;
         private readonly IUnitOfWork unitOfWork;
+        private readonly IMappingProvider mapper;
 
-        public UserService(IUserRepository repository, IUnitOfWork unitOfWork)
+        public UserService(IUserRepository repository, IUnitOfWork unitOfWork, IMappingProvider mapper)
         {
             Guard.WhenArgument(repository, "User Repository").IsNull().Throw();
             Guard.WhenArgument(unitOfWork, "Unit of Work").IsNull().Throw();
+            Guard.WhenArgument(mapper, "AutoMapper").IsNull().Throw();
 
             this.repository = repository;
             this.unitOfWork = unitOfWork;
+            this.mapper = mapper;
         }
 
-        public void AddUser(User user)
+        public UserDto GetUserById(string id)
         {
-            var one = new TwitterAccount() { Id = "11", Name = "Pesho", UserName = "peshooo" };
-            var two = new TwitterAccount() { Id = "22", Name = "Sasho", UserName = "sashooo" };
+            var user = this.repository.Get(id);
 
-            var test = new User()
-            { TwitterAccounts = new List<UserTwitterAccount>() { new UserTwitterAccount { TwitterAccount = one }, new UserTwitterAccount { TwitterAccount = two } } };
-            test.Id = "5555";
+            var userDto = mapper.MapTo<UserDto>(user);
+
+            return userDto;
+        }
+
+        public void AddUser(UserDto userDto)
+        {
+            var user = this.mapper.MapTo<User>(userDto);
+
+            var tw1 = new Tweet() { Id = "9999", Text ="aTEst", AuthorId = "444" };
+            var tw2 = new Tweet() { Id = "8888", Text ="TaEstss", AuthorId = "444" };
+            var one = new TwitterAccount() { Id = "777", Name = "Pes", UserName = "pes", WebsiteUrl = "website" };
+            var two = new TwitterAccount() { Id = "66", Name = "Sas", UserName = "sas", WebsiteUrl = "site" };
+
+            var test = new User();
+            test.Id = "444";
+            test.TwitterAccounts = new List<UserTwitterAccount>() { new UserTwitterAccount { TwitterAccount = one }, new UserTwitterAccount { TwitterAccount = two } };
+            test.FavoriteTweets = new List<UserTweet>() { new UserTweet { Tweet = tw1 }, new UserTweet { Tweet = tw2 } };
+
             repository.Add(test);
             unitOfWork.SaveChanges();
 
         }
 
-        public IEnumerable<TwitterAccount> GetAllFavoriteUsers(string id)
+        public IEnumerable<TwitterAccountDto> GetAllFavoriteUsers(string id)
         {
             var twitterAccounts = this.repository.GetAllFavoriteTwitterAccounts(id);
+            var twitterAccountsDto = this.mapper.ProjectTo<TwitterAccountDto>(twitterAccounts);
 
-            return twitterAccounts.OrderBy(t => t.Name);
+            return twitterAccountsDto.OrderBy(t => t.Name);
         }
 
-        public IEnumerable<Tweet> GetAllDownloadTweetsByUser(string id)
+        public IEnumerable<TweetDto> GetAllDownloadTweetsByUser(string id)
         {
             var downloadedTweets = this.repository.GetAllDownloadedTweets(id);
+            var downloadedTweetsDto = this.mapper.ProjectTo<TweetDto>(downloadedTweets);
 
-            return downloadedTweets.OrderByDescending(t => t.CreatedAt);
+            return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt);
         }
     }
 }

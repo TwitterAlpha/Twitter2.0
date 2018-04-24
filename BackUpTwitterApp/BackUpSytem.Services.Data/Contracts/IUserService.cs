@@ -1,5 +1,5 @@
-﻿using BackUpSystem.Data.Models;
-using BackUpSystem.DTO;
+﻿using BackUpSystem.DTO;
+using System;
 using System.Collections.Generic;
 
 namespace BackUpSytem.Services.Data.Contracts
@@ -8,10 +8,16 @@ namespace BackUpSytem.Services.Data.Contracts
     {
         UserDto GetUserById(string id);
 
-        void AddUser(UserDto user);
-
         IEnumerable<TwitterAccountDto> GetAllFavoriteUsers(string id);
 
         IEnumerable<TweetDto> GetAllDownloadTweetsByUser(string id);
+
+        void UpdateName(string id, string name);
+
+        void UpdateBirthDate(string id, DateTime? birthDate);
+
+        void UpdateProfileImage(string id, string imageUrl);
+
+        void DeleteUser(string id);
     }
 }

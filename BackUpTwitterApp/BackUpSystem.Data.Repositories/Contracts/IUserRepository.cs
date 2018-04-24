@@ -1,5 +1,6 @@
 ﻿using BackUpSystem.Data.Models;
 using BackUpSystem.Date.Repositories.Contracts;
+using System;
 using System.Collections.Generic;
 
 namespace BackUpSystem.Data.Repositories.Contracts
@@ -29,5 +30,29 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// <param name="id">User's Id</param>
         /// <returns>A collection of all downloaded tweets by the user.</returns>
         IEnumerable<Tweet> GetAllDownloadedTweets(string id);
+
+        /// <summary>
+        /// Updates user's Name;
+        /// </summary>
+        /// <param name="id">User's Id</param>
+        /// <param name="name">User's name</param>
+        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        void UpdateName(string id, string name);
+
+        /// <summary>
+        /// Updates user's Birth date;
+        /// </summary>
+        /// <param name="id">User's Id</param>
+        /// <param name="birthDate">User's Birth date</param>
+        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        void UpdateBirthDate(string id, DateTime? birthDate);
+
+        /// <summary>
+        /// Updates user's Image url;
+        /// </summary>
+        /// <param name="id">User's Id</param>
+        /// <param name="imageUrl">User's Image url</param>
+        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        void UpdateImageUrl(string id, string imageUrl);
     }
 }

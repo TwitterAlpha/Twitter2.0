@@ -1,9 +1,9 @@
-﻿using BackUpSystem.Data.Models;
-using BackUpSystem.Data.Repositories.Contracts;
+﻿using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSystem.DTO;
 using BackUpSystem.Utilities.Contracts;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,7 +11,7 @@ namespace BackUpSytem.Services.Data
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository repository;
+        private readonly IUserRepository userRepository;
         private readonly IUnitOfWork unitOfWork;
         private readonly IMappingProvider mapper;
 
@@ -21,53 +21,89 @@ namespace BackUpSytem.Services.Data
             Guard.WhenArgument(unitOfWork, "Unit of Work").IsNull().Throw();
             Guard.WhenArgument(mapper, "AutoMapper").IsNull().Throw();
 
-            this.repository = repository;
+            this.userRepository = repository;
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
 
         public UserDto GetUserById(string id)
         {
-            var user = this.repository.Get(id);
+            Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
+
+            var user = this.userRepository.Get(id);
+            Guard.WhenArgument(user, "User").IsNull().Throw();
 
             var userDto = mapper.MapTo<UserDto>(user);
+            Guard.WhenArgument(userDto, "UserDto").IsNull().Throw();
 
             return userDto;
         }
 
-        public void AddUser(UserDto userDto)
-        {
-            var user = this.mapper.MapTo<User>(userDto);
-
-            var tw1 = new Tweet() { Id = "9999", Text ="aTEst", AuthorId = "444" };
-            var tw2 = new Tweet() { Id = "8888", Text ="TaEstss", AuthorId = "444" };
-            var one = new TwitterAccount() { Id = "777", Name = "Pes", UserName = "pes", WebsiteUrl = "website" };
-            var two = new TwitterAccount() { Id = "66", Name = "Sas", UserName = "sas", WebsiteUrl = "site" };
-
-            var test = new User();
-            test.Id = "444";
-            test.TwitterAccounts = new List<UserTwitterAccount>() { new UserTwitterAccount { TwitterAccount = one }, new UserTwitterAccount { TwitterAccount = two } };
-            test.FavoriteTweets = new List<UserTweet>() { new UserTweet { Tweet = tw1 }, new UserTweet { Tweet = tw2 } };
-
-            repository.Add(test);
-            unitOfWork.SaveChanges();
-
-        }
-
         public IEnumerable<TwitterAccountDto> GetAllFavoriteUsers(string id)
         {
-            var twitterAccounts = this.repository.GetAllFavoriteTwitterAccounts(id);
+            Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
+
+            var twitterAccounts = this.userRepository.GetAllFavoriteTwitterAccounts(id);
+            Guard.WhenArgument(twitterAccounts, "Twitter Accounts").IsNull().Throw();
+
             var twitterAccountsDto = this.mapper.ProjectTo<TwitterAccountDto>(twitterAccounts);
+            Guard.WhenArgument(twitterAccountsDto, "Twitter AccountsDto").IsNull().Throw();
 
             return twitterAccountsDto.OrderBy(t => t.Name);
         }
 
         public IEnumerable<TweetDto> GetAllDownloadTweetsByUser(string id)
         {
-            var downloadedTweets = this.repository.GetAllDownloadedTweets(id);
+            Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
+
+            var downloadedTweets = this.userRepository.GetAllDownloadedTweets(id);
+            Guard.WhenArgument(downloadedTweets, "Downloaded Tweets").IsNull().Throw();
+
             var downloadedTweetsDto = this.mapper.ProjectTo<TweetDto>(downloadedTweets);
+            Guard.WhenArgument(downloadedTweetsDto, "Downloaded TweetsDto").IsNull().Throw();
 
             return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt);
+        }
+
+        public void UpdateName(string id, string name)
+        {
+            Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(name, "User Name").IsNullOrEmpty().Throw();
+
+            this.userRepository.UpdateName(id, name);
+            this.unitOfWork.SaveChanges();
+        }
+
+        public void UpdateBirthDate(string id, DateTime? birthDate)
+        {
+            Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(birthDate, "Birth Date").IsNull().Throw();
+
+            this.userRepository.UpdateBirthDate(id, birthDate);
+            this.unitOfWork.SaveChanges();
+        }
+
+        public void UpdateProfileImage(string id, string imageUrl)
+        {
+            Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(imageUrl, "Image Url").IsNullOrEmpty().Throw();
+
+            this.userRepository.UpdateImageUrl(id, imageUrl);
+            this.unitOfWork.SaveChanges();
+        }
+
+        public void DeleteUser(string id)
+        {
+            Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
+
+            var user = this.userRepository.Get(id);
+            Guard.WhenArgument(user, "User").IsNull().Throw();
+
+            if (!user.IsDeleted)
+            {
+                this.userRepository.Delete(user);
+                this.unitOfWork.SaveChanges();
+            }
         }
     }
 }

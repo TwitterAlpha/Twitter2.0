@@ -17,6 +17,7 @@ using BackUpSytem.Services.Data;
 using BackUpSytem.Services.Data.Contracts;
 using BackUpSystem.DTO;
 using System.Diagnostics;
+using BackUpSystem.DTO.ApiDtos;
 
 namespace BackUpSystem.Web.Controllers
 {
@@ -31,6 +32,7 @@ namespace BackUpSystem.Web.Controllers
         private readonly ITwitterService twitterService;
         private readonly IUserService userService;
         private readonly ITwitterAccountService twitterAccountService;
+        private readonly ITweetService tweetService;
 
         public AccountController(
             UserManager<User> userManager,
@@ -39,7 +41,8 @@ namespace BackUpSystem.Web.Controllers
             ILogger<AccountController> logger,
             ITwitterService twitterService,
             IUserService userService,
-            ITwitterAccountService twitterAccountService)
+            ITwitterAccountService twitterAccountService,
+            ITweetService tweetService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -48,6 +51,7 @@ namespace BackUpSystem.Web.Controllers
             this.twitterService = twitterService;
             this.userService = userService;
             this.twitterAccountService = twitterAccountService;
+            this.tweetService = tweetService;
         }
 
         [TempData]
@@ -221,9 +225,13 @@ namespace BackUpSystem.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Register(string returnUrl = null)
         {
-            var twitterAccountApiDto = await this.twitterService.GetUserById("789311182398033920");
-            this.twitterAccountService.AddTwitterAccountToUser(twitterAccountApiDto, "5555");
-            this.twitterAccountService.DeleteTwitterAccountFromUser("555", "822215679726100480");
+            var tweetsTimeline = await this.twitterService.GetUsersTimeline("GrigorDimitrov");
+            var tweetApiDto = tweetsTimeline.FirstOrDefault();
+
+            this.tweetService.DownloadTweet("55555", tweetApiDto);
+           // var twitterAccountApiDto = await this.twitterService.GetUserById("789311182398033920");
+            //this.twitterAccountService.AddTwitterAccountToUser(twitterAccountApiDto, "55");
+            //this.twitterAccountService.DeleteTwitterAccountFromUser("555", "822215679726100480");
             //this.twitterService.GetTimeline("822215679726100480,789311182398033920,736267842681602048,155659213");
             //this.userService.AddUser(new UserDto() {UserName = "Ceco", Email= "ceco@abv.bg", Id = "1234234" });
             //var test = this.userService.GetAllFavoriteUsers("444");

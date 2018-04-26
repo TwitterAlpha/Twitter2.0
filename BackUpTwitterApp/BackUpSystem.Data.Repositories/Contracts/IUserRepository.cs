@@ -35,10 +35,18 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// <summary>
         /// Adds a Twitter Account to User's favorites
         /// </summary>
-        /// <param name="userId">User's Id</param>
-        /// <param name="twitterAccountId">TwitterAccount's Id</param>
-        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        /// <param name="userId">User object/param>
+        /// <param name="twitterAccountId">TwitterAccount object</param>
+        /// <returns>A collection of all downloaded TwitterAccounts by the user.</returns>
         Task<bool> TwitterAccountAddedToUser(User user, TwitterAccount twitterAccount);
+
+        /// <summary>
+        /// Downloads a tweet to User's Downloaded Tweets
+        /// </summary>
+        /// <param name="userId">User object</param>
+        /// <param name="tweet">Tweet object</param>
+        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        Task<bool> TweetDownloaded(User user, Tweet tweet);
 
         /// <summary>
         /// Deletes the user from all other tables;

@@ -27,7 +27,7 @@ namespace BackUpSystem.Data.Repositories
             return await this.DbContext.UserTwitterAccounts
                 .Include(x => x.User)
                 .Include(x => x.TwitterAccount)
-                .Where(u => u.UserId == id)
+                .Where(u => u.UserId == id && !u.IsDeleted)
                 .Select(u => u.TwitterAccount)
                 .ToListAsync();
         }
@@ -37,7 +37,7 @@ namespace BackUpSystem.Data.Repositories
             return await this.DbContext.UserTweets
                 .Include(x => x.Tweet)
                 .Include(x => x.User)
-                .Where(u => u.UserId == id)
+                .Where(u => u.UserId == id && !u.IsDeleted)
                 .Select(t => t.Tweet)
                 .ToListAsync();
         }
@@ -65,7 +65,30 @@ namespace BackUpSystem.Data.Repositories
             }
         }
 
-       public async void DeleteUserFromOtherTables(string userId)
+        public async Task<bool> TweetDownloaded(User user, Tweet tweet)
+        {
+            var checkIfTweetExists = await this.DbContext.UserTweets.FindAsync(user.Id, tweet.Id);
+
+            if (checkIfTweetExists != null)
+            {
+                checkIfTweetExists.IsDeleted = false;
+                return false;
+            }
+            else
+            {
+                var tweetToDownload = new UserTweet()
+                {
+                    UserId = user.Id,
+                    User = user,
+                    TweetId = tweet.Id,
+                    Tweet = tweet
+                };
+                this.DbContext.UserTweets.Add(tweetToDownload);
+                return true;
+            }
+        }
+
+        public async void DeleteUserFromOtherTables(string userId)
         {
             var userTwitterAccount = await this.DbContext.UserTwitterAccounts.FirstOrDefaultAsync(x => x.UserId == userId);
 

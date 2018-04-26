@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BackUpSystem.Data.Models;
 using BackUpSystem.DTO;
+using BackUpSystem.DTO.ApiDtos;
 
 namespace BackUpSystem.Web.Properties
 {
@@ -11,6 +12,7 @@ namespace BackUpSystem.Web.Properties
             this.CreateMap<UserDto, User>(MemberList.Source);
             this.CreateMap<TwitterAccountApiDto, TwitterAccount>(MemberList.Source);
             this.CreateMap<TweetDto, Tweet>(MemberList.Source);
+            this.CreateMap<TweetApiDto, Tweet>(MemberList.Source);
 
             this.CreateMap<User, UserDto>()
                 .ForMember(x => x.FollowedUsersCount, options => options.MapFrom(x => x.TwitterAccounts.Count))

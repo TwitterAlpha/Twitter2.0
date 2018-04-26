@@ -1,5 +1,5 @@
 ﻿using BackUpSystem.DTO;
-using System.Collections.Generic;
+using BackUpSystem.DTO.ApiDtos;
 using System.Threading.Tasks;
 
 namespace BackUpSytem.Services.Data.Contracts
@@ -8,7 +8,7 @@ namespace BackUpSytem.Services.Data.Contracts
     {
         Task<TweetDto> GetTweetById(string id);
 
-        void DownloadTweet(string userId, TweetDto tweet);
+        void DownloadTweet(string userId, TweetApiDto tweet);
 
         void DeleteTweet(string userId, string tweetId);
     }

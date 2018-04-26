@@ -61,9 +61,11 @@ namespace BackUpSystem.Web
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ITwitterAccountRepository, TwitterAccountRepository>();
+            services.AddTransient<ITweetRepository, TweetRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ITwitterAccountService, TwitterAccountService>();
+            services.AddTransient<ITweetService, TweetService>();
 
             services.AddTransient<ITwitterService, TwitterService>();
             services.AddSingleton<ITwitterCredentials, TwitterCredentials>();

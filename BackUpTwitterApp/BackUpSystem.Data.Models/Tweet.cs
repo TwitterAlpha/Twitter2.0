@@ -20,7 +20,6 @@ namespace BackUpSystem.Data.Models
         [Required]
         public string Text { get; set; }
 
-        [Required]
         public string AuthorId { get; set; }
 
         //Corresponds to favorite_count in the Twitter API

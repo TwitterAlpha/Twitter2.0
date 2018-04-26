@@ -1,6 +1,7 @@
 ﻿using BackUpSystem.Data.Models;
 using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSystem.DTO;
+using BackUpSystem.DTO.ApiDtos;
 using BackUpSystem.Utilities.Contracts;
 using BackUpSytem.Services.Data.Abstracts;
 using BackUpSytem.Services.Data.Contracts;
@@ -40,14 +41,42 @@ namespace BackUpSytem.Services.Data
             return tweetDto;
         }
 
-        public void DownloadTweet(string userId, TweetDto tweet)
+        public async void DownloadTweet(string userId, TweetApiDto tweetDto)
         {
-            throw new NotImplementedException();
+            Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(tweetDto, "Tweet Dto").IsNull().Throw();
+
+            var tweet = this.MappingProvider.MapTo<Tweet>(tweetDto);
+            Guard.WhenArgument(tweet, "Tweet").IsNull().Throw();
+
+            var checkIfTweetExists = this.tweetRepository.Get(tweet.Id);
+
+            if (checkIfTweetExists == null)
+            {
+                this.tweetRepository.Add(tweet);
+                await this.UnitOfWork.SaveChangesAsync();
+            }
+
+            var user = await this.UserRepository.Get(userId);
+            Guard.WhenArgument(user, "User").IsNull().Throw();
+
+            //this.tweetRepository.DownloadTweet(userId, tweet);
+
+            if (await this.UserRepository.TweetDownloaded(user, tweet))
+            {
+                await this.UnitOfWork.SaveChangesAsync();
+            }
         }
 
-        public void DeleteTweet(string userId, string tweetId)
+        public async void DeleteTweet(string userId, string tweetId)
         {
-            throw new NotImplementedException();
+            Guard.WhenArgument(tweetId, "Tweet Id").IsNull().Throw();
+            Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
+
+            if (await this.tweetRepository.UserTweetIsDeleted(userId, tweetId))
+            {
+                await this.UnitOfWork.SaveChangesAsync();
+            }
         }
     }
 }

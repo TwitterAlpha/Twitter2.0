@@ -14,8 +14,10 @@ namespace BackUpSystem.DTO.ApiDtos
         [JsonProperty("text")]
         public string Text { get; set; }
 
-        [JsonProperty("user")]
         public string TweetAuthor { get; set; }
+
+        [JsonProperty("user")]
+        public UserDto User { get; set; }
 
         public string AuthorImage { get; set; }
 

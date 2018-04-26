@@ -68,7 +68,7 @@ namespace BackUpSytem.Services.Data
             foreach (var twitterAccount in deserializedUsers)
             {
                 twitterAccount.CurrentStatus.TweetAuthor = twitterAccount.Name;
-                twitterAccount.CurrentStatus.AuthorImage = twitterAccount.ImageUrl;
+                //twitterAccount.CurrentStatus.AuthorImage = twitterAccount.ImageUrl;
             }
 
             var timeline = deserializedUsers

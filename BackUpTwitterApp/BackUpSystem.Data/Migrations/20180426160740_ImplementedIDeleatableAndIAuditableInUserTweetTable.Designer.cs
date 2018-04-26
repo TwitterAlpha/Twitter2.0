@@ -11,9 +11,10 @@ using System;
 namespace BackUpSystem.Data.Migrations
 {
     [DbContext(typeof(BackUpSystemDbContext))]
-    partial class BackUpSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180426160740_ImplementedIDeleatableAndIAuditableInUserTweetTable")]
+    partial class ImplementedIDeleatableAndIAuditableInUserTweetTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +47,8 @@ namespace BackUpSystem.Data.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AuthorId");
+                    b.Property<string>("AuthorId")
+                        .IsRequired();
 
                     b.Property<DateTime?>("CreatedAt");
 

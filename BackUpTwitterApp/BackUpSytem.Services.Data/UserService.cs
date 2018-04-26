@@ -102,5 +102,15 @@ namespace BackUpSytem.Services.Data
                 this.UnitOfWork.SaveChanges();
             }
         }
+
+        public async Task<int> GetUserRetweets(string userId)
+        {
+            Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
+
+            var user = await this.UserRepository.Get(userId);
+            Guard.WhenArgument(user, "User").IsNull().Throw();
+
+            return user.RetweetsCount;
+        }
     }
 }

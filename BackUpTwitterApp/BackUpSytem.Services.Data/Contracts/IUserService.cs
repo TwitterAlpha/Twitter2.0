@@ -20,5 +20,7 @@ namespace BackUpSytem.Services.Data.Contracts
         void UpdateProfileImage(string id, string imageUrl);
 
         void DeleteUser(string id);
+
+        Task<int> GetUserRetweets(string userId);
     }
 }

@@ -33,6 +33,14 @@ namespace BackUpSystem.Data.Repositories.Contracts
         Task<IEnumerable<Tweet>> GetAllDownloadedTweets(string id);
 
         /// <summary>
+        /// Adds a Twitter Account to User's favorites
+        /// </summary>
+        /// <param name="userId">User's Id</param>
+        /// <param name="twitterAccountId">TwitterAccount's Id</param>
+        /// <returns>A collection of all downloaded tweets by the user.</returns>
+        void AddTwitterAccountToUser(User user, TwitterAccount twitterAccount);
+
+        /// <summary>
         /// Updates user's Name;
         /// </summary>
         /// <param name="id">User's Id</param>
@@ -55,5 +63,9 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// <param name="imageUrl">User's Image url</param>
         /// <returns>A collection of all downloaded tweets by the user.</returns>
         void UpdateImageUrl(string id, string imageUrl);
+
+        //void IncludeFavoriteTwitterAccounts();
+
+        //void IncludeFavoriteTweets();
     }
 }

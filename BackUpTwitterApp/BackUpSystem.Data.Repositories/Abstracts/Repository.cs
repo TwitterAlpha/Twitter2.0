@@ -3,7 +3,6 @@ using BackUpSystem.Date.Repositories.Contracts;
 using BlogSystem.Data.Models.Abstracts;
 using Bytes2you.Validation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +26,7 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class heir.
         /// </summary>
         /// <param name="context">Context that provide connection to the database.</param>
-        protected Repository(BackUpSystemDbContext dbContext)
+        public Repository(BackUpSystemDbContext dbContext)
         {
             Guard.WhenArgument(dbContext, "DbContext").IsNull().Throw();
             this.dbContext = dbContext;
@@ -93,6 +92,6 @@ namespace BackUpSystem.Date.Repositories.Abstractions
 
             var entry = this.dbContext.Entry(entity);
             entry.State = EntityState.Modified;
-        }
+        }            
     }
 }

@@ -25,6 +25,8 @@ namespace BackUpSystem.Data.Repositories
         public async Task<IEnumerable<TwitterAccount>> GetAllFavoriteTwitterAccounts(string id)
         {
             return await this.DbContext.UserTwitterAccounts
+                .Include(x => x.User)
+                .Include(x => x.TwitterAccount)
                 .Where(u => u.UserId == id)
                 .Select(u => u.TwitterAccount)
                 .ToListAsync();
@@ -33,9 +35,32 @@ namespace BackUpSystem.Data.Repositories
         public async Task<IEnumerable<Tweet>> GetAllDownloadedTweets(string id)
         {
             return await this.DbContext.UserTweets
+                .Include(x => x.Tweet)
+                .Include(x => x.User)
                 .Where(u => u.UserId == id)
                 .Select(t => t.Tweet)
                 .ToListAsync();
+        }
+
+        public async void AddTwitterAccountToUser(User user, TwitterAccount twitterAccount)
+        {
+            var checkIfTwitterAccountExists = await this.DbContext.UserTwitterAccounts.FindAsync(user.Id, twitterAccount.Id);
+
+            if (checkIfTwitterAccountExists != null)
+            {
+                checkIfTwitterAccountExists.IsDeleted = false;
+            }
+            else
+            {
+                var userTwitterAccount = new UserTwitterAccount()
+                {
+                    UserId = user.Id,
+                    User = user,
+                    TwitterAccountId = twitterAccount.Id,
+                    TwitterAccount = twitterAccount
+                };
+                this.DbContext.UserTwitterAccounts.Add(userTwitterAccount);
+            }
         }
 
         public async void UpdateName(string id, string name)
@@ -55,5 +80,15 @@ namespace BackUpSystem.Data.Repositories
             var user = await this.DbContext.Users.FindAsync(id);
             user.UserImage = imageUrl;
         }
+
+        //public void IncludeFavoriteTwitterAccounts()
+        //{
+        //    this.DbContext.Users.Include(x => x.TwitterAccounts);
+        //}
+
+        //public void IncludeFavoriteTweets()
+        //{
+        //    this.DbContext.Users.Include(x => x.FavoriteTweets);
+        //}
     }
 }

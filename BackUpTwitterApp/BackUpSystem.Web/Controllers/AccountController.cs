@@ -30,6 +30,7 @@ namespace BackUpSystem.Web.Controllers
         private readonly ILogger _logger;
         private readonly ITwitterService twitterService;
         private readonly IUserService userService;
+        private readonly ITwitterAccountService twitterAccountService;
 
         public AccountController(
             UserManager<User> userManager,
@@ -37,7 +38,8 @@ namespace BackUpSystem.Web.Controllers
             IEmailSender emailSender,
             ILogger<AccountController> logger,
             ITwitterService twitterService,
-            IUserService userService)
+            IUserService userService,
+            ITwitterAccountService twitterAccountService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -45,6 +47,7 @@ namespace BackUpSystem.Web.Controllers
             _logger = logger;
             this.twitterService = twitterService;
             this.userService = userService;
+            this.twitterAccountService = twitterAccountService;
         }
 
         [TempData]
@@ -216,9 +219,11 @@ namespace BackUpSystem.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Register(string returnUrl = null)
+        public async Task<IActionResult> Register(string returnUrl = null)
         {
-            this.twitterService.GetTimeline("822215679726100480,789311182398033920,736267842681602048,155659213");
+            var twitterAccountApiDto = await this.twitterService.GetUserById("822215679726100480");
+            this.twitterAccountService.AddTwitterAccountToUser(twitterAccountApiDto, "5555");
+            //this.twitterService.GetTimeline("822215679726100480,789311182398033920,736267842681602048,155659213");
             //this.userService.AddUser(new UserDto() {UserName = "Ceco", Email= "ceco@abv.bg", Id = "1234234" });
             //var test = this.userService.GetAllFavoriteUsers("444");
             //var testk = this.userService.GetAllDownloadTweetsByUser("444");

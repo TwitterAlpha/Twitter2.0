@@ -2,6 +2,7 @@
 using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSystem.DTO;
 using BackUpSystem.Utilities.Contracts;
+using BackUpSytem.Services.Data.Abstracts;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using System;
@@ -11,31 +12,24 @@ using System.Threading.Tasks;
 
 namespace BackUpSytem.Services.Data
 {
-    public class UserService : IUserService
+    public class UserService : BaseService, IUserService
     {
-        private readonly IUserRepository userRepository;
-        private readonly IUnitOfWork unitOfWork;
-        private readonly IMappingProvider mapper;
-
-        public UserService(IUserRepository userRepository, IUnitOfWork unitOfWork, IMappingProvider mapper)
+        public UserService(
+            IUnitOfWork unitOfWork, 
+            IMappingProvider mappingProvider, 
+            IUserRepository userRepository) 
+            : base(unitOfWork, mappingProvider, userRepository)
         {
-            Guard.WhenArgument(userRepository, "User Repository").IsNull().Throw();
-            Guard.WhenArgument(unitOfWork, "Unit of Work").IsNull().Throw();
-            Guard.WhenArgument(mapper, "AutoMapper").IsNull().Throw();
-
-            this.userRepository = userRepository;
-            this.unitOfWork = unitOfWork;
-            this.mapper = mapper;
         }
 
         public async Task<UserDto> GetUserById(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
-            var user = await this.userRepository.Get(id);
+            var user = await this.UserRepository.Get(id);
             Guard.WhenArgument(user, "User").IsNull().Throw();
 
-            var userDto = mapper.MapTo<UserDto>(user);
+            var userDto = MappingProvider.MapTo<UserDto>(user);
             Guard.WhenArgument(userDto, "UserDto").IsNull().Throw();
 
             return userDto;
@@ -45,10 +39,10 @@ namespace BackUpSytem.Services.Data
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
-            var twitterAccounts = await this.userRepository.GetAllFavoriteTwitterAccounts(id);
+            var twitterAccounts = await this.UserRepository.GetAllFavoriteTwitterAccounts(id);
             Guard.WhenArgument(twitterAccounts, "Twitter Accounts").IsNull().Throw();
 
-            var twitterAccountsDto = this.mapper.ProjectTo<TwitterAccount, TwitterAccountDto>(twitterAccounts);
+            var twitterAccountsDto = this.MappingProvider.ProjectTo<TwitterAccount, TwitterAccountDto>(twitterAccounts);
             Guard.WhenArgument(twitterAccountsDto, "Twitter AccountsDto").IsNull().Throw();
 
             return twitterAccountsDto.OrderBy(t => t.Name);
@@ -58,10 +52,10 @@ namespace BackUpSytem.Services.Data
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
-            var downloadedTweets = await this.userRepository.GetAllDownloadedTweets(id);
+            var downloadedTweets = await this.UserRepository.GetAllDownloadedTweets(id);
             Guard.WhenArgument(downloadedTweets, "Downloaded Tweets").IsNull().Throw();
 
-            var downloadedTweetsDto = this.mapper.ProjectTo<Tweet, TweetDto>(downloadedTweets);
+            var downloadedTweetsDto = this.MappingProvider.ProjectTo<Tweet, TweetDto>(downloadedTweets);
             Guard.WhenArgument(downloadedTweetsDto, "Downloaded TweetsDto").IsNull().Throw();
 
             return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt);
@@ -72,8 +66,8 @@ namespace BackUpSytem.Services.Data
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(name, "User Name").IsNullOrEmpty().Throw();
 
-            this.userRepository.UpdateName(id, name);
-            this.unitOfWork.SaveChanges();
+            this.UserRepository.UpdateName(id, name);
+            this.UnitOfWork.SaveChanges();
         }
 
         public void UpdateBirthDate(string id, DateTime? birthDate)
@@ -81,8 +75,8 @@ namespace BackUpSytem.Services.Data
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(birthDate, "Birth Date").IsNull().Throw();
 
-            this.userRepository.UpdateBirthDate(id, birthDate);
-            this.unitOfWork.SaveChanges();
+            this.UserRepository.UpdateBirthDate(id, birthDate);
+            this.UnitOfWork.SaveChanges();
         }
 
         public void UpdateProfileImage(string id, string imageUrl)
@@ -90,21 +84,21 @@ namespace BackUpSytem.Services.Data
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(imageUrl, "Image Url").IsNullOrEmpty().Throw();
 
-            this.userRepository.UpdateImageUrl(id, imageUrl);
-            this.unitOfWork.SaveChanges();
+            this.UserRepository.UpdateImageUrl(id, imageUrl);
+            this.UnitOfWork.SaveChanges();
         }
 
         public async void DeleteUser(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
-            var user = await this.userRepository.Get(id);
+            var user = await this.UserRepository.Get(id);
             Guard.WhenArgument(user, "User").IsNull().Throw();
 
             if (!user.IsDeleted)
             {
-                this.userRepository.Delete(user);
-                this.unitOfWork.SaveChanges();
+                this.UserRepository.Delete(user);
+                this.UnitOfWork.SaveChanges();
             }
         }
     }

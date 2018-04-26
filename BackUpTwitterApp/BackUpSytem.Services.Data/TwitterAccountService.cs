@@ -57,6 +57,8 @@ namespace BackUpSytem.Services.Data
             var user = await this.UserRepository.Get(userId);
             Guard.WhenArgument(user, "User").IsNull().Throw();
 
+            //this.twitterAccountRepository.AddUserTwitterAccount(userId, twitterAccountToBeAdded);
+
             if (await this.UserRepository.TwitterAccountAddedToUser(user, twitterAccountToBeAdded))
             {
                 await this.UnitOfWork.SaveChangesAsync();

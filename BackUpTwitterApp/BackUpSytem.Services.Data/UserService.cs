@@ -98,6 +98,7 @@ namespace BackUpSytem.Services.Data
             if (!user.IsDeleted)
             {
                 this.UserRepository.Delete(user);
+                this.UserRepository.DeleteUserFromOtherTables(id);
                 this.UnitOfWork.SaveChanges();
             }
         }

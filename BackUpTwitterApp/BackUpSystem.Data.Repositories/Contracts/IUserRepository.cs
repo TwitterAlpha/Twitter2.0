@@ -41,6 +41,12 @@ namespace BackUpSystem.Data.Repositories.Contracts
         Task<bool> TwitterAccountAddedToUser(User user, TwitterAccount twitterAccount);
 
         /// <summary>
+        /// Deletes the user from all other tables;
+        /// </summary>
+        /// <param name="userId">User's Id</param>
+        void DeleteUserFromOtherTables(string userId);
+
+        /// <summary>
         /// Updates user's Name;
         /// </summary>
         /// <param name="id">User's Id</param>

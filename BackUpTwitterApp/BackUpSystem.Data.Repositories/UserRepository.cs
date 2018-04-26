@@ -65,6 +65,31 @@ namespace BackUpSystem.Data.Repositories
             }
         }
 
+       public async void DeleteUserFromOtherTables(string userId)
+        {
+            var userTwitterAccount = await this.DbContext.UserTwitterAccounts.FirstOrDefaultAsync(x => x.UserId == userId);
+
+            if (userTwitterAccount != null)
+            {
+                userTwitterAccount.IsDeleted = true;
+                userTwitterAccount.DeletedOn = DateTime.Now;
+
+                var entry = this.DbContext.Entry(userTwitterAccount);
+                entry.State = EntityState.Modified;
+            }
+
+            var userTweet = await this.DbContext.UserTwitterAccounts.FirstOrDefaultAsync(x => x.UserId == userId);
+
+            if (userTweet != null)
+            {
+                userTweet.IsDeleted = true;
+                userTweet.DeletedOn = DateTime.Now;
+
+                var entry = this.DbContext.Entry(userTweet);
+                entry.State = EntityState.Modified;
+            }
+        }
+
         public async void UpdateName(string id, string name)
         {
             var user = await this.DbContext.Users.FindAsync(id);

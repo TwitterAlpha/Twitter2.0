@@ -42,24 +42,18 @@ namespace BackUpSystem.Data.Repositories
         {
             var user = await this.DbContext.Users.FindAsync(id);
             user.Name = name;
-
-            base.Update(user);
         }
 
         public async void UpdateBirthDate(string id, DateTime? birthDate)
         {
             var user = await this.DbContext.Users.FindAsync(id);
             user.BirthDate = birthDate;
-
-            base.Update(user);
         }
 
         public async void UpdateImageUrl(string id, string imageUrl)
         {
             var user = await this.DbContext.Users.FindAsync(id);
             user.UserImage = imageUrl;
-
-            base.Update(user);
         }
     }
 }

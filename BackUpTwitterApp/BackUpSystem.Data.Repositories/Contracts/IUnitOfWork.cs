@@ -6,7 +6,7 @@ namespace BackUpSystem.Data.Repositories.Contracts
     /// <summary>
     /// Represent a <see cref="IUnitOfWork"/> interface. Heir of <see cref="IDisposable"/>
     /// </summary>
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork
     {
         /// <summary>
         /// Make a transaction to save the changes of the entities tracked by the context.

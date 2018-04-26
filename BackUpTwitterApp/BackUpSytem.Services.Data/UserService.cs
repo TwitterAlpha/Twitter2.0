@@ -1,4 +1,5 @@
-﻿using BackUpSystem.Data.Repositories.Contracts;
+﻿using BackUpSystem.Data.Models;
+using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSystem.DTO;
 using BackUpSystem.Utilities.Contracts;
 using BackUpSytem.Services.Data.Contracts;
@@ -16,13 +17,13 @@ namespace BackUpSytem.Services.Data
         private readonly IUnitOfWork unitOfWork;
         private readonly IMappingProvider mapper;
 
-        public UserService(IUserRepository repository, IUnitOfWork unitOfWork, IMappingProvider mapper)
+        public UserService(IUserRepository userRepository, IUnitOfWork unitOfWork, IMappingProvider mapper)
         {
-            Guard.WhenArgument(repository, "User Repository").IsNull().Throw();
+            Guard.WhenArgument(userRepository, "User Repository").IsNull().Throw();
             Guard.WhenArgument(unitOfWork, "Unit of Work").IsNull().Throw();
             Guard.WhenArgument(mapper, "AutoMapper").IsNull().Throw();
 
-            this.userRepository = repository;
+            this.userRepository = userRepository;
             this.unitOfWork = unitOfWork;
             this.mapper = mapper;
         }
@@ -47,7 +48,7 @@ namespace BackUpSytem.Services.Data
             var twitterAccounts = await this.userRepository.GetAllFavoriteTwitterAccounts(id);
             Guard.WhenArgument(twitterAccounts, "Twitter Accounts").IsNull().Throw();
 
-            var twitterAccountsDto = this.mapper.ProjectTo<TwitterAccountDto>(twitterAccounts);
+            var twitterAccountsDto = this.mapper.ProjectTo<TwitterAccount, TwitterAccountDto>(twitterAccounts);
             Guard.WhenArgument(twitterAccountsDto, "Twitter AccountsDto").IsNull().Throw();
 
             return twitterAccountsDto.OrderBy(t => t.Name);
@@ -60,7 +61,7 @@ namespace BackUpSytem.Services.Data
             var downloadedTweets = await this.userRepository.GetAllDownloadedTweets(id);
             Guard.WhenArgument(downloadedTweets, "Downloaded Tweets").IsNull().Throw();
 
-            var downloadedTweetsDto = this.mapper.ProjectTo<TweetDto>(downloadedTweets);
+            var downloadedTweetsDto = this.mapper.ProjectTo<Tweet, TweetDto>(downloadedTweets);
             Guard.WhenArgument(downloadedTweetsDto, "Downloaded TweetsDto").IsNull().Throw();
 
             return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt);

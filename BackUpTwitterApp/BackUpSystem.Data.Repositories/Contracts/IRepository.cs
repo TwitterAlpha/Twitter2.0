@@ -37,11 +37,5 @@ namespace BackUpSystem.Date.Repositories.Contracts
         /// </summary>
         /// <param name="entity">Entity to be deleted.</param>
         void Delete(TEntity entity);
-
-        /// <summary>
-        /// Updates a given entity to the context.
-        /// </summary>
-        /// <param name="entity">Entity to be updated.</param>
-        void Update(TEntity entity);
     }
 }

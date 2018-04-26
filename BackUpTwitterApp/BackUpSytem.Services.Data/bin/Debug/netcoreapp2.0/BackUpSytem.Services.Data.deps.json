@@ -13,6 +13,7 @@
           "BackUpSystem.Data.Repositories": "1.0.0",
           "BackUpSystem.Services.Auth": "1.0.0",
           "BackUpSystem.Utilities": "1.0.0",
+          "Bytes2you.Validation": "2.0.0",
           "Microsoft.AspNetCore.All": "2.0.7"
         },
         "runtime": {

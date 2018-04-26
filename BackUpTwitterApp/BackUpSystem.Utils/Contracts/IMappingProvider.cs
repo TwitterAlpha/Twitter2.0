@@ -8,10 +8,8 @@ namespace BackUpSystem.Utilities.Contracts
     {
         TDestination MapTo<TDestination>(object source);
 
-        IQueryable<TDestination> ProjectTo<TDestination>(IQueryable<object> source);
+        IQueryable<TDestination> ProjectTo<TSource, TDestination>(IQueryable<TSource> source);
 
-        IEnumerable<TDestination> ProjectTo<TDestination>(IEnumerable<TwitterAccount> source);
-
-        IEnumerable<TDestination> ProjectTo<TDestination>(IEnumerable<Tweet> source);
+        IEnumerable<TDestination> ProjectTo<TSource, TDestination>(IEnumerable<TSource> source);
     }
 }

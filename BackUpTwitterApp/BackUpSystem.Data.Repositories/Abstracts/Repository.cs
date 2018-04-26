@@ -94,20 +94,5 @@ namespace BackUpSystem.Date.Repositories.Abstractions
             var entry = this.dbContext.Entry(entity);
             entry.State = EntityState.Modified;
         }
-
-        /// <summary>
-        /// Marks a given entity as updated.
-        /// </summary>
-        /// <param name="entity">Entity to be modified.</param>
-        public void Update(TEntity entity)
-        {
-            EntityEntry entry = this.dbContext.Entry(entity);
-            if (entry.State == EntityState.Detached)
-            {
-                this.dbContext.Set<TEntity>().Attach(entity);
-            }
-
-            entry.State = EntityState.Modified;
-        }
     }
 }

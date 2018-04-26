@@ -12679,6 +12679,7 @@
       "BackUpSystem.Data.Repositories >= 1.0.0",
       "BackUpSystem.Services.Auth >= 1.0.0",
       "BackUpSystem.Utilities >= 1.0.0",
+      "Bytes2you.Validation >= 2.0.0",
       "Microsoft.AspNetCore.All >= 2.0.7",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
@@ -12741,6 +12742,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[3.2.0, )"
+          },
+          "Bytes2you.Validation": {
+            "target": "Package",
+            "version": "[2.0.0, )"
           },
           "Microsoft.AspNetCore.All": {
             "target": "Package",

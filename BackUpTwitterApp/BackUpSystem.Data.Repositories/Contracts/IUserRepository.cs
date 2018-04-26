@@ -38,7 +38,7 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// <param name="userId">User's Id</param>
         /// <param name="twitterAccountId">TwitterAccount's Id</param>
         /// <returns>A collection of all downloaded tweets by the user.</returns>
-        void AddTwitterAccountToUser(User user, TwitterAccount twitterAccount);
+        Task<bool> TwitterAccountAddedToUser(User user, TwitterAccount twitterAccount);
 
         /// <summary>
         /// Updates user's Name;

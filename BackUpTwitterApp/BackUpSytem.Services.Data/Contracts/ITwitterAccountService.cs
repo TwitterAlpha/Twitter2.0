@@ -9,6 +9,6 @@ namespace BackUpSytem.Services.Data.Contracts
 
         void AddTwitterAccountToUser(TwitterAccountApiDto twitterAccountApiDto, string userId);
 
-        void DeleteTwitterAccountFromUser(string id, string userId);
+        void DeleteTwitterAccountFromUser(string userId, string twitterAccountId);
     }
 }

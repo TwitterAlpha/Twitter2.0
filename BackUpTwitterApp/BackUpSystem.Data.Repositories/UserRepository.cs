@@ -42,13 +42,14 @@ namespace BackUpSystem.Data.Repositories
                 .ToListAsync();
         }
 
-        public async void AddTwitterAccountToUser(User user, TwitterAccount twitterAccount)
+        public async Task<bool> TwitterAccountAddedToUser(User user, TwitterAccount twitterAccount)
         {
             var checkIfTwitterAccountExists = await this.DbContext.UserTwitterAccounts.FindAsync(user.Id, twitterAccount.Id);
 
             if (checkIfTwitterAccountExists != null)
             {
                 checkIfTwitterAccountExists.IsDeleted = false;
+                return false;
             }
             else
             {
@@ -60,6 +61,7 @@ namespace BackUpSystem.Data.Repositories
                     TwitterAccount = twitterAccount
                 };
                 this.DbContext.UserTwitterAccounts.Add(userTwitterAccount);
+                return true;
             }
         }
 

@@ -5,10 +5,6 @@ using BackUpSystem.Utilities.Contracts;
 using BackUpSytem.Services.Data.Abstracts;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BackUpSytem.Services.Data
@@ -39,7 +35,6 @@ namespace BackUpSytem.Services.Data
             Guard.WhenArgument(twitterAccountDto, "TwitterAccount Dto").IsNull().Throw();
 
             return twitterAccountDto;
-
         }
 
         public async void AddTwitterAccountToUser(TwitterAccountApiDto twitterAccountApiDto, string userId)
@@ -62,13 +57,21 @@ namespace BackUpSytem.Services.Data
             var user = await this.UserRepository.Get(userId);
             Guard.WhenArgument(user, "User").IsNull().Throw();
 
-            this.UserRepository.AddTwitterAccountToUser(user, twitterAccountToBeAdded);
-            await this.UnitOfWork.SaveChangesAsync();
+            if (await this.UserRepository.TwitterAccountAddedToUser(user, twitterAccountToBeAdded))
+            {
+                await this.UnitOfWork.SaveChangesAsync();
+            }
         }
 
-        public void DeleteTwitterAccountFromUser(string id, string userId)
+        public async void DeleteTwitterAccountFromUser(string userId, string twitterAccountId)
         {
-            throw new NotImplementedException();
+            Guard.WhenArgument(twitterAccountId, "TwitterAccount Id").IsNull().Throw();
+            Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
+
+            if (await this.twitterAccountRepository.UserTwitterAccountIsDeleted(userId, twitterAccountId))
+            {
+                await this.UnitOfWork.SaveChangesAsync();
+            }
         }
     }
 }

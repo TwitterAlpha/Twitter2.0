@@ -2,7 +2,8 @@
 using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSystem.Date.Repositories.Abstractions;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using System;
+using System.Threading.Tasks;
 
 namespace BackUpSystem.Data.Repositories
 {
@@ -13,9 +14,23 @@ namespace BackUpSystem.Data.Repositories
         {
         }
 
-        public async void AddTwitterAccountToUser(UserTwitterAccount twitterAccount, string userId)
+        public async Task<bool> UserTwitterAccountIsDeleted(string userId, string twitterAccountId)
         {
-            var test = await this.DbContext.Users.Include(x => x).FirstOrDefaultAsync(x => x.Id == userId);
+            var isDeleted = false;
+            var userTwitterAccountToDelete = await this.DbContext.UserTwitterAccounts.FindAsync(userId, twitterAccountId);
+
+            if (userTwitterAccountToDelete != null)
+            {
+                userTwitterAccountToDelete.IsDeleted = true;
+                userTwitterAccountToDelete.DeletedOn = DateTime.UtcNow;
+
+                var entry = this.DbContext.Entry(userTwitterAccountToDelete);
+                entry.State = EntityState.Modified;
+
+                isDeleted = true;
+            }
+
+            return isDeleted;
         }
     }
 }

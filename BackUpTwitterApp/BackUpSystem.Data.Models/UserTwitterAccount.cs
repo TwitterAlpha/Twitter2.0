@@ -4,7 +4,7 @@ using BlogSystem.Data.Models.Abstracts;
 
 namespace BackUpSystem.Data.Models
 {
-    public class UserTwitterAccount : IDeletable
+    public class UserTwitterAccount : IDeletable, IAuditable
     {
         public string UserId { get; set; }
         public User User { get; set; }
@@ -16,5 +16,11 @@ namespace BackUpSystem.Data.Models
 
         [DataType(DataType.DateTime)]
         public DateTime? DeletedOn { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime? CreatedOn { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime? ModifiedOn { get; set; }
     }
 }

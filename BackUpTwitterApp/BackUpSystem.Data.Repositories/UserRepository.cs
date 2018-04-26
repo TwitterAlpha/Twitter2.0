@@ -27,18 +27,20 @@ namespace BackUpSystem.Data.Repositories
             return await this.DbContext.UserTwitterAccounts
                 .Include(x => x.User)
                 .Include(x => x.TwitterAccount)
-                .Where(u => u.UserId == id)
+                .Where(u => u.UserId == id && !u.IsDeleted)
                 .Select(u => u.TwitterAccount)
+                .Where(t => !t.IsDeleted)
                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Tweet>> GetAllDownloadedTweets(string id)
         {
             return await this.DbContext.UserTweets
-                .Include(x => x.Tweet)
                 .Include(x => x.User)
+                .Include(x => x.Tweet)
                 .Where(u => u.UserId == id)
                 .Select(t => t.Tweet)
+                .Where(t => !t.IsDeleted)
                 .ToListAsync();
         }
 

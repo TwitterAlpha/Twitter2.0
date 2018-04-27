@@ -67,7 +67,30 @@ namespace BackUpSystem.Data.Repositories
             }
         }
 
-       public async void DeleteUserFromOtherTables(string userId)
+        public async Task<bool> TweetDownloaded(User user, Tweet tweet)
+        {
+            var checkIfTweetExists = await this.DbContext.UserTweets.FindAsync(user.Id, tweet.Id);
+
+            if (checkIfTweetExists != null)
+            {
+                checkIfTweetExists.IsDeleted = false;
+                return false;
+            }
+            else
+            {
+                var userTweet = new UserTweet()
+                {
+                    UserId = user.Id,
+                    User = user,
+                    TweetId = tweet.Id,
+                    Tweet = tweet
+                };
+                this.DbContext.UserTweets.Add(userTweet);
+                return true;
+            }
+        }
+
+        public async void DeleteUserFromOtherTables(string userId)
         {
             var userTwitterAccount = await this.DbContext.UserTwitterAccounts.FirstOrDefaultAsync(x => x.UserId == userId);
 

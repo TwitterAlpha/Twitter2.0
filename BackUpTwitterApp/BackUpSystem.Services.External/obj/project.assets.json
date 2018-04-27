@@ -12602,24 +12602,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alekhristov\\.nuget\\packages\\": {},
+    "C:\\Users\\nrg\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.External\\BackUpSystem.Services.External.csproj",
+      "projectUniqueName": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Services.External\\BackUpSystem.Services.External.csproj",
       "projectName": "BackUpSystem.Services.External",
-      "projectPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.External\\BackUpSystem.Services.External.csproj",
-      "packagesPath": "C:\\Users\\alekhristov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alekhristov\\Desktop\\Final Project\\BackUpTwitterApp\\BackUpTwitterApp\\BackUpSystem.Services.External\\obj\\",
+      "projectPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Services.External\\BackUpSystem.Services.External.csproj",
+      "packagesPath": "C:\\Users\\nrg\\.nuget\\packages\\",
+      "outputPath": "D:\\TelerikAcademy\\TWITTERappPROJECT\\BackUpTwitterApp\\BackUpSystem.Services.External\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\alekhristov\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\nrg\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 namespace BackUpSystem.Date.Repositories.Abstractions
 {
     /// <summary>
-    /// Represent a <see cref="Repository"/> class implementator of <see cref="IRepository"/> interface.
+    //// Represent a <see cref="Repository"/> class implementator of <see cref="IRepository"/> interface.
     /// </summary>
-    /// <typeparam name="TEntity">Type of entities provided by the instance of the <see cref="Repository"/> class heir.</typeparam>
+    //// <typeparam name="TEntity">Type of entities provided by the instance of the <see cref="Repository"/> class heir.</typeparam>
     public abstract class Repository<TEntity> : IRepository<TEntity>
         where TEntity : class, IDeletable
     {
@@ -23,9 +23,9 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         private readonly BackUpSystemDbContext dbContext;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class heir.
+        //// Initializes a new instance of the <see cref="Repository{TEntity}"/> class heir.
         /// </summary>
-        /// <param name="context">Context that provide connection to the database.</param>
+        //// <param name="context">Context that provide connection to the database.</param>
         public Repository(BackUpSystemDbContext dbContext)
         {
             Guard.WhenArgument(dbContext, "DbContext").IsNull().Throw();
@@ -33,15 +33,15 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         }
 
         /// <summary>
-        /// Gets the Context of the <see cref="Repository"/> class.
+        //// Gets the Context of the <see cref="Repository"/> class.
         /// </summary>
         public BackUpSystemDbContext DbContext => this.dbContext;
 
         /// <summary>
         /// Find entity by a given id.
         /// </summary>
-        /// <param name="id">Id of the entity.</param>
-        /// <returns>The entity with the provided id if exist. Otherwise <see cref="null"/>.</returns>
+        //// <param name="id">Id of the entity.</param>
+        //// <returns>The entity with the provided id if exist. Otherwise <see cref="null"/>.</returns>
         public async Task<TEntity> Get(string id)
         {
             var result = await this.dbContext.Set<TEntity>().FindAsync(id);
@@ -75,7 +75,7 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         /// <summary>
         /// Adds a given entity to the context.
         /// </summary>
-        /// <param name="entity">Entity to be added.</param>
+        // <param name="entity">Entity to be added.</param>
         public async void Add(TEntity entity)
         {
             await this.dbContext.Set<TEntity>().AddAsync(entity);
@@ -84,7 +84,7 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         /// <summary>
         /// Soft delete on a given entity.
         /// </summary>
-        /// <param name="entity">Entity to be flagged as deleted.</param>
+        //// <param name="entity">Entity to be flagged as deleted.</param>
         public void Delete(TEntity entity)
         {
             entity.IsDeleted = true;

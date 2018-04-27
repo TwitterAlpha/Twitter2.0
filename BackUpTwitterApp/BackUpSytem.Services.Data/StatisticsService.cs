@@ -1,6 +1,8 @@
-﻿using BackUpSystem.Data.Repositories.Contracts;
+﻿using BackUpSystem.Data.Models;
+using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -34,6 +36,14 @@ namespace BackUpSytem.Services.Data
             Guard.WhenArgument(totalUsers, "Total Users").IsNull().Throw();
 
             return totalUsers.Sum(x => x.RetweetsCount);
+        }
+
+        public async Task<IEnumerable<User>> GetAllUsersStats()
+        {
+            var totalUsers = await userRepository.GetAll();
+            Guard.WhenArgument(totalUsers, "Total Users").IsNull().Throw();
+
+            return totalUsers.OrderBy(u => u.Name);
         }
     }
 }

@@ -46,7 +46,7 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// <param name="userId">User object</param>
         /// <param name="tweet">Tweet object</param>
         /// <returns>A collection of all downloaded tweets by the user.</returns>
-        Task<bool> TweetDownloaded(User user, Tweet tweet);
+        //Task<bool> TweetDownloaded(User user, Tweet tweet);
 
         /// <summary>
         /// Deletes the user from all other tables;

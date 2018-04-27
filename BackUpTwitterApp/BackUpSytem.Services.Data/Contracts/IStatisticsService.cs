@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using BackUpSystem.Data.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BackUpSytem.Services.Data.Contracts
 {
@@ -7,5 +9,7 @@ namespace BackUpSytem.Services.Data.Contracts
         Task<int> GetTotalDownloadedTweets();
 
         Task<int> GetTotalRetweets();
+
+        Task<IEnumerable<User>> GetAllUsersStats();
     }
 }

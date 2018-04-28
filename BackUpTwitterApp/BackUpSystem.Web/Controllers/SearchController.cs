@@ -41,10 +41,10 @@ namespace BackUpSystem.Web.Controllers
 
                 TempData["Success-Message"] = "Results found:";
 
-                return PartialView("_SearchResultPartial", viewModel);
+                return View("_SearchResultPartial", viewModel);
             }
 
-            return this.View(requestModel);
+            return this.View("Index",requestModel);
         }
     }
 }

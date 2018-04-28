@@ -35,6 +35,19 @@ namespace BackUpSytem.Services.Data
             return userDto;
         }
 
+        public async Task<UserDto> GetUserByUsername(string userName)
+        {
+            Guard.WhenArgument(userName, "Username").IsNullOrEmpty().Throw();
+
+            var user = await this.UserRepository.GetUserByUsername(userName);
+            Guard.WhenArgument(user, "User").IsNull().Throw();
+
+            var userDto = MappingProvider.MapTo<UserDto>(user);
+            Guard.WhenArgument(userDto, "UserDto").IsNull().Throw();
+
+            return userDto;
+        }
+
         public async Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteUsers(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();

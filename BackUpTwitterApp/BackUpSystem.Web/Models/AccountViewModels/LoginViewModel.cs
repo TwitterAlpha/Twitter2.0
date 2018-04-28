@@ -9,7 +9,7 @@ namespace BackUpSystem.Web.Models.AccountViewModels
     public class LoginViewModel
     {
         [Required]
-        [EmailAddress]
+        [Display(Name = "Username/Email")]
         public string Email { get; set; }
 
         [Required]

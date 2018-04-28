@@ -9,6 +9,8 @@ namespace BackUpSytem.Services.Data.Contracts
     {
         Task<UserDto> GetUserById(string id);
 
+        Task<UserDto> GetUserByUsername(string userName);
+
         Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteUsers(string id);
 
         Task<IEnumerable<TweetDto>> GetAllDownloadTweetsByUser(string id);

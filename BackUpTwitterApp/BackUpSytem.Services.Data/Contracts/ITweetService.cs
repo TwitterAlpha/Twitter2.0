@@ -11,5 +11,7 @@ namespace BackUpSytem.Services.Data.Contracts
         void DownloadTweet(string userId, TweetApiDto tweet);
 
         void DeleteTweet(string userId, string tweetId);
+
+        string RetweetATweet(string userId, string tweetId);
     }
 }

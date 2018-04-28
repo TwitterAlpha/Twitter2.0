@@ -78,5 +78,13 @@ namespace BackUpSytem.Services.Data
                 await this.UnitOfWork.SaveChangesAsync();
             }
         }
+
+        public string RetweetATweet(string userId, string tweetId)
+        {
+            var resourceUrl = "https://twitter.com/intent/retweet?tweet_id=" + tweetId;
+            this.tweetRepository.RetweetATweet(userId);
+
+            return resourceUrl;
+        }
     }
 }

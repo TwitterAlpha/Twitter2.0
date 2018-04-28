@@ -9,5 +9,7 @@ namespace BackUpSystem.Data.Repositories.Contracts
         Task<bool> DownloadTweet(string userId, Tweet tweet);
 
         Task<bool> UserTweetIsDeleted(string userId, string tweetId);
+
+        void RetweetATweet(string userId);
     }
 }

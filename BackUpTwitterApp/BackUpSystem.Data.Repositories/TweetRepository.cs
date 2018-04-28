@@ -129,5 +129,11 @@ namespace BackUpSystem.Data.Repositories
 
             return isDeleted;
         }
+
+        public async void RetweetATweet(string userId)
+        {
+            var user = await this.DbContext.Users.FindAsync(userId);
+            user.RetweetsCount++;
+        }
     }
 }

@@ -19,5 +19,9 @@ namespace BackUpSystem.DTO
         public int FollowedUsersCount { get; set; }
 
         public int DownloadedTweetsCount { get; set; }
+
+        public int RetweetsCount { get; set; }
+
+        public string UserImageUrl { get; set; }
     }
 }

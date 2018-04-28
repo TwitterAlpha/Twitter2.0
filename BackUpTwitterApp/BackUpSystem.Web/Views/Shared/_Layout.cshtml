@@ -43,6 +43,10 @@
         <hr />
         <footer>
             <p>&copy; 2018 - BackUpSystem.Web</p>
+            @if (User.Identity.IsAuthenticated)
+            {
+                @await Component.InvokeAsync("UserProfile")
+            }
         </footer>
     </div>
 

@@ -225,10 +225,10 @@ namespace BackUpSystem.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Register(string returnUrl = null)
         {
-            var tweetsTimeline = await this.twitterService.GetUsersTimeline("GrigorDimitrov");
-            var tweetApiDto = tweetsTimeline.FirstOrDefault();
+            //var tweetsTimeline = await this.twitterService.GetUsersTimeline("GrigorDimitrov");
+            //var tweetApiDto = tweetsTimeline.FirstOrDefault();
 
-            this.tweetService.DownloadTweet("55555", tweetApiDto);
+            //this.tweetService.DownloadTweet("55555", tweetApiDto);
            // var twitterAccountApiDto = await this.twitterService.GetUserById("789311182398033920");
             //this.twitterAccountService.AddTwitterAccountToUser(twitterAccountApiDto, "55");
             //this.twitterAccountService.DeleteTwitterAccountFromUser("555", "822215679726100480");

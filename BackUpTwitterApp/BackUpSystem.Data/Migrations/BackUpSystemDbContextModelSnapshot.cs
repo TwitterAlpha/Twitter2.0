@@ -192,7 +192,7 @@ namespace BackUpSystem.Data.Migrations
 
                     b.Property<bool>("TwoFactorEnabled");
 
-                    b.Property<string>("UserImage");
+                    b.Property<string>("UserImageUrl");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);

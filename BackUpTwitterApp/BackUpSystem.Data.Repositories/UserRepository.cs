@@ -130,7 +130,7 @@ namespace BackUpSystem.Data.Repositories
         public async void UpdateImageUrl(string id, string imageUrl)
         {
             var user = await this.DbContext.Users.FindAsync(id);
-            user.UserImage = imageUrl;
+            user.UserImageUrl = imageUrl;
         }
 
         //public void IncludeFavoriteTwitterAccounts()

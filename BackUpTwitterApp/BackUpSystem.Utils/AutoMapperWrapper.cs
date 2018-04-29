@@ -23,6 +23,11 @@ namespace BackUpSystem.Utils
             return this.mapper.Map<TDestination>(source);
         }
 
+        public IEnumerable<TDestination> ProjectTo<TDestination>(IEnumerable<object> source)
+        {
+            return source.AsQueryable().ProjectTo<TDestination>();
+        }
+
         public IQueryable<TDestination> ProjectTo<TSource, TDestination>(IQueryable<TSource> source)
         {
             return source.ProjectTo<TDestination>();

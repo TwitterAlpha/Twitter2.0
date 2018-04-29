@@ -8,6 +8,8 @@ namespace BackUpSystem.Utilities.Contracts
     {
         TDestination MapTo<TDestination>(object source);
 
+        IEnumerable<TDestination> ProjectTo<TDestination>(IEnumerable<object> source);
+
         IQueryable<TDestination> ProjectTo<TSource, TDestination>(IQueryable<TSource> source);
 
         IEnumerable<TDestination> ProjectTo<TSource, TDestination>(IEnumerable<TSource> source);

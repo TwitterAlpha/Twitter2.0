@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.DTO", "BackUpSystem.DTO\BackUpSystem.DTO.csproj", "{58856985-4974-44D0-A79D-7CED3F41D9DA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Infrastructure", "BackUpSystem.Infrastructure\BackUpSystem.Infrastructure.csproj", "{9E66C4D6-2D0F-4BED-92F7-F35E5146FE91}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSytem.Services.Data", "BackUpSytem.Services.Data\BackUpSytem.Services.Data.csproj", "{475BD7AE-63FA-4517-A16B-E9A7E223813E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Services.External", "BackUpSystem.Services.External\BackUpSystem.Services.External.csproj", "{7FA9B0B7-090A-4B5B-B8D6-53267042F054}"
@@ -31,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Services.Auth.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Utilities", "BackUpSystem.Utils\BackUpSystem.Utilities.csproj", "{371F3F30-EC10-49D1-A4AC-FFBD1E10472A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackUpSystem.Data.Repositories", "BackUpSystem.Data.Repositories\BackUpSystem.Data.Repositories.csproj", "{F962FEB9-4089-4502-A61F-EBA8E35DD36C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Data.Repositories", "BackUpSystem.Data.Repositories\BackUpSystem.Data.Repositories.csproj", "{F962FEB9-4089-4502-A61F-EBA8E35DD36C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{58856985-4974-44D0-A79D-7CED3F41D9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58856985-4974-44D0-A79D-7CED3F41D9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58856985-4974-44D0-A79D-7CED3F41D9DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E66C4D6-2D0F-4BED-92F7-F35E5146FE91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E66C4D6-2D0F-4BED-92F7-F35E5146FE91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E66C4D6-2D0F-4BED-92F7-F35E5146FE91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E66C4D6-2D0F-4BED-92F7-F35E5146FE91}.Release|Any CPU.Build.0 = Release|Any CPU
 		{475BD7AE-63FA-4517-A16B-E9A7E223813E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{475BD7AE-63FA-4517-A16B-E9A7E223813E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{475BD7AE-63FA-4517-A16B-E9A7E223813E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -89,7 +83,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{58856985-4974-44D0-A79D-7CED3F41D9DA} = {1B375028-0E36-47E7-AD5B-E3E386FBA5B0}
-		{9E66C4D6-2D0F-4BED-92F7-F35E5146FE91} = {1B375028-0E36-47E7-AD5B-E3E386FBA5B0}
 		{475BD7AE-63FA-4517-A16B-E9A7E223813E} = {1B375028-0E36-47E7-AD5B-E3E386FBA5B0}
 		{7FA9B0B7-090A-4B5B-B8D6-53267042F054} = {1B375028-0E36-47E7-AD5B-E3E386FBA5B0}
 		{8340FE18-36C0-4143-8A91-6D6743EA9DFA} = {EDB9D1C3-A969-41B1-88F4-598FFAEDD558}

@@ -46,6 +46,7 @@
             @if (User.Identity.IsAuthenticated)
             {
                 @await Component.InvokeAsync("UserProfile")
+                @await Component.InvokeAsync("FavoriteTwitterAccounts")
             }
         </footer>
     </div>

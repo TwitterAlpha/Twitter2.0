@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using BackUpSystem.Data.Models;
+using BackUpSystem.DTO.ApiDtos;
+using BackUpSystem.Utilities.Contracts;
 using BackUpSystem.Web.Models;
+using BackUpSystem.Web.Models.HomeViewModels;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
-using BackUpSystem.Web.Models.HomeViewModels;
 using Microsoft.AspNetCore.Identity;
-using BackUpSystem.Data.Models;
-using BackUpSystem.Utilities.Contracts;
-using BackUpSystem.DTO.ApiDtos;
-using BackUpSystem.DTO;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace BackUpSystem.Web.Controllers
 {
@@ -21,9 +17,8 @@ namespace BackUpSystem.Web.Controllers
         private readonly IUserService userService;
         private readonly UserManager<User> userManager;
         private readonly IMappingProvider mappingProvider;
-        private readonly ITwitterAccountService twitterService;
 
-        public HomeController(IUserService userService, UserManager<User> userManager, IMappingProvider mappingProvider, ITwitterAccountService twitterService)
+        public HomeController(IUserService userService, UserManager<User> userManager, IMappingProvider mappingProvider)
         {
             Guard.WhenArgument(userService, "User Service").IsNull().Throw();
             Guard.WhenArgument(userManager, "User Manager").IsNull().Throw();
@@ -32,7 +27,6 @@ namespace BackUpSystem.Web.Controllers
             this.userService = userService;
             this.userManager = userManager;
             this.mappingProvider = mappingProvider;
-            this.twitterService = twitterService;
         }
 
         public async Task<IActionResult> Index()

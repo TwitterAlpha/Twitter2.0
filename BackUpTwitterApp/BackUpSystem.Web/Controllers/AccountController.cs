@@ -264,8 +264,8 @@ namespace BackUpSystem.Web.Controllers
             //var tweetApiDto = tweetsTimeline.FirstOrDefault();
 
             //this.tweetService.DownloadTweet("55555", tweetApiDto);
-            var twitterAccountApiDto = await this.twitterService.GetUserById("366592246");
-            this.twitterAccountService.AddTwitterAccountToUser(twitterAccountApiDto, "1975b579-646b-4342-8ade-05777c30df29");
+            //var twitterAccountApiDto = await this.twitterService.GetUserById("366592246");
+            //this.twitterAccountService.AddTwitterAccountToUser(twitterAccountApiDto, "1975b579-646b-4342-8ade-05777c30df29");
             //this.twitterAccountService.DeleteTwitterAccountFromUser("555", "822215679726100480");
             //this.twitterService.GetTimeline("822215679726100480,789311182398033920,736267842681602048,155659213");
             //this.userService.AddUser(new UserDto() {UserName = "Ceco", Email= "ceco@abv.bg", Id = "1234234" });

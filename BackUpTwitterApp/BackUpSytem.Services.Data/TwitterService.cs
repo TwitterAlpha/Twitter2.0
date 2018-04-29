@@ -59,14 +59,8 @@ namespace BackUpSytem.Services.Data
             Guard.WhenArgument(favUsersIds, "Favorite users Ids").IsNullOrEmpty().Throw();
 
             var resourceUrl = "https://api.twitter.com/1.1/users/lookup.json?user_id=";
-            var userJson = await apiService.GetTwitterApiCallData("https://publish.twitter.com/oembed?url=https://twitter.com/Cristiano/status/990558633393115136");
+            var userJson = await apiService.GetTwitterApiCallData(resourceUrl + favUsersIds);
             Guard.WhenArgument(userJson, "User Json").IsNullOrEmpty().Throw();
-
-            userJson = userJson
-                .Replace(@"\", string.Empty)
-                .Replace("u003C", "<")
-                .Replace("u003E", ">")
-                .Replace("@", "@@");
 
             var deserializedUsers = jsonDeserializerWrapper.Deserialize<ICollection<TwitterAccountApiDto>>(userJson);
             Guard.WhenArgument(deserializedUsers, "Deserialized User").IsNull().Throw();
@@ -74,6 +68,7 @@ namespace BackUpSytem.Services.Data
             foreach (var twitterAccount in deserializedUsers)
             {
                 twitterAccount.CurrentStatus.TweetAuthor = twitterAccount.Name;
+                twitterAccount.CurrentStatus.TweetUrl = $"https://twitter.com/{twitterAccount.UserName}/status/{twitterAccount.CurrentStatus.Id}?ref_src=twsrc%5Etfw";
                 //twitterAccount.CurrentStatus.AuthorImage = twitterAccount.ImageUrl;
             }
 

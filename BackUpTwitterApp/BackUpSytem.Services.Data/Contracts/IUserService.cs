@@ -1,4 +1,5 @@
 ﻿using BackUpSystem.DTO;
+using BackUpSystem.DTO.ApiDtos;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace BackUpSytem.Services.Data.Contracts
         Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteUsers(string id);
 
         Task<IEnumerable<TweetDto>> GetAllDownloadTweetsByUser(string id);
+
+        Task<IEnumerable<TweetApiDto>> GetTimeline(string id);
 
         void UpdateName(string id, string name);
 

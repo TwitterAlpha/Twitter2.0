@@ -142,14 +142,15 @@ namespace BackUpSystem.Services.Auth
         private string GenerateBaseString(List<string> parametersList)
         {
             var basestring = string.Empty;
-            List<string> baseformat = new List<string>();
-
-            baseformat.Add("oauth_consumer_key=" + this.OAuthConsumerKey);
-            baseformat.Add("oauth_nonce=" + this.OAuthNonce);
-            baseformat.Add("oauth_signature_method=" + this.OAuthSignatureMethod);
-            baseformat.Add("oauth_timestamp=" + this.OAuthTimestamp);
-            baseformat.Add("oauth_token=" + this.OAuthAccessToken);
-            baseformat.Add("oauth_version=" + this.OAuthVersion);
+            var baseformat = new List<string>
+            {
+                "oauth_consumer_key=" + this.OAuthConsumerKey,
+                "oauth_nonce=" + this.OAuthNonce,
+                "oauth_signature_method=" + this.OAuthSignatureMethod,
+                "oauth_timestamp=" + this.OAuthTimestamp,
+                "oauth_token=" + this.OAuthAccessToken,
+                "oauth_version=" + this.OAuthVersion
+            };
 
             if (parametersList != null)
             {

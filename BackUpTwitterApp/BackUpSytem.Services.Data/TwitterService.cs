@@ -91,6 +91,11 @@ namespace BackUpSytem.Services.Data
             var deserializedUserTimeline = jsonDeserializerWrapper.Deserialize<ICollection<TweetApiDto>>(userTimelineJson);
             Guard.WhenArgument(deserializedUserTimeline, "Deserialized UserTimeline").IsNull().Throw();
 
+            foreach (var tweet in deserializedUserTimeline)
+            {
+                tweet.TweetUrl = $"https://twitter.com/screenName/status/{tweet.Id}?ref_src=twsrc%5Etfw";
+            }
+
             return deserializedUserTimeline;
         }
     }

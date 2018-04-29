@@ -260,7 +260,7 @@ namespace BackUpSystem.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Register(string returnUrl = null)
         {
-            //var tweetsTimeline = await this.twitterService.GetUsersTimeline("GrigorDimitrov");
+            var tweetsTimeline = await this.twitterService.GetTimeline("GrigorDimitrov");
             //var tweetApiDto = tweetsTimeline.FirstOrDefault();
 
             //this.tweetService.DownloadTweet("55555", tweetApiDto);

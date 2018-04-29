@@ -59,8 +59,14 @@ namespace BackUpSytem.Services.Data
             Guard.WhenArgument(favUsersIds, "Favorite users Ids").IsNullOrEmpty().Throw();
 
             var resourceUrl = "https://api.twitter.com/1.1/users/lookup.json?user_id=";
-            var userJson = await apiService.GetTwitterApiCallData(resourceUrl + favUsersIds);
+            var userJson = await apiService.GetTwitterApiCallData("https://publish.twitter.com/oembed?url=https://twitter.com/Cristiano/status/990558633393115136");
             Guard.WhenArgument(userJson, "User Json").IsNullOrEmpty().Throw();
+
+            userJson = userJson
+                .Replace(@"\", string.Empty)
+                .Replace("u003C", "<")
+                .Replace("u003E", ">")
+                .Replace("@", "@@");
 
             var deserializedUsers = jsonDeserializerWrapper.Deserialize<ICollection<TwitterAccountApiDto>>(userJson);
             Guard.WhenArgument(deserializedUsers, "Deserialized User").IsNull().Throw();

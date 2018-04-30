@@ -16,6 +16,14 @@ namespace BackUpSystem.Data.Repositories
         {
         }
 
+        public override async Task<Tweet> Get(string id)
+        {
+            return await this.DbContext.Tweets
+                .Include(u => u.TwitterAccount)
+                .Include(u => u.Users)
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
+
         public async Task<bool> DownloadTweet(string userId, Tweet tweet)
         {
             var isDownloaded = false;

@@ -16,6 +16,14 @@ namespace BackUpSystem.Data.Repositories
         {
         }
 
+        public override async Task<User> Get(string id)
+        {
+            return await this.DbContext.Users
+                .Include(u => u.TwitterAccounts)
+                .Include(u => u.FavoriteTweets)
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
+
         public async Task<User> GetUserByUsername(string username)
         {
             return await this.DbContext.Users

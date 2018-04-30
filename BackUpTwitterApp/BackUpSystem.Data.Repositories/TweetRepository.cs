@@ -16,6 +16,7 @@ namespace BackUpSystem.Data.Repositories
         {
         }
 
+        //Override done, because of EF Core lazy-loading issue
         public override async Task<Tweet> Get(string id)
         {
             return await this.DbContext.Tweets

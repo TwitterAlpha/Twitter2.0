@@ -2,7 +2,7 @@
 using BackUpSystem.DTO.ApiDtos;
 using BackUpSystem.Utilities.Contracts;
 using BackUpSystem.Web.Models;
-using BackUpSystem.Web.Models.HomeViewModels;
+using BackUpSystem.Web.Models.HomePageViewModels;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using Microsoft.AspNetCore.Identity;

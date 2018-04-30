@@ -87,6 +87,8 @@ namespace BackUpSytem.Services.Data
             var resourceUrl = "https://twitter.com/intent/retweet?tweet_id=" + tweetId;
             this.tweetRepository.RetweetATweet(userId);
 
+            this.UnitOfWork.SaveChanges();
+
             return resourceUrl;
         }
     }

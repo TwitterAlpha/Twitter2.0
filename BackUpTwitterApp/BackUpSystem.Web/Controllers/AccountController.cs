@@ -258,7 +258,7 @@ namespace BackUpSystem.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> Register(string returnUrl = null)
+        public IActionResult Register(string returnUrl = null)
         {
             //var tweetsTimeline = await this.twitterService.GetTimeline("GrigorDimitrov");
             //var tweetApiDto = tweetsTimeline.FirstOrDefault();

@@ -2,6 +2,7 @@
 using BackUpSystem.Data.Models;
 using BackUpSystem.DTO;
 using BackUpSystem.DTO.ApiDtos;
+using BackUpSystem.Web.Models.HomeViewModels;
 
 namespace BackUpSystem.Web.Properties
 {
@@ -13,6 +14,7 @@ namespace BackUpSystem.Web.Properties
             this.CreateMap<TwitterAccountApiDto, TwitterAccount>(MemberList.Source);
             this.CreateMap<TweetDto, Tweet>(MemberList.Source);
             this.CreateMap<TweetApiDto, Tweet>(MemberList.Source);
+            this.CreateMap<TweetViewModel, TweetApiDto>(MemberList.Source);
 
             this.CreateMap<User, UserDto>()
                 .ForMember(x => x.FollowedUsersCount, options => options.MapFrom(x => x.TwitterAccounts.Count))

@@ -91,14 +91,14 @@ namespace BackUpSytem.Services.Data
             return timeline;
         }
 
-        public async Task<IEnumerable<TweetDto>> GetAllDownloadTweetsByUser(string id)
+        public async Task<IEnumerable<TweetApiDto>> GetAllDownloadTweetsByUser(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
             var downloadedTweets = await this.UserRepository.GetAllDownloadedTweets(id);
             Guard.WhenArgument(downloadedTweets, "Downloaded Tweets").IsNull().Throw();
 
-            var downloadedTweetsDto = this.MappingProvider.ProjectTo<Tweet, TweetDto>(downloadedTweets);
+            var downloadedTweetsDto = this.MappingProvider.ProjectTo<Tweet, TweetApiDto>(downloadedTweets);
             Guard.WhenArgument(downloadedTweetsDto, "Downloaded TweetsDto").IsNull().Throw();
 
             return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt);

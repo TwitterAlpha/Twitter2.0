@@ -34,6 +34,10 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="DownloadedTweets" asp-action="Index">Downloaded Tweets</a></li>
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -43,50 +47,50 @@
         @if (User.Identity.IsAuthenticated)
         {
             <!-- Sidebar Holder -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                @await Component.InvokeAsync("UserProfile")
-            </div>
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    @await Component.InvokeAsync("UserProfile")
+                </div>
 
-            @await Component.InvokeAsync("FavoriteTwitterAccounts")
+                @await Component.InvokeAsync("FavoriteTwitterAccounts")
 
-            @*<ul class="list-unstyled components">
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="glyphicon glyphicon-home"></i>
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="glyphicon glyphicon-briefcase"></i>
-                    About
-                </a>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i class="glyphicon glyphicon-duplicate"></i>
-                    Pages
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="glyphicon glyphicon-link"></i>
-                    Portfolio
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="glyphicon glyphicon-paperclip"></i>
-                    FAQ
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="glyphicon glyphicon-send"></i>
-                    Contact
-                </a>
-            </li>
-        </ul>*@
-        </nav>
+                @*<ul class="list-unstyled components">
+                        <li class="active">
+                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                                <i class="glyphicon glyphicon-home"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-briefcase"></i>
+                                About
+                            </a>
+                            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                                <i class="glyphicon glyphicon-duplicate"></i>
+                                Pages
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-link"></i>
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-paperclip"></i>
+                                FAQ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-send"></i>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>*@
+            </nav>
 
         }
         <!-- Page Content Holder -->
@@ -95,11 +99,6 @@
             <hr />
             <footer>
                 <p>&copy; 2018 - BackUpSystem.Web</p>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    @await Component.InvokeAsync("UserProfile")
-                    @await Component.InvokeAsync("FavoriteTwitterAccounts")
-                }
             </footer>
         </div>
     </div>

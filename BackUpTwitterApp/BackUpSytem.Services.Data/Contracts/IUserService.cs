@@ -14,7 +14,7 @@ namespace BackUpSytem.Services.Data.Contracts
 
         Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteUsers(string id);
 
-        Task<IEnumerable<TweetDto>> GetAllDownloadTweetsByUser(string id);
+        Task<IEnumerable<TweetApiDto>> GetAllDownloadTweetsByUser(string id);
 
         Task<IEnumerable<TweetApiDto>> GetTimeline(string id);
 

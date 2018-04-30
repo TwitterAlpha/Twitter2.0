@@ -80,12 +80,12 @@ namespace BackUpSytem.Services.Data
             return timeline;
         }
 
-        public async Task<ICollection<TweetApiDto>> GetUsersTimeline(string screenName)
+        public async Task<ICollection<TweetApiDto>> GetUsersTimeline(string userId)
         {
-            Guard.WhenArgument(screenName, "Screen name").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(userId, "Screen name").IsNullOrEmpty().Throw();
 
-            var resourceUrl = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=";
-            var userTimelineJson = await apiService.GetTwitterApiCallData(resourceUrl + screenName);
+            var resourceUrl = "https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=";
+            var userTimelineJson = await apiService.GetTwitterApiCallData($"{resourceUrl}{userId}&count=20");
             Guard.WhenArgument(userTimelineJson, "UserTimeline Json").IsNullOrEmpty().Throw();
 
             var deserializedUserTimeline = jsonDeserializerWrapper.Deserialize<ICollection<TweetApiDto>>(userTimelineJson);

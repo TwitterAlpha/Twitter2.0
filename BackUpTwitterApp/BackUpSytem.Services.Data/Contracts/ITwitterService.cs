@@ -13,7 +13,6 @@ namespace BackUpSytem.Services.Data.Contracts
 
         Task<ICollection<TweetApiDto>> GetTimeline(string favUsersIds);
 
-        Task<ICollection<TweetApiDto>> GetUsersTimeline(string screenName);
-
+        Task<ICollection<TweetApiDto>> GetUsersTimeline(string userId);
     }
 }

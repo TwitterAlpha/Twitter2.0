@@ -6,9 +6,6 @@ using BackUpSystem.Utilities.Contracts;
 using BackUpSytem.Services.Data.Abstracts;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BackUpSytem.Services.Data
@@ -71,7 +68,7 @@ namespace BackUpSytem.Services.Data
             return false;
         }
 
-        public async void DeleteTweet(string userId, string tweetId)
+        public async Task<bool> DeleteTweet(string userId, string tweetId)
         {
             Guard.WhenArgument(tweetId, "Tweet Id").IsNull().Throw();
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
@@ -79,7 +76,10 @@ namespace BackUpSytem.Services.Data
             if (await this.tweetRepository.UserTweetIsDeleted(userId, tweetId))
             {
                 await this.UnitOfWork.SaveChangesAsync();
+                return true;
             }
+
+            return false;
         }
 
         public string RetweetATweet(string userId, string tweetId)

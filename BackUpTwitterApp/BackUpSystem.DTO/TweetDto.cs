@@ -4,6 +4,8 @@ namespace BackUpSystem.DTO
 {
     public class TweetDto
     {
+        public string Id { get; set; }
+
         public DateTime? CreatedAt { get; set; }
 
         public string Text { get; set; }

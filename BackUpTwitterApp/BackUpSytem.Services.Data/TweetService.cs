@@ -41,7 +41,7 @@ namespace BackUpSytem.Services.Data
             return tweetDto;
         }
 
-        public async void DownloadTweet(string userId, TweetApiDto tweetDto)
+        public async Task<bool> DownloadTweet(string userId, TweetApiDto tweetDto)
         {
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(tweetDto, "Tweet Dto").IsNull().Throw();
@@ -65,7 +65,10 @@ namespace BackUpSytem.Services.Data
             if (await this.UserRepository.TweetDownloaded(user, tweet))
             {
                 await this.UnitOfWork.SaveChangesAsync();
+                return true;
             }
+
+            return false;
         }
 
         public async void DeleteTweet(string userId, string tweetId)

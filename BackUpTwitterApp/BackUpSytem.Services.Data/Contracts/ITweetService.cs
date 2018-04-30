@@ -8,7 +8,7 @@ namespace BackUpSytem.Services.Data.Contracts
     {
         Task<TweetDto> GetTweetById(string id);
 
-        void DownloadTweet(string userId, TweetApiDto tweet);
+        Task<bool> DownloadTweet(string userId, TweetApiDto tweet);
 
         void DeleteTweet(string userId, string tweetId);
 

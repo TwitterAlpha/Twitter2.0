@@ -34,6 +34,7 @@ namespace BackUpSystem.Data.Repositories
         public async Task<IEnumerable<TwitterAccount>> GetAllFavoriteTwitterAccounts(string id)
         {
             return await this.DbContext.UserTwitterAccounts
+                .Where(ut => !ut.IsDeleted)
                 .Include(x => x.User)
                 .Include(x => x.TwitterAccount)
                 .Where(u => u.UserId == id && !u.IsDeleted)
@@ -45,6 +46,7 @@ namespace BackUpSystem.Data.Repositories
         public async Task<IEnumerable<Tweet>> GetAllDownloadedTweets(string id)
         {
             return await this.DbContext.UserTweets
+                .Where(ut => !ut.IsDeleted)
                 .Include(x => x.User)
                 .Include(x => x.Tweet)
                 .Where(u => u.UserId == id)
@@ -83,7 +85,7 @@ namespace BackUpSystem.Data.Repositories
             if (checkIfTweetExists != null)
             {
                 checkIfTweetExists.IsDeleted = false;
-                return false;
+                return true;
             }
             else
             {

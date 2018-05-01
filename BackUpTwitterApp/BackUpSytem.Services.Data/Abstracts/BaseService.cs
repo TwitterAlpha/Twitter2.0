@@ -2,7 +2,7 @@
 using BackUpSystem.Utilities.Contracts;
 using Bytes2you.Validation;
 
-namespace BackUpSytem.Services.Data.Abstracts
+namespace BackUpSystem.Services.Data.Abstracts
 {
     public abstract class BaseService
     {

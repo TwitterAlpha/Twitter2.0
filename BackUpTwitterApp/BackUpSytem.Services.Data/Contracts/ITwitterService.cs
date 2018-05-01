@@ -3,7 +3,7 @@ using BackUpSystem.DTO.ApiDtos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BackUpSytem.Services.Data.Contracts
+namespace BackUpSystem.Services.Data.Contracts
 {
     public interface ITwitterService
     {

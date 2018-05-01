@@ -96,6 +96,8 @@ namespace BackUpSystem.Data.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("BackgroundImage");
+
                     b.Property<DateTime?>("CreatedOn");
 
                     b.Property<DateTime?>("DeletedOn");

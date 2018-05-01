@@ -3,12 +3,12 @@ using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSystem.DTO;
 using BackUpSystem.DTO.ApiDtos;
 using BackUpSystem.Utilities.Contracts;
-using BackUpSytem.Services.Data.Abstracts;
-using BackUpSytem.Services.Data.Contracts;
+using BackUpSystem.Services.Data.Abstracts;
+using BackUpSystem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using System.Threading.Tasks;
 
-namespace BackUpSytem.Services.Data
+namespace BackUpSystem.Services.Data
 {
     public class TweetService : BaseService, ITweetService
     {

@@ -2,13 +2,13 @@
 using BackUpSystem.DTO.ApiDtos;
 using BackUpSystem.Services.Auth.Contracts;
 using BackUpSystem.Utilities.Contracts;
-using BackUpSytem.Services.Data.Contracts;
+using BackUpSystem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BackUpSytem.Services.Data
+namespace BackUpSystem.Services.Data
 {
     public class TwitterService : ITwitterService
     {

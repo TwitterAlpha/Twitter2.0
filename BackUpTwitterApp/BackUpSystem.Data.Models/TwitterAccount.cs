@@ -41,7 +41,8 @@ namespace BackUpSystem.Data.Models
         [DataType(DataType.DateTime)]
         public DateTime? JoinedDate { get; set; }
 
-        //public Tweet CurrentStatus { get; set; }
+        //Corresponds to profile_banner_url in Twitter API
+        public string BackgroundImage { get; set; }
 
         public string WebsiteUrl { get; set; }
 

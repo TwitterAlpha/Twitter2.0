@@ -18,6 +18,8 @@ namespace BackUpSystem.DTO
 
         public int LikesCount { get; set; }
 
+        public string BackgroundImage { get; set; }
+
         public int TweetsCount { get; set; }
 
         public DateTime? JoinedDate { get; set; }

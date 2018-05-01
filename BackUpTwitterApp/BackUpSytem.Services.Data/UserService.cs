@@ -3,8 +3,8 @@ using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSystem.DTO;
 using BackUpSystem.DTO.ApiDtos;
 using BackUpSystem.Utilities.Contracts;
-using BackUpSytem.Services.Data.Abstracts;
-using BackUpSytem.Services.Data.Contracts;
+using BackUpSystem.Services.Data.Abstracts;
+using BackUpSystem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BackUpSytem.Services.Data
+namespace BackUpSystem.Services.Data
 {
     public class UserService : BaseService, IUserService
     {
@@ -94,7 +94,7 @@ namespace BackUpSytem.Services.Data
             return await twitterService.GetTimeline(sb.ToString());
         }
 
-        public async Task<IEnumerable<TweetApiDto>> GetAllDownloadTweetsByUser(string id)
+        public async Task<ICollection<TweetApiDto>> GetAllDownloadTweetsByUser(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
@@ -104,7 +104,7 @@ namespace BackUpSytem.Services.Data
             var downloadedTweetsDto = this.MappingProvider.ProjectTo<Tweet, TweetApiDto>(downloadedTweets);
             Guard.WhenArgument(downloadedTweetsDto, "Downloaded TweetsDto").IsNull().Throw();
 
-            return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt);
+            return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt).ToList();
         }
 
         public void UpdateName(string id, string name)

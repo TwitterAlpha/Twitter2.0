@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using BackUpSystem.Data.Models;
+using BackUpSystem.Services.Data.Contracts;
+using BackUpSystem.Web.Models.AccountViewModels;
+using BackUpSystem.Web.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using BackUpSystem.Data.Models;
-using BackUpSystem.Web.Models.AccountViewModels;
-using BackUpSystem.Web.Services;
-using BackUpSytem.Services.Data;
-using BackUpSytem.Services.Data.Contracts;
-using BackUpSystem.DTO;
-using System.Diagnostics;
-using BackUpSystem.DTO.ApiDtos;
+using System;
+using System.Security.Claims;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace BackUpSystem.Web.Controllers
 {

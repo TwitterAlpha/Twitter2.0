@@ -30,6 +30,9 @@ namespace BackUpSystem.DTO
         [JsonProperty("favourites_count")]
         public int LikesCount { get; set; }
 
+        [JsonProperty("profile_banner_url")]
+        public string BackgroundImage { get; set; } 
+
         [JsonProperty("status")]
         public TweetApiDto CurrentStatus { get; set; }
 

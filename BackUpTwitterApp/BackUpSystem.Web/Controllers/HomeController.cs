@@ -1,11 +1,11 @@
 ﻿using BackUpSystem.Data.Models;
 using BackUpSystem.DTO;
 using BackUpSystem.DTO.ApiDtos;
+using BackUpSystem.Services.Data.Contracts;
 using BackUpSystem.Utilities.Contracts;
 using BackUpSystem.Web.Models;
 using BackUpSystem.Web.Models.HomeViewModels;
 using BackUpSystem.Web.Models.SearchViewModels;
-using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -43,7 +43,20 @@ namespace BackUpSystem.Web.Controllers
                 var userId = this.userManager.GetUserId(this.HttpContext.User);
                 var tweets = await this.userService.GetTimeline(userId);
 
-                model.Tweets = this.mappingProvider.ProjectTo<TweetApiDto, TweetViewModel>(tweets);
+                var timelineTweets = this.mappingProvider.ProjectTo<TweetApiDto, TweetViewModel>(tweets).ToList();
+                var downladedTweets = await this.userService.GetAllDownloadTweetsByUser(userId);
+
+                foreach (var tweet in downladedTweets)
+                {
+                    for (int i = 0; i < timelineTweets.Count(); i++)
+                    {
+                        if (tweet.Id == timelineTweets[i].Id)
+                        {
+                            timelineTweets[i].IsDownloaded = true;
+                        }
+                    }
+                }
+                model.Tweets = timelineTweets;
 
                 return View(model);
             }
@@ -54,13 +67,6 @@ namespace BackUpSystem.Web.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
 
             return View();
         }

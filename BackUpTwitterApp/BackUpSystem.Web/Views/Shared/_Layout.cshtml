@@ -45,13 +45,26 @@
                                 Admin
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a asp-area="Admin" asp-controller="Statistics" asp-action="Index">Statistics</a>
-                                <a asp-area="Admin" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Statistics" asp-action="Index">Statistics</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="UserManagement" asp-action="Index">User Management</a>
                             </div>
                         </li>
                     }
                 </ul>
-                @await Html.PartialAsync("_LoginPartial")
+                <div id="navbar" class="navbar-collapse collapse">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="top-search">
+
+                            @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
+                            {
+                                <input type="text" name="UserInput" class="form-control" placeholder="Search Twitter Accounts">
+                                <input type="submit" value="Go!">
+                            }
+                        </div>
+                    }
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
             </div>
         </div>
     </nav>

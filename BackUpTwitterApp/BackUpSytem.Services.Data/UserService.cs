@@ -19,10 +19,10 @@ namespace BackUpSytem.Services.Data
         private readonly ITwitterService twitterService;
 
         public UserService(
-            IUnitOfWork unitOfWork, 
-            IMappingProvider mappingProvider, 
+            IUnitOfWork unitOfWork,
+            IMappingProvider mappingProvider,
             IUserRepository userRepository,
-            ITwitterService twitterService) 
+            ITwitterService twitterService)
             : base(unitOfWork, mappingProvider, userRepository)
         {
             Guard.WhenArgument(twitterService, "Twitter Service").IsNull().Throw();
@@ -84,11 +84,14 @@ namespace BackUpSytem.Services.Data
             {
                 sb.Append($"{twitterAccount.Id},");
             }
+
+            if (sb.Length == 0)
+            {
+                return new List<TweetApiDto>();
+            }
+
             sb.Length--;
-
-            var timeline = await twitterService.GetTimeline(sb.ToString());
-
-            return timeline;
+            return await twitterService.GetTimeline(sb.ToString());
         }
 
         public async Task<IEnumerable<TweetApiDto>> GetAllDownloadTweetsByUser(string id)

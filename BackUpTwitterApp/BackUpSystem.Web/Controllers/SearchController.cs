@@ -1,4 +1,7 @@
-﻿using BackUpSystem.Web.Models.SearchViewModels;
+﻿using BackUpSystem.DTO;
+using BackUpSystem.Utilities.Contracts;
+using BackUpSystem.Web.Models.HomeViewModels;
+using BackUpSystem.Web.Models.SearchViewModels;
 using BackUpSytem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using Microsoft.AspNetCore.Authorization;
@@ -10,18 +13,15 @@ namespace BackUpSystem.Web.Controllers
     public class SearchController : Controller
     {
         private readonly ITwitterService twitterService;
+        private readonly IMappingProvider mappingProvider;
 
-        public SearchController(ITwitterService twitterService)
+        public SearchController(ITwitterService twitterService, IMappingProvider mappingProvider)
         {
             Guard.WhenArgument(twitterService, "Twitter Service").IsNull().Throw();
-            this.twitterService = twitterService;
-        }
+            Guard.WhenArgument(mappingProvider, "Mapping Provider").IsNull().Throw();
 
-        [HttpGet]
-        [Authorize]
-        public IActionResult Index()
-        {
-            return this.View();
+            this.twitterService = twitterService;
+            this.mappingProvider = mappingProvider;
         }
 
         [HttpPost]
@@ -31,18 +31,14 @@ namespace BackUpSystem.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var searchResult = twitterService.SearchUsersByScreenName(requestModel.UserInput);
-
                 var viewModel = new SearchResultViewModel();
-                viewModel.SearchResult = await searchResult;
+                var searchResult = await twitterService.SearchUsersByScreenName(requestModel.UserInput);
+                viewModel.SearchResult = this.mappingProvider.ProjectTo<TwitterAccountApiDto, TwitterAccountViewModel>(searchResult);
 
-                TempData["Success-Message"] = "Results found:";
-
-                return Json(searchResult);
+                return this.PartialView("_SearchPartial", viewModel);
             }
 
-            return this.View("Index", requestModel);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
- 

@@ -7,8 +7,8 @@ namespace BackUpSytem.Services.Data.Contracts
     {
         Task<TwitterAccountDto> GetTwitterAccountById(string id);
 
-        void AddTwitterAccountToUser(TwitterAccountApiDto twitterAccountApiDto, string userId);
+        Task<bool> AddTwitterAccountToUser(TwitterAccountApiDto twitterAccountApiDto, string userId);
 
-        void DeleteTwitterAccountFromUser(string userId, string twitterAccountId);
+        Task<bool> DeleteTwitterAccountFromUser(string userId, string twitterAccountId);
     }
 }

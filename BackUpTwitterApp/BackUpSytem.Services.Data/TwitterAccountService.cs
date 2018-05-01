@@ -37,7 +37,7 @@ namespace BackUpSytem.Services.Data
             return twitterAccountDto;
         }
 
-        public async void AddTwitterAccountToUser(TwitterAccountApiDto twitterAccountApiDto, string userId)
+        public async Task<bool> AddTwitterAccountToUser(TwitterAccountApiDto twitterAccountApiDto, string userId)
         {
             Guard.WhenArgument(twitterAccountApiDto, "Twitter AccountApiDto").IsNull().Throw();
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
@@ -53,6 +53,7 @@ namespace BackUpSytem.Services.Data
             {
                 this.twitterAccountRepository.Add(twitterAccountToBeAdded);
                 await this.UnitOfWork.SaveChangesAsync();
+                return true;
             }
 
             var user = await this.UserRepository.Get(userId);
@@ -63,10 +64,13 @@ namespace BackUpSytem.Services.Data
             if (await this.UserRepository.TwitterAccountAddedToUser(user, twitterAccountToBeAdded))
             {
                 await this.UnitOfWork.SaveChangesAsync();
+                return true;
             }
+
+            return false;
         }
 
-        public async void DeleteTwitterAccountFromUser(string userId, string twitterAccountId)
+        public async Task<bool> DeleteTwitterAccountFromUser(string userId, string twitterAccountId)
         {
             Guard.WhenArgument(twitterAccountId, "TwitterAccount Id").IsNull().Throw();
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
@@ -74,7 +78,10 @@ namespace BackUpSytem.Services.Data
             if (await this.twitterAccountRepository.UserTwitterAccountIsDeleted(userId, twitterAccountId))
             {
                 await this.UnitOfWork.SaveChangesAsync();
+                return true;
             }
+
+            return false;
         }
     }
 }

@@ -38,6 +38,18 @@
                     {
                         <li><a asp-area="" asp-controller="DownloadedTweets" asp-action="Index">Downloaded Tweets</a></li>
                     }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Admin
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a asp-area="Admin" asp-controller="Statistics" asp-action="Index">Statistics</a>
+                                <a asp-area="Admin" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                            </div>
+                        </li>
+                    }
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

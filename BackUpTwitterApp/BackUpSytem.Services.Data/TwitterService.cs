@@ -50,7 +50,7 @@ namespace BackUpSystem.Services.Data
 
             var deserializedUser = jsonDeserializerWrapper.Deserialize<ICollection<TwitterAccountApiDto>>(userJson);
             Guard.WhenArgument(deserializedUser, "Deserialized User").IsNull().Throw();
-
+                    
             return deserializedUser;
         }
 

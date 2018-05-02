@@ -39,6 +39,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
 
             //Assert
             Assert.IsNotNull(actualResult);
+            Assert.IsInstanceOfType(actualResult, typeof(TwitterAccountApiDto));
             Assert.AreEqual(actualResult.Name, expectedResult.Name);
         }
 

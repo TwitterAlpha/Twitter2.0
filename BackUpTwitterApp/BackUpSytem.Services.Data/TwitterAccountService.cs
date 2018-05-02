@@ -44,7 +44,7 @@ namespace BackUpSystem.Services.Data
 
             var twitterAccountToBeAdded = this.MappingProvider.MapTo<TwitterAccount>(twitterAccountApiDto);
             Guard.WhenArgument(twitterAccountToBeAdded, "Twitter Account to be Added").IsNull().Throw();
-            twitterAccountToBeAdded.ImageUrl = twitterAccountToBeAdded.ImageUrl.Replace("_normal", string.Empty);
+            twitterAccountToBeAdded.ImageUrl = twitterAccountToBeAdded.ImageUrl?.Replace("_normal", string.Empty);
 
             //this.UserRepository.IncludeFavoriteTwitterAccounts();
             var checkIfTwitterAccountExists = await this.twitterAccountRepository.Get(twitterAccountToBeAdded.Id);

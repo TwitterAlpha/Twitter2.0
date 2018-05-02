@@ -61,15 +61,15 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterAccountServiceTests
 
             string userId = null;
             var twitterAccount = new TwitterAccount() { Name = "Marto Stamatov" };
-            var expectedResult = new TwitterAccountDto() { Name = "Marto Stamatov" };
-
-            twitterAccountRepositoryMock
-                .Setup(x => x.Get(userId))
-                .ReturnsAsync(twitterAccount);
+            var twitterAccountToBeAdded = new TwitterAccountDto() { Name = "Marto Stamatov" };
 
             mappingProviderMock
-                .Setup(x => x.MapTo<TwitterAccountDto>(twitterAccount))
-                .Returns(expectedResult);
+                .Setup(x => x.MapTo<TwitterAccount>(twitterAccount))
+                .Returns(twitterAccount);
+
+            twitterAccountRepositoryMock
+                .Setup(x => x.Get(twitterAccountToBeAdded.Id))
+                .ReturnsAsync(twitterAccount);
 
             var twitterAccountService = new TwitterAccountService(
                 unitOfWorkMock.Object,
@@ -78,7 +78,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterAccountServiceTests
                 twitterAccountRepositoryMock.Object);
 
             //Act && Assert
-            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await twitterAccountService.GetTwitterAccountById(userId));
+            Assert.ThrowsException<ArgumentNullException>(async () => await twitterAccountService.GetTwitterAccountById(userId));
         }
 
         [TestMethod]

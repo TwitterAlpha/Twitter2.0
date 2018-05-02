@@ -58,7 +58,7 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         /// Provide all the entities.
         /// </summary>
         /// <returns>All the entities</returns>
-        public async Task<IEnumerable<TEntity>> GetAll()
+        public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
             return await this.dbContext.Set<TEntity>().Where(x => !x.IsDeleted).ToListAsync();
         }

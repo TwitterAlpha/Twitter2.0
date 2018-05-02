@@ -42,6 +42,23 @@ namespace BackUpSystem.Services.Data
             return userDto;
         }
 
+        public async Task<IEnumerable<UserDto>> GetAllUsers()
+        {
+            var users = await this.UserRepository.GetAll();
+            Guard.WhenArgument(users, "Users").IsNull().Throw();
+
+            var usersDto = MappingProvider.MapTo<IEnumerable<UserDto>>(users);
+            Guard.WhenArgument(usersDto, "UserDto").IsNull().Throw();
+            var adminRoleId = await this.UserRepository.GetAdminRoleId();
+            var roles = (await this.UserRepository.GetAllRoles()).Where(r=>r.RoleId == adminRoleId);
+            var admins = usersDto.Join(roles, u => u.Id, r=>r.UserId, (u, r) => u);
+            foreach (var admin in admins)
+            {
+                admin.IsAdmin = true;
+            }
+            return usersDto;
+        }
+
         public async Task<UserDto> GetUserByUsername(string userName)
         {
             Guard.WhenArgument(userName, "Username").IsNullOrEmpty().Throw();

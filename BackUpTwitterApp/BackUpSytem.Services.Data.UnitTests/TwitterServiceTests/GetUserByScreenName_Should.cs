@@ -19,7 +19,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             var apiServiceMock = new Mock<IOAuthCreationService>();
             var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
 
-            var screenName = "100";
+            var screenName = "Elon Musk";
             var resourceUrl = "https://api.twitter.com/1.1/users/show.json?screen_name=";
             var jsonResponse = "JsonResponse";
             var expectedResult = new TwitterAccountApiDto() { Name = "Marto Stamatov" };
@@ -50,7 +50,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             var apiServiceMock = new Mock<IOAuthCreationService>();
             var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
 
-            string screenName = "100";
+            string screenName = "Elon Musk";
             var resourceUrl = "https://api.twitter.com/1.1/users/show.json?screen_name=";
             var jsonResponse = "JsonResponse";
             var expectedResult = new TwitterAccountApiDto() { Name = "Marto Stamatov" };
@@ -79,7 +79,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             var apiServiceMock = new Mock<IOAuthCreationService>();
             var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
 
-            string screenName = "100";
+            string screenName = "Elon Musk";
             var resourceUrl = "https://api.twitter.com/1.1/users/show.json?screen_name=";
             var jsonResponse = "JsonResponse";
             var expectedResult = new TwitterAccountApiDto() { Name = "Marto Stamatov" };

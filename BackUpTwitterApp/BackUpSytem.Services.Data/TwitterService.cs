@@ -59,7 +59,7 @@ namespace BackUpSystem.Services.Data
             Guard.WhenArgument(screenName, "Screen name").IsNullOrEmpty().Throw();
 
             var resourceUrl = "https://api.twitter.com/1.1/users/search.json?q=";
-            var userJson = await apiService.GetTwitterApiCallData($"{resourceUrl}{screenName}&count=5");
+            var userJson = await apiService.GetTwitterApiCallData($"{resourceUrl}{screenName}&count=20");
             Guard.WhenArgument(userJson, "Json Response").IsNullOrEmpty().Throw();
 
             var deserializedUsers = jsonDeserializerWrapper.Deserialize<ICollection<TwitterAccountApiDto>>(userJson);

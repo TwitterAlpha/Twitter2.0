@@ -71,7 +71,7 @@ namespace BackUpSystem.Services.Data
 
         public async Task<bool> DeleteTwitterAccountFromUser(string userId, string twitterAccountId)
         {
-            Guard.WhenArgument(twitterAccountId, "TwitterAccount Id").IsNull().Throw();
+            Guard.WhenArgument(twitterAccountId, "TwitterAccount Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
 
             if (await this.twitterAccountRepository.UserTwitterAccountIsDeleted(userId, twitterAccountId))

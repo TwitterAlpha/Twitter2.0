@@ -1,0 +1,44 @@
+﻿@using BackUpSystem.Web.Models.SearchViewModels
+@model SearchResultViewModel
+
+@foreach (var twitterAccount in Model.SearchResult)
+{
+    <div class="panel panel-default">
+        <strong>Name: @twitterAccount.Name</strong>
+        <div>Followers: @twitterAccount.FollowersCount</div>
+    </div>
+
+    if (!twitterAccount.IsInFavorites)
+    {
+        <a asp-controller="TwitterAccount" asp-action="AddTwitterAccountToFavorites"
+           asp-route-id="@twitterAccount.Id"
+           asp-route-description="@twitterAccount.Description"
+           asp-route-name="@twitterAccount.Name"
+           asp-route-followerscount="@twitterAccount.FollowersCount"
+           asp-route-followingcount="@twitterAccount.FollowingCount"
+           asp-route-imageurl="@twitterAccount.ImageUrl"
+           asp-route-joineddate="@twitterAccount.JoinedDate"
+           asp-route-likescount="@twitterAccount.LikesCount"
+           asp-route-tweetscount="@twitterAccount.TweetsCount"
+           asp-route-username="@twitterAccount.UserName"
+           asp-route-backgroundimage="@twitterAccount.BackgroundImage"
+           class="btn">
+            <i class="fa fa-download"></i> Add to Favorites
+        </a>
+    }
+    else
+    {
+        <h5>@twitterAccount.Name already in favorites!</h5>
+        <a asp-controller="TwitterAccount" asp-action="DeleteTwitterAccountFromFavorites"
+           asp-route-id="@twitterAccount.Id"
+
+           class="btn">
+        <i class="fa fa-remove"></i> Remove from favorites
+        </a>
+    }
+}
+
+
+
+
+

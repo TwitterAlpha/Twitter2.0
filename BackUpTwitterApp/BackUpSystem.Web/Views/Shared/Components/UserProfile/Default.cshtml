@@ -1,0 +1,17 @@
+﻿@using BackUpSystem.Web.Models.HomeViewModels
+@model UserProfileViewModel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+<h2>UserProfile</h2>
+
+<div>
+    <div><img src="@Model.UserImageUrl" alt="@Model.Name Profile Image"></div>
+    <div>Name: @Model.Name</div>
+    <div>Username: @Model.UserName</div>
+    <div>Birth date: @Model.BirthDate</div>
+    <div>Following: @Model.FollowedUsersCount</div>
+    <div>Downloaded tweets: @Model.DownloadedTweetsCount</div>
+    <div>Retweets: @Model.RetweetsCount</div>
+</div>

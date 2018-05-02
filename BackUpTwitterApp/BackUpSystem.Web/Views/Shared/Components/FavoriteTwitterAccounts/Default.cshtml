@@ -1,0 +1,40 @@
+﻿@using BackUpSystem.Web.Models.HomeViewModels
+@model FavoriteTwitterAccountsViewModel
+
+@{
+    ViewData["Title"] = Model.TwitterAccounts.Count();
+}
+<h2>Following Accounts:</h2>
+
+<ul>
+    @foreach (var twitterAccount in Model.TwitterAccounts)
+    {
+        <li @*class="active"*@>
+            <a asp-controller="TwitterAccount" asp-action="Index" 
+               asp-route-id="@twitterAccount.Id" 
+               asp-route-name="@twitterAccount.Name" 
+               asp-route-username="@twitterAccount.UserName" 
+               asp-route-description="@twitterAccount.Description" 
+               asp-route-followerscount="@twitterAccount.FollowersCount" 
+               asp-route-followingcount="@twitterAccount.FollowingCount" 
+               asp-route-imageurl="@twitterAccount.ImageUrl" 
+               asp-route-joineddate="@twitterAccount.JoinedDate" 
+               asp-route-likecount="@twitterAccount.LikesCount" 
+               asp-route-tweetscount="@twitterAccount.TweetsCount" 
+               asp-route-backgroundimage="@twitterAccount.BackgroundImage" 
+               class="btn btn-success" @*data-toggle="collapse" aria-expanded="false"*@>
+                <i class="glyphicon glyphicon-home"></i>
+                @twitterAccount.Name
+            </a>
+        </li>
+        @*<div>Username: @twitterAccount.UserName</div>
+            <div>Description: @twitterAccount.Description</div>
+            <div>Followers: @twitterAccount.FollowersCount</div>
+            <div>Following: @twitterAccount.FollowingCount</div>
+            <div>Likes: @twitterAccount.LikesCount</div>
+            <div>Tweets: @twitterAccount.TweetsCount</div>
+            <div>Joined on: @twitterAccount.JoinedDate</div>
+            <div>Profile image: <img src="@twitterAccount.ImageUrl" alt="@twitterAccount.Name Profile Image"></div>*@
+    }
+</ul>
+

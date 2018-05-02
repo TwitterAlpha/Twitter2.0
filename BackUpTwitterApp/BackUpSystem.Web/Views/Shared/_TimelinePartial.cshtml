@@ -1,0 +1,48 @@
+﻿@using BackUpSystem.Web.Models.HomeViewModels
+@model TimelineViewModel
+
+@foreach (var tweet in Model.Tweets)
+{
+    if (tweet.Text.StartsWith("RT"))
+    {
+        <p5>@tweet.TweetAuthor Retweeted</p5>
+    }
+    <blockquote class="twitter-tweet">
+        <a href="@tweet.TweetUrl"></a>
+    </blockquote>
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    if (!tweet.CanBeDeleted)
+    {
+        if (!tweet.IsDownloaded)
+        {
+            <a asp-controller="Tweet" asp-action="Download"
+               asp-route-id="@tweet.Id"
+               asp-route-createdat="@tweet.CreatedAt"
+               asp-route-likescount="@tweet.LikesCount"
+               asp-route-text="@tweet.Text"
+               asp-route-retweetcount="@tweet.RetweetCount"
+               asp-route-tweeturl="@tweet.TweetUrl"
+               asp-route-tweetauthor="@tweet.TweetAuthor"
+               class="btn">
+                <i class="fa fa-download"></i> Download
+            </a>
+        }
+    }
+    else
+    {
+        <a asp-controller="Tweet" asp-action="Delete" asp-route-tweetid="@tweet.Id"
+           class="btn">
+            <i class="fa fa-trash"></i> Delete
+        </a>
+    }
+    <a target="_blank" asp-controller="Tweet" asp-action="Retweet" asp-route-tweetid="@tweet.Id"
+       class="btn">
+        <i class="fa fa-retweet"></i> Retweet
+    </a>
+
+}
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

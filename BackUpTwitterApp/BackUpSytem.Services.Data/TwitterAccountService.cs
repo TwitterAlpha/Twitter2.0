@@ -47,7 +47,7 @@ namespace BackUpSystem.Services.Data
             twitterAccountToBeAdded.ImageUrl = twitterAccountToBeAdded.ImageUrl.Replace("_normal", string.Empty);
 
             //this.UserRepository.IncludeFavoriteTwitterAccounts();
-            var checkIfTwitterAccountExists = this.twitterAccountRepository.Get(twitterAccountToBeAdded.Id);
+            var checkIfTwitterAccountExists = await this.twitterAccountRepository.Get(twitterAccountToBeAdded.Id);
 
             if (checkIfTwitterAccountExists == null)
             {

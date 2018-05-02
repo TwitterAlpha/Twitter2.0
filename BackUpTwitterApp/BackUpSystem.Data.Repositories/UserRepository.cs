@@ -62,7 +62,7 @@ namespace BackUpSystem.Data.Repositories
             if (checkIfTwitterAccountExists != null)
             {
                 checkIfTwitterAccountExists.IsDeleted = false;
-                return false;
+                return true;
             }
             else
             {

@@ -53,7 +53,6 @@ namespace BackUpSystem.Services.Data
             {
                 this.twitterAccountRepository.Add(twitterAccountToBeAdded);
                 await this.UnitOfWork.SaveChangesAsync();
-                return true;
             }
 
             var user = await this.UserRepository.Get(userId);

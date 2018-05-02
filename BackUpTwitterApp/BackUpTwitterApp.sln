@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Utilities", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Data.Repositories", "BackUpSystem.Data.Repositories\BackUpSystem.Data.Repositories.csproj", "{F962FEB9-4089-4502-A61F-EBA8E35DD36C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestFolder33", "TestFolder33", "{678E162E-F92B-4FB6-A391-0AA0F5DF5176}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

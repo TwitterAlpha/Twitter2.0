@@ -14,6 +14,15 @@ namespace BackUpSystem.Data.Repositories
         {
         }
 
+        //Override done, because of EF Core lazy-loading issue
+        public override async Task<TwitterAccount> Get(string id)
+        {
+            return await this.DbContext.TwitterAccounts
+                .Include(u => u.Users)
+                .Include(u => u.Tweets)
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
+
         public async void AddUserTwitterAccount(string userId, TwitterAccount twitterAccount)
         {
             var userCheck = await this.DbContext.Users.Include(x => x.TwitterAccounts).FirstOrDefaultAsync(x => x.Id == userId);

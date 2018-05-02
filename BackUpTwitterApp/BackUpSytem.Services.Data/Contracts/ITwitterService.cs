@@ -1,11 +1,9 @@
 ﻿using BackUpSystem.DTO;
 using BackUpSystem.DTO.ApiDtos;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace BackUpSytem.Services.Data.Contracts
+namespace BackUpSystem.Services.Data.Contracts
 {
     public interface ITwitterService
     {
@@ -13,9 +11,8 @@ namespace BackUpSytem.Services.Data.Contracts
 
         Task<ICollection<TwitterAccountApiDto>> SearchUsersByScreenName(string screenName);
 
-        Task<ICollection<TweetApiDto>> GetTimeline(string screenName);
+        Task<ICollection<TweetApiDto>> GetTimeline(string favUsersIds);
 
-        Task<ICollection<TweetApiDto>> GetUsersTimeline(string screenName);
-
+        Task<ICollection<TweetApiDto>> GetUsersTimeline(string userId);
     }
 }

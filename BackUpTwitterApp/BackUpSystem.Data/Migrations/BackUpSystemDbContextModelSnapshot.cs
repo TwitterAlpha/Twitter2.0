@@ -46,8 +46,6 @@ namespace BackUpSystem.Data.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AuthorId");
-
                     b.Property<DateTime?>("CreatedAt");
 
                     b.Property<DateTime?>("CreatedOn");
@@ -67,9 +65,11 @@ namespace BackUpSystem.Data.Migrations
                     b.Property<string>("Text")
                         .IsRequired();
 
-                    b.Property<string>("TwitterAccountId");
+                    b.Property<string>("TweetAuthor");
 
-                    b.Property<string>("UserMentioned");
+                    b.Property<string>("TweetUrl");
+
+                    b.Property<string>("TwitterAccountId");
 
                     b.HasKey("Id");
 
@@ -95,6 +95,8 @@ namespace BackUpSystem.Data.Migrations
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BackgroundImage");
 
                     b.Property<DateTime?>("CreatedOn");
 

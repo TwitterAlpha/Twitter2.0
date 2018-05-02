@@ -4,6 +4,8 @@ namespace BackUpSystem.DTO
 {
     public class TwitterAccountDto
     {
+        public string Id { get; set; }
+
         public string UserName { get; set; }
 
         public string Name { get; set; }
@@ -15,6 +17,8 @@ namespace BackUpSystem.DTO
         public int FollowingCount { get; set; }
 
         public int LikesCount { get; set; }
+
+        public string BackgroundImage { get; set; }
 
         public int TweetsCount { get; set; }
 

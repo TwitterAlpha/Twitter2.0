@@ -42,7 +42,7 @@ namespace BackUpSystem.Date.Repositories.Abstractions
         /// </summary>
         //// <param name="id">Id of the entity.</param>
         //// <returns>The entity with the provided id if exist. Otherwise <see cref="null"/>.</returns>
-        public async Task<TEntity> Get(string id)
+        public virtual async Task<TEntity> Get(string id)
         {
             var result = await this.dbContext.Set<TEntity>().FindAsync(id);
 

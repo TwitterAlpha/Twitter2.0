@@ -21,6 +21,8 @@ namespace BackUpSystem.DTO.ApiDtos
 
         public string AuthorImage { get; set; }
 
+        public string TweetUrl { get; set; }
+
         [JsonProperty("favorite_count")]
         public int LikesCount { get; set; }
 

@@ -2,13 +2,13 @@
 using BackUpSystem.DTO.ApiDtos;
 using BackUpSystem.Services.Auth.Contracts;
 using BackUpSystem.Utilities.Contracts;
-using BackUpSytem.Services.Data.Contracts;
+using BackUpSystem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BackUpSytem.Services.Data
+namespace BackUpSystem.Services.Data
 {
     public class TwitterService : ITwitterService
     {
@@ -68,6 +68,7 @@ namespace BackUpSytem.Services.Data
             foreach (var twitterAccount in deserializedUsers)
             {
                 twitterAccount.CurrentStatus.TweetAuthor = twitterAccount.Name;
+                twitterAccount.CurrentStatus.TweetUrl = $"https://twitter.com/{twitterAccount.UserName}/status/{twitterAccount.CurrentStatus.Id}?ref_src=twsrc%5Etfw";
                 //twitterAccount.CurrentStatus.AuthorImage = twitterAccount.ImageUrl;
             }
 
@@ -79,16 +80,21 @@ namespace BackUpSytem.Services.Data
             return timeline;
         }
 
-        public async Task<ICollection<TweetApiDto>> GetUsersTimeline(string screenName)
+        public async Task<ICollection<TweetApiDto>> GetUsersTimeline(string userId)
         {
-            Guard.WhenArgument(screenName, "Screen name").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(userId, "Screen name").IsNullOrEmpty().Throw();
 
-            var resourceUrl = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=";
-            var userTimelineJson = await apiService.GetTwitterApiCallData(resourceUrl + screenName);
+            var resourceUrl = "https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=";
+            var userTimelineJson = await apiService.GetTwitterApiCallData($"{resourceUrl}{userId}&count=20");
             Guard.WhenArgument(userTimelineJson, "UserTimeline Json").IsNullOrEmpty().Throw();
 
             var deserializedUserTimeline = jsonDeserializerWrapper.Deserialize<ICollection<TweetApiDto>>(userTimelineJson);
             Guard.WhenArgument(deserializedUserTimeline, "Deserialized UserTimeline").IsNull().Throw();
+
+            foreach (var tweet in deserializedUserTimeline)
+            {
+                tweet.TweetUrl = $"https://twitter.com/screenName/status/{tweet.Id}?ref_src=twsrc%5Etfw";
+            }
 
             return deserializedUserTimeline;
         }

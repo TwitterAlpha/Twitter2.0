@@ -31,7 +31,7 @@ namespace BackUpSystem.Data.Models
         public DateTime? JoinedDate { get; set; }
 
         [MinLength(20, ErrorMessage = "Invalid ImageUrl format!")]
-        public string UserImageUrl { get; set; } = "http://scraping.pro/res/vwr_proxy/anonymous.jpg";
+        public string UserImageUrl { get; set; } = "https://pbs.twimg.com/profile_images/546708662287228929/XK0Jznql_400x400.jpeg";
 
         [DataType(DataType.DateTime)]
         public DateTime? DeletedOn { get; set; }

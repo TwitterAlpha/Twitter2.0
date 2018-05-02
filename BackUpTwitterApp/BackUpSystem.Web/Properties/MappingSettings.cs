@@ -2,6 +2,8 @@
 using BackUpSystem.Data.Models;
 using BackUpSystem.DTO;
 using BackUpSystem.DTO.ApiDtos;
+using BackUpSystem.Web.Models.HomeViewModels;
+using System.Linq;
 
 namespace BackUpSystem.Web.Properties
 {
@@ -13,10 +15,14 @@ namespace BackUpSystem.Web.Properties
             this.CreateMap<TwitterAccountApiDto, TwitterAccount>(MemberList.Source);
             this.CreateMap<TweetDto, Tweet>(MemberList.Source);
             this.CreateMap<TweetApiDto, Tweet>(MemberList.Source);
+            this.CreateMap<TweetViewModel, TweetApiDto>(MemberList.Source);
+            this.CreateMap<TwitterAccountViewModel, TwitterAccountApiDto>(MemberList.Source);
 
             this.CreateMap<User, UserDto>()
-                .ForMember(x => x.FollowedUsersCount, options => options.MapFrom(x => x.TwitterAccounts.Count))
-                .ForMember(x => x.DownloadedTweetsCount, options => options.MapFrom(x => x.FavoriteTweets.Count));
+                .ForMember(x => x.FollowedUsersCount, options =>
+                options.MapFrom(x => x.TwitterAccounts.ToList().Where(ta => !ta.IsDeleted).Count()))
+                .ForMember(x => x.DownloadedTweetsCount, options => 
+                options.MapFrom(x => x.FavoriteTweets.ToList().Where(ft => !ft.IsDeleted).Count()));
 
         }
 

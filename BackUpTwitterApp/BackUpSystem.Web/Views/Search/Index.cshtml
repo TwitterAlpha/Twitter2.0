@@ -12,23 +12,24 @@
         <form asp-controller="Search" asp-action="Load" method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserInput"></label>
                 <input asp-for="UserInput" class="form-control" />
                 <span asp-validation-for="UserInput" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-default" id="my-button">Submit</button>
+            <button type="submit" class="btn btn-default" id="my-button" value="Search">Submit</button>
         </form>
 
     </div>
 </div>
 
 <div id="search-result"></div>
-
 @section Scripts {
-     @await Html.PartialAsync("_ValidationScriptsPartial"),
+    @await Html.PartialAsync("_ValidationScriptsPartial"),
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>,
     <script>
         $(function () {
             $('#my-button').click(function () {
+                var searchValue = $('#Search').val();
+
                 $.get('/search/load', function (data) {
                     $('#search-result').html(data);
                 });

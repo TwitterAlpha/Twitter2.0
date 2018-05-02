@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackUpSystem.Data.Models
 {
@@ -20,16 +19,14 @@ namespace BackUpSystem.Data.Models
         [Required]
         public string Text { get; set; }
 
-        public string AuthorId { get; set; }
-
         //Corresponds to favorite_count in the Twitter API
         public int LikesCount { get; set; }
 
         public int RetweetCount { get; set; }
 
-        //public string Hashtag { get; set; }
+        public string TweetUrl { get; set; }
 
-        public string UserMentioned { get; set; }
+        public string TweetAuthor { get; set; }
 
         public string MediaUrl { get; set; }
 

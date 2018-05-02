@@ -2,15 +2,15 @@
 using BackUpSystem.DTO.ApiDtos;
 using System.Threading.Tasks;
 
-namespace BackUpSytem.Services.Data.Contracts
+namespace BackUpSystem.Services.Data.Contracts
 {
     public interface ITweetService
     {
         Task<TweetDto> GetTweetById(string id);
 
-        void DownloadTweet(string userId, TweetApiDto tweet);
+        Task<bool> DownloadTweet(string userId, TweetApiDto tweet);
 
-        void DeleteTweet(string userId, string tweetId);
+        Task<bool> DeleteTweet(string userId, string tweetId);
 
         string RetweetATweet(string userId, string tweetId);
     }

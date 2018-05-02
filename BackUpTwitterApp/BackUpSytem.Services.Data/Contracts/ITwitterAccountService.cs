@@ -1,14 +1,14 @@
 ﻿using BackUpSystem.DTO;
 using System.Threading.Tasks;
 
-namespace BackUpSytem.Services.Data.Contracts
+namespace BackUpSystem.Services.Data.Contracts
 {
     public interface ITwitterAccountService
     {
         Task<TwitterAccountDto> GetTwitterAccountById(string id);
 
-        void AddTwitterAccountToUser(TwitterAccountApiDto twitterAccountApiDto, string userId);
+        Task<bool> AddTwitterAccountToUser(TwitterAccountApiDto twitterAccountApiDto, string userId);
 
-        void DeleteTwitterAccountFromUser(string userId, string twitterAccountId);
+        Task<bool> DeleteTwitterAccountFromUser(string userId, string twitterAccountId);
     }
 }

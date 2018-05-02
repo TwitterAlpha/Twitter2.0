@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using BackUpSystem.Data.Models;
+using BackUpSystem.Services.Data.Contracts;
+using BackUpSystem.Web.Models.AccountViewModels;
+using BackUpSystem.Web.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using BackUpSystem.Data.Models;
-using BackUpSystem.Web.Models.AccountViewModels;
-using BackUpSystem.Web.Services;
-using BackUpSytem.Services.Data;
-using BackUpSytem.Services.Data.Contracts;
-using BackUpSystem.DTO;
-using System.Diagnostics;
-using BackUpSystem.DTO.ApiDtos;
+using System;
+using System.Security.Claims;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace BackUpSystem.Web.Controllers
 {
@@ -258,14 +250,14 @@ namespace BackUpSystem.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> Register(string returnUrl = null)
+        public IActionResult Register(string returnUrl = null)
         {
-            //var tweetsTimeline = await this.twitterService.GetUsersTimeline("GrigorDimitrov");
+            //var tweetsTimeline = await this.twitterService.GetTimeline("GrigorDimitrov");
             //var tweetApiDto = tweetsTimeline.FirstOrDefault();
 
             //this.tweetService.DownloadTweet("55555", tweetApiDto);
-            // var twitterAccountApiDto = await this.twitterService.GetUserById("789311182398033920");
-            //this.twitterAccountService.AddTwitterAccountToUser(twitterAccountApiDto, "55");
+            //var twitterAccountApiDto = await this.twitterService.GetUserById("366592246");
+            //this.twitterAccountService.AddTwitterAccountToUser(twitterAccountApiDto, "1975b579-646b-4342-8ade-05777c30df29");
             //this.twitterAccountService.DeleteTwitterAccountFromUser("555", "822215679726100480");
             //this.twitterService.GetTimeline("822215679726100480,789311182398033920,736267842681602048,155659213");
             //this.userService.AddUser(new UserDto() {UserName = "Ceco", Email= "ceco@abv.bg", Id = "1234234" });
@@ -351,6 +343,8 @@ namespace BackUpSystem.Web.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    await _userManager.AddToRoleAsync(user, "Member");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);

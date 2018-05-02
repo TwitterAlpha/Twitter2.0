@@ -8,6 +8,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/sidebar.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -18,7 +19,7 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container navbar-width">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -32,24 +33,99 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="DownloadedTweets" asp-action="Index">Downloaded Tweets</a></li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Admin
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Statistics" asp-action="Index">Statistics</a>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="UserManagement" asp-action="Index">User Management</a>
+                            </div>
+                        </li>
+                    }
                 </ul>
-                @await Html.PartialAsync("_LoginPartial")
+                <div id="navbar" class="navbar-collapse collapse">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="top-search">
+
+                            @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
+                            {
+                                <input type="text" name="UserInput" class="form-control" placeholder="Search Twitter Accounts">
+                                <input type="submit" value="Go!">
+                            }
+                        </div>
+                    }
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - BackUpSystem.Web</p>
-            @if (User.Identity.IsAuthenticated)
-            {
-                @await Component.InvokeAsync("UserProfile")
-            }
-        </footer>
-    </div>
+    <div class="wrapper">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    @await Component.InvokeAsync("UserProfile")
+                </div>
 
+                @await Component.InvokeAsync("FavoriteTwitterAccounts")
+
+                @*<ul class="list-unstyled components">
+                        <li class="active">
+                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                                <i class="glyphicon glyphicon-home"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-briefcase"></i>
+                                About
+                            </a>
+                            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
+                                <i class="glyphicon glyphicon-duplicate"></i>
+                                Pages
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-link"></i>
+                                Portfolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-paperclip"></i>
+                                FAQ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-send"></i>
+                                Contact
+                            </a>
+                        </li>
+                    </ul>*@
+            </nav>
+
+        }
+        <!-- Page Content Holder -->
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2018 - BackUpSystem.Web</p>
+            </footer>
+        </div>
+    </div>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

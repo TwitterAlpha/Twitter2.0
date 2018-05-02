@@ -16,6 +16,15 @@ namespace BackUpSystem.Data.Repositories
         {
         }
 
+        //Override done, because of EF Core lazy-loading issue
+        public override async Task<User> Get(string id)
+        {
+            return await this.DbContext.Users
+                .Include(u => u.TwitterAccounts)
+                .Include(u => u.FavoriteTweets)
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
+
         public async Task<User> GetUserByUsername(string username)
         {
             return await this.DbContext.Users
@@ -25,6 +34,7 @@ namespace BackUpSystem.Data.Repositories
         public async Task<IEnumerable<TwitterAccount>> GetAllFavoriteTwitterAccounts(string id)
         {
             return await this.DbContext.UserTwitterAccounts
+                .Where(ut => !ut.IsDeleted)
                 .Include(x => x.User)
                 .Include(x => x.TwitterAccount)
                 .Where(u => u.UserId == id && !u.IsDeleted)
@@ -36,6 +46,7 @@ namespace BackUpSystem.Data.Repositories
         public async Task<IEnumerable<Tweet>> GetAllDownloadedTweets(string id)
         {
             return await this.DbContext.UserTweets
+                .Where(ut => !ut.IsDeleted)
                 .Include(x => x.User)
                 .Include(x => x.Tweet)
                 .Where(u => u.UserId == id)
@@ -51,7 +62,7 @@ namespace BackUpSystem.Data.Repositories
             if (checkIfTwitterAccountExists != null)
             {
                 checkIfTwitterAccountExists.IsDeleted = false;
-                return false;
+                return true;
             }
             else
             {
@@ -74,7 +85,7 @@ namespace BackUpSystem.Data.Repositories
             if (checkIfTweetExists != null)
             {
                 checkIfTweetExists.IsDeleted = false;
-                return false;
+                return true;
             }
             else
             {

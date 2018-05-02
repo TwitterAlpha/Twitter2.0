@@ -48,7 +48,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
         }
 
         [TestMethod]
-        public async Task ReturnCollectionOf20TwitterAccounts_WhenInvokedWithValidParameter()
+        public async Task ReturnCollectionOf1TwitterAccount_WhenInvokedWithValidParameter()
         {
             //Arrange
             var apiServiceMock = new Mock<IOAuthCreationService>();
@@ -213,7 +213,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             var apiServiceMock = new Mock<IOAuthCreationService>();
             var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
 
-            string screenName = null;
+            string screenName = "Grigor";
             var resourceUrl = "https://api.twitter.com/1.1/users/search.json?q=";
             string jsonResponse = null;
             var twitterAccount = new TwitterAccountApiDto() { Name = "Marto Stamatov" };
@@ -243,7 +243,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             var apiServiceMock = new Mock<IOAuthCreationService>();
             var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
 
-            string screenName = string.Empty;
+            string screenName = "Grigor";
             var resourceUrl = "https://api.twitter.com/1.1/users/search.json?q=";
             var jsonResponse = string.Empty;
             var twitterAccount = new TwitterAccountApiDto() { Name = "Marto Stamatov" };
@@ -273,9 +273,9 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             var apiServiceMock = new Mock<IOAuthCreationService>();
             var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
 
-            string screenName = string.Empty;
+            string screenName = "Grigor";
             var resourceUrl = "https://api.twitter.com/1.1/users/search.json?q=";
-            var jsonResponse = string.Empty;
+            var jsonResponse = "JsonResponse";
             ICollection<TwitterAccountApiDto> expectedResult = null;
 
             apiServiceMock

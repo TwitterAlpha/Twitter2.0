@@ -160,7 +160,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             var apiServiceMock = new Mock<IOAuthCreationService>();
             var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
 
-            string id = null;
+            string id = "100";
             var resourceUrl = "https://api.twitter.com/1.1/users/show.json?user_id=";
             string jsonResponse = null;
             var expectedResult = new TwitterAccountApiDto() { Name = "Marto Stamatov" };
@@ -186,7 +186,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             var apiServiceMock = new Mock<IOAuthCreationService>();
             var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
 
-            string id = string.Empty;
+            string id = "100";
             var resourceUrl = "https://api.twitter.com/1.1/users/show.json?user_id=";
             var jsonResponse = string.Empty;
             var expectedResult = new TwitterAccountApiDto() { Name = "Marto Stamatov" };
@@ -212,9 +212,9 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             var apiServiceMock = new Mock<IOAuthCreationService>();
             var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
 
-            string id = string.Empty;
+            string id = "100";
             var resourceUrl = "https://api.twitter.com/1.1/users/show.json?user_id=";
-            var jsonResponse = string.Empty;
+            var jsonResponse = "JsonResponse";
             TwitterAccountApiDto expectedResult = null;
 
             apiServiceMock

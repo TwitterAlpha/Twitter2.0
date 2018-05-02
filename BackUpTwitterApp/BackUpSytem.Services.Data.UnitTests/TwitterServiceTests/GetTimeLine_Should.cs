@@ -94,6 +94,46 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterServiceTests
             Assert.AreEqual(actualResult.Count, 1);
         }
 
+
+        [TestMethod]
+        public async Task ReturnCollectionWithTweetUrlEqualToExpectedOne_WhenInvokedWithValidParameter()
+        {
+            //Arrange
+            var apiServiceMock = new Mock<IOAuthCreationService>();
+            var jsonDeserializerMock = new Mock<IJsonObjectDeserializer>();
+
+            var favUsersIds = "100,545,6969";
+            var resourceUrl = "https://api.twitter.com/1.1/users/lookup.json?user_id=";
+            var jsonResponse = "JsonResponse";
+            var status = new TweetApiDto() { Id = "1905", TweetAuthor = "Marto Stamatov", TweetUrl = "SomeUrl" };
+            var twitterAccount = new TwitterAccountApiDto() { UserName = "Marto Stamatov", CurrentStatus = status };
+            ICollection<TwitterAccountApiDto> twitterAccounts = new List<TwitterAccountApiDto>
+            {
+                twitterAccount
+            };
+
+            apiServiceMock
+                .Setup(x => x.GetTwitterApiCallData(resourceUrl + favUsersIds, null))
+                .ReturnsAsync(jsonResponse);
+
+            jsonDeserializerMock
+                .Setup(x => x.Deserialize<ICollection<TwitterAccountApiDto>>(jsonResponse))
+                .Returns(twitterAccounts);
+
+            var expectedResult = twitterAccounts
+                .Select(u => u.CurrentStatus)
+                .OrderByDescending(t => t.CreatedAt)
+                .ToList();
+
+            var twitterService = new TwitterService(apiServiceMock.Object, jsonDeserializerMock.Object);
+
+            //Act
+            var actualResult = await twitterService.GetTimeline(favUsersIds);
+
+            //Assert
+            Assert.AreEqual(actualResult.FirstOrDefault().TweetUrl, status.TweetUrl);
+        }
+
         [TestMethod]
         public async Task CallGetTwitterApiCallDataMethodOnce_WhenInvokedWithValidParameters()
         {

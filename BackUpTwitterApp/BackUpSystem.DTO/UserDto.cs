@@ -23,5 +23,7 @@ namespace BackUpSystem.DTO
         public int RetweetsCount { get; set; }
 
         public string UserImageUrl { get; set; }
+
+        public bool IsAdmin { get; set; }
     }
 }

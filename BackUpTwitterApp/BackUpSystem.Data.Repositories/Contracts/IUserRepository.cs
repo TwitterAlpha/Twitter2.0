@@ -1,5 +1,6 @@
 ﻿using BackUpSystem.Data.Models;
 using BackUpSystem.Date.Repositories.Contracts;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,6 +12,9 @@ namespace BackUpSystem.Data.Repositories.Contracts
     /// </summary>
     public interface IUserRepository : IRepository<User>
     {
+        Task<string> GetAdminRoleId();
+
+        Task<IEnumerable<IdentityUserRole<string>>> GetAllRoles();
         // <summary>
         /// Finds a user given username.
         /// </summary>

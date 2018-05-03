@@ -1,0 +1,16 @@
+﻿@using BackUpSystem.DTO
+@model IEnumerable<UserDto>
+
+
+<table>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>
+                @user.UserName
+            </td>
+            <td>@user.IsAdmin</td>
+        </tr>
+    }
+
+</table>

@@ -8,6 +8,8 @@ namespace BackUpSystem.Services.Data.Contracts
 {
     public interface IUserService
     {
+        Task<IEnumerable<UserDto>> GetAllUsers();
+
         Task<UserDto> GetUserById(string id);
 
         Task<UserDto> GetUserByUsername(string userName);

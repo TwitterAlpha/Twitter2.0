@@ -1,6 +1,7 @@
 ﻿using BackUpSystem.Data.Models;
 using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSystem.Date.Repositories.Abstractions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,11 +26,30 @@ namespace BackUpSystem.Data.Repositories
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
 
+        public override async Task<IEnumerable<User>> GetAll()
+        {
+            return await this.DbContext.Users
+                .Include(u => u.TwitterAccounts)
+                .Include(u => u.FavoriteTweets)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<IdentityUserRole<string>>> GetAllRoles()
+        {
+            return await this.DbContext.UserRoles.ToListAsync();
+        }
+
+        public async Task<string> GetAdminRoleId()
+        {
+            return (await this.DbContext.Roles.FirstOrDefaultAsync(r => r.Name == "Admin"))?.Id;
+        }
+
         public async Task<User> GetUserByUsername(string username)
         {
             return await this.DbContext.Users
                 .FirstOrDefaultAsync(u => u.UserName == username);
         }
+
 
         public async Task<IEnumerable<TwitterAccount>> GetAllFavoriteTwitterAccounts(string id)
         {

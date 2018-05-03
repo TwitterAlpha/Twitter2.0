@@ -6,8 +6,6 @@ using BackUpSystem.Utilities.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BackUpSytem.Services.Data.UnitTests.TwitterAccountServiceTests
@@ -78,7 +76,7 @@ namespace BackUpSytem.Services.Data.UnitTests.TwitterAccountServiceTests
                 twitterAccountRepositoryMock.Object);
 
             //Act && Assert
-            Assert.ThrowsException<ArgumentNullException>(async () => await twitterAccountService.GetTwitterAccountById(userId));
+            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await twitterAccountService.GetTwitterAccountById(userId));
         }
 
         [TestMethod]

@@ -85,12 +85,12 @@ namespace BackUpSystem.Services.Data
         public string RetweetATweet(string userId, string tweetId)
         {
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
-            Guard.WhenArgument(tweetId, "Tweet Id").IsNull().Throw();
+            Guard.WhenArgument(tweetId, "Tweet Id").IsNullOrEmpty().Throw();
 
             var resourceUrl = "https://twitter.com/intent/retweet?tweet_id=" + tweetId;
             this.tweetRepository.RetweetATweet(userId);
 
-            this.UnitOfWork.SaveChanges();
+            this.UnitOfWork.SaveChangesAsync();
 
             return resourceUrl;
         }

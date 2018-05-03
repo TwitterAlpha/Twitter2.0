@@ -10,14 +10,6 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
-
-            var test = "test";
-
-
-
-
-
-
             return View();
         }
     }

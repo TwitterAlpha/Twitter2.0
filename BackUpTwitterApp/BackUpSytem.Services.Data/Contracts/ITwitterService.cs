@@ -9,6 +9,8 @@ namespace BackUpSystem.Services.Data.Contracts
     {
         Task<TwitterAccountApiDto> GetUserById(string id);
 
+        Task<TwitterAccountApiDto> GetUserByScreenName(string screenName);
+
         Task<ICollection<TwitterAccountApiDto>> SearchUsersByScreenName(string screenName);
 
         Task<ICollection<TweetApiDto>> GetTimeline(string favUsersIds);

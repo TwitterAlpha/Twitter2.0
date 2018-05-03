@@ -70,8 +70,8 @@ namespace BackUpSystem.Services.Data
 
         public async Task<bool> DeleteTweet(string userId, string tweetId)
         {
-            Guard.WhenArgument(tweetId, "Tweet Id").IsNull().Throw();
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(tweetId, "Tweet Id").IsNull().Throw();
 
             if (await this.tweetRepository.UserTweetIsDeleted(userId, tweetId))
             {
@@ -84,6 +84,9 @@ namespace BackUpSystem.Services.Data
 
         public string RetweetATweet(string userId, string tweetId)
         {
+            Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
+            Guard.WhenArgument(tweetId, "Tweet Id").IsNull().Throw();
+
             var resourceUrl = "https://twitter.com/intent/retweet?tweet_id=" + tweetId;
             this.tweetRepository.RetweetATweet(userId);
 

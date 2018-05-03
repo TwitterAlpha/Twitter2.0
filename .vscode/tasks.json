@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/BackUpTwitterApp/BackUpSystem.Services.Auth.UnitTests/BackUpSystem.Services.Auth.UnitTests.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

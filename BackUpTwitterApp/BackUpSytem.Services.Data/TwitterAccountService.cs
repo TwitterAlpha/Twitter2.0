@@ -44,7 +44,7 @@ namespace BackUpSystem.Services.Data
 
             var twitterAccountToBeAdded = this.MappingProvider.MapTo<TwitterAccount>(twitterAccountApiDto);
             Guard.WhenArgument(twitterAccountToBeAdded, "Twitter Account to be Added").IsNull().Throw();
-            twitterAccountToBeAdded.ImageUrl = twitterAccountToBeAdded.ImageUrl.Replace("_normal", string.Empty);
+            twitterAccountToBeAdded.ImageUrl = twitterAccountToBeAdded.ImageUrl?.Replace("_normal", string.Empty);
 
             //this.UserRepository.IncludeFavoriteTwitterAccounts();
             var checkIfTwitterAccountExists = await this.twitterAccountRepository.Get(twitterAccountToBeAdded.Id);
@@ -71,7 +71,7 @@ namespace BackUpSystem.Services.Data
 
         public async Task<bool> DeleteTwitterAccountFromUser(string userId, string twitterAccountId)
         {
-            Guard.WhenArgument(twitterAccountId, "TwitterAccount Id").IsNull().Throw();
+            Guard.WhenArgument(twitterAccountId, "TwitterAccount Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
 
             if (await this.twitterAccountRepository.UserTwitterAccountIsDeleted(userId, twitterAccountId))

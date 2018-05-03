@@ -46,7 +46,7 @@ namespace BackUpSystem.Services.Data
             var tweet = this.MappingProvider.MapTo<Tweet>(tweetDto);
             Guard.WhenArgument(tweet, "Tweet").IsNull().Throw();
 
-            var checkIfTweetExists = this.tweetRepository.Get(tweet.Id);
+            var checkIfTweetExists = await this.tweetRepository.Get(tweet.Id);
 
             if (checkIfTweetExists == null)
             {

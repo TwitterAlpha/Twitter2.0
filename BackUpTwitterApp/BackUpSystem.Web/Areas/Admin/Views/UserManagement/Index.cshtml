@@ -7,7 +7,7 @@
     {
         <tr>
             <td>
-                @user.UserName
+                <a asp-controller="UserManagement" asp-action="Details"  asp-route-id="@user.Id">@user.UserName</a>
             </td>
             <td>@user.IsAdmin</td>
         </tr>

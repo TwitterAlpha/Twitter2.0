@@ -44,7 +44,7 @@ namespace BackUpSystem.Services.Data
 
         public async Task<IEnumerable<UserDto>> GetAllUsers()
         {
-            var users = await this.UserRepository.GetAll();
+            var users = (await this.UserRepository.GetAll()).Where(u => !u.IsDeleted);
             Guard.WhenArgument(users, "Users").IsNull().Throw();
 
             var usersDto = MappingProvider.MapTo<IEnumerable<UserDto>>(users);
@@ -151,7 +151,7 @@ namespace BackUpSystem.Services.Data
             this.UnitOfWork.SaveChanges();
         }
 
-        public async void DeleteUser(string id)
+        public async Task DeleteUser(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 

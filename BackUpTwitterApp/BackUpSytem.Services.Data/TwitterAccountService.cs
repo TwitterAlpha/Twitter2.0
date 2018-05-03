@@ -69,7 +69,7 @@ namespace BackUpSystem.Services.Data
             return false;
         }
 
-        public async Task<bool> DeleteTwitterAccountFromUser(string userId,     string twitterAccountId)
+        public async Task<bool> DeleteTwitterAccountFromUser(string userId, string twitterAccountId)
         {
             Guard.WhenArgument(twitterAccountId, "TwitterAccount Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();

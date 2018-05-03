@@ -71,7 +71,7 @@ namespace BackUpSystem.Services.Data
         public async Task<bool> DeleteTweet(string userId, string tweetId)
         {
             Guard.WhenArgument(userId, "User Id").IsNullOrEmpty().Throw();
-            Guard.WhenArgument(tweetId, "Tweet Id").IsNull().Throw();
+            Guard.WhenArgument(tweetId, "Tweet Id").IsNullOrEmpty().Throw();
 
             if (await this.tweetRepository.UserTweetIsDeleted(userId, tweetId))
             {

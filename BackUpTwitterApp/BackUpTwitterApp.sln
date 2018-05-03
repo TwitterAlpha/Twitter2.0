@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Utilities", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Data.Repositories", "BackUpSystem.Data.Repositories\BackUpSystem.Data.Repositories.csproj", "{F962FEB9-4089-4502-A61F-EBA8E35DD36C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackUpSytem.Services.Data.UnitTests", "BackUpSytem.Services.Data.UnitTests\BackUpSytem.Services.Data.UnitTests.csproj", "{C147AF39-FBC7-44C3-8C96-7C245FA31F54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSytem.Services.Data.UnitTests", "BackUpSytem.Services.Data.UnitTests\BackUpSytem.Services.Data.UnitTests.csproj", "{C147AF39-FBC7-44C3-8C96-7C245FA31F54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

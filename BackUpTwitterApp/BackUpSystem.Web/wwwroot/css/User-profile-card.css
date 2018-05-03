@@ -1,6 +1,9 @@
 ﻿.m-0 {
  margin:0 !important;
 }
+.m-row {
+    margin: 0 !important;
+}
 .p-0 {
     padding: 0 !important;
 }
@@ -199,6 +202,12 @@
         box-sizing: border-box;
             
     }
+.card-size {
+
+}
+.card-width {
+width: 247px !important;
+}
 
 .card.hovercard {
     position: relative;
@@ -216,16 +225,32 @@
         height: 135px;
         visibility:visible;
     }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .card.hovercard .cardheader {
         visibility:hidden;
+    }
+    .card.hovercard {
+    width:80px
+    }
+    .card-size {
+        width:80px;
+    }
+    .card.hovercard .avatar img {
+        width: 100% !important;
+        height: auto !important;
+    }
+    
+    .card-width {
+     width:80px !important;
+    }
+    .m-row {
+        margin: 0 -15px !important;
     }
 }
     .card.hovercard .avatar {
         position: relative;
         top: -50px;
         margin-bottom: -50px;
-        right: 26%;
     }
 
         .card.hovercard .avatar img {

@@ -35,6 +35,10 @@ ul {
     width: 97% !important;
 }
 
+.res-heading {
+    font-size: 2.75rem;
+}
+
 #sidebar {
     min-width: 250px;
     max-width: 250px;
@@ -105,6 +109,9 @@ a[data-toggle="collapse"] {
     MEDIAQUERIES
 ----------------------------------------------------- */
 @media (max-width: 768px) {
+    .res-heading {
+        font-size: 1.4rem;
+    }
 
     #sidebar {
         min-width: 80px;

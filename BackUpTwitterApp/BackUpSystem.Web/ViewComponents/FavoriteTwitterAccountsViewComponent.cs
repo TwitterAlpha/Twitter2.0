@@ -1,14 +1,11 @@
 ﻿using BackUpSystem.Data.Models;
 using BackUpSystem.DTO;
+using BackUpSystem.Services.Data.Contracts;
 using BackUpSystem.Utilities.Contracts;
 using BackUpSystem.Web.Models.HomeViewModels;
-using BackUpSystem.Services.Data.Contracts;
 using Bytes2you.Validation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BackUpSystem.Web.ViewComponents

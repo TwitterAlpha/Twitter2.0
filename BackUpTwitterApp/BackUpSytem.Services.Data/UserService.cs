@@ -124,12 +124,12 @@ namespace BackUpSystem.Services.Data
             return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt).ToList();
         }
 
-        public void UpdateName(string id, string name)
+        public async Task UpdateName(string id, string name)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(name, "User Name").IsNullOrEmpty().Throw();
 
-            this.UserRepository.UpdateName(id, name);
+            await this.UserRepository.UpdateName(id, name);
             this.UnitOfWork.SaveChanges();
         }
 

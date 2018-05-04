@@ -146,7 +146,7 @@ namespace BackUpSystem.Data.Repositories
             }
         }
 
-        public async void UpdateName(string id, string name)
+        public async Task UpdateName(string id, string name)
         {
             var user = await this.DbContext.Users.FindAsync(id);
             user.Name = name;

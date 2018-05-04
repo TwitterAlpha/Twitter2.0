@@ -64,7 +64,7 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// <param name="id">User's Id</param>
         /// <param name="name">User's name</param>
         /// <returns>A collection of all downloaded tweets by the user.</returns>
-        void UpdateName(string id, string name);
+        Task UpdateName(string id, string name);
 
         /// <summary>
         /// Updates user's Birth date;

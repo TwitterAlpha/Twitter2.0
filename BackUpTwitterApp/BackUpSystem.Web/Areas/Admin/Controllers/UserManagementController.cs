@@ -37,6 +37,13 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> UpdateName(string id, string Name)
+        {
+            await this.userService.UpdateName(id, Name);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete (string id)
         {

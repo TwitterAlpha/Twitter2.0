@@ -20,7 +20,7 @@ namespace BackUpSystem.Services.Data.Contracts
 
         Task<IEnumerable<TweetApiDto>> GetTimeline(string id);
 
-        void UpdateName(string id, string name);
+        Task UpdateName(string id, string name);
 
         void UpdateBirthDate(string id, DateTime? birthDate);
 

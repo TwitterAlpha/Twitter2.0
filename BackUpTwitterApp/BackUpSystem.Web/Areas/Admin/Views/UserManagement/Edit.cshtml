@@ -1,7 +1,60 @@
 ﻿@using BackUpSystem.DTO
 @model UserDto
 
-<form asp-controller="UserManagement" asp-action="Edit" method="post">
-    <input type="hidden" asp-for="@Model.Id" />
-    <button type="submit">Edit</button>
-</form>
+<div>
+    <div>
+        BirthDate: @Model.BirthDate
+    </div>
+
+    <div>
+        <form asp-controller="UserManagement" asp-action="Edit" asp-route-id="@Model.Id">
+            <input type="hidden" asp-for="@Model.Id" />
+            <button type="submit">-EDIT- </button>
+        </form>
+    </div>
+</div>
+
+<br><br>
+
+<div>
+    <div>
+        Name: @Model.Name
+    </div>
+
+    <div>
+        <form asp-controller="UserManagement" asp-action="UpdateName" asp-route-id="@Model.Id">
+            <input type="hidden" asp-for="@Model.Id" />
+            <input type="text" name="Name:">
+            <button type="submit">-EDIT- </button>
+        </form>
+    </div>
+
+</div>
+
+<br><br>
+
+<div>
+    <div>
+        UserImageUrl: @Model.UserImageUrl
+    </div>
+    <div>
+        <form asp-controller="UserManagement" asp-action="Edit" asp-route-id="@Model.Id">
+            <input type="hidden" asp-for="@Model.Id" />
+            <button type="submit">-EDIT- </button>
+        </form>
+    </div>
+</div>
+
+<br><br>
+
+<div>
+    <div>
+        IsAdmin: @Model.IsAdmin
+    </div>
+    <div>
+        <form asp-controller="UserManagement" asp-action="UpdateAdmin" asp-route-id="@Model.Id">
+            <input type="hidden" asp-for="@Model.Id" />
+            <button type="submit">-EDIT- </button>
+        </form>
+    </div>
+</div>

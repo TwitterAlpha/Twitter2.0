@@ -7,6 +7,7 @@ using Bytes2you.Validation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackUpSystem.Web.Controllers
 {
@@ -27,20 +28,26 @@ namespace BackUpSystem.Web.Controllers
             this.mappingProvider = mappingProvider;
         }
 
-        public async Task<IActionResult> Download(TweetViewModel model)
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Download([FromBody]TweetViewModel model)
         {
             var userId = this.userManager.GetUserId(this.HttpContext.User);
+
             var tweet = this.mappingProvider.MapTo<TweetApiDto>(model);
+            Guard.WhenArgument(tweet, "Tweet").IsNull().Throw();
+
             var downloadedSuccessfully = await tweetService.DownloadTweet(userId, tweet);
 
             if (downloadedSuccessfully)
             {
-
+                return Json("Tweet successfully added to Downloaded tweets!");
             }
+            return Json("Tweet could not be downloaded!");
 
-            return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
         public IActionResult Retweet(string tweetId)
         {
             var userId = this.userManager.GetUserId(this.HttpContext.User);
@@ -49,18 +56,19 @@ namespace BackUpSystem.Web.Controllers
             return Redirect(retweetUrl);
         }
 
+        [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Delete(string tweetId)
         {
             var userId = this.userManager.GetUserId(this.HttpContext.User);
             var deletedSuccessfully = await tweetService.DeleteTweet(userId, tweetId);
 
-
             if (deletedSuccessfully)
             {
-
+                return Json("Tweet successfully deleted!");
             }
 
-            return this.View();
+            return Json("Tweet could not be deleted!");
         }
     }
 }

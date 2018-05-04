@@ -59,9 +59,25 @@
 
                             @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "navbar-form navbar-left" }))
                             {
+                                @Html.AntiForgeryToken();
                                 <input type="text" name="UserInput" class="form-control" placeholder="Search Twitter Accounts">
                                 <input type="submit" value="Go!">
                             }
+                        </div>
+                    }
+                    @if (((string)(TempData["Success-Message"] ?? "")).Any())
+                    {
+                        <br />
+                        <div class="alert alert-success">
+                            <strong>Success!</strong> @TempData["Success-Message"]
+                        </div>
+                    }
+
+                    @if (((string)(TempData["Error-Message"] ?? "")).Any())
+                    {
+                        <br />
+                        <div class="alert alert-danger">
+                            <strong>Error!</strong> @TempData["Error-Message"]
                         </div>
                     }
                     @await Html.PartialAsync("_LoginPartial")
@@ -90,12 +106,31 @@
             <hr />
         </div>
     </div>
+
+    <div class="modal fade" id="sentDialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-header">
+                        <div class="modal-body">
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2018 - BackUpSystem.Web</p>
     </footer>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">

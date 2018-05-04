@@ -1,5 +1,6 @@
 ﻿@using BackUpSystem.Web.Models.HomeViewModels
 @model TimelineViewModel
+
 <div class="body-timeline">
     @foreach (var tweet in Model.Tweets)
     {
@@ -18,32 +19,72 @@
             {
                 if (!tweet.IsDownloaded)
                 {
-                    <a asp-controller="Tweet" asp-action="Download"
-                       asp-route-id="@tweet.Id"
-                       asp-route-createdat="@tweet.CreatedAt"
-                       asp-route-likescount="@tweet.LikesCount"
-                       asp-route-text="@tweet.Text"
-                       asp-route-retweetcount="@tweet.RetweetCount"
-                       asp-route-tweeturl="@tweet.TweetUrl"
-                       asp-route-tweetauthor="@tweet.TweetAuthor"
-                       class="btn">
-                        <i class="fa fa-download"></i> Download
-                    </a>
+                    <button class="btn" id="download-btn"
+                            parameter1="@tweet.Id"
+                            parameter2="@tweet.CreatedAt"
+                            parameter3="@tweet.LikesCount"
+                            parameter4="@tweet.RetweetCount"
+                            parameter5="@tweet.Text"
+                            parameter6="@tweet.TweetAuthor"
+                            parameter7="@tweet.TweetUrl">
+                        <i class="fa fa-download">Download</i>
+                    </button>
                 }
             }
             else
             {
-                <a asp-controller="Tweet" asp-action="Delete" asp-route-tweetid="@tweet.Id"
-                   class="btn">
-                    <i class="fa fa-trash"></i> Delete
-                </a>
+                <button class="btn" id="delete-btn"
+                        parameter1="@tweet.Id">
+                    <i class="fa fa-trash">Delete</i>
+                </button>
             }
             <a target="_blank" asp-controller="Tweet" asp-action="Retweet" asp-route-tweetid="@tweet.Id"
-               class="btn">
+               class="btn" id="retweet-btn">
                 <i class="fa fa-retweet"></i> Retweet
             </a>
         </div>
-
+        <p class="message" data-message></p>
     }
 </div>
+
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $(function () {
+        const btnField = $('#download-btn');
+        console.log(btnField);
+
+        const data = {
+            'id': btnField.attr("parameter1"),
+            'createdAt': btnField.attr("parameter2"),
+            'likesCount': btnField.attr("parameter3"),
+            'retweetsCount': btnField.attr("parameter4"),
+            'text': btnField.attr("parameter5"),
+            'tweetAuthor': btnField.attr("parameter6"),
+            'tweetUrl': btnField.attr("parameter7")
+        };
+
+        console.log(data);
+
+        btnField.click(function () {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "/tweet/download",
+                data: JSON.stringify(data),
+                datatype: "json",
+                success: function (result) {
+
+                    console.log(result);
+                    $('[data-message]').text(result).css({ 'color': 'green', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
+                },
+                error: function (result) {
+                    console.log("Error: " + result);
+                    $('[data-message]').text("Error: " + result).css({ 'color': 'red', 'font-weight': 'normal' }).show().delay(3000).fadeOut();;
+                }
+            });
+            btnField.hide();
+        });
+    });
+</script>

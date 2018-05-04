@@ -115,8 +115,8 @@ _TeamCity*
 *.dotCover
 
 # Visual Studio code coverage results
-*.coverage
-*.coveragexml
+#*.coverage
+#*.coveragexml
 
 # NCrunch
 _NCrunch_*
@@ -151,7 +151,7 @@ publish/
 *.azurePubxml
 # TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
-*.pubxml
+#*.pubxml
 *.publishproj
 
 # Microsoft Azure Web App publish settings. Comment the next line if you want to

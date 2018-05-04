@@ -30,6 +30,12 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
             return View(user);
         }
 
+        public async Task<IActionResult> Edit(string id)
+        {
+            var user = await this.userService.GetUserById(id);
+            return View(user);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete (string id)

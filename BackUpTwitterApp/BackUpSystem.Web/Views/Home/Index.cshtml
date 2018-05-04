@@ -1,7 +1,10 @@
 ﻿@using BackUpSystem.Web.Models.HomeViewModels
 @model TimelineViewModel
 
-<div>
+<@*div>
     <h1><strong>Recent: </strong></h1>
-</div>
-@Html.Partial("_TimelinePartial", Model)
+</div>*@
+    <div class="col-lg-10 col-lg-offset-0 col-xs-10 col-xs-offset-2">
+        @Html.Partial("_TimelinePartial", Model)
+        <div class="clearfix"></div>
+    </div>

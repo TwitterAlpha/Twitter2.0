@@ -80,18 +80,18 @@
 
                 @await Component.InvokeAsync("FavoriteTwitterAccounts")
 
-          
+
             </nav>
 
         }
         <!-- Page Content Holder -->
         <div class="container body-content">
             @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; 2018 - BackUpSystem.Web</p>
-            </footer>
         </div>
+        <hr />
+        <footer>
+            <p>&copy; 2018 - BackUpSystem.Web</p>
+        </footer>
     </div>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

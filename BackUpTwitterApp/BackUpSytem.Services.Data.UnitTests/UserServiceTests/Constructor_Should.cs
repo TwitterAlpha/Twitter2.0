@@ -1,7 +1,9 @@
-﻿using BackUpSystem.Data.Repositories.Contracts;
+﻿using BackUpSystem.Data.Models;
+using BackUpSystem.Data.Repositories.Contracts;
 using BackUpSystem.Services.Data;
 using BackUpSystem.Services.Data.Contracts;
 using BackUpSystem.Utilities.Contracts;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
@@ -21,13 +23,15 @@ namespace BackUpSytem.Services.Data.UnitTests.UserServiceTests
             var mappingProviderMock = new Mock<IMappingProvider>();
             var userRepositoryMock = new Mock<IUserRepository>();
             var twitterServiceMock = new Mock<ITwitterService>();
+            var userManagerMock = new Mock<UserManager<User>>();
 
             //Act
             var userService = new UserService(
                 unitOfWorkMock.Object,
                 mappingProviderMock.Object,
                 userRepositoryMock.Object,
-                twitterServiceMock.Object);
+                twitterServiceMock.Object,
+                userManagerMock.Object);
 
             //Assert
             Assert.IsNotNull(userService);

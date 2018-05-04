@@ -1,60 +1,41 @@
-﻿@using BackUpSystem.DTO
-@model UserDto
+﻿@using BackUpSystem.Web.Areas.Admin.Models
+@model EditViewModel
 
-<div>
-    <div>
-        BirthDate: @Model.BirthDate
+<form class="form-horizontal" asp-controller="UserManagement" asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="@Model.BirthDate" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input type="datetime" class="form-control" asp-for="@Model.BirthDate">
+        </div>
     </div>
 
-    <div>
-        <form asp-controller="UserManagement" asp-action="Edit" asp-route-id="@Model.Id">
-            <input type="hidden" asp-for="@Model.Id" />
-            <button type="submit">-EDIT- </button>
-        </form>
-    </div>
-</div>
-
-<br><br>
-
-<div>
-    <div>
-        Name: @Model.Name
+    <div class="form-group">
+        <label asp-for="@Model.Name" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" asp-for="@Model.Name">
+            <span class="text-danger" asp-validation-for="@Model.Name"></span>
+        </div>
     </div>
 
-    <div>
-        <form asp-controller="UserManagement" asp-action="UpdateName" asp-route-id="@Model.Id">
-            <input type="hidden" asp-for="@Model.Id" />
-            <input type="text" name="Name:">
-            <button type="submit">-EDIT- </button>
-        </form>
+    <div class="form-group">
+        <label asp-for="@Model.UserImageUrl" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" asp-for="@Model.UserImageUrl">
+            <span class="text-danger" asp-validation-for="@Model.UserImageUrl"></span>
+        </div>
     </div>
 
-</div>
-
-<br><br>
-
-<div>
-    <div>
-        UserImageUrl: @Model.UserImageUrl
+    <div class="form-group">
+        <label asp-for="@Model.IsAdmin" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input type="checkbox" class="form-control" asp-for="@Model.IsAdmin">
+        </div>
     </div>
-    <div>
-        <form asp-controller="UserManagement" asp-action="Edit" asp-route-id="@Model.Id">
-            <input type="hidden" asp-for="@Model.Id" />
-            <button type="submit">-EDIT- </button>
-        </form>
-    </div>
-</div>
 
-<br><br>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit">EDIT</button>
+        </div>
+    </div>
+</form>
 
-<div>
-    <div>
-        IsAdmin: @Model.IsAdmin
-    </div>
-    <div>
-        <form asp-controller="UserManagement" asp-action="UpdateAdmin" asp-route-id="@Model.Id">
-            <input type="hidden" asp-for="@Model.Id" />
-            <button type="submit">-EDIT- </button>
-        </form>
-    </div>
-</div>

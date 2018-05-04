@@ -152,16 +152,22 @@ namespace BackUpSystem.Data.Repositories
             user.Name = name;
         }
 
-        public async void UpdateBirthDate(string id, DateTime? birthDate)
+        public async Task UpdateBirthDate(string id, DateTime? birthDate)
         {
             var user = await this.DbContext.Users.FindAsync(id);
             user.BirthDate = birthDate;
         }
 
-        public async void UpdateImageUrl(string id, string imageUrl)
+        public async Task UpdateImageUrl(string id, string imageUrl)
         {
             var user = await this.DbContext.Users.FindAsync(id);
             user.UserImageUrl = imageUrl;
+        }
+
+        public async Task UpdateAdminRole(string id, bool isAdmin)
+        {
+            var user = await this.DbContext.Users.FindAsync(id);
+            
         }
 
         //public void IncludeFavoriteTwitterAccounts()

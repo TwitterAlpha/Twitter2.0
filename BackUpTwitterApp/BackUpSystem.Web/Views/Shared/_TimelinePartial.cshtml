@@ -19,7 +19,9 @@
             {
                 if (!tweet.IsDownloaded)
                 {
-                    <button class="btn" id="download-btn"
+                    var id = $"download-btn{tweet.Id}";
+
+                    <button class="btn download-btn" data-datac="@tweet.Id" id="@id"
                             parameter1="@tweet.Id"
                             parameter2="@tweet.CreatedAt"
                             parameter3="@tweet.LikesCount"
@@ -43,7 +45,8 @@
                 <i class="fa fa-retweet"></i> Retweet
             </a>
         </div>
-        <p class="message" data-message></p>
+        var messageId = $"message{tweet.Id}";
+        <p class="message" data-message id="@messageId"></p>
     }
 </div>
 
@@ -52,22 +55,20 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
     $(function () {
-        const btnField = $('#download-btn');
-        console.log(btnField);
+        $(".btn").click(function () {
+            const data = {
+                'id': $(this).attr("parameter1"),
+                'createdAt': $(this).attr("parameter2"),
+                'likesCount': $(this).attr("parameter3"),
+                'retweetsCount': $(this).attr("parameter4"),
+                'text': $(this).attr("parameter5"),
+                'tweetAuthor': $(this).attr("parameter6"),
+                'tweetUrl': $(this).attr("parameter7")
+            };
 
-        const data = {
-            'id': btnField.attr("parameter1"),
-            'createdAt': btnField.attr("parameter2"),
-            'likesCount': btnField.attr("parameter3"),
-            'retweetsCount': btnField.attr("parameter4"),
-            'text': btnField.attr("parameter5"),
-            'tweetAuthor': btnField.attr("parameter6"),
-            'tweetUrl': btnField.attr("parameter7")
-        };
+            const btnId = "#download-btn" + data.id;
+            const messageId = "#message" + data.id;
 
-        console.log(data);
-
-        btnField.click(function () {
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
@@ -76,15 +77,14 @@
                 datatype: "json",
                 success: function (result) {
 
-                    console.log(result);
-                    $('[data-message]').text(result).css({ 'color': 'green', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
+                    $(btnId).hide();
+
+                    $(messageId).text(result).css({ 'color': 'green', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
                 },
                 error: function (result) {
-                    console.log("Error: " + result);
-                    $('[data-message]').text("Error: " + result).css({ 'color': 'red', 'font-weight': 'normal' }).show().delay(3000).fadeOut();;
+                    $(messageId).text("Error: " + result).css({ 'color': 'red', 'font-weight': 'normal' }).show().delay(3000).fadeOut();;
                 }
             });
-            btnField.hide();
         });
     });
 </script>

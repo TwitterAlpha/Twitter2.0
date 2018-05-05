@@ -28,7 +28,15 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Details(string id)
         {
             var user = await this.userService.GetUserById(id);
-            return View(user);
+            var twitterAccounts = await this.userService.GetAllFavoriteUsers(id);
+            var tweets = await this.userService.GetAllDownloadTweetsByUser(id);
+            var detailsViewModel = new UserDetailsModel()
+            {
+                User = user,
+                TwitterAccounts = twitterAccounts,
+                Tweets = tweets
+            };
+            return View(detailsViewModel);
         }
 
         public async Task<IActionResult> Edit(string id)

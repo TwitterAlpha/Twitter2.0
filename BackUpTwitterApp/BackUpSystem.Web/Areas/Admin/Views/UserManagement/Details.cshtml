@@ -1,64 +1,103 @@
-﻿@using BackUpSystem.DTO
-@model UserDto
+﻿@using BackUpSystem.Web.Areas.Admin.Models
+@model UserDetailsModel
 
-<div> <img src="@Model.UserImageUrl" height="100" width="100"> </div>
+<div> <img src="@Model.User.UserImageUrl" height="100" width="100"> </div>
 
 <div>
     <form asp-controller="UserManagement" asp-action="Delete" method="post">
-        <input type="hidden"  asp-for="@Model.Id"/>
-        <button type="submit">DELETE</button>
+        <input type="hidden" asp-for="@Model.User.Id" />
+        <button class="btn btn-danger" type="submit">DELETE</button>
     </form>
 </div>
 
 <div>
-        <a form asp-controller="UserManagement" asp-action="Edit" asp-route-id="@Model.Id">EDIT</a>
+    <a class="btn btn-default" form asp-controller="UserManagement" asp-action="Edit" asp-route-id="@Model.User.Id">EDIT</a>
 </div>
 
 <div>
     <table>
         <tr>
             <td>User Id</td>
-            <td>@Model.Id</td>
+            <td>@Model.User.Id</td>
         </tr>
         <tr>
             <td>User Email</td>
-            <td>@Model.Email</td>
+            <td>@Model.User.Email</td>
         </tr>
         <tr>
             <td>User UserName</td>
-            <td>@Model.UserName</td>
+            <td>@Model.User.UserName</td>
         </tr>
         <tr>
             <td>User Name</td>
-            <td>@Model.Name</td>
+            <td>@Model.User.Name</td>
         </tr>
         <tr>
             <td>User Joined Date</td>
-            <td>@Model.JoinedDate</td>
+            <td>@Model.User.JoinedDate</td>
         </tr>
         <tr>
             <td>User Birth Date</td>
-            <td>@Model.BirthDate</td>
+            <td>@Model.User.BirthDate</td>
         </tr>
         <tr>
             <td>User Followed Users Count</td>
-            <td>@Model.FollowedUsersCount</td>
+            <td>@Model.User.FollowedUsersCount</td>
         </tr>
         <tr>
             <td>User Downloaded Tweets Count</td>
-            <td>@Model.DownloadedTweetsCount</td>
+            <td>@Model.User.DownloadedTweetsCount</td>
         </tr>
         <tr>
             <td>User Retweets Count</td>
-            <td>@Model.RetweetsCount</td>
+            <td>@Model.User.RetweetsCount</td>
         </tr>
         <tr>
             <td>User User Image URL</td>
-            <td>@Model.UserImageUrl</td>
+            <td>@Model.User.UserImageUrl</td>
         </tr>
         <tr>
             <td>User IsAdmin</td>
-            <td>@Model.IsAdmin</td>
+            <td>@Model.User.IsAdmin</td>
+        </tr>
+    </table>
+</div>
+
+<br /><br />
+
+<div>
+    <table class="table table-striped">
+        <tr>
+            <th>Favorite Twitter Accounts</th>
+            <th>Downloaded Tweets</th>
+        </tr>
+        <tr>
+            <td>
+                @foreach (var account in Model.TwitterAccounts)
+                {
+                <div>
+                    Twitter Name: @account.UserName
+
+                    Tweets count: @account.TweetsCount
+
+                    Following count: @account.FollowingCount
+
+                    Followers count: @account.FollowersCount
+                </div>
+                <br />
+                }
+            </td>
+            <td>
+                @foreach (var tweet in Model.Tweets)
+                {
+                <div>
+                    weet content: @tweet.Text
+
+                    Retweet count: @tweet.RetweetCount
+                </div>
+                <br />
+                 }
+            </td>
         </tr>
     </table>
 </div>

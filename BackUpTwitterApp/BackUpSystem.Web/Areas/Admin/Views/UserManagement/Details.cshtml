@@ -76,6 +76,10 @@
                 @foreach (var account in Model.TwitterAccounts)
                 {
                 <div>
+                    <form asp-controller="UserManagement" asp-action="DeleteTwitterAccount" method="post">
+                        <input type="hidden" asp-for="@account.Id" />
+                        <button class="btn btn-danger" type="submit">DELETE</button>
+                    </form>
                     Twitter Name: @account.UserName
 
                     Tweets count: @account.TweetsCount

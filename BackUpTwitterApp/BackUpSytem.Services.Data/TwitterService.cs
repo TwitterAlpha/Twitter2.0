@@ -76,7 +76,8 @@ namespace BackUpSystem.Services.Data
             var userJson = await apiService.GetTwitterApiCallData(resourceUrl + favUsersIds);
             Guard.WhenArgument(userJson, "Json Response").IsNullOrEmpty().Throw();
 
-            var deserializedUsers = jsonDeserializerWrapper.Deserialize<ICollection<TwitterAccountApiDto>>(userJson);
+            var deserializedUsers = jsonDeserializerWrapper.Deserialize<ICollection<TwitterAccountApiDto>>(userJson)
+                .Where(s => s.CurrentStatus != null);
             Guard.WhenArgument(deserializedUsers, "Deserialized Tweets").IsNull().Throw();
 
             foreach (var twitterAccount in deserializedUsers)

@@ -132,7 +132,11 @@ namespace BackUpSystem.Services.Data
             }
 
             sb.Length--;
-            return await twitterService.GetTimeline(sb.ToString());
+
+            var timeline = await twitterService.GetTimeline(sb.ToString());
+            Guard.WhenArgument(timeline, "Timeline").IsNull().Throw();
+
+            return timeline;
         }
 
         public async Task<ICollection<TweetApiDto>> GetAllDownloadTweetsByUser(string id)

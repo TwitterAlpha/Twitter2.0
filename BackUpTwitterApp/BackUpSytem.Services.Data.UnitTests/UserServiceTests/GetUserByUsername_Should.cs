@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace BackUpSytem.Services.Data.UnitTests.UserServiceTests
 {
     [TestClass]
-    public class GetUserByScreenName_Should
+    public class GetUserByUsername_Should
     {
         [TestMethod]
         public async Task ReturnUserDtoObject_WhenInvokedWithValidParameter()

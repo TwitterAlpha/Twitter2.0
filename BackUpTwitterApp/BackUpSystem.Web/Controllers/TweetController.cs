@@ -58,10 +58,10 @@ namespace BackUpSystem.Web.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Delete(string tweetId)
+        public async Task<IActionResult> Delete([FromBody]TweetViewModel model)
         {
             var userId = this.userManager.GetUserId(this.HttpContext.User);
-            var deletedSuccessfully = await tweetService.DeleteTweet(userId, tweetId);
+            var deletedSuccessfully = await tweetService.DeleteTweet(userId, model.Id);
 
             if (deletedSuccessfully)
             {

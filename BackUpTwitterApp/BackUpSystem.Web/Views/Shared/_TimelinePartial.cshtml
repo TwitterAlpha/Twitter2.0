@@ -8,6 +8,9 @@
         {
             <p5>@tweet.TweetAuthor Retweeted</p5>
         }
+
+        var btnId = $"btn-{tweet.Id}";
+
         <blockquote class="twitter-tweet">
             <a href="@tweet.TweetUrl"></a>
         </blockquote>
@@ -19,9 +22,7 @@
             {
                 if (!tweet.IsDownloaded)
                 {
-                    var id = $"download-btn{tweet.Id}";
-
-                    <button class="btn download-btn" data-datac="@tweet.Id" id="@id"
+                    <button class="btn download-btn" data-datac="@tweet.Id" id="@btnId"
                             parameter1="@tweet.Id"
                             parameter2="@tweet.CreatedAt"
                             parameter3="@tweet.LikesCount"
@@ -35,8 +36,9 @@
             }
             else
             {
-                <button class="btn" id="delete-btn"
-                        parameter1="@tweet.Id">
+                <button class="btn" id="@btnId"
+                        parameter1="@tweet.Id"
+                        parameter7=@tweet.TweetUrl>
                     <i class="fa fa-trash">Delete</i>
                 </button>
             }
@@ -45,13 +47,13 @@
                 <i class="fa fa-retweet"></i> Retweet
             </a>
         </div>
+        System.Threading.Thread.Sleep(2000);
         var messageId = $"message{tweet.Id}";
         <p class="message" data-message id="@messageId"></p>
     }
 </div>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
     $(function () {
@@ -66,13 +68,22 @@
                 'tweetUrl': $(this).attr("parameter7")
             };
 
-            const btnId = "#download-btn" + data.id;
+            console.log(data);
+            const btnId = "#btn-" + data.id;
             const messageId = "#message" + data.id;
+            let postUrl;
 
+            if (data.createdAt != undefined) {
+                postUrl = "/tweet/download";
+            }
+            else {
+                postUrl = "/tweet/delete";
+            }
+            console.log(postUrl);
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
-                url: "/tweet/download",
+                url: postUrl,
                 data: JSON.stringify(data),
                 datatype: "json",
                 success: function (result) {

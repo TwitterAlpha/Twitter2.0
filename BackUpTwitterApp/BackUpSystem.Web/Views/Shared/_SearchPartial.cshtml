@@ -34,7 +34,7 @@
             parameter7="@twitterAccount.ImageUrl"
             parameter8="@twitterAccount.TweetsCount"
             parameter9="@twitterAccount.UserName"
-            parameter10="@twitterAccount.IsInFavorites.ToString().ToLower()">
+            parameter10="@twitterAccount.IsInFavorites">
         <i class="fa fa-user-plus">Follow</i>
     </button>
 
@@ -48,7 +48,7 @@
             parameter7="@twitterAccount.ImageUrl"
             parameter8="@twitterAccount.TweetsCount"
             parameter9="@twitterAccount.UserName"
-            parameter10="@twitterAccount.IsInFavorites.ToString().ToLower()">
+            parameter10="@twitterAccount.IsInFavorites">
         <i class="fa fa-user-check">Unfollow</i>
     </button>
     var messageId = $"message-{twitterAccount.Id}";
@@ -70,7 +70,7 @@
                 'imageUrl': $(this).attr("parameter7"),
                 'tweetsCount': $(this).attr("parameter8"),
                 'username': $(this).attr("parameter9"),
-                'isInFavorites': $(this).attr("parameter10")
+                'isInFavorites': Boolean($(this).attr("parameter10"))
             };
 
             console.log(data);
@@ -84,14 +84,14 @@
             console.log(unfollowbuttonId);
             console.log(messageId);
             console.log(data.name);
-            console.log(data.isInFavorites.toString());
+            console.log(data.isInFavorites);
 
-            if (data.isInFavorites == 'true') {
-                data.isInFavorites = 'false';
+            if (data.isInFavorites) {
+                data.isInFavorites = false;
                 postUrl = '/twitteraccount/DeleteTwitterAccountFromFavorites';
             }
             else {
-                data.isInFavorites = 'true';
+                data.isInFavorites = true;
                 postUrl = '/twitteraccount/AddTwitterAccountToFavorites';
             }
 
@@ -105,7 +105,7 @@
                 datatype: "json",
                 success: function (result) {
 
-                    if (data.isInFavorites == 'true') {
+                    if (data.isInFavorites) {
                         $(followbuttonId).css('visibility', 'hidden');
                     }
                     else {

@@ -29,8 +29,4 @@
     <ProjectReference Include="..\BackUpSytem.Services.Data\BackUpSytem.Services.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
-  </ItemGroup>
-
 </Project>

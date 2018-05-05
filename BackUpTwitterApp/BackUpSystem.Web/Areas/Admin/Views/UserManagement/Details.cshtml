@@ -1,0 +1,64 @@
+﻿@using BackUpSystem.DTO
+@model UserDto
+
+<div> <img src="@Model.UserImageUrl" height="100" width="100"> </div>
+
+<div>
+    <form asp-controller="UserManagement" asp-action="Delete" method="post">
+        <input type="hidden"  asp-for="@Model.Id"/>
+        <button type="submit">DELETE</button>
+    </form>
+</div>
+
+<div>
+        <a form asp-controller="UserManagement" asp-action="Edit" asp-route-id="@Model.Id">EDIT</a>
+</div>
+
+<div>
+    <table>
+        <tr>
+            <td>User Id</td>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <td>User Email</td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td>User UserName</td>
+            <td>@Model.UserName</td>
+        </tr>
+        <tr>
+            <td>User Name</td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>User Joined Date</td>
+            <td>@Model.JoinedDate</td>
+        </tr>
+        <tr>
+            <td>User Birth Date</td>
+            <td>@Model.BirthDate</td>
+        </tr>
+        <tr>
+            <td>User Followed Users Count</td>
+            <td>@Model.FollowedUsersCount</td>
+        </tr>
+        <tr>
+            <td>User Downloaded Tweets Count</td>
+            <td>@Model.DownloadedTweetsCount</td>
+        </tr>
+        <tr>
+            <td>User Retweets Count</td>
+            <td>@Model.RetweetsCount</td>
+        </tr>
+        <tr>
+            <td>User User Image URL</td>
+            <td>@Model.UserImageUrl</td>
+        </tr>
+        <tr>
+            <td>User IsAdmin</td>
+            <td>@Model.IsAdmin</td>
+        </tr>
+    </table>
+</div>

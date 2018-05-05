@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace BackUpSystem.Services.Data
 {
@@ -18,15 +19,19 @@ namespace BackUpSystem.Services.Data
     {
         private readonly ITwitterService twitterService;
 
+        private readonly UserManager<User> userManager;
+
         public UserService(
             IUnitOfWork unitOfWork,
             IMappingProvider mappingProvider,
             IUserRepository userRepository,
-            ITwitterService twitterService)
+            ITwitterService twitterService,
+             UserManager<User> userManager)
             : base(unitOfWork, mappingProvider, userRepository)
         {
             Guard.WhenArgument(twitterService, "Twitter Service").IsNull().Throw();
             this.twitterService = twitterService;
+            this.userManager = userManager;
         }
 
         public async Task<UserDto> GetUserById(string id)
@@ -35,16 +40,19 @@ namespace BackUpSystem.Services.Data
 
             var user = await this.UserRepository.Get(id);
             Guard.WhenArgument(user, "User").IsNull().Throw();
-
             var userDto = MappingProvider.MapTo<UserDto>(user);
             Guard.WhenArgument(userDto, "UserDto").IsNull().Throw();
-
+            var adminRoleId = await this.UserRepository.GetAdminRoleId();
+            //var roles = (await this.UserRepository.GetAllRoles()).Where(r => r.RoleId == adminRoleId);
+            //var admins = usersDto.Join(roles, u => u.Id, r => r.UserId, (u, r) => u);
+            bool isAdmin = (await this.UserRepository.GetAllRoles()).Any(r => r.RoleId == adminRoleId && r.UserId == id);
+            userDto.IsAdmin = isAdmin;
             return userDto;
         }
 
         public async Task<IEnumerable<UserDto>> GetAllUsers()
         {
-            var users = await this.UserRepository.GetAll();
+            var users = (await this.UserRepository.GetAll()).Where(u => !u.IsDeleted);
             Guard.WhenArgument(users, "Users").IsNull().Throw();
 
             var usersDto = MappingProvider.MapTo<IEnumerable<UserDto>>(users);
@@ -124,34 +132,47 @@ namespace BackUpSystem.Services.Data
             return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt).ToList();
         }
 
-        public void UpdateName(string id, string name)
+        public async Task UpdateName(string id, string name)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(name, "User Name").IsNullOrEmpty().Throw();
 
-            this.UserRepository.UpdateName(id, name);
+            await this.UserRepository.UpdateName(id, name);
             this.UnitOfWork.SaveChanges();
         }
 
-        public void UpdateBirthDate(string id, DateTime? birthDate)
+        public async Task UpdateBirthDate(string id, DateTime? birthDate)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(birthDate, "Birth Date").IsNull().Throw();
 
-            this.UserRepository.UpdateBirthDate(id, birthDate);
+            await this.UserRepository.UpdateBirthDate(id, birthDate);
             this.UnitOfWork.SaveChanges();
         }
 
-        public void UpdateProfileImage(string id, string imageUrl)
+        public async Task UpdateIsAdmin(string id, bool isAdmin)
+        {
+            var user = await this.userManager.FindByIdAsync(id);
+            if (isAdmin)
+            {
+                await this.userManager.AddToRoleAsync(user, "Admin");
+            }
+            else
+            {
+                await this.userManager.RemoveFromRoleAsync(user, "Admin");
+            }
+        }
+
+        public async Task UpdateProfileImage(string id, string imageUrl)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(imageUrl, "Image Url").IsNullOrEmpty().Throw();
 
-            this.UserRepository.UpdateImageUrl(id, imageUrl);
+            await this.UserRepository.UpdateImageUrl(id, imageUrl);
             this.UnitOfWork.SaveChanges();
         }
 
-        public async void DeleteUser(string id)
+        public async Task DeleteUser(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 

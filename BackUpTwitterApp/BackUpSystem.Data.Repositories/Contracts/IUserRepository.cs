@@ -64,7 +64,7 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// <param name="id">User's Id</param>
         /// <param name="name">User's name</param>
         /// <returns>A collection of all downloaded tweets by the user.</returns>
-        void UpdateName(string id, string name);
+        Task UpdateName(string id, string name);
 
         /// <summary>
         /// Updates user's Birth date;
@@ -72,7 +72,7 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// <param name="id">User's Id</param>
         /// <param name="birthDate">User's Birth date</param>
         /// <returns>A collection of all downloaded tweets by the user.</returns>
-        void UpdateBirthDate(string id, DateTime? birthDate);
+        Task UpdateBirthDate(string id, DateTime? birthDate);
 
         /// <summary>
         /// Updates user's Image url;
@@ -80,7 +80,7 @@ namespace BackUpSystem.Data.Repositories.Contracts
         /// <param name="id">User's Id</param>
         /// <param name="imageUrl">User's Image url</param>
         /// <returns>A collection of all downloaded tweets by the user.</returns>
-        void UpdateImageUrl(string id, string imageUrl);
+        Task UpdateImageUrl(string id, string imageUrl);
 
         //void IncludeFavoriteTwitterAccounts();
 

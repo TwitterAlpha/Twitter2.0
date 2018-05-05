@@ -8,6 +8,8 @@ namespace BackUpSystem.Services.Data.Contracts
 {
     public interface IUserService
     {
+        Task UpdateIsAdmin(string id, bool isAdmin);
+
         Task<IEnumerable<UserDto>> GetAllUsers();
 
         Task<UserDto> GetUserById(string id);
@@ -20,13 +22,13 @@ namespace BackUpSystem.Services.Data.Contracts
 
         Task<IEnumerable<TweetApiDto>> GetTimeline(string id);
 
-        void UpdateName(string id, string name);
+        Task UpdateName(string id, string name);
 
-        void UpdateBirthDate(string id, DateTime? birthDate);
+        Task UpdateBirthDate(string id, DateTime? birthDate);
 
-        void UpdateProfileImage(string id, string imageUrl);
+        Task UpdateProfileImage(string id, string imageUrl);
 
-        void DeleteUser(string id);
+        Task DeleteUser(string id);
 
         Task<int> GetUserRetweets(string userId);
     }

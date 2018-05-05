@@ -74,15 +74,15 @@
         @if (User.Identity.IsAuthenticated)
         {
             <!-- Sidebar Holder -->
-            @*<nav id="sidebar">
+            <nav id="sidebar">
                 <div class="sidebar-header">
                     @await Component.InvokeAsync("UserProfile")
-                </div>*@
+                </div>
 
                 @await Component.InvokeAsync("FavoriteTwitterAccounts")
 
 
-            @*</nav>*@
+            </nav>
 
         }
         <!-- Page Content Holder -->

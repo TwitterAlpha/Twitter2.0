@@ -22,13 +22,13 @@ namespace BackUpSystem.Services.Data.Contracts
 
         Task<IEnumerable<TweetApiDto>> GetTimeline(string id);
 
-        Task UpdateName(string id, string name);
+        Task<bool> UpdateName(string id, string name);
 
-        Task UpdateBirthDate(string id, DateTime? birthDate);
+        Task<bool> UpdateBirthDate(string id, DateTime? birthDate);
 
-        Task UpdateProfileImage(string id, string imageUrl);
+        Task<bool> UpdateProfileImage(string id, string imageUrl);
 
-        Task DeleteUser(string id);
+        Task<bool> DeleteUser(string id);
 
         Task<int> GetUserRetweets(string userId);
     }

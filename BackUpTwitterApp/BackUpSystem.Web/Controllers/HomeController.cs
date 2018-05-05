@@ -88,7 +88,7 @@ namespace BackUpSystem.Web.Controllers
                 var foundUsers = this.mappingProvider.ProjectTo<TwitterAccountApiDto, TwitterAccountViewModel>(searchResult).ToList();
 
                 var userId = this.userManager.GetUserId(this.HttpContext.User);
-                var favoriteUsers = await userService.GetAllFavoriteUsers(userId);
+                var favoriteUsers = await userService.GetAllFavoriteTwitterAccounts(userId);
 
                 foreach (var favUser in favoriteUsers)
                 {

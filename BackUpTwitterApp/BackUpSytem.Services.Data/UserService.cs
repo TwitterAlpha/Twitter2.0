@@ -96,7 +96,7 @@ namespace BackUpSystem.Services.Data
             return userDto;
         }
 
-        public async Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteUsers(string id)
+        public async Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteTwitterAccounts(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 

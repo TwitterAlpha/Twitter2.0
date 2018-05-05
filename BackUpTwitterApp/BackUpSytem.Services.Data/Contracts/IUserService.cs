@@ -16,7 +16,7 @@ namespace BackUpSystem.Services.Data.Contracts
 
         Task<UserDto> GetUserByUsername(string userName);
 
-        Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteUsers(string id);
+        Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteTwitterAccounts(string id);
 
         Task<ICollection<TweetApiDto>> GetAllDownloadTweetsByUser(string id);
 

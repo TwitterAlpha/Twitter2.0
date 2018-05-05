@@ -9,16 +9,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BackUpSytem.Services.Data.UnitTests.UserServiceTests
 {
     [TestClass]
-    public class GetAllFavoriteUsers_Should
+    public class GetAllFavoriteTwitterAccounts_Should
     {
         [TestMethod]
-        public async Task ReturnCollectionOfUserDtoObjects_WhenInvokedWithValidParameter()
+        public async Task ReturnCollectionOfTwitterAccountDtobjects_WhenInvokedWithValidParameter()
         {
             //Arrange
             var unitOfWorkMock = new Mock<IUnitOfWork>();
@@ -28,25 +27,25 @@ namespace BackUpSytem.Services.Data.UnitTests.UserServiceTests
             var userManagerMock = MockUserManager<User>();
 
             var userId = "30";
-            var user = new User() { Name = "Marto Stamatov", Id = "30"};
-            var users = new List<User>()
+            var twitterAccount = new TwitterAccount() { Name = "Grigor", Id = "30" };
+            var twitterAccounts = new List<TwitterAccount>()
             {
-                user
+                twitterAccount
             };
 
-            var userDto = new UserDto() { Name = "Marto Stamatov", Id = "30"};
-            var usersDto = new List<UserDto>()
+            var twitterAccountDto = new TwitterAccountDto() { Name = "Grigor", Id = "30" };
+            var expectedResult = new List<TwitterAccountDto>()
             {
-                userDto
+                twitterAccountDto
             };
 
             userRepositoryMock
                 .Setup(x => x.GetAllFavoriteTwitterAccounts(userId))
-                .ReturnsAsync(users);
+                .ReturnsAsync(twitterAccounts);
 
             mappingProviderMock
-                .Setup(x => x.MapTo<UserDto>(user))
-                .Returns(userDto);
+                .Setup(x => x.ProjectTo<TwitterAccount, TwitterAccountDto>(twitterAccounts))
+                .Returns(expectedResult);
 
             var userService = new UserService(
                 unitOfWorkMock.Object,
@@ -56,11 +55,180 @@ namespace BackUpSytem.Services.Data.UnitTests.UserServiceTests
                 userManagerMock.Object);
 
             //Act
-            var actualResult = await userService.GetUserByUsername(username);
+            var actualResult = await userService.GetAllFavoriteTwitterAccounts(userId);
 
             //Assert
             Assert.IsNotNull(actualResult);
-            Assert.AreSame(actualResult, userDto);
+            Assert.AreSame(actualResult, expectedResult);
+        }
+
+        [TestMethod]
+        public void ThrowArgumentNullException_WhenInvokedWithInvalidNullIdParameter()
+        {
+            //Arrange
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var mappingProviderMock = new Mock<IMappingProvider>();
+            var userRepositoryMock = new Mock<IUserRepository>();
+            var twitterServiceMock = new Mock<ITwitterService>();
+            var userManagerMock = MockUserManager<User>();
+
+            var userId = "30";
+            var twitterAccount = new TwitterAccount() { Name = "Grigor", Id = "30" };
+            var twitterAccounts = new List<TwitterAccount>()
+            {
+                twitterAccount
+            };
+
+            var twitterAccountDto = new TwitterAccountDto() { Name = "Grigor", Id = "30" };
+            var expectedResult = new List<TwitterAccountDto>()
+            {
+                twitterAccountDto
+            };
+
+            userRepositoryMock
+                .Setup(x => x.GetAllFavoriteTwitterAccounts(userId))
+                .ReturnsAsync(twitterAccounts);
+
+            mappingProviderMock
+                .Setup(x => x.ProjectTo<TwitterAccount, TwitterAccountDto>(twitterAccounts))
+                .Returns(expectedResult);
+
+            var userService = new UserService(
+                unitOfWorkMock.Object,
+                mappingProviderMock.Object,
+                userRepositoryMock.Object,
+                twitterServiceMock.Object,
+                userManagerMock.Object);
+
+            //Act && Assert
+            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await userService.GetAllFavoriteTwitterAccounts(null));
+        }
+
+        [TestMethod]
+        public void ThrowArgumentException_WhenInvokedWithInvalidEmptyIdParameter()
+        {
+            //Arrange
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var mappingProviderMock = new Mock<IMappingProvider>();
+            var userRepositoryMock = new Mock<IUserRepository>();
+            var twitterServiceMock = new Mock<ITwitterService>();
+            var userManagerMock = MockUserManager<User>();
+
+            var userId = "30";
+            var twitterAccount = new TwitterAccount() { Name = "Grigor", Id = "30" };
+            var twitterAccounts = new List<TwitterAccount>()
+            {
+                twitterAccount
+            };
+
+            var twitterAccountDto = new TwitterAccountDto() { Name = "Grigor", Id = "30" };
+            var expectedResult = new List<TwitterAccountDto>()
+            {
+                twitterAccountDto
+            };
+
+            userRepositoryMock
+                .Setup(x => x.GetAllFavoriteTwitterAccounts(userId))
+                .ReturnsAsync(twitterAccounts);
+
+            mappingProviderMock
+                .Setup(x => x.ProjectTo<TwitterAccount, TwitterAccountDto>(twitterAccounts))
+                .Returns(expectedResult);
+
+            var userService = new UserService(
+                unitOfWorkMock.Object,
+                mappingProviderMock.Object,
+                userRepositoryMock.Object,
+                twitterServiceMock.Object,
+                userManagerMock.Object);
+
+            //Act && Assert
+            Assert.ThrowsExceptionAsync<ArgumentException>(async () => await userService.GetAllFavoriteTwitterAccounts(string.Empty));
+        }
+
+
+        [TestMethod]
+        public void ThrowArgumentNullException_WhenUserRepositoryGetUserByIdMethodReturnsNull()
+        {
+            //Arrange
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var mappingProviderMock = new Mock<IMappingProvider>();
+            var userRepositoryMock = new Mock<IUserRepository>();
+            var twitterServiceMock = new Mock<ITwitterService>();
+            var userManagerMock = MockUserManager<User>();
+
+            var userId = "30";
+            var twitterAccount = new TwitterAccount() { Name = "Grigor", Id = "30" };
+            var twitterAccounts = new List<TwitterAccount>()
+            {
+                twitterAccount
+            };
+
+            var twitterAccountDto = new TwitterAccountDto() { Name = "Grigor", Id = "30" };
+            var expectedResult = new List<TwitterAccountDto>()
+            {
+                twitterAccountDto
+            };
+
+            userRepositoryMock
+                .Setup(x => x.GetAllFavoriteTwitterAccounts(userId))
+                .ReturnsAsync((IEnumerable<TwitterAccount>)null);
+
+            mappingProviderMock
+                .Setup(x => x.ProjectTo<TwitterAccount, TwitterAccountDto>(twitterAccounts))
+                .Returns(expectedResult);
+
+            var userService = new UserService(
+                unitOfWorkMock.Object,
+                mappingProviderMock.Object,
+                userRepositoryMock.Object,
+                twitterServiceMock.Object,
+                userManagerMock.Object);
+
+            //Act && Assert
+            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await userService.GetAllFavoriteTwitterAccounts(userId));
+        }
+
+        [TestMethod]
+        public void ThrowArgumentNullException_WhenMappingProviderProjectToMethodReturnsNull()
+        {
+            //Arrange
+            var unitOfWorkMock = new Mock<IUnitOfWork>();
+            var mappingProviderMock = new Mock<IMappingProvider>();
+            var userRepositoryMock = new Mock<IUserRepository>();
+            var twitterServiceMock = new Mock<ITwitterService>();
+            var userManagerMock = MockUserManager<User>();
+
+            var userId = "30";
+            var twitterAccount = new TwitterAccount() { Name = "Grigor", Id = "30" };
+            var twitterAccounts = new List<TwitterAccount>()
+            {
+                twitterAccount
+            };
+
+            var twitterAccountDto = new TwitterAccountDto() { Name = "Grigor", Id = "30" };
+            var expectedResult = new List<TwitterAccountDto>()
+            {
+                twitterAccountDto
+            };
+
+            userRepositoryMock
+                .Setup(x => x.GetAllFavoriteTwitterAccounts(userId))
+                .ReturnsAsync(twitterAccounts);
+
+            mappingProviderMock
+                .Setup(x => x.ProjectTo<TwitterAccount, TwitterAccountDto>(twitterAccounts))
+                .Returns((IEnumerable<TwitterAccountDto>)null);
+
+            var userService = new UserService(
+                unitOfWorkMock.Object,
+                mappingProviderMock.Object,
+                userRepositoryMock.Object,
+                twitterServiceMock.Object,
+                userManagerMock.Object);
+
+            //Act && Assert
+            Assert.ThrowsExceptionAsync<ArgumentNullException>(async () => await userService.GetAllFavoriteTwitterAccounts(userId));
         }
 
         public static Mock<UserManager<TUser>> MockUserManager<TUser>() where TUser : class

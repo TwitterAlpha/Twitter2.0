@@ -18,7 +18,6 @@ namespace BackUpSystem.Services.Data
     public class UserService : BaseService, IUserService
     {
         private readonly ITwitterService twitterService;
-
         private readonly UserManager<User> userManager;
 
         public UserService(
@@ -30,6 +29,8 @@ namespace BackUpSystem.Services.Data
             : base(unitOfWork, mappingProvider, userRepository)
         {
             Guard.WhenArgument(twitterService, "Twitter Service").IsNull().Throw();
+            Guard.WhenArgument(userManager, "User Manager").IsNull().Throw();
+
             this.twitterService = twitterService;
             this.userManager = userManager;
         }
@@ -58,8 +59,8 @@ namespace BackUpSystem.Services.Data
             var usersDto = MappingProvider.MapTo<IEnumerable<UserDto>>(users);
             Guard.WhenArgument(usersDto, "UserDto").IsNull().Throw();
             var adminRoleId = await this.UserRepository.GetAdminRoleId();
-            var roles = (await this.UserRepository.GetAllRoles()).Where(r=>r.RoleId == adminRoleId);
-            var admins = usersDto.Join(roles, u => u.Id, r=>r.UserId, (u, r) => u);
+            var roles = (await this.UserRepository.GetAllRoles()).Where(r => r.RoleId == adminRoleId);
+            var admins = usersDto.Join(roles, u => u.Id, r => r.UserId, (u, r) => u);
             foreach (var admin in admins)
             {
                 admin.IsAdmin = true;

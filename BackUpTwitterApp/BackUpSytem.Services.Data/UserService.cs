@@ -41,13 +41,18 @@ namespace BackUpSystem.Services.Data
 
             var user = await this.UserRepository.Get(id);
             Guard.WhenArgument(user, "User").IsNull().Throw();
+
             var userDto = MappingProvider.MapTo<UserDto>(user);
             Guard.WhenArgument(userDto, "UserDto").IsNull().Throw();
+
             var adminRoleId = await this.UserRepository.GetAdminRoleId();
+            Guard.WhenArgument(adminRoleId, "AdminRole Id").IsNullOrEmpty().Throw();
+
             //var roles = (await this.UserRepository.GetAllRoles()).Where(r => r.RoleId == adminRoleId);
             //var admins = usersDto.Join(roles, u => u.Id, r => r.UserId, (u, r) => u);
-            bool isAdmin = (await this.UserRepository.GetAllRoles()).Any(r => r.RoleId == adminRoleId && r.UserId == id);
+            var isAdmin = (await this.UserRepository.GetAllRoles()).Any(r => r.RoleId == adminRoleId && r.UserId == id);
             userDto.IsAdmin = isAdmin;
+
             return userDto;
         }
 
@@ -58,13 +63,16 @@ namespace BackUpSystem.Services.Data
 
             var usersDto = MappingProvider.MapTo<IEnumerable<UserDto>>(users);
             Guard.WhenArgument(usersDto, "UserDto").IsNull().Throw();
+
             var adminRoleId = await this.UserRepository.GetAdminRoleId();
             var roles = (await this.UserRepository.GetAllRoles()).Where(r => r.RoleId == adminRoleId);
             var admins = usersDto.Join(roles, u => u.Id, r => r.UserId, (u, r) => u);
+
             foreach (var admin in admins)
             {
                 admin.IsAdmin = true;
             }
+
             return usersDto;
         }
 

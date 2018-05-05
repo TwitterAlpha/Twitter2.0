@@ -196,5 +196,10 @@ namespace BackUpSystem.Services.Data
 
             return user.RetweetsCount;
         }
+
+        public async Task DeleteTwitterAccount()
+        {
+
+        }
     }
 }

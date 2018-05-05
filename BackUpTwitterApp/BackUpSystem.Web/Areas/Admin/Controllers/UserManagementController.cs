@@ -11,10 +11,18 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
     public class UserManagementController : Controller
     {
         private readonly IUserService userService;
+        private readonly ITwitterAccountService twitterAccountService;
+        private readonly ITweetService tweetService;
 
-        public UserManagementController(IUserService userService)
+        public UserManagementController(
+            IUserService userService,
+            ITwitterAccountService twitterAccountService,
+            ITweetService tweetService
+            )
         {
             this.userService = userService;
+            this.twitterAccountService = twitterAccountService;
+            this.tweetService = tweetService;
         }
 
         public async Task<IActionResult> Index()
@@ -100,6 +108,24 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
             await this.userService.DeleteUser(id);
 
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteTwitterAccount(string userId, string twitterAccountId)
+        {
+            await this.twitterAccountService.DeleteTwitterAccountFromUser(userId, twitterAccountId);
+
+            return RedirectToAction("Details", new { id = userId });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult>  DeleteTweet(string userId, string tweetId)
+        {
+            await this.tweetService.DeleteTweet(userId, tweetId);
+
+            return RedirectToAction("Details", new { id = userId });
         }
     }
 }

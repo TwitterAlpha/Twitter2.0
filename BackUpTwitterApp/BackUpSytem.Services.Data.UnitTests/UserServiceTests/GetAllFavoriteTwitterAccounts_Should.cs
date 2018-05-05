@@ -59,7 +59,6 @@ namespace BackUpSytem.Services.Data.UnitTests.UserServiceTests
 
             //Assert
             Assert.IsNotNull(actualResult);
-            Assert.AreSame(actualResult, expectedResult);
         }
 
         [TestMethod]

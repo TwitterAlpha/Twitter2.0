@@ -22,7 +22,7 @@
             {
                 if (!tweet.IsDownloaded)
                 {
-                    <button class="btn download-btn" data-datac="@tweet.Id" id="@btnId"
+                    <button class="btn" id="@btnId"
                             parameter1="@tweet.Id"
                             parameter2="@tweet.CreatedAt"
                             parameter3="@tweet.LikesCount"
@@ -47,7 +47,6 @@
                 <i class="fa fa-retweet"></i> Retweet
             </a>
         </div>
-        System.Threading.Thread.Sleep(2000);
         var messageId = $"message{tweet.Id}";
         <p class="message" data-message id="@messageId"></p>
     }

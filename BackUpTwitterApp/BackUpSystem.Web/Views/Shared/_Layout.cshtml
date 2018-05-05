@@ -65,21 +65,6 @@
                             }
                         </div>
                     }
-                    @if (((string)(TempData["Success-Message"] ?? "")).Any())
-                    {
-                        <br />
-                        <div class="alert alert-success">
-                            <strong>Success!</strong> @TempData["Success-Message"]
-                        </div>
-                    }
-
-                    @if (((string)(TempData["Error-Message"] ?? "")).Any())
-                    {
-                        <br />
-                        <div class="alert alert-danger">
-                            <strong>Error!</strong> @TempData["Error-Message"]
-                        </div>
-                    }
                     @await Html.PartialAsync("_LoginPartial")
                 </div>
             </div>
@@ -104,21 +89,6 @@
         <div class="container body-content">
             @RenderBody()
             <hr />
-        </div>
-    </div>
-
-    <div class="modal fade" id="sentDialog" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="modal-header">
-                        <div class="modal-body">
-                            <div class="modal-footer">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

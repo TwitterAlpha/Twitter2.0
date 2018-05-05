@@ -1,48 +1,100 @@
 ﻿@using BackUpSystem.Web.Models.HomeViewModels
 @model TimelineViewModel
 
-@foreach (var tweet in Model.Tweets)
-{
-    if (tweet.Text.StartsWith("RT"))
+<div class="body-timeline">
+    @foreach (var tweet in Model.Tweets)
     {
-        <p5>@tweet.TweetAuthor Retweeted</p5>
-    }
-    <blockquote class="twitter-tweet">
-        <a href="@tweet.TweetUrl"></a>
-    </blockquote>
-
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    if (!tweet.CanBeDeleted)
-    {
-        if (!tweet.IsDownloaded)
+        if (tweet.Text.StartsWith("RT"))
         {
-            <a asp-controller="Tweet" asp-action="Download"
-               asp-route-id="@tweet.Id"
-               asp-route-createdat="@tweet.CreatedAt"
-               asp-route-likescount="@tweet.LikesCount"
-               asp-route-text="@tweet.Text"
-               asp-route-retweetcount="@tweet.RetweetCount"
-               asp-route-tweeturl="@tweet.TweetUrl"
-               asp-route-tweetauthor="@tweet.TweetAuthor"
-               class="btn">
-                <i class="fa fa-download"></i> Download
-            </a>
+            <p5>@tweet.TweetAuthor Retweeted</p5>
         }
-    }
-    else
-    {
-        <a asp-controller="Tweet" asp-action="Delete" asp-route-tweetid="@tweet.Id"
-           class="btn">
-            <i class="fa fa-trash"></i> Delete
-        </a>
-    }
-    <a target="_blank" asp-controller="Tweet" asp-action="Retweet" asp-route-tweetid="@tweet.Id"
-       class="btn">
-        <i class="fa fa-retweet"></i> Retweet
-    </a>
 
-}
+        var btnId = $"btn-{tweet.Id}";
+
+        <blockquote class="twitter-tweet">
+            <a href="@tweet.TweetUrl"></a>
+        </blockquote>
+
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="binding-btn">
+            @if (!tweet.CanBeDeleted)
+            {
+                if (!tweet.IsDownloaded)
+                {
+                    <button class="btn" id="@btnId"
+                            parameter1="@tweet.Id"
+                            parameter2="@tweet.CreatedAt"
+                            parameter3="@tweet.LikesCount"
+                            parameter4="@tweet.RetweetCount"
+                            parameter5="@tweet.Text"
+                            parameter6="@tweet.TweetAuthor"
+                            parameter7="@tweet.TweetUrl">
+                        <i class="fa fa-download">Download</i>
+                    </button>
+                }
+            }
+            else
+            {
+                <button class="btn" id="@btnId"
+                        parameter1="@tweet.Id"
+                        parameter7=@tweet.TweetUrl>
+                    <i class="fa fa-trash">Delete</i>
+                </button>
+            }
+            <a target="_blank" asp-controller="Tweet" asp-action="Retweet" asp-route-tweetid="@tweet.Id"
+               class="btn" id="retweet-btn">
+                <i class="fa fa-retweet"></i> Retweet
+            </a>
+        </div>
+        var messageId = $"message{tweet.Id}";
+        <p class="message" data-message id="@messageId"></p>
+    }
+</div>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $(function () {
+        $(".btn").click(function () {
+            const data = {
+                'id': $(this).attr("parameter1"),
+                'createdAt': $(this).attr("parameter2"),
+                'likesCount': $(this).attr("parameter3"),
+                'retweetsCount': $(this).attr("parameter4"),
+                'text': $(this).attr("parameter5"),
+                'tweetAuthor': $(this).attr("parameter6"),
+                'tweetUrl': $(this).attr("parameter7")
+            };
+
+            console.log(data);
+            const btnId = "#btn-" + data.id;
+            const messageId = "#message" + data.id;
+            let postUrl;
+
+            if (data.createdAt != undefined) {
+                postUrl = "/tweet/download";
+            }
+            else {
+                postUrl = "/tweet/delete";
+            }
+            console.log(postUrl);
+            $.ajax({
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: postUrl,
+                data: JSON.stringify(data),
+                datatype: "json",
+                success: function (result) {
+
+                    $(btnId).hide();
+
+                    $(messageId).text(result).css({ 'color': 'green', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
+                },
+                error: function (result) {
+                    $(messageId).text("Error: " + result).css({ 'color': 'red', 'font-weight': 'normal' }).show().delay(3000).fadeOut();;
+                }
+            });
+        });
+    });
+</script>

@@ -62,7 +62,7 @@ namespace BackUpSystem.Web.Controllers
             return View(timelineViewModel);
         }
 
-        public async Task<IActionResult> AddTwitterAccountToFavorites(TwitterAccountViewModel model)
+        public async Task<IActionResult> AddTwitterAccountToFavorites([FromBody]TwitterAccountViewModel model)
         {
             var userId = this.userManager.GetUserId(this.HttpContext.User);
 
@@ -75,10 +75,10 @@ namespace BackUpSystem.Web.Controllers
 
             await this.twitterAccountService.AddTwitterAccountToUser(twitterAccountToaAdd, userId);
 
-            return RedirectToAction("Index", "Home");
+            return Json($"You just followed {model.Name}!");
         }
 
-        public async Task<IActionResult> DeleteTwitterAccountFromFavorites(TwitterAccountViewModel model)
+        public async Task<IActionResult> DeleteTwitterAccountFromFavorites([FromBody]TwitterAccountViewModel model)
         {
             var userId = this.userManager.GetUserId(this.HttpContext.User);
 
@@ -86,7 +86,7 @@ namespace BackUpSystem.Web.Controllers
 
             await this.twitterAccountService.DeleteTwitterAccountFromUser(userId, model.Id);
 
-            return RedirectToAction("Index", "Home");
+            return Json($"{model.Name} successfully unfollowed!");
         }
     }
 }

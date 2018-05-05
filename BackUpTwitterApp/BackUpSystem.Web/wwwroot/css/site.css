@@ -1,15 +1,33 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #e6ecf0 !important;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
 }
-
+.body-timeline {
+}
+.binding-btn {
+    position: relative;
+    background-color: #ffffff;
+    width: 498px;
+    border-bottom: 1px solid;
+    /*bottom: 0.35%;*/
+    left: 0.15%;
+}
+.btn:hover {
+    color: #1da1f2;
+}
+@media (max-width: 768px) {
+    .body-timeline {
+    }
+    .binding-btn {
+   width:100% !important
+        }
+}
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -32,4 +50,8 @@
     .carousel-caption {
         display: none;
     }
+}
+
+html {
+    visibility: hidden;
 }

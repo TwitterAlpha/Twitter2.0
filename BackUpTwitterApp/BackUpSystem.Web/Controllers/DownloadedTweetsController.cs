@@ -31,6 +31,7 @@ namespace BackUpSystem.Web.Controllers
             this.mappingProvider = mappingProvider;
         }
 
+        [ResponseCache(Duration = 300)]
         public async Task<IActionResult> Index()
         {
             var model = new TimelineViewModel();

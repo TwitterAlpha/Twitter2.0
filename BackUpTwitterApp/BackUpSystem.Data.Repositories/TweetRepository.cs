@@ -77,44 +77,6 @@ namespace BackUpSystem.Data.Repositories
                     }
                     isDownloaded = true;
                 }
-
-                //    var checkIfTweetExists = await this.DbContext.Tweets.FindAsync(tweet.Id);
-
-                //    if (checkIfTweetExists != null)
-                //    {
-                //        if (checkIfTweetExists.IsDeleted)
-                //        {
-                //            checkIfTweetExists.IsDeleted = false;
-
-                //            var entry = this.DbContext.Entry(checkIfTweetExists);
-                //            entry.State = EntityState.Modified;
-
-                //            var userTweet = await this.DbContext.UserTweets.FindAsync(userId, tweet.Id);
-
-                //            if (userTweet != null)
-                //            {
-                //                userTweet.IsDeleted = false;
-                //            }
-                //        }
-
-                //        isDownloaded = true;
-                //    }
-                //    else
-                //    {
-                //        base.Add(tweet);
-
-                //        var userTweet = new UserTweet()
-                //        {
-                //            UserId = userId,
-                //            User = user,
-                //            TweetId = tweet.Id,
-                //            Tweet = tweet
-                //        };
-
-                //        await this.DbContext.UserTweets.AddAsync(userTweet);
-
-                //        isDownloaded = true;
-                //    }
             }
 
             return isDownloaded;

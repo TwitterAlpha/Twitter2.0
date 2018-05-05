@@ -1,11 +1,37 @@
 ﻿@using BackUpSystem.Web.Models.HomeViewModels
 @model TimelineViewModel
-
+<div class="container p-0 tw-acc-banner " style="width:100%">
+    <div class="row m-row ">
+        <div class="col-lg-12 col-lg-offset-0 col-xs-8 col-xs-offset-2 p-0 ">
+            <div class="card-tw-acc hovercard">
+                <div class="cardheader" style="background-image:url(@Model.TwiitterAccountInfo.BackgroundImage);">
+                </div>
+                <div class="avatar">
+                    <img alt="" src="@Model.TwiitterAccountInfo.ImageUrl" class="img-responsive tw-acc-img ">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <p class="text-white">@Model.TwiitterAccountInfo.Name</p>
+                    </div>
+                    <div class="col-lg-4 p-0">
+                        <p>Following</p>
+                        <p>@Model.TwiitterAccountInfo.FollowingCount</p>
+                    </div>
+                    <div class="col-lg-4 p-0">
+                        <p>Tweets</p>
+                        <p> @Model.TwiitterAccountInfo.TweetsCount</p>
+                    </div>
+                    <div class="col-lg-4 p-0">
+                        <p>Retweets</p>
+                        <p>@Model.TwiitterAccountInfo.UserName</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div>
     <ul>
-        <li>
-            <img src="@Model.TwiitterAccountInfo.ImageUrl" alt="@Model.TwiitterAccountInfo.Name Profile Image" />
-        </li>
         <li>
             <h2>@Model.TwiitterAccountInfo.Name</h2>
         </li>
@@ -13,8 +39,8 @@
             <h5>@Model.TwiitterAccountInfo.Description</h5>
         </li>
         @{
-            var shortDate = Model.TwiitterAccountInfo.JoinedDate.ToString();
-            shortDate = shortDate.Substring(0, shortDate.IndexOf(' '));
+        var shortDate = Model.TwiitterAccountInfo.JoinedDate.ToString();
+        shortDate = shortDate.Substring(0, shortDate.IndexOf(' '));
         }
         <li>
             <h5>Joined @shortDate</h5>
@@ -39,7 +65,9 @@
 
 @if (Model.Tweets.Any())
 {
+<div class="col-lg-8 col-lg-offset-3 col-xs-10 col-xs-offset-2">
     @Html.Partial("_TimelinePartial", Model)
+</div>
 }
 else
 {

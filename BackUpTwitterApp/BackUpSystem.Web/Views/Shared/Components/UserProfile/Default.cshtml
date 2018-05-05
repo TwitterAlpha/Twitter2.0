@@ -4,14 +4,34 @@
 @{
     ViewData["Title"] = Model.Name;
 }
-<h2>UserProfile</h2>
-
-<div>
-    <div><img src="@Model.UserImageUrl" alt="@Model.Name Profile Image"></div>
-    <div>Name: @Model.Name</div>
-    <div>Username: @Model.UserName</div>
-    <div>Birth date: @Model.BirthDate</div>
-    <div>Following: @Model.FollowedUsersCount</div>
-    <div>Downloaded tweets: @Model.DownloadedTweetsCount</div>
-    <div>Retweets: @Model.RetweetsCount</div>
+<h2 class="text-center res-heading">User</h2>
+<div class="container p-0 profile-card-pos card-width" @*style="width:247px*@">
+    <div class="row m-row ">
+        <div class="col-lg-3 col-sm-6 p-0 ">
+            <div class="card hovercard">
+                <div class="cardheader">
+                </div>
+                <div class="avatar">
+                    <img alt="" src="@Model.UserImageUrl" class="img-responsive">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <p class="text-white">@Model.Name</p>
+                    </div>                    
+                    <div class="col-lg-4 p-0">
+                        <p>Following</p>
+                        <p>@Model.FollowedUsersCount</p>
+                    </div>
+                    <div class="col-lg-4 p-0">
+                        <p>Tweets</p>
+                        <p> @Model.DownloadedTweetsCount</p>
+                    </div>
+                    <div class="col-lg-4 p-0">
+                        <p>Retweets</p>
+                        <p>@Model.RetweetsCount</p>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
 </div>

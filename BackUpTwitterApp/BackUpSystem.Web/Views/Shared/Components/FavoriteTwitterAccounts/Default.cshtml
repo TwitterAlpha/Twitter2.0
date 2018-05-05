@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = Model.TwitterAccounts.Count();
 }
-<h2>Following Accounts:</h2>
+<h2 class="text-center res-heading">Following:</h2>
 
 <ul>
     @foreach (var twitterAccount in Model.TwitterAccounts)
@@ -23,7 +23,7 @@
                asp-route-tweetscount="@twitterAccount.TweetsCount" 
                asp-route-backgroundimage="@twitterAccount.BackgroundImage" 
                class="btn btn-success" @*data-toggle="collapse" aria-expanded="false"*@>
-                <i class="glyphicon glyphicon-home"></i>
+                <img src="@twitterAccount.ImageUrl" class="img-responsive img-rounded" />
                 @twitterAccount.Name
             </a>
         </li>

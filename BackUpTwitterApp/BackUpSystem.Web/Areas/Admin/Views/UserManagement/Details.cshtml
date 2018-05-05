@@ -4,7 +4,7 @@
 <div> <img src="@Model.User.UserImageUrl" height="100" width="100"> </div>
 
 <div>
-    <form asp-controller="UserManagement" asp-action="Delete" method="post">
+    <form asp-controller="UserManagement" asp-action="Delete" asp-route-id="@Model.User.Id" method="post">
         <input type="hidden" asp-for="@Model.User.Id" />
         <button class="btn btn-danger" type="submit">DELETE</button>
     </form>

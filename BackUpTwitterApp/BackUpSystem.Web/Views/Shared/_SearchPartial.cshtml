@@ -9,48 +9,57 @@
         <img src="@twitterAccount.ImageUrl" alt="@twitterAccount.Name Profile image" />
     </div>
 
-    var btnId = $"btn-{twitterAccount.Id}";
+    var visibilityFollow = "hidden";
+    var visibilityUnfollow = "hidden";
+
+    var followBtnId = $"follow-{twitterAccount.Id}";
+    var unfollowBtnId = $"unfollow-{twitterAccount.Id}";
 
     if (!twitterAccount.IsInFavorites)
     {
-        <button class="btn follow-btn" id="@btnId"
-                parameter1="@twitterAccount.Id"
-                parameter2="@twitterAccount.Name"
-                parameter3="@twitterAccount.BackgroundImage"
-                parameter4="@twitterAccount.Description"
-                parameter5="@twitterAccount.FollowersCount"
-                parameter6="@twitterAccount.FollowingCount"
-                parameter7="@twitterAccount.ImageUrl"
-                parameter8="@twitterAccount.TweetsCount"
-                parameter9="@twitterAccount.UserName" ,
-                parameter10="@twitterAccount.IsInFavorites">
-            <i class="fa fa-user-plus">Follow</i>
-        </button>
+        visibilityFollow = "visible";
     }
     else
     {
-        <button class="btn unfollow-btn" id="@btnId"
-                parameter1="@twitterAccount.Id"
-                parameter2="@twitterAccount.Name"
-                parameter3="@twitterAccount.BackgroundImage"
-                parameter4="@twitterAccount.Description"
-                parameter5="@twitterAccount.FollowersCount"
-                parameter6="@twitterAccount.FollowingCount"
-                parameter7="@twitterAccount.ImageUrl"
-                parameter8="@twitterAccount.TweetsCount"
-                parameter9="@twitterAccount.UserName" ,
-                parameter10="@twitterAccount.IsInFavorites">
-            <i class="fa fa-user-check">Unfollow</i>
-        </button>
+        visibilityUnfollow = "visible";
     }
-    var messageId = $"message{twitterAccount.Id}";
+
+    <button class="btn follow-btn" id="@followBtnId" style="visibility: @visibilityFollow"
+            parameter1="@twitterAccount.Id"
+            parameter2="@twitterAccount.Name"
+            parameter3="@twitterAccount.BackgroundImage"
+            parameter4="@twitterAccount.Description"
+            parameter5="@twitterAccount.FollowersCount"
+            parameter6="@twitterAccount.FollowingCount"
+            parameter7="@twitterAccount.ImageUrl"
+            parameter8="@twitterAccount.TweetsCount"
+            parameter9="@twitterAccount.UserName"
+            parameter10="@twitterAccount.IsInFavorites.ToString().ToLower()">
+        <i class="fa fa-user-plus">Follow</i>
+    </button>
+
+    <button class="btn unfollow-btn" id="@unfollowBtnId" style="visibility:@visibilityUnfollow"
+            parameter1="@twitterAccount.Id"
+            parameter2="@twitterAccount.Name"
+            parameter3="@twitterAccount.BackgroundImage"
+            parameter4="@twitterAccount.Description"
+            parameter5="@twitterAccount.FollowersCount"
+            parameter6="@twitterAccount.FollowingCount"
+            parameter7="@twitterAccount.ImageUrl"
+            parameter8="@twitterAccount.TweetsCount"
+            parameter9="@twitterAccount.UserName"
+            parameter10="@twitterAccount.IsInFavorites.ToString().ToLower()">
+        <i class="fa fa-user-check">Unfollow</i>
+    </button>
+    var messageId = $"message-{twitterAccount.Id}";
     <p class="message" data-message id="@messageId"></p>
 }
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
     $(function () {
-        $(".follow-btn").click(function () {
+        $('.btn').click(function () {
+
             const data = {
                 'id': $(this).attr("parameter1"),
                 'name': $(this).attr("parameter2"),
@@ -65,19 +74,29 @@
             };
 
             console.log(data);
-            const btnId = "#btn-" + data.id;
-            const messageId = "#message" + data.id;
+
             let postUrl;
+            const followbuttonId = `#follow-${data.id}`;
+            const unfollowbuttonId = `#unfollow-${data.id}`;
+            const messageId = `#message-${data.id}`;
 
+            console.log(followbuttonId);
+            console.log(unfollowbuttonId);
+            console.log(messageId);
+            console.log(data.name);
+            console.log(data.isInFavorites.toString());
 
-            if (data.isInFavorites) {
-                postUrl = "/twitteraccount/DeleteTwitterAccountFromFavorites";
+            if (data.isInFavorites == 'true') {
+                data.isInFavorites = 'false';
+                postUrl = '/twitteraccount/DeleteTwitterAccountFromFavorites';
             }
             else {
-                postUrl = "/twitteraccount/AddTwitterAccountToFavorites";
+                data.isInFavorites = 'true';
+                postUrl = '/twitteraccount/AddTwitterAccountToFavorites';
             }
 
             console.log(postUrl);
+
             $.ajax({
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
@@ -86,66 +105,12 @@
                 datatype: "json",
                 success: function (result) {
 
-                    const currentbtn = $(btnId).prop('outerHTML');
-                    console.log(currentbtn);
-                    let newBtn;
-
-                    if (data.isInFavorites) {
-                        newBtn = currentbtn.replaceWith('fa fa-user-check', 'fa fa-user-plus');
-                        data.isInFavorites = false;
+                    if (data.isInFavorites == 'true') {
+                        $(followbuttonId).css('visibility', 'hidden');
                     }
                     else {
-                        newBtn = currentbtn.replaceWith('fa fa-user-plus', 'fa fa-user-check');
-                        data.isInFavorites = true;
+                        $(unfollowbuttonId).css('visibility', 'hidden');
                     }
-                    console.log(newBtn);
-
-                    $(btnId).replaceWith(newBtn);
-
-
-                    $(messageId).text(result).css({ 'color': 'green', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
-                },
-                error: function (result) {
-                    $(messageId).text("Error: " + result).css({ 'color': 'red', 'font-weight': 'normal' }).show().delay(3000).fadeOut();;
-                }
-            });
-        });
-
-        $(".unfollow-btn").click(function () {
-            const data = {
-                'id': $(this).attr("parameter1"),
-                'name': $(this).attr("parameter2"),
-                'backgroundImage': $(this).attr("parameter3"),
-                'description': $(this).attr("parameter4"),
-                'followersCount': $(this).attr("parameter5"),
-                'followingCount': $(this).attr("parameter6"),
-                'imageUrl': $(this).attr("parameter7"),
-                'tweetsCount': $(this).attr("parameter8"),
-                'username': $(this).attr("parameter9"),
-                'isInFavorites': $(this).attr("parameter10")
-            };
-
-            console.log(data);
-            const btnId = "#btn-" + data.id;
-            const messageId = "#message" + data.id;
-            let postUrl;
-
-            postUrl = "/twitteraccount/DeleteTwitterAccountFromFavorites";
-            console.log(postUrl);
-            $.ajax({
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                url: postUrl,
-                data: JSON.stringify(data),
-                datatype: "json",
-                success: function (result) {
-
-                    var currentbtn = $(btnId).prop('outerHTML');
-                    console.log(currentbtn);
-                    var newBtn = currentbtn.replaceWith('fa fa-user-check', 'fa fa-user-plus');
-                    console.log(newBtn);
-
-                    $(btnId).replaceWith(newBtn);
 
                     $(messageId).text(result).css({ 'color': 'green', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
                 },

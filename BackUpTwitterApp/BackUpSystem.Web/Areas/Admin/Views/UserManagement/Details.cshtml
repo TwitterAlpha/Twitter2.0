@@ -15,7 +15,7 @@
 </div>
 
 <div>
-    <table>
+    <table class="table table-striped">
         <tr>
             <td>User Id</td>
             <td>@Model.User.Id</td>
@@ -76,17 +76,17 @@
                 @foreach (var account in Model.TwitterAccounts)
                 {
                 <div>
-                    <form asp-controller="UserManagement" asp-action="DeleteTwitterAccount" 
-                          asp-route-userId="@Model.User.Id" asp-route-twitterAccountId="@account.Id"method="post">
+                    <form asp-controller="UserManagement" asp-action="DeleteTwitterAccount"
+                          asp-route-userId="@Model.User.Id" asp-route-twitterAccountId="@account.Id" method="post">
                         <button class="btn btn-danger" type="submit">DELETE</button>
                     </form>
-                    Twitter Name: @account.UserName
+                    <b>Twitter Name:</b> @account.UserName <br />
 
-                    Tweets count: @account.TweetsCount
+                    <b>Tweets count:</b> @account.TweetsCount <br />
 
-                    Following count: @account.FollowingCount
+                    <b>Following count:</b> @account.FollowingCount <br />
 
-                    Followers count: @account.FollowersCount
+                    <b>Followers count</b>: @account.FollowersCount <br />
                 </div>
                 <br />
                 }
@@ -99,9 +99,9 @@
                           asp-route-userId="@Model.User.Id" asp-route-tweetId="@tweet.Id" method="post">
                         <button class="btn btn-danger" type="submit">DELETE</button>
                     </form>
-                    weet content: @tweet.Text
+                    <b>Tweet content:</b> @tweet.Text <br />
 
-                    Retweet count: @tweet.RetweetCount
+                    <b>Retweet count:</b> @tweet.RetweetCount <br />
                 </div>
                 <br />
                  }

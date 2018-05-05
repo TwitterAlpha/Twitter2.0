@@ -1,0 +1,20 @@
+﻿@using BackUpSystem.DTO
+@model IEnumerable<UserDto>
+
+<table class="table table-striped">
+    <tr>
+        <th>User Name:</th>
+        <th>Followed Accounts Count</th>
+        <th>Downloaded Tweets Count</th>
+        <th>Retweets Count</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+    <tr>
+        <td>@user.Name</td>
+        <td>@user.FollowedUsersCount</td>
+        <td>@user.DownloadedTweetsCount</td>
+        <td>@user.RetweetsCount</td>
+    </tr>
+    }
+</table>

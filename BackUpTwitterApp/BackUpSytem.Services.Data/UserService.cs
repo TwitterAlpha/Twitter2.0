@@ -65,7 +65,7 @@ namespace BackUpSystem.Services.Data
             var users = (await this.UserRepository.GetAll()).Where(u => !u.IsDeleted);
             Guard.WhenArgument(users, "Users").IsNull().Throw();
 
-            var usersDto = MappingProvider.ProjectTo<User, UserDto>(users);
+            var usersDto = MappingProvider.ProjectTo<User, UserDto>(users).ToList();
             Guard.WhenArgument(usersDto, "UsersDto").IsNull().Throw();
 
             var adminRoleId = await this.UserRepository.GetAdminRoleId();
@@ -75,9 +75,21 @@ namespace BackUpSystem.Services.Data
             var admins = usersDto.Join(roles, u => u.Id, r => r.UserId, (u, r) => u);
             Guard.WhenArgument(admins, "Admins").IsNull().Throw();
 
-            foreach (var admin in admins)
+            //foreach (var admin in admins)
+            //{
+            //    admin.IsAdmin = true;
+            //}
+
+            for (int i = 0; i < usersDto.Count(); i++)
             {
-                admin.IsAdmin = true;
+                foreach (var admin in admins)
+                {
+                    if (usersDto[i].Id == admin.Id)
+                    {
+                        usersDto[i].IsAdmin = true;
+                        admin.IsAdmin = true;
+                    }
+                }
             }
 
             return usersDto;

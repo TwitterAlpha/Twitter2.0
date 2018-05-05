@@ -34,7 +34,7 @@ namespace BackUpSystem.Web.ViewComponents
         {
             var model = new FavoriteTwitterAccountsViewModel();
             var userId = this.userManager.GetUserId(this.HttpContext.User);
-            var favoriteTwitterAccounts = await userService.GetAllFavoriteUsers(userId);
+            var favoriteTwitterAccounts = await userService.GetAllFavoriteTwitterAccounts(userId);
 
             model.TwitterAccounts = this.mappingProvider.ProjectTo<TwitterAccountDto, TwitterAccountViewModel>(favoriteTwitterAccounts);
 

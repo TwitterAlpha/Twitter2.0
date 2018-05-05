@@ -96,7 +96,7 @@ namespace BackUpSystem.Services.Data
             return userDto;
         }
 
-        public async Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteUsers(string id)
+        public async Task<IEnumerable<TwitterAccountDto>> GetAllFavoriteTwitterAccounts(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
@@ -132,7 +132,11 @@ namespace BackUpSystem.Services.Data
             }
 
             sb.Length--;
-            return await twitterService.GetTimeline(sb.ToString());
+
+            var timeline = await twitterService.GetTimeline(sb.ToString());
+            Guard.WhenArgument(timeline, "Timeline").IsNull().Throw();
+
+            return timeline;
         }
 
         public async Task<ICollection<TweetApiDto>> GetAllDownloadTweetsByUser(string id)
@@ -148,27 +152,38 @@ namespace BackUpSystem.Services.Data
             return downloadedTweetsDto.OrderByDescending(t => t.CreatedAt).ToList();
         }
 
-        public async Task UpdateName(string id, string name)
+        public async Task<bool> UpdateName(string id, string name)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(name, "User Name").IsNullOrEmpty().Throw();
 
-            await this.UserRepository.UpdateName(id, name);
-            this.UnitOfWork.SaveChanges();
+            if (await this.UserRepository.UpdateName(id, name))
+            {
+                this.UnitOfWork.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
-        public async Task UpdateBirthDate(string id, DateTime? birthDate)
+        public async Task<bool> UpdateBirthDate(string id, DateTime? birthDate)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(birthDate, "Birth Date").IsNull().Throw();
 
-            await this.UserRepository.UpdateBirthDate(id, birthDate);
-            this.UnitOfWork.SaveChanges();
+            if (await this.UserRepository.UpdateBirthDate(id, birthDate))
+            {
+                this.UnitOfWork.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
         public async Task UpdateIsAdmin(string id, bool isAdmin)
         {
             var user = await this.userManager.FindByIdAsync(id);
+
             if (isAdmin)
             {
                 await this.userManager.AddToRoleAsync(user, "Admin");
@@ -179,16 +194,21 @@ namespace BackUpSystem.Services.Data
             }
         }
 
-        public async Task UpdateProfileImage(string id, string imageUrl)
+        public async Task<bool> UpdateProfileImage(string id, string imageUrl)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
             Guard.WhenArgument(imageUrl, "Image Url").IsNullOrEmpty().Throw();
 
-            await this.UserRepository.UpdateImageUrl(id, imageUrl);
-            this.UnitOfWork.SaveChanges();
+            if (await this.UserRepository.UpdateImageUrl(id, imageUrl))
+            {
+                this.UnitOfWork.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
-        public async Task DeleteUser(string id)
+        public async Task<bool> DeleteUser(string id)
         {
             Guard.WhenArgument(id, "User Id").IsNullOrEmpty().Throw();
 
@@ -200,7 +220,11 @@ namespace BackUpSystem.Services.Data
                 this.UserRepository.Delete(user);
                 this.UserRepository.DeleteUserFromOtherTables(id);
                 this.UnitOfWork.SaveChanges();
+
+                return true;
             }
+
+            return false;
         }
 
         public async Task<int> GetUserRetweets(string userId)

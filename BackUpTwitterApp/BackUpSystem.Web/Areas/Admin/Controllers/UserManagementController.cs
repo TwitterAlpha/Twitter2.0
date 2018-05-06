@@ -1,7 +1,5 @@
 ﻿using BackUpSystem.Services.Data.Contracts;
-using BackUpSystem.Web.Areas.Admin.Controllers.Contracts;
 using BackUpSystem.Web.Areas.Admin.Models;
-using Bytes2you.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -10,7 +8,7 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class UserManagementController : Controller, IUserManagementController
+    public class UserManagementController : Controller
     {
         private readonly IUserService userService;
         private readonly ITwitterAccountService twitterAccountService;
@@ -22,13 +20,8 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
             ITweetService tweetService
             )
         {
-            Guard.WhenArgument(userService, "User Service").IsNull().Throw();
             this.userService = userService;
-
-            Guard.WhenArgument(twitterAccountService, "Twitter Account Service").IsNull().Throw();
             this.twitterAccountService = twitterAccountService;
-
-            Guard.WhenArgument(tweetService, "Tweet Service").IsNull().Throw();
             this.tweetService = tweetService;
         }
 

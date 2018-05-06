@@ -10,42 +10,43 @@
         }
 
         var btnId = $"btn-{tweet.Id}";
+        <div id="@tweet.Id">
+            <blockquote class="twitter-tweet test" id="@tweet.Id">
+                <a href="@tweet.TweetUrl"></a>
+            </blockquote>
 
-        <blockquote class="twitter-tweet">
-            <a href="@tweet.TweetUrl"></a>
-        </blockquote>
-
-        <!-- Add icon library -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <div class="binding-btn">
-            @if (!tweet.CanBeDeleted)
-            {
-                if (!tweet.IsDownloaded)
+            <!-- Add icon library -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <div class="binding-btn">
+                @if (!tweet.CanBeDeleted)
+                {
+                    if (!tweet.IsDownloaded)
+                    {
+                        <button class="btn" id="@btnId"
+                                parameter1="@tweet.Id"
+                                parameter2="@tweet.CreatedAt"
+                                parameter3="@tweet.LikesCount"
+                                parameter4="@tweet.RetweetCount"
+                                parameter5="@tweet.Text"
+                                parameter6="@tweet.TweetAuthor"
+                                parameter7="@tweet.TweetUrl">
+                            <i class="fa fa-download">Download</i>
+                        </button>
+                    }
+                }
+                else
                 {
                     <button class="btn" id="@btnId"
                             parameter1="@tweet.Id"
-                            parameter2="@tweet.CreatedAt"
-                            parameter3="@tweet.LikesCount"
-                            parameter4="@tweet.RetweetCount"
-                            parameter5="@tweet.Text"
-                            parameter6="@tweet.TweetAuthor"
-                            parameter7="@tweet.TweetUrl">
-                        <i class="fa fa-download">Download</i>
+                            parameter7=@tweet.TweetUrl>
+                        <i class="fa fa-trash">Delete</i>
                     </button>
                 }
-            }
-            else
-            {
-                <button class="btn" id="@btnId"
-                        parameter1="@tweet.Id"
-                        parameter7=@tweet.TweetUrl>
-                    <i class="fa fa-trash">Delete</i>
-                </button>
-            }
-            <a target="_blank" asp-controller="Tweet" asp-action="Retweet" asp-route-tweetid="@tweet.Id"
-               class="btn" id="retweet-btn">
-                <i class="fa fa-retweet"></i> Retweet
-            </a>
+                <a target="_blank" asp-controller="Tweet" asp-action="Retweet" asp-route-tweetid="@tweet.Id"
+                   class="btn" id="retweet-btn">
+                    <i class="fa fa-retweet"></i> Retweet
+                </a>
+            </div>
         </div>
         var messageId = $"message{tweet.Id}";
         <p class="message" data-message id="@messageId"></p>
@@ -77,6 +78,7 @@
             }
             else {
                 postUrl = "/tweet/delete";
+                $('#' + data.id).remove();
             }
             console.log(postUrl);
             $.ajax({
@@ -89,10 +91,10 @@
 
                     $(btnId).hide();
 
-                    $(messageId).text(result).css({ 'color': 'green', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
+                    $(messageId).text(result).css({ 'color': 'green', 'font-weight': '500', 'font-size':'large' }).show().delay(3000).fadeOut();
                 },
                 error: function (result) {
-                    $(messageId).text("Error: " + result).css({ 'color': 'red', 'font-weight': 'normal' }).show().delay(3000).fadeOut();;
+                    $(messageId).text("Error: " + result).css({ 'color': 'red', 'font-weight': '500', 'font-size': 'large'  }).show().delay(3000).fadeOut();;
                 }
             });
         });

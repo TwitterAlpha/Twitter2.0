@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSystem.Data.Repositor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackUpSytem.Services.Data.UnitTests", "BackUpSytem.Services.Data.UnitTests\BackUpSytem.Services.Data.UnitTests.csproj", "{C147AF39-FBC7-44C3-8C96-7C245FA31F54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackUpSystem.Web.Controllers.UnitTests", "BackUpSystem.Web.Controllers.UnitTests\BackUpSystem.Web.Controllers.UnitTests.csproj", "{D96C35DC-5734-41C5-819F-E86927008325}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{C147AF39-FBC7-44C3-8C96-7C245FA31F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C147AF39-FBC7-44C3-8C96-7C245FA31F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C147AF39-FBC7-44C3-8C96-7C245FA31F54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96C35DC-5734-41C5-819F-E86927008325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96C35DC-5734-41C5-819F-E86927008325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96C35DC-5734-41C5-819F-E86927008325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96C35DC-5734-41C5-819F-E86927008325}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{371F3F30-EC10-49D1-A4AC-FFBD1E10472A} = {1B375028-0E36-47E7-AD5B-E3E386FBA5B0}
 		{F962FEB9-4089-4502-A61F-EBA8E35DD36C} = {EDB9D1C3-A969-41B1-88F4-598FFAEDD558}
 		{C147AF39-FBC7-44C3-8C96-7C245FA31F54} = {C9007EE8-CD17-477E-B4A8-FEF70A29BD5A}
+		{D96C35DC-5734-41C5-819F-E86927008325} = {C9007EE8-CD17-477E-B4A8-FEF70A29BD5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {107CBD4F-9554-41C4-BB8C-63894940CE1F}

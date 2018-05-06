@@ -9,7 +9,7 @@ using System.Text;
 namespace BackUpSystem.Web.Controllers.UnitTests.UserManagementControllerTests
 {
     [TestClass]
-    class Constructor_Should
+    public class Constructor_Should
     {
         [TestMethod]
         public void CreateInstance_WhenInvokedWithValidParameters()
@@ -37,9 +37,50 @@ namespace BackUpSystem.Web.Controllers.UnitTests.UserManagementControllerTests
         {
             //Arrange
             //var userServiceMock = new Mock<IUserService>();
+            var twitterAccountServiceMock = new Mock<ITwitterAccountService>();
+            var tweetServiceMock = new Mock<ITweetService>();
 
             //Act && Assert
-            Assert.ThrowsException<ArgumentNullException>(() => new StatisticsController(null));
+            Assert.ThrowsException<ArgumentNullException>(() => new UserManagementController
+                 (
+             null,
+             twitterAccountServiceMock.Object,
+             tweetServiceMock.Object
+                ));
+        }
+
+        [TestMethod]
+        public void ThrowArgumentNullException_WhenInvokedWithNullTwitterAccountServiceArgument()
+        {
+            //Arrange
+            var userServiceMock = new Mock<IUserService>();
+            //var twitterAccountServiceMock = new Mock<ITwitterAccountService>();
+            var tweetServiceMock = new Mock<ITweetService>();
+
+            //Act && Assert
+            Assert.ThrowsException<ArgumentNullException>(() => new UserManagementController
+                 (
+             userServiceMock.Object,
+             null,
+             tweetServiceMock.Object
+                ));
+        }
+
+        [TestMethod]
+        public void ThrowArgumentNullException_WhenInvokedWithNullTweetServiceArgument()
+        {
+            //Arrange
+            var userServiceMock = new Mock<IUserService>();
+            var twitterAccountServiceMock = new Mock<ITwitterAccountService>();
+            //var tweetServiceMock = new Mock<ITweetService>();
+
+            //Act && Assert
+            Assert.ThrowsException<ArgumentNullException>(() => new UserManagementController
+                 (
+              userServiceMock.Object,
+             twitterAccountServiceMock.Object,
+             null
+                ));
         }
     }
 }

@@ -146,3 +146,6 @@ span.req {
     color: maroon;
     font-size: 112%;
 }
+#req-label {
+    color: maroon;
+}

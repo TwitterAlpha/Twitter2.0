@@ -46,7 +46,7 @@
             <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" id="fileForm" role="form">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <fieldset>
-                    <h3 class="text-center">Valid information is required to register. <span class="req"><small> required *</small></span></h3>
+                    <h3 class="text-center">Valid information is required to register<span class="req"><small id="req-label"> required *</small></span></h3>
 
                     <div class="form-group">
                         <label asp-for="Email"><span class="req">* </span> Email:</label>

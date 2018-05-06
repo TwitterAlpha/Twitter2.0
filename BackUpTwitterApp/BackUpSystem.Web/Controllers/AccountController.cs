@@ -333,10 +333,6 @@ namespace BackUpSystem.Web.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                if (model.Username == null || model.Username == string.Empty)
-                {
-                    model.Username = model.Email;
-                }
                 if (model.Name == null || model.Name == string.Empty)
                 {
                     model.Name = $"Anonymous{Guid.NewGuid()}";
@@ -346,7 +342,7 @@ namespace BackUpSystem.Web.Controllers
                     model.ImageUrl = "https://pbs.twimg.com/profile_images/546708662287228929/XK0Jznql_400x400.jpeg";
                 }
 
-                var user = new User { UserName = model.Username, Email = model.Email, Name = model.Name, UserImageUrl = model.ImageUrl };
+                var user = new User { UserName = model.Email, Email = model.Email, Name = model.Name, UserImageUrl = model.ImageUrl };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -3,9 +3,6 @@ using BackUpSystem.Web.Areas.Admin.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BackUpSystem.Web.Controllers.UnitTests.UserManagementControllerTests
@@ -15,7 +12,7 @@ namespace BackUpSystem.Web.Controllers.UnitTests.UserManagementControllerTests
     {
 
         [TestMethod]
-        public async Task ReturnIndexViewWhenInvoked()
+        public async Task ReturnDetailsViewWhenInvoked()
         {
             //Arrange
             var userServiceMock = new Mock<IUserService>();

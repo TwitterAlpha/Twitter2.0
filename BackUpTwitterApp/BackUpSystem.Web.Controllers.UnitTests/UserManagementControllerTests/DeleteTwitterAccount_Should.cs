@@ -11,7 +11,7 @@ namespace BackUpSystem.Web.Controllers.UnitTests.UserManagementControllerTests
     public class DeleteTwitterAccount_Should
     {
         [TestMethod]
-        public async Task ReturnDeleteViewWhenInvoked()
+        public async Task RedirectToActionDetailsWhenInvoked()
         {
             //Arrange
             var userServiceMock = new Mock<IUserService>();
@@ -25,11 +25,9 @@ namespace BackUpSystem.Web.Controllers.UnitTests.UserManagementControllerTests
              tweetServiceMock.Object
                 );
 
-
-
             //Act & Assert
-            var result = await controller.DeleteTwitterAccount("2", "5") as ViewResult;
-            Assert.AreEqual("Details", result.ViewName);
+            var result = await controller.DeleteTwitterAccount("2", "5") as RedirectToActionResult;
+            Assert.AreEqual("Details", result.ActionName);
         }
     }
 }

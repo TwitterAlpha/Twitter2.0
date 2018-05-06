@@ -5,82 +5,82 @@
     {
 
         var backgroundImage = twitterAccount.BackgroundImage;
-    <div class="col-md-8 col-md-offset-2 search-acc-banner p-0" style="background-image:url(@backgroundImage); height: 200px; background-repeat: no-repeat; background-size: cover; margin-top: 7%;">
+        <div class="col-md-8 col-md-offset-2 search-acc-banner p-0" style="background-image:url(@backgroundImage); height: 200px; background-repeat: no-repeat; background-size: cover; margin-top: 7%;">
 
-        <div class="panel panel-default search-panel p-0" style="width:100%; background-color: white;">           
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="col-md-5 col-md-offset-1">
-                        <h4 >@twitterAccount.Name</h4>
-                    </div>
-                    <div class="col-md-2 ">
-                        <p class="tw-color">Followers</p>
-                        <p class="tw-color">@twitterAccount.FollowersCount</p>
-                    </div>
-                    <div class="col-md-2">
-                        <p class="tw-color">Following</p>
-                        <p class="tw-color">@twitterAccount.FollowingCount</p>
-                    </div>
-                    <div class="col-md-2">
-                        <p class="tw-color">Tweets</p>
-                        <p class="tw-color">@twitterAccount.TweetsCount</p>
+            <div class="panel panel-default search-panel p-0" style="width:100%; background-color: white;">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="col-md-5 col-md-offset-1">
+                            <h4>@twitterAccount.Name</h4>
+                        </div>
+                        <div class="col-md-2 ">
+                            <p class="tw-color">Followers</p>
+                            <p class="tw-color">@twitterAccount.FollowersCount</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="tw-color">Following</p>
+                            <p class="tw-color">@twitterAccount.FollowingCount</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="tw-color">Tweets</p>
+                            <p class="tw-color">@twitterAccount.TweetsCount</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            @*<strong>Name: @twitterAccount.Name</strong>
-            <div>Followers: @twitterAccount.FollowersCount</div>*@
+                @*<strong>Name: @twitterAccount.Name</strong>
+                    <div>Followers: @twitterAccount.FollowersCount</div>*@
 
-            @{
-            var messageId = $"message-{twitterAccount.Id}";
-            var visibilityFollow = "hidden";
-            var visibilityUnfollow = "hidden";
+                @{
+                    var messageId = $"message-{twitterAccount.Id}";
+                    var visibilityFollow = "hidden";
+                    var visibilityUnfollow = "hidden";
 
-            var followBtnId = $"follow-{twitterAccount.Id}";
-            var unfollowBtnId = $"unfollow-{twitterAccount.Id}";
+                    var followBtnId = $"follow-{twitterAccount.Id}";
+                    var unfollowBtnId = $"unfollow-{twitterAccount.Id}";
 
-            if (!twitterAccount.IsInFavorites)
-            {
-                visibilityFollow = "visible";
-            }
-            else
-            {
-                visibilityUnfollow = "visible";
-            }
-            }
+                    if (!twitterAccount.IsInFavorites)
+                    {
+                        visibilityFollow = "visible";
+                    }
+                    else
+                    {
+                        visibilityUnfollow = "visible";
+                    }
+                }
 
-            <button class="btn follow-btn" id="@followBtnId" style="visibility:
+                <button class="btn follow-btn" id="@followBtnId" style="visibility:
                     @visibilityFollow"
-                    parameter1="@twitterAccount.Id"
-                    parameter2="@twitterAccount.Name"
-                    parameter3="@twitterAccount.BackgroundImage"
-                    parameter4="@twitterAccount.Description"
-                    parameter5="@twitterAccount.FollowersCount"
-                    parameter6="@twitterAccount.FollowingCount"
-                    parameter7="@twitterAccount.ImageUrl"
-                    parameter8="@twitterAccount.TweetsCount"
-                    parameter9="@twitterAccount.UserName"
-                    parameter10="@twitterAccount.IsInFavorites">
-                <i class="fa fa-user-plus">Follow</i>
-            </button>
+                        parameter1="@twitterAccount.Id"
+                        parameter2="@twitterAccount.Name"
+                        parameter3="@twitterAccount.BackgroundImage"
+                        parameter4="@twitterAccount.Description"
+                        parameter5="@twitterAccount.FollowersCount"
+                        parameter6="@twitterAccount.FollowingCount"
+                        parameter7="@twitterAccount.ImageUrl"
+                        parameter8="@twitterAccount.TweetsCount"
+                        parameter9="@twitterAccount.UserName"
+                        parameter10="@twitterAccount.IsInFavorites">
+                    <i class="fa fa-user-plus">Follow</i>
+                </button>
 
-            <button class="btn unfollow-btn" id="@unfollowBtnId" style="visibility:@visibilityUnfollow"
-                    parameter1="@twitterAccount.Id"
-                    parameter2="@twitterAccount.Name"
-                    parameter3="@twitterAccount.BackgroundImage"
-                    parameter4="@twitterAccount.Description"
-                    parameter5="@twitterAccount.FollowersCount"
-                    parameter6="@twitterAccount.FollowingCount"
-                    parameter7="@twitterAccount.ImageUrl"
-                    parameter8="@twitterAccount.TweetsCount"
-                    parameter9="@twitterAccount.UserName"
-                    parameter10="@twitterAccount.IsInFavorites">
-                <i class="fa fa-user-check">Unfollow</i>
-            </button>
+                <button class="btn unfollow-btn" id="@unfollowBtnId" style="visibility:@visibilityUnfollow"
+                        parameter1="@twitterAccount.Id"
+                        parameter2="@twitterAccount.Name"
+                        parameter3="@twitterAccount.BackgroundImage"
+                        parameter4="@twitterAccount.Description"
+                        parameter5="@twitterAccount.FollowersCount"
+                        parameter6="@twitterAccount.FollowingCount"
+                        parameter7="@twitterAccount.ImageUrl"
+                        parameter8="@twitterAccount.TweetsCount"
+                        parameter9="@twitterAccount.UserName"
+                        parameter10="@twitterAccount.IsInFavorites">
+                    <i class="fa fa-user-check">Unfollow</i>
+                </button>
+            </div>
+            <img src="@twitterAccount.ImageUrl" alt="@twitterAccount.Name Profile image" class="search-profile-pic img-circle img-thumbnail" />
         </div>
-        <img src="@twitterAccount.ImageUrl" alt="@twitterAccount.Name Profile image" class="search-profile-pic img-circle img-thumbnail"/>
-    </div>
-       
+
         <p class="message" data-message id="@messageId"></p>
     }
 </div>
@@ -142,6 +142,7 @@
                     }
 
                     $(messageId).text(result).css({ 'color': 'green', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
+                    $('#sidebar').load("/Home/UpdateFavoriteUsersInLayout");
                 },
                 error: function (result) {
                     $(messageId).text("Error: " + result).css({ 'color': 'red', 'font-weight': 'normal' }).show().delay(3000).fadeOut();;

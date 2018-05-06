@@ -110,5 +110,11 @@ namespace BackUpSystem.Web.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult UpdateFavoriteUsersInLayout()
+        {
+            return ViewComponent("FavoriteTwitterAccounts");
+        }
+
     }
 }

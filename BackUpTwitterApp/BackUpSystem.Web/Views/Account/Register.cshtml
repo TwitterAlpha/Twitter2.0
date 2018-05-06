@@ -43,49 +43,51 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3 mt">
-            <form action="" method="post" id="fileForm" role="form">
+            <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" id="fileForm" role="form">
+                <div asp-validation-summary="All" class="text-danger"></div>
                 <fieldset>
                     <h3 class="text-center">Valid information is required to register. <span class="req"><small> required *</small></span></h3>
-                    
-                    <div class="form-group">
-                        <label for="firstname"> First name: </label>
-                        <input class="form-control"  />
-                        <div id="errFirst"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastname"> Last name: </label>
-                        <input class="form-control"  />
-                        <div id="errLast"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email"><span class="req">* </span> Email Address: </label>
-                        <input class="form-control" />
-                        <div class="status" id="status"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="username"><span class="req">* </span> User name:  <small>This will be your login user name</small> </label>
-                        <input class="form-control"  />
-                        <div id="errLast"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password"><span class="req">* </span> Password: </label>
-                        <input class="form-control inputpass"  /> </p>
 
-                        <label for="password"><span class="req">* </span> Password Confirm: </label>
-                        <input  class="form-control inputpass" placeholder="Enter again to validate"  />
-                        <span id="confirmMessage" class="confirmMessage"></span>
+                    <div class="form-group">
+                        <label asp-for="Email"><span class="req">* </span> Email:</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
-                   
+                    <div class="form-group">
+                        <label asp-for="Password"><span class="req">* </span> Password:</label>
+                        <input asp-for="Password" class="form-control inputpass" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword"><span class="req">* </span> Confirm password:</label>
+                        <input asp-for="ConfirmPassword" class="form-control inputpass" placeholder="Enter again to validate" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name"><span class="req">* </span> Name:</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Username"></label>
+                        <input asp-for="Username" class="form-control" placeholder="Your email will be used if not filled out"/>
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImageUrl">Profile image: <small>You need to enter an image url here</small></label>
+                        <input asp-for="ImageUrl" class="form-control" placeholder="A default image will be used if not filled out"/>
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
                     <div class="form-group text-center">
                         <input class="btn  btn-primary" type="submit" name="submit_reg" value="Register">
                     </div>
-                   
+
 
                 </fieldset>
-            </form><!-- ends register form -->         
+            </form><!-- ends register form -->
+        </div>
     </div>
 </div>
-    </div>
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")

@@ -94,6 +94,8 @@ namespace BackUpSystem.Web.Controllers
                 {
                     for (int i = 0; i < foundUsers.Count(); i++)
                     {
+                        foundUsers[i].ImageUrl = foundUsers[i].ImageUrl.Replace("_normal", string.Empty);
+
                         if (favUser.Id == foundUsers[i].Id)
                         {
                             foundUsers[i].IsInFavorites = true;

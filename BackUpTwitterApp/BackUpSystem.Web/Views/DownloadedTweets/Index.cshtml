@@ -1,14 +1,18 @@
 ﻿@using BackUpSystem.Web.Models.HomeViewModels
 @model TimelineViewModel
+<div class="col-lg-10 col-lg-offset-2 col-xs-10 col-xs-offset-2">
+    @if (Model.Tweets.Any())
+    {
 
-@if (Model.Tweets.Any())
-{
-    <h1>Downloaded Tweets:</h1>
-    @Html.Partial("_TimelinePartial", Model)
-}
-else
-{
-<div>There isn't any 
-    yet...!</div>
-}
+        <h1>Downloaded Tweets:</h1>
+        @Html.Partial("_TimelinePartial", Model)
+    }
+    else
+    {
+        <div>
+            There isn't any
+            yet...!
+        </div>
+    }
 
+    </div>

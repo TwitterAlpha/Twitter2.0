@@ -11,6 +11,9 @@
         <link rel="stylesheet" href="~/css/sidebar.css" />
         <link rel="stylesheet" href="~/css/User-profile-card.css" />
         <link rel="stylesheet" href="~/css/tw-acc.css" />
+        <link rel="stylesheet" href="~/css/search.css" />
+        <link rel="stylesheet" href="~/css/authentication.css" />
+        <link rel="stylesheet" href="~/css/footer.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -93,7 +96,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2018 - BackUpSystem.Web</p>
+        @await Html.PartialAsync("_FooterPartial")
     </footer>
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

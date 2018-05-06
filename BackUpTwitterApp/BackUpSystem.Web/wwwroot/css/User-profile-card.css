@@ -202,9 +202,6 @@
         box-sizing: border-box;
             
     }
-.card-size {
-
-}
 .card-width {
 width: 247px !important;
 }
@@ -225,9 +222,9 @@ width: 247px !important;
         height: 135px;
         visibility:visible;
     }
-@media (max-width: 768px) {
+@media (max-width: 768px) {    
     .card.hovercard .cardheader {
-        visibility:hidden;
+        visibility: hidden;
     }
     .card.hovercard {
     width:80px

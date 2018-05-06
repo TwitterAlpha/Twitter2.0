@@ -1,60 +1,48 @@
 ﻿@using BackUpSystem.Web.Models.HomeViewModels
 @model TimelineViewModel
-<div class="container p-0 tw-acc-banner " style="width:100%">
+<div class="container p-0 tw-acc-banner tw-acc-banner-w " >
     <div class="row m-row ">
-        <div class="col-lg-12 col-lg-offset-0 col-xs-8 col-xs-offset-2 p-0 ">
+        <div class="col-lg-12 col-lg-offset-0 col-xs-8 col-xs-offset-3 p-0 ">
             <div class="card-tw-acc hovercard">
                 <div class="cardheader" style="background-image:url(@Model.TwiitterAccountInfo.BackgroundImage);">
                 </div>
                 <div class="avatar">
                     <img alt="" src="@Model.TwiitterAccountInfo.ImageUrl" class="img-responsive tw-acc-img ">
                 </div>
-                <div class="info">
+                <div class="info text-white">
+                    <a asp-controller="TwitterAccount" asp-action="DeleteTwitterAccountFromFavorites"
+                       asp-route-id="@Model.TwiitterAccountInfo.Id"
+                       class="btn unfollow-btn btn-danger">
+                        <i class="fa fa-user-times"></i> Unfollow
+                    </a>
                     <div class="title">
                         <p class="text-white">@Model.TwiitterAccountInfo.Name</p>
                     </div>
-                    <div class="col-lg-4 p-0">
-                        <p>Following</p>
-                        <p>@Model.TwiitterAccountInfo.FollowingCount</p>
-                    </div>
-                    <div class="col-lg-4 p-0">
-                        <p>Tweets</p>
-                        <p> @Model.TwiitterAccountInfo.TweetsCount</p>
-                    </div>
-                    <div class="col-lg-4 p-0">
-                        <p>Retweets</p>
-                        <p>@Model.TwiitterAccountInfo.UserName</p>
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <p>@Model.TwiitterAccountInfo.Description</p><hr />
+                        </div>
+                        <div class="col-lg-4 col-lg-offset-0  col-md-offset-0 col-xs-3 col-xs-offset-1 p-0">
+                            <p>Followers:</p>
+                            <p>@Model.TwiitterAccountInfo.FollowersCount</p>
+                        </div>
+                        <div class="col-lg-4 col-xs-3 p-0">
+                            <p>Following</p>
+                            <p>@Model.TwiitterAccountInfo.FollowingCount</p>
+                        </div>
+                        <div class="col-lg-4 col-xs-3 p-0">
+                            <p>Tweets</p>
+                            <p> @Model.TwiitterAccountInfo.TweetsCount</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div>
-    <ul>
-        <li>
-            <h2>@Model.TwiitterAccountInfo.Name</h2>
-        </li>
-        <li>
-            <h5>@Model.TwiitterAccountInfo.Description</h5>
-        </li>
-        <li>
-            <h5>Tweets @Model.TwiitterAccountInfo.TweetsCount</h5>
-        </li>
-        <li>
-            <h5>Followers @Model.TwiitterAccountInfo.FollowersCount</h5>
-        </li>
-        <li>
-            <h5>Following @Model.TwiitterAccountInfo.FollowingCount</h5>
-        </li>
-    </ul>
-</div>
 
-<a asp-controller="TwitterAccount" asp-action="DeleteTwitterAccountFromFavorites"
-   asp-route-id="@Model.TwiitterAccountInfo.Id"
-   class="btn">
-    <i class="fa fa-remove"></i> Remove from favorites
-</a>
+
+
 
 @if (Model.Tweets.Any())
 {

@@ -1,0 +1,31 @@
+﻿.tw-panel {
+margin-top:7%;
+}
+.search-panel {
+    position: relative !important;
+    top: 10em !important;
+}
+.search-profile-pic {
+    position: relative;
+    left: 3%;
+    width: 18%;
+    bottom: 4em;
+}
+.search-acc-banner {
+}
+.tw-color {
+    color: #1DA1EF !important;
+}
+@media(max-width:768px) {
+    .search-profile-pic {
+        width: 35%;
+        bottom: 12.9em;
+        left: 64%
+    }
+    .search-acc-banner {
+        margin-top: 15em !important;
+    }
+        .search-acc-banner:first-of-type {
+         margin-top:7% !important;
+        }
+}

@@ -1,7 +1,6 @@
 ﻿.card-tw-acc {
     padding-top: 20px;
     margin: 10px 0 20px 0;
-    background-color: rgba(214, 224, 226, 0.2);
     border-top-width: 0;
     border-bottom-width: 2px;
     -webkit-border-radius: 3px;
@@ -97,12 +96,18 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
-
+.unfollow-btn {
+    position: relative;
+    bottom: 5em;
+    left: 35%;
+}
 .card-tw-acc-comments .media-heading {
     font-size: 13px;
     font-weight: bold;
 }
-
+.tw-acc-banner-w {
+    width:100% !important;
+}
 .card-tw-acc.people {
     position: relative;
     display: inline-block;
@@ -183,10 +188,9 @@
         box-sizing: border-box;
     }
 .tw-acc-banner {
+    background-color: #1da1f2;
     position: relative;
     left: 10.1%;
-}
-.card-tw-acc-size {
 }
 
 .card-tw-acc-width {
@@ -198,7 +202,6 @@
     padding-top: 0;
     overflow: hidden;
     text-align: center;
-    background-color: rgba(214, 224, 226, 0.2);
     width: 100%;
 }
 
@@ -226,18 +229,22 @@
     border: 5px solid rgba(255,255,255,0.5);
 }
 
-    .card-tw-acc.hovercard .info {
-        padding: 4px 8px 10px;
-    }
+.card-tw-acc.hovercard .info {
+         padding: 4px 8px 10px;
+         position: relative;
+         bottom: 12em;
+}
 
-        .card-tw-acc.hovercard .info .title {
-            margin-bottom: 4px;
-            font-size: 24px;
-            line-height: 1;
-            color: #ffffff !important;
-            vertical-align: middle;
-            text-transform: uppercase;
-        }
+    .card-tw-acc.hovercard .info .title {
+        position: relative;
+        bottom: 3em;
+        margin-bottom: 4px;
+        font-size: 24px;
+        line-height: 1;
+        color: #ffffff !important;
+        vertical-align: middle;
+        text-transform: uppercase;
+    }
 
         .card-tw-acc.hovercard .info .desc {
             overflow: hidden;
@@ -251,3 +258,36 @@
         padding: 0 20px;
         margin-bottom: 17px;
     }
+
+
+
+@media (max-width: 768px) {
+    .unfollow-btn {
+        position: relative;
+        bottom: 2em;
+        left: unset;
+    }
+    .tw-acc-banner-w {
+    width:83% !important;
+    }
+
+    .card-tw-acc.hovercard .info .title {
+        bottom: unset
+    }
+    .card-tw-acc.hovercard .info {
+        bottom: unset;
+    }
+    .card-tw-acc.hovercard .avatar {
+        bottom: 6em !important;
+    }
+
+.tw-acc-img {
+    width: 60% !important;
+}
+
+}
+@media (max-width: 320px) {
+    .tw-acc-banner-w {
+        width: 77% !important;
+    }
+}

@@ -78,15 +78,22 @@ namespace BackUpSystem.Web.Controllers
             return Json($"You just followed {model.Name}!");
         }
 
-        public async Task<IActionResult> DeleteTwitterAccountFromFavorites([FromBody]TwitterAccountViewModel model)
+        public async Task<IActionResult> UnfollowTwitterAccount([FromBody]TwitterAccountViewModel model)
         {
             var userId = this.userManager.GetUserId(this.HttpContext.User);
-
-            var twitterAccountToaAdd = this.mappingProvider.MapTo<TwitterAccountApiDto>(model);
 
             await this.twitterAccountService.DeleteTwitterAccountFromUser(userId, model.Id);
 
             return Json($"{model.Name} successfully unfollowed!");
+        }
+
+        public async Task<IActionResult> DeleteTwitterAccountFromFavorites(TwitterAccountViewModel model)
+        {
+            var userId = this.userManager.GetUserId(this.HttpContext.User);
+
+            await this.twitterAccountService.DeleteTwitterAccountFromUser(userId, model.Id);
+
+            return this.RedirectToAction("Index", "Home");
         }
     }
 }

@@ -337,8 +337,16 @@ namespace BackUpSystem.Web.Controllers
                 {
                     model.Username = model.Email;
                 }
+                if (model.Name == null || model.Name == string.Empty)
+                {
+                    model.Name = $"Anonymous{Guid.NewGuid()}";
+                }
+                if (model.ImageUrl == null || model.ImageUrl == string.Empty)
+                {
+                    model.ImageUrl = "https://pbs.twimg.com/profile_images/546708662287228929/XK0Jznql_400x400.jpeg";
+                }
 
-                var user = new User { UserName = model.Username, Email = model.Email, Name = model.Name };
+                var user = new User { UserName = model.Username, Email = model.Email, Name = model.Name, UserImageUrl = model.ImageUrl };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

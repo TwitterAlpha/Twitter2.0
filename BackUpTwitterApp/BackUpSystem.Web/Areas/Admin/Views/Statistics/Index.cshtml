@@ -1,20 +1,58 @@
 ﻿@using BackUpSystem.DTO
 @model IEnumerable<UserDto>
+@*<table class="table table-striped">
+        <tr>
+            <th>User Name:</th>
+            <th>Followed Accounts Count</th>
+            <th>Downloaded Tweets Count</th>
+            <th>Retweets Count</th>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.FollowedUsersCount</td>
+                <td>@user.DownloadedTweetsCount</td>
+                <td>@user.RetweetsCount</td>
+            </tr>
+        }
+    </table>*@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-primary filterable" style="margin-top: 4em !important; margin-left: 6em !important; border-color:#1da1f2;">
+            <div class="panel-heading" style="background-color: #1da1f2;border-color: #1da1f2;">
+                <h3 class="panel-title">Users</h3>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr class="filters">
+                        <th><h5>User Name:</h5></th>
+                        <th><h5>Followed Accounts Count:</h5></th>
+                        <th><h5>Downloaded Tweets Count:</h5></th>
+                        <th><h5>Retweets Count:</h5></th>
 
-<table class="table table-striped">
-    <tr>
-        <th>User Name:</th>
-        <th>Followed Accounts Count</th>
-        <th>Downloaded Tweets Count</th>
-        <th>Retweets Count</th>
-    </tr>
-    @foreach (var user in Model)
-    {
-    <tr>
-        <td>@user.Name</td>
-        <td>@user.FollowedUsersCount</td>
-        <td>@user.DownloadedTweetsCount</td>
-        <td>@user.RetweetsCount</td>
-    </tr>
-    }
-</table>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Name</td>
+                            <td>@user.FollowedUsersCount</td>
+                            <td>@user.DownloadedTweetsCount</td>
+                            <td>@user.RetweetsCount</td>
+                        </tr>
+
+                    }
+
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td>@Model.Sum(u => u.FollowedUsersCount)</td>
+                            <td>@Model.Sum(u => u.DownloadedTweetsCount)</td>
+                            <td>@Model.Sum(u => u.RetweetsCount)</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

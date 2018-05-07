@@ -119,7 +119,7 @@ a[data-toggle="collapse"] {
         text-align: center;
     }
 
-        #sidebar .sidebar-header h3 {
+        #sidebar .sidebar-header h5 {
             display: none;
         }
 
@@ -165,7 +165,7 @@ a[data-toggle="collapse"] {
         margin-left: 0 !important;
     }
 
-        #sidebar .sidebar-header h3 {
+        #sidebar .sidebar-header h5 {
             display: none;
         }
 

@@ -116,5 +116,9 @@ namespace BackUpSystem.Web.Controllers
             return ViewComponent("FavoriteTwitterAccounts");
         }
 
+        public IActionResult UpdateUserProfileInLayout()
+        {
+            return ViewComponent("UserProfile");
+        }
     }
 }

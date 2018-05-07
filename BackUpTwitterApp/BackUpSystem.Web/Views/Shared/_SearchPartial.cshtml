@@ -137,11 +137,13 @@
                         }
 
                         $(messageId).text(result).css({ 'color': 'green', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
+                        
                         $('#sidebar').load("/Home/UpdateFavoriteUsersInLayout");
                     },
                     error: function (result) {
-                        $(messageId).text("Error: " + result).css({ 'color': 'red', 'font-weight': 'normal' }).show().delay(3000).fadeOut();;
+                        $(messageId).text("Error: " + result).css({ 'color': 'red', 'font-weight': 'normal' }).show().delay(3000).fadeOut();
                     }
+
                 });
             });
         });

@@ -28,6 +28,7 @@ namespace BackUpSystem.Web.Controllers
             Guard.WhenArgument(userService, "User Service").IsNull().Throw();
             Guard.WhenArgument(userManager, "User Manager").IsNull().Throw();
             Guard.WhenArgument(mappingProvider, "Mapping Provider").IsNull().Throw();
+            Guard.WhenArgument(twitterService, "Twitter Service").IsNull().Throw();
 
             this.userService = userService;
             this.userManager = userManager;
@@ -68,7 +69,7 @@ namespace BackUpSystem.Web.Controllers
         {
             ViewData["Message"] = "Your application description page.";
 
-            return View();
+            return View("About", ViewData);
         }
 
         public IActionResult Error()
@@ -87,23 +88,27 @@ namespace BackUpSystem.Web.Controllers
                 var searchResult = await twitterService.SearchUsersByScreenName(requestModel.UserInput);
                 var foundUsers = this.mappingProvider.ProjectTo<TwitterAccountApiDto, TwitterAccountViewModel>(searchResult).ToList();
 
-                var userId = this.userManager.GetUserId(this.HttpContext.User);
-                var favoriteUsers = await userService.GetAllFavoriteTwitterAccounts(userId);
-
-                foreach (var favUser in favoriteUsers)
+                if (searchResult != null)
                 {
-                    for (int i = 0; i < foundUsers.Count(); i++)
+                    var userId = this.userManager.GetUserId(this.HttpContext.User);
+                    var favoriteUsers = await userService.GetAllFavoriteTwitterAccounts(userId);
+
+                    foreach (var favUser in favoriteUsers)
                     {
-                        if (favUser.Id == foundUsers[i].Id)
+                        for (int i = 0; i < foundUsers.Count(); i++)
                         {
-                            foundUsers[i].IsInFavorites = true;
+                            if (favUser.Id == foundUsers[i].Id)
+                            {
+                                foundUsers[i].IsInFavorites = true;
+                            }
                         }
                     }
+
+                    viewModel.SearchResult = foundUsers;
+
+                    return this.View("_SearchPartial", viewModel);
                 }
-
-                viewModel.SearchResult = foundUsers;
-
-                return this.View("_SearchPartial", viewModel);
+               
             }
 
             return RedirectToAction("Index");

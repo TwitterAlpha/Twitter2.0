@@ -33,7 +33,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="StatisticsControllerTests\ConstructorSould.cs">
+    <Compile Update="StatisticsControllerTests\Constructor_Should.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

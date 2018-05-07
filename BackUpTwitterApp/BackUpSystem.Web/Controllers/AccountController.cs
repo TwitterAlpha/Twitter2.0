@@ -2,6 +2,7 @@
 using BackUpSystem.Services.Data.Contracts;
 using BackUpSystem.Web.Models.AccountViewModels;
 using BackUpSystem.Web.Services;
+using Bytes2you.Validation;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -37,13 +38,28 @@ namespace BackUpSystem.Web.Controllers
             ITwitterAccountService twitterAccountService,
             ITweetService tweetService)
         {
+            Guard.WhenArgument(userManager, "userManager").IsNull().Throw();
             _userManager = userManager;
+
+            Guard.WhenArgument(signInManager, "signInManager").IsNull().Throw();
             _signInManager = signInManager;
+
+            Guard.WhenArgument(emailSender, "emailSender").IsNull().Throw();
             _emailSender = emailSender;
+
+            Guard.WhenArgument(logger, "logger").IsNull().Throw();
             _logger = logger;
+
+            Guard.WhenArgument(twitterService, "twitterService").IsNull().Throw();
             this.twitterService = twitterService;
+
+            Guard.WhenArgument(userService, "userService").IsNull().Throw();
             this.userService = userService;
+
+            Guard.WhenArgument(twitterAccountService, "twitterAccountService").IsNull().Throw();
             this.twitterAccountService = twitterAccountService;
+
+            Guard.WhenArgument(tweetService, "tweetService").IsNull().Throw();
             this.tweetService = tweetService;
         }
 

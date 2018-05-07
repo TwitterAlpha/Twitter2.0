@@ -3,8 +3,6 @@ using BackUpSystem.Web.Areas.Admin.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BackUpSystem.Web.Controllers.UnitTests.UserManagementControllerTests
 {

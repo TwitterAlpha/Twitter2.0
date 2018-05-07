@@ -5,7 +5,7 @@
     <div class="form-group">
         <label asp-for="@Model.BirthDate" class="col-sm-2 control-label"></label>
         <div class="col-sm-10">
-            <input type="datetime" class="form-control" asp-for="@Model.BirthDate">
+            <input id="birthdate" type="datetime" class="form-control" asp-for="@Model.BirthDate">
         </div>
     </div>
 
@@ -38,4 +38,18 @@
         </div>
     </div>
 </form>
+
+@section Scripts{
+    <script src="~/lib/jquery-ui/jquery-ui.min.js">
+        
+    </script>
+
+    <script>
+        $(function () {
+            $('#birthdate').datepicker({
+                dateFormat: $.datepicker.ISO_8601
+            });
+        });
+    </script>
+ }
 

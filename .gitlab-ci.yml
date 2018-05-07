@@ -11,6 +11,6 @@ build:
 test:
  stage: test 
  script:
-  - 'dotnet test BackUpTwitterApp/BackUpSystem.Services.Auth.UnitTests'
+  - 'dotnet test BackUpTwitterApp/BackUpSystem.Web.Controllers.UnitTests' 
   - 'dotnet test BackUpTwitterApp/BackUpSytem.Services.Data.UnitTests'
-  - 'dotnet test BackUpTwitterApp/BackUpSystem.Web.Controllers.UnitTests'
+ 

@@ -61,7 +61,7 @@ namespace BackUpSystem.Web.Controllers
                 return View(model);
             }
 
-            return RedirectToAction("About");
+            return View("LandingPage");
         }
 
         public IActionResult About()

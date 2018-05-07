@@ -37,7 +37,7 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
 
             var users = await this.userService.GetAllUsers();
 
-            return View(users);
+            return View("Index", users);
         }
 
         public async Task<IActionResult> Details(string id)
@@ -51,7 +51,7 @@ namespace BackUpSystem.Web.Areas.Admin.Controllers
                 TwitterAccounts = twitterAccounts,
                 Tweets = tweets
             };
-            return View(detailsViewModel);
+            return View("Details", detailsViewModel);
         }
 
         public async Task<IActionResult> Edit(string id)

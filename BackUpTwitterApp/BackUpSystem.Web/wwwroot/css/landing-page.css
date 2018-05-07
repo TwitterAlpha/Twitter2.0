@@ -1,2 +1,5 @@
-﻿body {
+﻿.hero {
+    background-image: url("../images/home-hero.png");
+    height: 50vh;
+    width: 100% !important;
 }

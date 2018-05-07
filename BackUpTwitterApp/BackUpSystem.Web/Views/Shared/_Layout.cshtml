@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="~/css/search.css" />
         <link rel="stylesheet" href="~/css/authentication.css" />
         <link rel="stylesheet" href="~/css/footer.css" />
+        <link rel="stylesheet" href="~/css/landing-page.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -51,7 +52,7 @@
                                     Admin
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Statistics" asp-action="Index">Statistics</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Statistics" asp-action="Index">Statistics</a><hr />
                                     <a class="dropdown-item" asp-area="Admin" asp-controller="UserManagement" asp-action="Index">User Management</a>
                                 </div>
                             </li>
@@ -91,7 +92,7 @@
 
             }
             <!-- Page Content Holder -->
-            <div class="container body-content">
+            <div class="container  body-content">
                 @RenderBody()
                 <hr />
             </div>
@@ -102,7 +103,6 @@
         </footer>*@
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <!-- Add icon library -->

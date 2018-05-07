@@ -1,113 +1,115 @@
 ﻿@using BackUpSystem.Web.Areas.Admin.Models
 @model UserDetailsModel
 
-<div> <img src="@Model.User.UserImageUrl" height="100" width="100"> </div>
+<div style="margin-left: 12%; margin-top: 3em;">
+    <div> <img src="@Model.User.UserImageUrl" height="100" width="100"> </div>
 
-<div>
-    <form asp-controller="UserManagement" asp-action="Delete" asp-route-id="@Model.User.Id" method="post">
-        <input type="hidden" asp-for="@Model.User.Id" />
-        <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
-    </form>
-</div>
-<br />
-<div>
-    <a class="btn btn-info" form asp-controller="UserManagement" asp-action="Edit" asp-route-id="@Model.User.Id">EDIT</a>
-</div>
+    <div>
+        <form asp-controller="UserManagement" asp-action="Delete" asp-route-id="@Model.User.Id" method="post">
+            <input type="hidden" asp-for="@Model.User.Id" />
+            <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
+        </form>
+    </div>
+    <br />
+    <div>
+        <a class="btn btn-info" form asp-controller="UserManagement" asp-action="Edit" asp-route-id="@Model.User.Id">EDIT</a>
+    </div>
 
-<div>
-    <table class="table table-striped">
-        <tr>
-            <td>User Id</td>
-            <td>@Model.User.Id</td>
-        </tr>
-        <tr>
-            <td>User Email</td>
-            <td>@Model.User.Email</td>
-        </tr>
-        <tr>
-            <td>User UserName</td>
-            <td>@Model.User.UserName</td>
-        </tr>
-        <tr>
-            <td>User Name</td>
-            <td>@Model.User.Name</td>
-        </tr>
-        <tr>
-            <td>User Joined Date</td>
-            <td>@Model.User.JoinedDate</td>
-        </tr>
-        <tr>
-            <td>User Birth Date</td>
-            <td>@Model.User.BirthDate</td>
-        </tr>
-        <tr>
-            <td>User Followed Users Count</td>
-            <td>@Model.User.FollowedUsersCount</td>
-        </tr>
-        <tr>
-            <td>User Downloaded Tweets Count</td>
-            <td>@Model.User.DownloadedTweetsCount</td>
-        </tr>
-        <tr>
-            <td>User Retweets Count</td>
-            <td>@Model.User.RetweetsCount</td>
-        </tr>
-        <tr>
-            <td>User User Image URL</td>
-            <td>@Model.User.UserImageUrl</td>
-        </tr>
-        <tr>
-            <td>User IsAdmin</td>
-            <td>@Model.User.IsAdmin</td>
-        </tr>
-    </table>
-</div>
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <td>User Id</td>
+                <td>@Model.User.Id</td>
+            </tr>
+            <tr>
+                <td>User Email</td>
+                <td>@Model.User.Email</td>
+            </tr>
+            <tr>
+                <td>User UserName</td>
+                <td>@Model.User.UserName</td>
+            </tr>
+            <tr>
+                <td>User Name</td>
+                <td>@Model.User.Name</td>
+            </tr>
+            <tr>
+                <td>User Joined Date</td>
+                <td>@Model.User.JoinedDate</td>
+            </tr>
+            <tr>
+                <td>User Birth Date</td>
+                <td>@Model.User.BirthDate</td>
+            </tr>
+            <tr>
+                <td>User Followed Users Count</td>
+                <td>@Model.User.FollowedUsersCount</td>
+            </tr>
+            <tr>
+                <td>User Downloaded Tweets Count</td>
+                <td>@Model.User.DownloadedTweetsCount</td>
+            </tr>
+            <tr>
+                <td>User Retweets Count</td>
+                <td>@Model.User.RetweetsCount</td>
+            </tr>
+            <tr>
+                <td>User User Image URL</td>
+                <td>@Model.User.UserImageUrl</td>
+            </tr>
+            <tr>
+                <td>User IsAdmin</td>
+                <td>@Model.User.IsAdmin</td>
+            </tr>
+        </table>
+    </div>
 
-<br /><br />
+    <br /><br />
 
-<div>
-    <table class="table table-striped">
-        <tr>
-            <th>Favorite Twitter Accounts</th>
-            <th>Downloaded Tweets</th>
-        </tr>
-        <tr>
-            <td>
-                @foreach (var account in Model.TwitterAccounts)
-                {
-                <div>
-                    <form asp-controller="UserManagement" asp-action="DeleteTwitterAccount"
-                          asp-route-userId="@Model.User.Id" asp-route-twitterAccountId="@account.Id" method="post">
-                        <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
-                    </form>
-                    <b>Twitter Name:</b> @account.UserName <br />
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Favorite Twitter Accounts</th>
+                <th>Downloaded Tweets</th>
+            </tr>
+            <tr>
+                <td>
+                    @foreach (var account in Model.TwitterAccounts)
+                    {
+                        <div>
+                            <form asp-controller="UserManagement" asp-action="DeleteTwitterAccount"
+                                  asp-route-userId="@Model.User.Id" asp-route-twitterAccountId="@account.Id" method="post">
+                                <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
+                            </form>
+                            <b>Twitter Name:</b> @account.UserName <br />
 
-                    <b>Tweets count:</b> @account.TweetsCount <br />
+                            <b>Tweets count:</b> @account.TweetsCount <br />
 
-                    <b>Following count:</b> @account.FollowingCount <br />
+                            <b>Following count:</b> @account.FollowingCount <br />
 
-                    <b>Followers count</b>: @account.FollowersCount <br />
-                </div>
-                <br />
-                }
-            </td>
-            <td>
-                @foreach (var tweet in Model.Tweets)
-                {
-                <div>
-                    <form asp-controller="UserManagement" asp-action="DeleteTweet"
-                          asp-route-userId="@Model.User.Id" asp-route-tweetId="@tweet.Id" method="post">
-                        <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
-                    </form>
-                    <b>Author:</b> @tweet.TweetAuthor <br />
+                            <b>Followers count</b>: @account.FollowersCount <br />
+                        </div>
+                        <br />
+                    }
+                </td>
+                <td>
+                    @foreach (var tweet in Model.Tweets)
+                    {
+                        <div>
+                            <form asp-controller="UserManagement" asp-action="DeleteTweet"
+                                  asp-route-userId="@Model.User.Id" asp-route-tweetId="@tweet.Id" method="post">
+                                <button class="btn btn-danger btn-sm" type="submit">DELETE</button>
+                            </form>
+                            <b>Author:</b> @tweet.TweetAuthor <br />
 
-                    <b>Tweet content:</b> @tweet.Text <br />
+                            <b>Tweet content:</b> @tweet.Text <br />
 
-                    <b>Retweet count:</b> @tweet.RetweetCount <br />
-                </div>
-                <br />
-                 }
-            </td>
-        </tr>
-    </table>
+                            <b>Retweet count:</b> @tweet.RetweetCount <br />
+                        </div>
+                        <br />
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

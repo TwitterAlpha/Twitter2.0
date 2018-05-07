@@ -2,7 +2,7 @@
 @model IEnumerable<UserDto>
 
 
-<table class="table table-striped">
+@*<table class="table table-striped">
     <tr>
         <th>User:</th>
         <th>Is Admin:</th>
@@ -11,10 +11,50 @@
     {
         <tr>
             <td>
-                <a asp-controller="UserManagement" asp-action="Details"  asp-route-id="@user.Id">@user.UserName</a>
+                <a asp-controller="UserManagement" asp-action="Details" asp-route-id="@user.Id">@user.UserName</a>
             </td>
             <td>@user.IsAdmin</td>
         </tr>
     }
 
-</table>
+</table>*@
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-primary filterable" style="margin-top: 4em !important; margin-left: 6em !important; border-color:#1da1f2;">
+            <div class="panel-heading" style="background-color: #1da1f2;border-color: #1da1f2;">
+                <h3 class="panel-title"><strong>User:</strong></h3>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr class="filters">
+                        <th><h5></h5></th>
+                        <th><h5>Admin</h5></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a asp-controller="UserManagement" asp-action="Details" asp-route-id="@user.Id">@user.UserName</a>
+                            </td>
+                            @if (@user.IsAdmin)
+                            {
+                                <td>
+                                    <i class="fa fa-check"></i>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <i class="fa fa-times"></i>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

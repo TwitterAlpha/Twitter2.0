@@ -5,6 +5,10 @@
     <UserSecretsId>aspnet-BackUpSystem.Web-26509330-7BC2-49B0-BB0E-F8BDFC8F7C8B</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Properties\PublishProfiles\BackUpSystemWeb20180507011543 - Web Deploy.pubxml" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />
@@ -26,6 +30,10 @@
     <ProjectReference Include="..\BackUpSystem.Services.Auth\BackUpSystem.Services.Auth.csproj" />
     <ProjectReference Include="..\BackUpSystem.Utils\BackUpSystem.Utilities.csproj" />
     <ProjectReference Include="..\BackUpSytem.Services.Data\BackUpSytem.Services.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
 </Project>

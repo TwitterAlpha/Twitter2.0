@@ -92,11 +92,12 @@ namespace BackUpSystem.Web.Controllers
                     var userId = this.userManager.GetUserId(this.HttpContext.User);
                     var favoriteUsers = await userService.GetAllFavoriteTwitterAccounts(userId);
 
-                    foreach (var favUser in favoriteUsers)
+                    for (int i = 0; i < foundUsers.Count(); i++)
                     {
-                        for (int i = 0; i < foundUsers.Count(); i++)
+                        foundUsers[i].ImageUrl = foundUsers[i].ImageUrl.Replace("_normal", string.Empty);
+
+                        foreach (var favUser in favoriteUsers)
                         {
-                            foundUsers[i].ImageUrl = foundUsers[i].ImageUrl.Replace("_normal", string.Empty);
 
                             if (favUser.Id == foundUsers[i].Id)
                             {

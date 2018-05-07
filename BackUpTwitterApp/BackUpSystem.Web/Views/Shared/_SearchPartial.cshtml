@@ -138,7 +138,8 @@
 
                         $(messageId).text(result).css({ 'color': 'green', 'font-weight': '500', 'font-size': 'large' }).show().delay(3000).fadeOut();
 
-                        $('#sidebar').load("/Home/UpdateFavoriteUsersInLayout");
+                        $('#user-profile').load("/Home/UpdateUserProfileInLayout");
+                        $('#fav-users').load("/Home/UpdateFavoriteUsersInLayout");
                     },
                     error: function (result) {
                         $(messageId).text("Error: " + result).css({ 'color': 'red', 'font-weight': '500', 'font-size': 'large' }).show().delay(3000).fadeOut();

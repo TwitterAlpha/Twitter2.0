@@ -48,7 +48,7 @@
                         visibilityUnfollow = "visible";
                     }
                 }
-                <button class="btn follow-btn" id="@followBtnId" style="visibility: @visibilityFollow;"
+                <button class="btn follow-btn btn-primary" id="@followBtnId" style="visibility: @visibilityFollow;"
                         parameter1="@twitterAccount.Id"
                         parameter2="@twitterAccount.Name"
                         parameter3="@twitterAccount.BackgroundImage"
@@ -61,7 +61,7 @@
                         parameter10="@twitterAccount.IsInFavorites">
                     <i class="fa fa-user-plus">Follow</i>
                 </button>
-                <button class="btn unfollow-btn" id="@unfollowBtnId" style="visibility: @visibilityUnfollow;"
+                <button class="btn unfollow-btn btn-danger" id="@unfollowBtnId" style="visibility: @visibilityUnfollow;"
                         parameter1="@twitterAccount.Id"
                         parameter2="@twitterAccount.Name"
                         parameter3="@twitterAccount.BackgroundImage"
@@ -72,7 +72,7 @@
                         parameter8="@twitterAccount.TweetsCount"
                         parameter9="@twitterAccount.UserName"
                         parameter10="@twitterAccount.IsInFavorites">
-                    <i class="fa fa-user-check">Unfollow</i>
+                    <i class="fa fa-user-times">Unfollow</i>
                 </button>
             </div>
             <img src="@twitterAccount.ImageUrl" alt="@twitterAccount.Name Profile image" class="search-profile-pic img-circle img-thumbnail" />

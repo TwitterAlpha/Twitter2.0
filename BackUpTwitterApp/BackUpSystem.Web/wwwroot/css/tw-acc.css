@@ -98,8 +98,13 @@
             }
 .unfollow-btn {
     position: relative;
+    right: 6em;
+}
+.unfollow-btn-details {
+    position: relative;
     bottom: 5em;
     left: 35%;
+}
 }
 .card-tw-acc-comments .media-heading {
     font-size: 13px;
@@ -264,10 +269,15 @@
 @media (max-width: 768px) {
     .unfollow-btn {
         position: relative;
+        bottom: 0;
+        left: unset;
+    }
+    .unfollow-btn-details {
+        position: relative;
         bottom: 2em;
         left: unset;
     }
-    .tw-acc-banner-w {
+        .tw-acc-banner-w {
     width:83% !important;
     }
 

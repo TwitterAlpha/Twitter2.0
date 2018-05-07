@@ -5,8 +5,8 @@ namespace BackUpSystem.Services.Auth
 {
     public class FacebookCredentials : IFacebookCredentials
     {
-        public string AppId => Environment.GetEnvironmentVariable("FacebookAppId", EnvironmentVariableTarget.User);
+        public string AppId => Environment.GetEnvironmentVariable("FacebookAppId");
 
-        public string AppSecret => Environment.GetEnvironmentVariable("FacebookAppSecret", EnvironmentVariableTarget.User);
+        public string AppSecret => Environment.GetEnvironmentVariable("FacebookAppSecret");
     }
 }

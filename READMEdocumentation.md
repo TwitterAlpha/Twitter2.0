@@ -11,6 +11,8 @@ The application have:
 
 ### Public Part
 
+![Landing page](/images/pic1.png)
+
 The **public part** of the application is **visible without authentication**. This includes:
 
 - Landing page - here is displayed basic feature informationn that users can do in the application
@@ -50,15 +52,3 @@ The **public part** of the application is **visible without authentication**. Th
 - Written more than **200 Unit Tests** for the logic, controllers, actions, helpers, routes, etc.
 - Applied **error handling** and **data validation** to avoid crashes when invalid data is entered (both client-side and server-side).
 
-Your Web application should use the following technologies, frameworks and development techniques:
-* Use **ASP.NET Core MVC** and **Visual Studio 2017**
-* You should use **Razor** template engine for generating the UI
-	* Use at least **1 section** and at least **1 partial views**
-* Use **MS SQL Server** as database back-end
-	* Use **Entity Framework Core** to access your database
-	* Using **service layer** is a must
-* Use at least **1 areas** in your project (e.g. for administration)
-* Use the standard **ASP.NET Identity System** for managing users and roles
-* Use the default dependency container (or Autofac/Ninject/Unity) and **Automapper**
-* Write at least **10 unit tests** for your logic, controllers, actions, helpers, routes, etc.
-* Apply **error handling** and **data validation** to avoid crashes when invalid data is entered (both client-side and server-side)

@@ -59,17 +59,24 @@ namespace BackUpSystem.Web.Controllers
                 }
                 model.Tweets = timelineTweets;
 
-                return View(model);
+                return this.View(model);
             }
 
-            return View("LandingPage");
+            return RedirectToAction("LandingPage");
         }
 
+        [ResponseCache(Duration = 600)]
+        public IActionResult LandingPage()
+        {
+            return this.View();
+        }
+
+        [ResponseCache(Duration = 600)]
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
 
-            return View();
+            return this.View();
         }
 
         public IActionResult Error()

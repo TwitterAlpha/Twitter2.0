@@ -11,8 +11,7 @@ The application have:
 
 ### Public Part
 
-![Landing page](~/images/pic1.png)
-Format: ![Alt Text](url)
+![Landing page](/images/pic1.png)
 
 The **public part** of the application is **visible without authentication**. This includes:
 

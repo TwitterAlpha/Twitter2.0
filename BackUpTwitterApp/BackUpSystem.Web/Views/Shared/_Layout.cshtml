@@ -92,7 +92,7 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <!-- Sidebar Holder -->
-                <nav id="sidebar">
+                <nav id="sidebar" style="z-index: 100;">
                     <div class="sidebar-header" id="user-profile">
                         @await Component.InvokeAsync("UserProfile")
                     </div>
@@ -104,7 +104,7 @@
 
             }
             <!-- Page Content Holder -->
-            <div class="container  body-content" style="margin-left:14%">
+            <div class="container  body-content">
                 @RenderBody()
                 <hr />
             </div>

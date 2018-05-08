@@ -22,6 +22,8 @@ The **public part** of the application is **visible without authentication**. Th
 
 ### Private Part (Users only)
 
+![Private part](/images/pic2.png)
+
 **Registered users** have private part in the web application accessible after **successful login**. They are able to:
 
 - Search favorite twitter accounts, store them in the app DB.
@@ -30,16 +32,23 @@ The **public part** of the application is **visible without authentication**. Th
 
 ### Administration Part
 
+![Administrative part](/images/pic3.png)
+
 **Administrators** have administrative options for:
 - View **user statistics** : user, favorite twitter accounts count, downloaded tweets count, retweets count
 - Management part:
     - Admin can **view** user account
     - Admin can **delete** user account, user favorite twitter account or downloaded tweets.
+
+![Administrative part](/images/pic4.png)
+
     - Also Admin can **edit** user account properties: 
         - User birthdate
         - User picture
         - User name
         - Make given user Admin
+
+![Administrative part](/images/pic5.png)
 
 ## Additional application info:
 - The application is based on **ASP.NET Core MVC**, **MS SQL Server** as database back-end.

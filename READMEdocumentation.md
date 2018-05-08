@@ -60,4 +60,5 @@ The **public part** of the application is **visible without authentication**. Th
 - Used the default dependency container (or Autofac/Ninject/Unity) and **Automapper**.
 - Written more than **200 Unit Tests** for the logic, controllers, actions, helpers, routes, etc.
 - Applied **error handling** and **data validation** to avoid crashes when invalid data is entered (both client-side and server-side).
+- Applied **CI pipeline** in the git server repository for code integrity verification in two stages: build stage and running tests stage.
 

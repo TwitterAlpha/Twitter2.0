@@ -5,9 +5,9 @@
 This is a **ASP.NET Core MVC application**  where the users can store the posts of their favorite Twitter users and then to re-tweet some of the tweets.
 
 The application have:
-* must have **public part** (accessible without authentication)
-* must have **private part** (available for registered users)
-* should have **administrative part** (available for administrators only)
+* **public part** (accessible without authentication)
+* **private part** (available for registered users)
+* **administrative part** (available for administrators only)
 
 ### Public Part
 
@@ -42,11 +42,11 @@ The **public part** of the application is **visible without authentication**. Th
 
 ![Administrative part](/images/pic4.png)
 
-    - Also Admin can **edit** user account properties: 
-        - User birthdate
-        - User picture
-        - User name
-        - Make given user Admin
+- Also Admin can **edit** user account properties: 
+    - User birthdate
+    - User picture
+    - User name
+    - Make given user Admin
 
 ![Administrative part](/images/pic5.png)
 
